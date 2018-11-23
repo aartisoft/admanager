@@ -1,6 +1,7 @@
 package com.admanager.config;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -46,11 +47,11 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
         if (instance == null) {
             synchronized (RemoteConfigHelper.class) {
                 if (instance == null) {
-                    if (context != null && context.getApplicationContext() instanceof RemoteConfigApp) {
-                        Map<String, Object> remoteConfigDefaults = ((RemoteConfigApp) context).getDefaults();
+                    if (context != null && context instanceof Activity && ((Activity)context).getApplication() instanceof RemoteConfigApp) {
+                        Map<String, Object> remoteConfigDefaults = ((RemoteConfigApp) ((Activity)context).getApplication()).getDefaults();
                         return init(remoteConfigDefaults, BuildConfig.DEBUG);
                     } else {
-                        Log.e(TAG, "Initialized with empty default values! Make your application 'implements RemoteConfigApp'");
+                        Log.e(TAG, "Initialized with empty default values! Make your application 'implements RemoteConfigApp' and call init(Context)");
                         return init(new HashMap<String, Object>(), false);
                     }
                 }
