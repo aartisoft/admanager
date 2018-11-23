@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorNativeBg">#ffffff</color>
+    <color name="colorAction">#1d7119</color>
+    <color name="colorPrimaryLight">#ff8a7f</color>
+    <color name="colorPrimary">#FF6051</color>
+</resources>
