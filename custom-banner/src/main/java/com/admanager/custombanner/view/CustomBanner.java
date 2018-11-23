@@ -1,4 +1,4 @@
-package com.admanager.view;
+package com.admanager.custombanner.view;
 
 import android.content.Context;
 import android.content.Intent;
@@ -30,9 +30,11 @@ public class CustomBanner extends ImageView {
     public AdListener adListener;
     private String remoteConfigTargetUrlKey;
     private String remoteConfigImageUrlKey;
+    private String remoteConfigEnableKey;
 
     public CustomBanner(Context context) {
         super(context);
+        RemoteConfigHelper.init(context);
     }
 
     public CustomBanner(Context context, AttributeSet attrs) {
@@ -41,6 +43,7 @@ public class CustomBanner extends ImageView {
 
         this.remoteConfigTargetUrlKey = attrs.getAttributeValue(TAG_PREFIX, "remoteConfigTargetUrlKey");
         this.remoteConfigImageUrlKey = attrs.getAttributeValue(TAG_PREFIX, "remoteConfigImageUrlKey");
+        this.remoteConfigEnableKey = attrs.getAttributeValue(TAG_PREFIX, "remoteConfigEnableKey");
     }
 
 
@@ -57,7 +60,10 @@ public class CustomBanner extends ImageView {
         super.onAttachedToWindow();
         // View is now attached
 
-        if (!TextUtils.isEmpty(this.remoteConfigTargetUrlKey) && !TextUtils.isEmpty(this.remoteConfigImageUrlKey)) {
+        boolean enable = TextUtils.isEmpty(remoteConfigEnableKey) || RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey);
+        setVisibility(enable ? VISIBLE : GONE);
+
+        if (enable && !TextUtils.isEmpty(this.remoteConfigTargetUrlKey) && !TextUtils.isEmpty(this.remoteConfigImageUrlKey)) {
             String imageUrl = RemoteConfigHelper.getConfigs().getString(remoteConfigImageUrlKey);
             String targetUrl = RemoteConfigHelper.getConfigs().getString(remoteConfigTargetUrlKey);
 
