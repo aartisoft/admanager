@@ -4,6 +4,7 @@ package com.admanager.recyclerview;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.CallSuper;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-abstract class ABaseSearchAdapter<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+abstract class ABaseSearchAdapter<T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final Activity activity;
     boolean show_native;
@@ -29,21 +30,31 @@ abstract class ABaseSearchAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
     private boolean isLoadingPage = false;
 
     ABaseSearchAdapter(final Activity activity, List<T> data) {
-        this(activity, data, -1, false, -1);
+        this(activity, data, false);
     }
 
-    ABaseSearchAdapter(final Activity activity, List<T> data, int gridSize, boolean show_native, int density) {
+    ABaseSearchAdapter(final Activity activity, List<T> data, boolean show_native) {
         this.activity = activity;
         this.data = data;
         this.show_native = show_native;
+        int gridSize = gridSize();
+
         if (gridSize > 1) {
             DEFAULT_NO_OF_DATA_BETWEEN_ADS = gridSize;
         } else if (gridSize == 1) {
-            DEFAULT_NO_OF_DATA_BETWEEN_ADS = density;
+            DEFAULT_NO_OF_DATA_BETWEEN_ADS = density();
         } else {
             DEFAULT_NO_OF_DATA_BETWEEN_ADS = 0;
         }
         rowWrappers = getRowWrappers();
+    }
+
+    public int density(){
+        return 3;
+    }
+
+    public int gridSize(){
+        return 1;
     }
 
     @Override
@@ -51,11 +62,15 @@ abstract class ABaseSearchAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
         return rowWrappers.get(position).type.ordinal();
     }
 
+    public abstract VH onCreateViewHolder(ViewGroup parent);
+    public abstract void onBindViewHolder(Activity activity, VH holder, T t, int position);
+
     @Override
     public final int getItemCount() {
         return rowWrappers.size();
     }
 
+    @NonNull
     @Override
     @CallSuper
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -85,6 +100,8 @@ abstract class ABaseSearchAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
 
             view = rel;
             holder = new LoadingViewHolder(view);
+        } else if (viewType == RowWrapper.Type.LIST.ordinal()) {
+            holder = onCreateViewHolder(parent);
         }
         return holder;
     }
@@ -94,8 +111,10 @@ abstract class ABaseSearchAdapter<T> extends RecyclerView.Adapter<RecyclerView.V
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (holder instanceof LoadingViewHolder) {
             ((LoadingViewHolder) holder).bindTo();
+        } else if (rowWrappers.get(position).type.ordinal() == RowWrapper.Type.LIST.ordinal()) {
+            int pos = rowWrappers.get(position).listIndex;
+            onBindViewHolder(activity, (VH) holder, data.get(pos), pos);
         }
-
     }
 
     final boolean notLoading() {

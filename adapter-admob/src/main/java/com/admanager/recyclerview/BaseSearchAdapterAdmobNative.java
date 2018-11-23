@@ -18,7 +18,7 @@ import com.google.android.gms.ads.formats.NativeAppInstallAd;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class BaseSearchAdapterAdmobNative<T> extends ABaseSearchAdapter<T> {
+public abstract class BaseSearchAdapterAdmobNative<T, VH extends RecyclerView.ViewHolder> extends ABaseSearchAdapter<T, VH> {
     private static final String TAG = "AdmobSearchAdapter";
     private AdLoader mAdLoader;
     private CopyOnWriteArrayList<NativeAppInstallAd> mAppInstallAd = new CopyOnWriteArrayList<>();
@@ -27,8 +27,8 @@ public class BaseSearchAdapterAdmobNative<T> extends ABaseSearchAdapter<T> {
         super(activity, data);
     }
 
-    public BaseSearchAdapterAdmobNative(Activity activity, List<T> data, boolean show_native, int gridSize, int density, String nativeAdUnitId) {
-        super(activity, data, gridSize, show_native, density);
+    public BaseSearchAdapterAdmobNative(Activity activity, List<T> data, boolean show_native, String nativeAdUnitId) {
+        super(activity, data, show_native);
         if (mAdLoader == null) {
             mAdLoader = new AdLoader.Builder(activity, nativeAdUnitId)
                     .forAppInstallAd(new NativeAppInstallAd.OnAppInstallAdLoadedListener() {
@@ -56,7 +56,7 @@ public class BaseSearchAdapterAdmobNative<T> extends ABaseSearchAdapter<T> {
 
     @Override
     @NonNull
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public final RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder holder = super.onCreateViewHolder(parent, viewType);
         View view;
 
@@ -71,7 +71,7 @@ public class BaseSearchAdapterAdmobNative<T> extends ABaseSearchAdapter<T> {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public final void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         super.onBindViewHolder(holder, position);
         if (holder instanceof AdmobNativeAdViewHolder) {
             NativeAppInstallAd ad = null;

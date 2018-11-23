@@ -18,7 +18,7 @@ import java.util.List;
 /**
  * Created by Gust on 19.12.2017.
  */
-public abstract class BaseSearchAdapterFaceNative<T> extends ABaseSearchAdapter<T> {
+public abstract class BaseSearchAdapterFaceNative<T, VH extends RecyclerView.ViewHolder> extends ABaseSearchAdapter<T, VH> {
     private static final String TAG = "FaceSearchAdapter";
     private NativeAdsManager manager;
 
@@ -26,15 +26,14 @@ public abstract class BaseSearchAdapterFaceNative<T> extends ABaseSearchAdapter<
         super(activity, data);
     }
 
-    public BaseSearchAdapterFaceNative(Activity activity, List<T> data, boolean show_native, int gridSize, int density, String nativeAdUnitId) {
-        super(activity, data, gridSize, show_native, density);
+    public BaseSearchAdapterFaceNative(Activity activity, List<T> data, boolean show_native, String nativeAdUnitId) {
+        super(activity, data, show_native);
         if (manager == null) {
             manager = new NativeAdsManager(activity, nativeAdUnitId, 5);
             manager.setListener(new NativeAdsManager.Listener() {
                 @Override
                 public void onAdsLoaded() {
                     refreshRowWrappers();
-                    activity.runOnUiThread(() -> notifyDataSetChanged());
                 }
 
                 @Override
@@ -42,7 +41,6 @@ public abstract class BaseSearchAdapterFaceNative<T> extends ABaseSearchAdapter<
                     Log.e(TAG, "App Install Ad Failed to load: " + adError.getErrorMessage());
                     BaseSearchAdapterFaceNative.super.show_native = false;
                     refreshRowWrappers();
-                    activity.runOnUiThread(() -> notifyDataSetChanged());
                 }
             });
         }
@@ -52,7 +50,7 @@ public abstract class BaseSearchAdapterFaceNative<T> extends ABaseSearchAdapter<
 
     @Override
     @NonNull
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public final RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         RecyclerView.ViewHolder holder = super.onCreateViewHolder(parent, viewType);
         View view;
 
@@ -67,7 +65,7 @@ public abstract class BaseSearchAdapterFaceNative<T> extends ABaseSearchAdapter<
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public final void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         super.onBindViewHolder(holder, position);
         if (holder instanceof FaceNativeMiniAdViewHolder) {
             ((FaceNativeMiniAdViewHolder) holder).bindTo(manager);
