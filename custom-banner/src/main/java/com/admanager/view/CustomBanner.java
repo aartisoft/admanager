@@ -37,6 +37,8 @@ public class CustomBanner extends ImageView {
 
     public CustomBanner(Context context, AttributeSet attrs) {
         super(context, attrs);
+        RemoteConfigHelper.init(context);
+
         this.remoteConfigTargetUrlKey = attrs.getAttributeValue(TAG_PREFIX, "remoteConfigTargetUrlKey");
         this.remoteConfigImageUrlKey = attrs.getAttributeValue(TAG_PREFIX, "remoteConfigImageUrlKey");
     }
@@ -56,8 +58,8 @@ public class CustomBanner extends ImageView {
         // View is now attached
 
         if (!TextUtils.isEmpty(this.remoteConfigTargetUrlKey) && !TextUtils.isEmpty(this.remoteConfigImageUrlKey)) {
-            String imageUrl = RemoteConfigHelper.getConfigs(getContext()).getString(remoteConfigImageUrlKey);
-            String targetUrl = RemoteConfigHelper.getConfigs(getContext()).getString(remoteConfigTargetUrlKey);
+            String imageUrl = RemoteConfigHelper.getConfigs().getString(remoteConfigImageUrlKey);
+            String targetUrl = RemoteConfigHelper.getConfigs().getString(remoteConfigTargetUrlKey);
 
             if (!TextUtils.isEmpty(imageUrl) && !TextUtils.isEmpty(targetUrl)) {
                 loadBanner(imageUrl, targetUrl);

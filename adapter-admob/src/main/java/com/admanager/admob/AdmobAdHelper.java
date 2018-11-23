@@ -29,14 +29,15 @@ public class AdmobAdHelper {
     private static final String TAG = "MyAdmobHelper";
 
     public static void loadBanner(final Activity context, final LinearLayout adContainer, String remoteConfigBannerEnabledKey, String remoteConfigBannerAdKey) {
-        if (!RemoteConfigHelper.getConfigs(context).getBoolean(remoteConfigBannerEnabledKey) || !RemoteConfigHelper.areAdsEnabled(context)) {
+        RemoteConfigHelper.init(context);
+        if (!RemoteConfigHelper.getConfigs().getBoolean(remoteConfigBannerEnabledKey) || !RemoteConfigHelper.areAdsEnabled()) {
             adContainer.setVisibility(View.GONE);
             return;
         }
         adContainer.setVisibility(View.VISIBLE);
         adContainer.removeAllViews();
 
-        String adUnitId = RemoteConfigHelper.getConfigs(context).getString(remoteConfigBannerAdKey);
+        String adUnitId = RemoteConfigHelper.getConfigs().getString(remoteConfigBannerAdKey);
 
         AdView mAdView = new AdView(context);
         mAdView.setAdUnitId(adUnitId);

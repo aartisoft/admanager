@@ -22,13 +22,13 @@ public class AdManager {
 
 
     public AdManager(Activity activity, String tag) {
+        RemoteConfigHelper.init(activity);
         this.context = activity;
         if (tag.equals("")) {
             tag = activity.getClass().getSimpleName();
         }
         this.TAG = "AdManager_" + tag;
         this.TAG = this.TAG.substring(0, Math.min(23, this.TAG.length()));
-
     }
 
     public AdManager(Activity activity) {
@@ -125,7 +125,7 @@ public class AdManager {
                 String enableKey = ENABLE_KEYS.get(i);
                 Adapter adapter = ADAPTERS.get(i);
 
-                boolean enabled = enableKey == null || RemoteConfigHelper.areAdsEnabled(context) && RemoteConfigHelper.getConfigs(context).getBoolean(enableKey);
+                boolean enabled = enableKey == null || RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey);
                 Log.d(TAG, "display() enabled=" + enabled + " adapter:" + adapter.getClass().getSimpleName());
                 if (enabled) {
                     adapter.show();

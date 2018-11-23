@@ -40,14 +40,15 @@ public class FacebookAdHelper {
 
 
     public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey) {
-        boolean enable = RemoteConfigHelper.getConfigs(context).getBoolean(remoteConfigEnableKey) && RemoteConfigHelper.areAdsEnabled(context);
+        RemoteConfigHelper.init(context);
+        boolean enable = RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey) && RemoteConfigHelper.areAdsEnabled();
         if (!enable) {
             return;
         }
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                String adAudienceId = RemoteConfigHelper.getConfigs(context).getString(remoteConfigIdKey);
+                String adAudienceId = RemoteConfigHelper.getConfigs().getString(remoteConfigIdKey);
                 final InterstitialAd ad = new InterstitialAd(context, adAudienceId);
                 ad.setAdListener(new AbstractAdListener() {
                     @Override
@@ -111,15 +112,16 @@ public class FacebookAdHelper {
 
 
     public static com.facebook.ads.AdView configureAndLoadBanner(final Context context, final LinearLayout adContainer, final LinearLayout placeholder, String remoteConfigEnableKey, String remoteConfigBannerIdKey) {
+        RemoteConfigHelper.init(context);
         if (remoteConfigEnableKey == null || remoteConfigBannerIdKey == null) {
             adContainer.setVisibility(View.GONE);
             if (placeholder != null) placeholder.setVisibility(View.GONE);
             return null;
         }
 
-        String id = RemoteConfigHelper.getConfigs(context).getString(remoteConfigBannerIdKey);
-        boolean enable = RemoteConfigHelper.getConfigs(context).getBoolean(remoteConfigEnableKey);
-        enable = enable && RemoteConfigHelper.areAdsEnabled(context);
+        String id = RemoteConfigHelper.getConfigs().getString(remoteConfigBannerIdKey);
+        boolean enable = RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey);
+        enable = enable && RemoteConfigHelper.areAdsEnabled();
 
         if (!enable) {
             adContainer.setVisibility(View.GONE);

@@ -26,10 +26,6 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
     private boolean adsEnabled = true;
 
 
-    private RemoteConfigHelper(Map<String, Object> defaultMap) {
-        this(defaultMap, false);
-    }
-
     private RemoteConfigHelper(Map<String, Object> defaultMap, boolean idDeveloperModeEnabled) {
         mRemoteConfig = FirebaseRemoteConfig.getInstance();
         mRemoteConfig.activateFetched();
@@ -38,19 +34,32 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
         mRemoteConfig.fetch(mRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled() ? 0 : 10800).addOnCompleteListener(this);
     }
 
-    public static boolean areAdsEnabled(Context context) {
-        return getInstance(context).adsEnabled;
+    public static boolean areAdsEnabled() {
+        return getInstance().adsEnabled;
     }
 
-    public static void setAdsEnabled(Context context, boolean adsEnabled) {
-        getInstance(context).adsEnabled = adsEnabled;
+    public static void setAdsEnabled(boolean adsEnabled) {
+        getInstance().adsEnabled = adsEnabled;
     }
 
-    public static RemoteConfigHelper init(Map<String, Object> defaultMap) {
-        return init(defaultMap, false);
+    public static RemoteConfigHelper init(Context context) {
+        if (instance == null) {
+            synchronized (RemoteConfigHelper.class) {
+                if (instance == null) {
+                    if (context != null && context.getApplicationContext() instanceof RemoteConfigApp) {
+                        Map<String, Object> remoteConfigDefaults = ((RemoteConfigApp) context).getDefaults();
+                        return init(remoteConfigDefaults, BuildConfig.DEBUG);
+                    } else {
+                        Log.e(TAG, "Initialized with empty default values! Make your application 'implements RemoteConfigApp'");
+                        return init(new HashMap<String, Object>(), false);
+                    }
+                }
+            }
+        }
+        return instance;
     }
 
-    public static RemoteConfigHelper init(Map<String, Object> defaultMap, boolean idDeveloperModeEnabled) {
+    private static RemoteConfigHelper init(Map<String, Object> defaultMap, boolean idDeveloperModeEnabled) {
         if (instance == null) {
             synchronized (RemoteConfigHelper.class) {
                 if (instance == null) {
@@ -61,22 +70,17 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
         return instance;
     }
 
-    private static RemoteConfigHelper getInstance(Context context) {
-        if (context != null && context.getApplicationContext() instanceof IAdManagerRemoteConfigApplication) {
-            Map<String, Object> remoteConfigDefaults = ((IAdManagerRemoteConfigApplication) context).getRemoteConfigDefaults();
-            init(remoteConfigDefaults, BuildConfig.DEBUG);
-        } else {
-            Log.e(TAG, "Initialized with empty default values");
-            init(new HashMap<String, Object>());
-        }
+    private static RemoteConfigHelper getInstance() {
         if (instance == null) {
-            Log.e(TAG, "Not initialized yet! Call init() method first, or make your application 'IAdManagerRemoteConfigApplication'");
+            Log.e(TAG, "Not initialized yet! Call init() method first, or make your application 'RemoteConfigApp'");
+            init((Context) null);
         }
         return instance;
     }
 
-    public static FirebaseRemoteConfig getConfigs(Context context) {
-        return getInstance(context).mRemoteConfig;
+
+    public static FirebaseRemoteConfig getConfigs() {
+        return getInstance().mRemoteConfig;
     }
 
     @Override
