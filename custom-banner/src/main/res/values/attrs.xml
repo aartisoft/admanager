@@ -1,12 +1,10 @@
 <resources>
     <attr name="remoteConfigTargetUrlKey" format="string" />
     <attr name="remoteConfigImageUrlKey" format="string" />
-    <attr name="defaultTargetUrl" format="string" />
-    <attr name="defaultImageUrl" format="string" />
+    <attr name="remoteConfigEnableKey" format="string" />
     <declare-styleable name="CustomBanner">
         <attr name="remoteConfigTargetUrlKey" />
         <attr name="remoteConfigImageUrlKey" />
-        <attr name="defaultTargetUrl" />
-        <attr name="defaultImageUrl" />
+        <attr name="remoteConfigEnableKey" />
     </declare-styleable>
 </resources>
