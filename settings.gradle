@@ -1,1 +1,1 @@
-include ':sample', ':config', ':adapter-facebook', ':adapter-admob', ':core', ':custom-banner', ':adapter-unity'
+include ':config', ':adapter-facebook', ':adapter-admob', ':core', ':custom-banner', ':adapter-unity', ':sample'

@@ -1,4 +1,9 @@
 <resources>
-    <string name="app_name">Ad Manager Toneshub</string>
+    <string name="app_name">Ad Manager Sample</string>
+    <string name="accept">I ACCEPT</string>
+
+    <string name="unity_game_id">2908042</string>
+    <string name="unity_placement_id_s1">splash1</string>
+    <string name="unity_placement_id_s2">splash2</string>
 
 </resources>

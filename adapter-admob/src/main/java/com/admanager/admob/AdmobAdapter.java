@@ -1,8 +1,12 @@
 package com.admanager.admob;
 
+import android.support.annotation.Size;
+import android.text.TextUtils;
 import android.util.Log;
 
+import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.Adapter;
+import com.admanager.core.Consts;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -25,34 +29,51 @@ public class AdmobAdapter extends Adapter {
             loaded();
         }
     };
-    private final String key;
-    private InterstitialAd adAdmob;
+    private String adUnitId;
+    private InterstitialAd ad;
 
 
-    public AdmobAdapter(String enableKey, String key) {
-        super(enableKey);
+    public AdmobAdapter(@Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
+        super(rcEnableKey);
+    }
 
-        this.key = key;
+    public AdmobAdapter withRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
+        if (this.adUnitId != null) {
+            throw new IllegalStateException("You already set adUnitId with 'withId' method.");
+        }
+        this.adUnitId = RemoteConfigHelper.getConfigs().getString(rcAdUnitIdKey);
+        return this;
+    }
+
+    public AdmobAdapter withId(@Size(min = 35, max = 40) String adUnitId) {
+        if (this.adUnitId != null) {
+            throw new IllegalStateException("You already set adUnitId with 'withRemoteConfig' method");
+        }
+        this.adUnitId = adUnitId;
+        return this;
     }
 
     @Override
     protected void init() {
-        // admob
-        adAdmob = new InterstitialAd(getActivity());
-        adAdmob.setAdUnitId(key);
-        adAdmob.setAdListener(ADMOB_AD_LISTENER);
-        adAdmob.loadAd(new AdRequest.Builder().build());
+        if (TextUtils.isEmpty(this.adUnitId)) {
+            throw new IllegalStateException("NO AD_UNIT_ID FOUND!");
+        }
+
+        ad = new InterstitialAd(getActivity());
+        ad.setAdUnitId(adUnitId);
+        ad.setAdListener(ADMOB_AD_LISTENER);
+        ad.loadAd(new AdRequest.Builder().build());
     }
 
     @Override
     protected void destroy() {
-        adAdmob = null;
+        ad = null;
     }
 
     @Override
     protected void show() {
-        if (adAdmob.isLoaded()) {
-            adAdmob.show();
+        if (ad.isLoaded()) {
+            ad.show();
         } else {
             closed();
             Log.e("AdManager1", "NOT LOADED");
