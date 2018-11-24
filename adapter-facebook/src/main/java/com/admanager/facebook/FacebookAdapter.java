@@ -24,7 +24,8 @@ public class FacebookAdapter extends Adapter implements InterstitialAdListener {
 
     }
 
-    public void init() {
+    @Override
+    protected void init() {
         if (!mIsSdkInitialized.getAndSet(true)) {
             AudienceNetworkAds.initialize(getActivity());
         }
@@ -36,7 +37,7 @@ public class FacebookAdapter extends Adapter implements InterstitialAdListener {
     }
 
     @Override
-    public void destroy() {
+    protected void destroy() {
         if (adFacebook != null) {
             adFacebook.destroy();
         }
@@ -44,7 +45,7 @@ public class FacebookAdapter extends Adapter implements InterstitialAdListener {
     }
 
     @Override
-    public void show() {
+    protected void show() {
         if (adFacebook.isAdLoaded()) {
             adFacebook.show();
         } else {

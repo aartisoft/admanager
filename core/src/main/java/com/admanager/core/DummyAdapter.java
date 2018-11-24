@@ -7,17 +7,18 @@ public class DummyAdapter extends Adapter {
         super(null);
     }
 
-    public void init() {
+    @Override
+    protected void init() {
         loaded();
     }
 
     @Override
-    public void destroy() {
+    protected void destroy() {
 
     }
 
     @Override
-    public void show() {
+    protected void show() {
         closed();
     }
 }

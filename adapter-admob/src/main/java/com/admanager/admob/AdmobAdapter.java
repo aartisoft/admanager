@@ -35,7 +35,8 @@ public class AdmobAdapter extends Adapter {
         this.key = key;
     }
 
-    public void init() {
+    @Override
+    protected void init() {
         // admob
         adAdmob = new InterstitialAd(getActivity());
         adAdmob.setAdUnitId(key);
@@ -44,12 +45,12 @@ public class AdmobAdapter extends Adapter {
     }
 
     @Override
-    public void destroy() {
+    protected void destroy() {
         adAdmob = null;
     }
 
     @Override
-    public void show() {
+    protected void show() {
         if (adAdmob.isLoaded()) {
             adAdmob.show();
         } else {

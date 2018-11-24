@@ -20,7 +20,8 @@ public class UnityAdapter extends Adapter implements IUnityAdsExtendedListener {
 
     }
 
-    public void init() {
+    @Override
+    protected void init() {
         UnityRouter.addListener(placementId, this);
 
         if (!UnityAds.isInitialized()) {
@@ -29,12 +30,12 @@ public class UnityAdapter extends Adapter implements IUnityAdsExtendedListener {
     }
 
     @Override
-    public void destroy() {
+    protected void destroy() {
         UnityRouter.removeListener(placementId);
     }
 
     @Override
-    public void show() {
+    protected void show() {
         if (UnityAds.isReady(placementId)) {
             UnityRouter.showAd(getActivity(), placementId);
         } else {

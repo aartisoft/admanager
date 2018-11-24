@@ -49,9 +49,9 @@ public abstract class Adapter {
         this.manager.display();
     }
 
-    public abstract void show();
+    protected abstract void show();
 
-    public abstract void init();
+    protected abstract void init();
 
-    public abstract void destroy();
+    protected abstract void destroy();
 }
