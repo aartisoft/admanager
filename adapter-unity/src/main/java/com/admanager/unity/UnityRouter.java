@@ -10,7 +10,8 @@ import com.unity3d.ads.mediation.IUnityAdsExtendedListener;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UnityRouter {
+class UnityRouter {
+    private static final String TAG = "UnityRouter";
     private static final UnityAdsListener sUnityAdsListener = new UnityAdsListener();
     private static String sCurrentPlacementId;
     private static Map<String, IUnityAdsExtendedListener> mUnityAdsListeners = new HashMap<>();
@@ -41,7 +42,7 @@ public class UnityRouter {
     private static class UnityAdsListener implements IUnityAdsExtendedListener {
         @Override
         public void onUnityAdsReady(String placementId) {
-            Log.v("UnityRouter", "ready: " + placementId);
+            Log.v(TAG, "ready: " + placementId);
             IUnityAdsExtendedListener listener = mUnityAdsListeners.get(placementId);
             if (listener != null) {
                 listener.onUnityAdsReady(placementId);
@@ -50,7 +51,7 @@ public class UnityRouter {
 
         @Override
         public void onUnityAdsStart(String placementId) {
-            Log.v("UnityRouter", "onUnityAdsStart: " + placementId);
+            Log.v(TAG, "onUnityAdsStart: " + placementId);
             IUnityAdsExtendedListener listener = mUnityAdsListeners.get(placementId);
             if (listener != null) {
                 listener.onUnityAdsStart(placementId);
@@ -59,7 +60,7 @@ public class UnityRouter {
 
         @Override
         public void onUnityAdsFinish(String placementId, UnityAds.FinishState finishState) {
-            Log.v("UnityRouter", "onUnityAdsFinish: " + placementId);
+            Log.v(TAG, "onUnityAdsFinish: " + placementId);
             IUnityAdsExtendedListener listener = mUnityAdsListeners.get(placementId);
             if (listener != null) {
                 listener.onUnityAdsFinish(placementId, finishState);
@@ -80,7 +81,7 @@ public class UnityRouter {
 
         @Override
         public void onUnityAdsError(UnityAds.UnityAdsError unityAdsError, String message) {
-            Log.v("UnityRouter", "onUnityAdsError: " + sCurrentPlacementId + " " + unityAdsError + ":" + message);
+            Log.v(TAG, "onUnityAdsError: " + sCurrentPlacementId + " " + unityAdsError + ":" + message);
             IUnityAdsExtendedListener listener = mUnityAdsListeners.get(sCurrentPlacementId);
             if (listener != null) {
                 listener.onUnityAdsError(unityAdsError, message);
