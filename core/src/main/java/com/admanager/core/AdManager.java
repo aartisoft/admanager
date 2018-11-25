@@ -1,7 +1,12 @@
 package com.admanager.core;
 
 import android.app.Activity;
+import android.app.Application;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.util.Log;
+import android.view.View;
 
 import com.admanager.config.RemoteConfigHelper;
 
@@ -9,39 +14,86 @@ import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class AdManager {
-    final CopyOnWriteArrayList<Boolean> LOADED = new CopyOnWriteArrayList<>();
-    final CopyOnWriteArrayList<Boolean> SKIP = new CopyOnWriteArrayList<>();
+    private static int globalCounter = 1;
+    private final CopyOnWriteArrayList<Boolean> LOADED = new CopyOnWriteArrayList<>();
+    private final CopyOnWriteArrayList<Boolean> SKIP = new CopyOnWriteArrayList<>();
     private final CopyOnWriteArrayList<String> ENABLE_KEYS = new CopyOnWriteArrayList<>();
     private final ArrayList<Adapter> ADAPTERS = new ArrayList<>();
     String TAG;
+    private final Application.ActivityLifecycleCallbacks LIFECYCLE_CALLBACKS = new Application.ActivityLifecycleCallbacks() {
+        @Override
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+
+        }
+
+        @Override
+        public void onActivityStarted(Activity activity) {
+
+        }
+
+
+        @Override
+        public void onActivityResumed(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityPaused(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivityStopped(Activity activity) {
+
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+
+        }
+
+        @Override
+        public void onActivityDestroyed(Activity activity) {
+            if (isActivityEquals(activity)) {
+                destroy();
+                context.getApplication().unregisterActivityLifecycleCallbacks(LIFECYCLE_CALLBACKS);
+            }
+        }
+    };
+    private boolean showable = false;
     private Listener listener;
     private Activity context;
-    private boolean showable = false;
     private boolean stepByStep = false;
-    private boolean reload = false;
+    private Intent intent;
+    private View clickView;
+    private boolean showAndFinish;
+    private long timeCap;
+    private long lastTimeShowed;
 
-
-    public AdManager(Activity activity, String tag) {
+    AdManager(Activity activity) {
         RemoteConfigHelper.init(activity);
         this.context = activity;
-        if (tag.equals("")) {
-            tag = activity.getClass().getSimpleName();
-        }
-        this.TAG = "AdManager_" + tag;
+        String tag = activity.getClass().getSimpleName();
+        this.TAG = "AdManager_" + (globalCounter++) + "_" + tag;
         this.TAG = this.TAG.substring(0, Math.min(23, this.TAG.length()));
+
+        context.getApplication().registerActivityLifecycleCallbacks(LIFECYCLE_CALLBACKS);
     }
 
-    public AdManager(Activity activity) {
-        this(activity, "");
-    }
 
     Activity getActivity() {
         return this.context;
     }
 
-    public AdManager add(Adapter adapter) {
-        Log.d(TAG, "add: " + adapter.getClass().getSimpleName());
+    void setIntent(Intent intent) {
+        this.intent = intent;
+    }
 
+    private void setClickView(View clickView) {
+        this.clickView = clickView;
+    }
+
+    AdManager add(Adapter adapter) {
         adapter.setOrder(ENABLE_KEYS.size());
         adapter.setManager(this);
         ENABLE_KEYS.add(adapter.getEnableKey());
@@ -51,18 +103,17 @@ public class AdManager {
         return this;
     }
 
-    public AdManager build() {
+    AdManager build() {
         return build(null);
     }
 
-    public AdManager build(Listener listener) {
-        Log.d(TAG, "build: ");
+    AdManager build(Listener listener) {
+        Log.d(TAG, "initializing");
         this.listener = listener;
 
         if (ENABLE_KEYS.size() != LOADED.size() || LOADED.size() != SKIP.size()) {
             throw new IllegalStateException("WRONG INITIALIZED ADS");
         }
-
         for (int i = 0; i < LOADED.size(); i++) {
             LOADED.set(i, false);
         }
@@ -76,13 +127,19 @@ public class AdManager {
         return this;
     }
 
-    public void destroy() {
+    private void destroy() {
+        Log.d(TAG, "Destroying");
         for (Adapter adapter : ADAPTERS) {
             adapter.destroy();
         }
     }
 
     public void show() {
+        show(false);
+    }
+
+    private void show(boolean stepByStep) {
+        this.stepByStep = stepByStep;
         if (ADAPTERS.size() == 0) {
             throw new IllegalStateException("No adapter added");
         }
@@ -90,27 +147,54 @@ public class AdManager {
         display();
     }
 
-    public AdManager stepByStep(boolean reload) {
-        this.stepByStep = true;
-        this.reload = reload;
-        return this;
+    public void showOneByTimeCap(long timeCap) {
+        this.timeCap = timeCap;
+        showOne();
+    }
+
+
+    public void showAndFinish() {
+        if (this.intent != null) {
+            throw new IllegalStateException("Not allowed to use 'thenStart(...)' and 'showAndFinish()' together.");
+        }
+        this.showAndFinish = true;
+        show();
+    }
+
+    public void showOne() {
+        show(true);
+    }
+
+    public void showOnClick(@IdRes int viewId) {
+        showOnClick(viewId, false);
+    }
+
+    public void showOnClick(@IdRes int viewId, boolean hideViewWhenLoading) {
+        final View view = getActivity().findViewById(viewId);
+        if (hideViewWhenLoading) {
+            view.setVisibility(View.INVISIBLE);
+            setClickView(view);
+        }
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show();
+            }
+        });
     }
 
     synchronized void display() {
-        Log.d(TAG, "display()");
-        for (int i = 0; i < LOADED.size(); i++) {
-            boolean b = LOADED.get(i);
-            if (!b) {
-                return;
-            }
+        if (Utils.anyFalse(LOADED)) {
+            return;
         }
 
-        Log.d(TAG, "display() Loaded");
-        if (listener != null) {
-            listener.loaded();
-        }
+        reload();
 
         if (!showable) {
+            return;
+        }
+
+        if (checkTimeCap()) {
             return;
         }
 
@@ -118,42 +202,114 @@ public class AdManager {
             showable = false;
         }
 
-        Log.d(TAG, "display() is displaying");
-
         for (int i = 0; i < LOADED.size(); i++) {
             if (!SKIP.get(i)) {
                 String enableKey = ENABLE_KEYS.get(i);
                 Adapter adapter = ADAPTERS.get(i);
 
                 boolean enabled = enableKey == null || RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey);
-                Log.d(TAG, "display() enabled=" + enabled + " adapter:" + adapter.getClass().getSimpleName());
                 if (enabled) {
+                    Log.d(TAG, "Displaying " + adapter.getClass().getSimpleName());
                     adapter.show();
+                    lastTimeShowed = System.currentTimeMillis();
+                    this.showable = false; // stop showing new ads
                     break;
                 } else {
+                    Log.d(TAG, adapter.getClass().getSimpleName() + " not enabled");
                     SKIP.set(i, true);
+
+                    if (stepByStep) {
+                        break;
+                    }
                 }
             }
         }
 
-        for (int i = 0; i < SKIP.size(); i++) {
-            boolean b = SKIP.get(i);
-            if (!b) {
-                return;
-            }
+        if (Utils.anyFalse(SKIP)) {
+            return;
         }
 
-        Log.d(TAG, "display() all displayed");
+        reload();
 
-        if (reload) {
-            build(listener);
-        }
+        startNextActivity();
+    }
 
-        if (listener != null) {
-            listener.closed();
+    private void setClickViewVisible() {
+        if (clickView != null) {
+            clickView.setVisibility(View.VISIBLE);
+            clickView = null;
         }
     }
 
+    private void startNextActivity() {
+        if (intent != null) {
+            Log.d(TAG, "Starting Next Activity");
+            getActivity().startActivity(intent);
+            getActivity().finish();
+        } else {
+            if (showAndFinish) {
+                getActivity().finish();
+            }
+        }
+    }
+
+    private void reload() {
+        if (stepByStep && Utils.allTrue(SKIP)) {
+            Log.d(TAG, "Reloading ads");
+            destroy();
+            build(listener);
+            this.showable = false;
+        }
+    }
+
+    private boolean checkTimeCap() {
+        if (timeCap > 0 && lastTimeShowed == 0) {
+            lastTimeShowed = System.currentTimeMillis();
+            Log.d(TAG, "Ad will not be displayed for first call due to the time cap set.");
+            return true;
+        }
+        long now = System.currentTimeMillis();
+        long timePassed = now - lastTimeShowed;
+        if (timeCap > 0 && timePassed < timeCap) {
+            Log.w(TAG, "Not enough time passed after last display. You should wait " + (timeCap - timePassed) + "ms to show.");
+            return true;
+        }
+        return false;
+    }
+
+    private boolean isActivityEquals(Activity activity) {
+        return activity.getClass().getName().equals(getActivity().getClass().getName());
+    }
+
+    void setLoaded(int order) {
+        this.LOADED.set(order, true);
+        if (Utils.allTrue(LOADED)) {
+            Log.d(TAG, "loaded all");
+            if (listener != null) {
+                listener.loaded();
+            }
+            setClickViewVisible();
+        }
+    }
+
+    void setSkip(int order) {
+        this.SKIP.set(order, true);
+        if (Utils.allTrue(SKIP)) {
+            Log.d(TAG, "closed all");
+            if (listener != null) {
+                listener.closed();
+            }
+        }
+
+    }
+
+    void setClosed(int order) {
+        this.setSkip(order);
+        if (!this.stepByStep) {
+            this.showable = true; // enable to display new ads
+        }
+        this.lastTimeShowed = System.currentTimeMillis();
+    }
 
     public interface Listener {
         void closed();

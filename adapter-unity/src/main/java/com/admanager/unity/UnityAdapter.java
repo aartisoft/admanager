@@ -1,7 +1,6 @@
 package com.admanager.unity;
 
 import android.support.annotation.Size;
-import android.util.Log;
 
 import com.admanager.core.Adapter;
 import com.unity3d.ads.UnityAds;
@@ -65,7 +64,7 @@ public class UnityAdapter extends Adapter {
     @Override
     protected void init() {
         UnityRouter.addListener(placementId, LISTENER);
-
+// todo reload olunca tekrar loaded gelmiyor buna
         if (!UnityAds.isInitialized()) {
             UnityRouter.initUnityAds(gameId, placementId, getActivity());
         }
@@ -82,7 +81,7 @@ public class UnityAdapter extends Adapter {
             UnityRouter.showAd(getActivity(), placementId);
         } else {
             closed();
-            Log.e("AdManager2", "NOT LOADED");
+            loge("NOT LOADED");
         }
     }
 

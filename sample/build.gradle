@@ -1,13 +1,10 @@
-apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-
-group = 'com.github.fgustovo.admanager'
-
+apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 28
 
     defaultConfig {
+        applicationId "com.admanager.sample"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 1
@@ -25,25 +22,16 @@ android {
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
-    api 'com.android.support:appcompat-v7:28.0.0'
-    api 'com.android.support:support-media-compat:28.0.0'
-    api 'com.android.support:support-v4:28.0.0'
-    api 'com.android.support:design:28.0.0'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:support-media-compat:28.0.0'
+    implementation 'com.android.support:support-v4:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
 
-
-    api project(path: ':config')
-    api project(path: ':adapter-admob')
-    api project(path: ':adapter-facebook')
-    api project(path: ':adapter-unity')
-    api project(path: ':custom-banner')
+    implementation project(path: ':config')
+    implementation project(path: ':adapter-admob')
+    implementation project(path: ':adapter-facebook')
+    implementation project(path: ':adapter-unity')
+    implementation project(path: ':custom-banner')
 }
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-artifacts {
-    archives sourcesJar
-}
+apply plugin: 'com.google.gms.google-services'

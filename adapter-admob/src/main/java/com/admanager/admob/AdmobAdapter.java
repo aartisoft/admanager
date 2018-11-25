@@ -2,7 +2,6 @@ package com.admanager.admob;
 
 import android.support.annotation.Size;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.Adapter;
@@ -76,7 +75,7 @@ public class AdmobAdapter extends Adapter {
             ad.show();
         } else {
             closed();
-            Log.e("AdManager1", "NOT LOADED");
+            loge("NOT LOADED");
         }
     }
 }

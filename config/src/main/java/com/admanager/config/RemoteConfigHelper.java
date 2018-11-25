@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
@@ -47,6 +48,8 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
         if (instance == null) {
             synchronized (RemoteConfigHelper.class) {
                 if (instance == null) {
+                    FirebaseApp.initializeApp(context);
+
                     if (context != null && context instanceof Activity && ((Activity)context).getApplication() instanceof RemoteConfigApp) {
                         Map<String, Object> remoteConfigDefaults = ((RemoteConfigApp) ((Activity)context).getApplication()).getDefaults();
                         return init(remoteConfigDefaults, BuildConfig.DEBUG);

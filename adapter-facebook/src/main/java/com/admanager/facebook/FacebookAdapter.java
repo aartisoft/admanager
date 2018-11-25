@@ -2,7 +2,6 @@ package com.admanager.facebook;
 
 import android.support.annotation.Size;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.Adapter;
@@ -104,7 +103,7 @@ public class FacebookAdapter extends Adapter {
             ad.show();
         } else {
             closed();
-            Log.e("AdManager2", "NOT LOADED");
+            loge("NOT LOADED");
         }
     }
 

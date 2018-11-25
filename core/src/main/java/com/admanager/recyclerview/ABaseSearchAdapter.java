@@ -160,7 +160,12 @@ abstract class ABaseSearchAdapter<T, VH extends RecyclerView.ViewHolder> extends
     final void refreshRowWrappers() {
         rowWrappers = getRowWrappers();
         if (activity != null) {
-            activity.runOnUiThread(this::notifyDataSetChanged);
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    notifyDataSetChanged();
+                }
+            });
         }
     }
 

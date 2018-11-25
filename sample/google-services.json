@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "865088300626",
+    "firebase_url": "https://ad-manager-d288e.firebaseio.com",
+    "project_id": "ad-manager-d288e",
+    "storage_bucket": "ad-manager-d288e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:865088300626:android:5ef78d9309c23353",
+        "android_client_info": {
+          "package_name": "com.admanager.sample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "865088300626-5egth5nh7oojid3rgdh3t5vgk0askffv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2B-9boh1yFr7t5TR7BisFvVlugIyvLlA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

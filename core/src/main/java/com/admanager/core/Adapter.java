@@ -29,24 +29,28 @@ public abstract class Adapter {
     }
 
     protected final void loaded() {
-        Log.d(manager.TAG, getClass().getSimpleName() + " loaded ");
-        this.manager.LOADED.set(order, true);
+        Log.d(manager.TAG, getClass().getSimpleName() + " loaded");
+        this.manager.setLoaded(order);
         this.manager.display();
     }
 
     protected final void error(String error) {
         Log.d(manager.TAG, getClass().getSimpleName() + " error :" + error);
-        this.manager.LOADED.set(order, true);
-        this.manager.SKIP.set(order, true);
+        this.manager.setLoaded(order);
+        this.manager.setSkip(order);
 
         this.manager.display();
     }
 
     protected final void closed() {
-        Log.d(manager.TAG, getClass().getSimpleName() + " closed ");
-        this.manager.SKIP.set(order, true);
+        Log.d(manager.TAG, getClass().getSimpleName() + " closed");
+        this.manager.setClosed(order);
 
         this.manager.display();
+    }
+
+    protected final void loge(String message) {
+        Log.e(manager.TAG, getClass().getSimpleName() + ": " + message);
     }
 
     protected abstract void show();
