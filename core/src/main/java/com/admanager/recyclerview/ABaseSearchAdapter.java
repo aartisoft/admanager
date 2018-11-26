@@ -109,9 +109,7 @@ abstract class ABaseSearchAdapter<T, VH extends RecyclerView.ViewHolder> extends
     @Override
     @CallSuper
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        if (holder instanceof LoadingViewHolder) {
-            ((LoadingViewHolder) holder).bindTo();
-        } else if (rowWrappers.get(position).type.ordinal() == RowWrapper.Type.LIST.ordinal()) {
+        if (rowWrappers.get(position).type.ordinal() == RowWrapper.Type.LIST.ordinal()) {
             int pos = rowWrappers.get(position).listIndex;
             onBindViewHolder(activity, (VH) holder, data.get(pos), pos);
         }
@@ -265,10 +263,6 @@ abstract class ABaseSearchAdapter<T, VH extends RecyclerView.ViewHolder> extends
 
         LoadingViewHolder(View itemView) {
             super(itemView);
-        }
-
-        void bindTo() {
-
         }
     }
 

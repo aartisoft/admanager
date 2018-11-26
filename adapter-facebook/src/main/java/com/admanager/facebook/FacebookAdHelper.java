@@ -74,7 +74,7 @@ public class FacebookAdHelper {
 
         LayoutInflater inflater = LayoutInflater.from(context);
         // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
-        View adView = inflater.inflate(R.layout.face_native_ad_mini, nativeAdLayout, false);
+        View adView = inflater.inflate(R.layout.item_face_native_banner_ad, nativeAdLayout, false);
         nativeAdLayout.addView(adView);
 
         // Add the AdChoices icon

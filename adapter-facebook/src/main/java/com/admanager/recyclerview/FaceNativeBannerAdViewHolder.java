@@ -9,8 +9,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.admanager.facebook.R;
-import com.facebook.ads.AdChoicesView;
 import com.facebook.ads.AdIconView;
+import com.facebook.ads.AdOptionsView;
 import com.facebook.ads.NativeAd;
 import com.facebook.ads.NativeAdsManager;
 
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class FaceNativeMiniAdViewHolder extends RecyclerView.ViewHolder {
+class FaceNativeBannerAdViewHolder extends RecyclerView.ViewHolder {
     private RelativeLayout adChoicesContainer;
     private TextView nativeAdTitle;
     private TextView nativeAdSocialContext;
@@ -27,7 +27,7 @@ class FaceNativeMiniAdViewHolder extends RecyclerView.ViewHolder {
     private Button nativeAdCallToAction;
     private LinearLayout adView;
 
-    FaceNativeMiniAdViewHolder(View itemView) {
+    FaceNativeBannerAdViewHolder(View itemView) {
         super(itemView);
         adView = (LinearLayout) this.itemView;
         nativeAdIcon = adView.findViewById(R.id.native_ad_icon);
@@ -56,9 +56,8 @@ class FaceNativeMiniAdViewHolder extends RecyclerView.ViewHolder {
 
         nativeAd.unregisterView();
         // Add the AdChoices icon
-        RelativeLayout adChoicesContainer = adView.findViewById(R.id.ad_choices_container);
-        AdChoicesView adChoicesView = new AdChoicesView(itemView.getContext(), nativeAd, true);
-        adChoicesContainer.addView(adChoicesView, 0);
+        AdOptionsView adOptionsView = new AdOptionsView(itemView.getContext(), nativeAd, null);
+        adChoicesContainer.addView(adOptionsView, 0);
 
 
         // Set the Text.

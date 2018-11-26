@@ -84,7 +84,8 @@ AdManager manager = new AdManagerBuilder(this)
 
  -----
 __Displaying Options__
-|Method|Description|Suitable For
+
+|Method|Description|Suitable For|
 |----------------|-------------------------------|-------------------------------|
 |`manager.show();` |Shows all ads serially.|Splash 1|
 |`manager.showOnClick(int viewId);`|Shows all ads serially when given viewId clicked|Splash 2|

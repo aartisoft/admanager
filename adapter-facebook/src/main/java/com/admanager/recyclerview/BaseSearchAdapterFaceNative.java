@@ -58,8 +58,8 @@ public abstract class BaseSearchAdapterFaceNative<T, VH extends RecyclerView.Vie
             return holder;
         } else if (viewType == RowWrapper.Type.NATIVE_AD.ordinal()) {
             final LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-            view = layoutInflater.inflate(R.layout.face_native_ad_mini, parent, false);
-            holder = new FaceNativeMiniAdViewHolder(view);
+            view = layoutInflater.inflate(R.layout.item_face_native_banner_ad, parent, false);
+            holder = new FaceNativeBannerAdViewHolder(view);
         }
         return holder;
     }
@@ -67,8 +67,8 @@ public abstract class BaseSearchAdapterFaceNative<T, VH extends RecyclerView.Vie
     @Override
     public final void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         super.onBindViewHolder(holder, position);
-        if (holder instanceof FaceNativeMiniAdViewHolder) {
-            ((FaceNativeMiniAdViewHolder) holder).bindTo(manager);
+        if (holder instanceof FaceNativeBannerAdViewHolder) {
+            ((FaceNativeBannerAdViewHolder) holder).bindTo(manager);
         }
     }
 }
