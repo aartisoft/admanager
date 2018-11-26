@@ -14,14 +14,20 @@ class UnityRouter {
     private static final String TAG = "UnityRouter";
     private static final UnityAdsListener sUnityAdsListener = new UnityAdsListener();
     private static String sCurrentPlacementId;
+    private static boolean initialized;
     private static Map<String, IUnityAdsExtendedListener> mUnityAdsListeners = new HashMap<>();
 
-    static boolean initUnityAds(String gameId, String placementId, Activity launcherActivity) {
+    static boolean isInitialized() {
+        return initialized;
+    }
+
+    static boolean initUnityAds(String gameId, Activity launcherActivity) {
         if (gameId == null || gameId.isEmpty()) {
             return false;
         }
 
         UnityAds.initialize(launcherActivity, gameId, sUnityAdsListener);
+        initialized = true;
         return true;
     }
 

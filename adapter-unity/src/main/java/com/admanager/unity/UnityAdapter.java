@@ -9,7 +9,6 @@ import com.unity3d.ads.mediation.IUnityAdsExtendedListener;
 
 public class UnityAdapter extends Adapter {
 
-
     private String gameId;
     private String placementId;
     private final IUnityAdsExtendedListener LISTENER = new IUnityAdsExtendedListener() {
@@ -26,18 +25,18 @@ public class UnityAdapter extends Adapter {
 
         @Override
         public void onUnityAdsFinish(String placementId, UnityAds.FinishState finishState) {
+            UnityRouter.removeListener(placementId);
             if (finishState == UnityAds.FinishState.ERROR) {
                 error("playback: " + placementId);
             } else {
                 closed();
             }
-            UnityRouter.removeListener(placementId);
         }
 
         @Override
         public void onUnityAdsError(UnityAds.UnityAdsError unityAdsError, String message) {
-            error("code:" + unityAdsError + " / " + message);
             UnityRouter.removeListener(placementId);
+            error("code:" + unityAdsError + " / " + message);
         }
 
 
@@ -64,9 +63,8 @@ public class UnityAdapter extends Adapter {
     @Override
     protected void init() {
         UnityRouter.addListener(placementId, LISTENER);
-// todo reload olunca tekrar loaded gelmiyor buna
-        if (!UnityAds.isInitialized()) {
-            UnityRouter.initUnityAds(gameId, placementId, getActivity());
+        if (!UnityRouter.isInitialized()) {
+            UnityRouter.initUnityAds(gameId, getActivity());
         }
     }
 
