@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import java.util.List;
 
 
 abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+    private static final String TAG = "ABaseAdapter";
 
     private final Activity activity;
     boolean show_native;
@@ -115,7 +117,12 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
             try {
                 holder = vhClass.getConstructor(View.class).newInstance(view);
             } catch (Throwable e) {
-                e.printStackTrace();
+                try {
+                    holder = vhClass.getConstructor(getClass(), View.class).newInstance(this, view);
+                } catch (Throwable e2) {
+                    Log.e(TAG, "Couldn't find suitable Constructor for " + vhClass.getSimpleName() + ". There should be 1 parameter (View) constructor.");
+                    e2.printStackTrace();
+                }
             }
         }
         return holder;
