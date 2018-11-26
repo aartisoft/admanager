@@ -2,6 +2,7 @@ package com.admanager.recyclerview;
 
 
 import android.app.Activity;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -18,17 +19,17 @@ import com.google.android.gms.ads.formats.NativeAppInstallAd;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public abstract class BaseSearchAdapterAdmobNative<T, VH extends RecyclerView.ViewHolder> extends ABaseSearchAdapter<T, VH> {
+public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH> {
     private static final String TAG = "AdmobSearchAdapter";
     private AdLoader mAdLoader;
     private CopyOnWriteArrayList<NativeAppInstallAd> mAppInstallAd = new CopyOnWriteArrayList<>();
 
-    public BaseSearchAdapterAdmobNative(Activity activity, List<T> data) {
-        super(activity, data);
+    public BaseAdapterWithAdmobNative(Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data) {
+        super(activity, vhClass, layout, data);
     }
 
-    public BaseSearchAdapterAdmobNative(Activity activity, List<T> data, boolean show_native, String nativeAdUnitId) {
-        super(activity, data, show_native);
+    public BaseAdapterWithAdmobNative(Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data, boolean show_native, String nativeAdUnitId) {
+        super(activity, vhClass, layout, data, show_native);
         if (mAdLoader == null) {
             mAdLoader = new AdLoader.Builder(activity, nativeAdUnitId)
                     .forAppInstallAd(new NativeAppInstallAd.OnAppInstallAdLoadedListener() {
@@ -42,7 +43,7 @@ public abstract class BaseSearchAdapterAdmobNative<T, VH extends RecyclerView.Vi
                         @Override
                         public void onAdFailedToLoad(int errorCode) {
                             Log.e("NativeAdHelper", "App Install Ad Failed to load: " + errorCode);
-                            BaseSearchAdapterAdmobNative.super.show_native = false;
+                            BaseAdapterWithAdmobNative.super.show_native = false;
                             refreshRowWrappers();
 
                         }

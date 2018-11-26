@@ -65,7 +65,7 @@ public class FacebookAdapter extends Adapter {
         return this;
     }
 
-    public FacebookAdapter withId(@Size(min = 30, max = 35) String adUnitId) {
+    public FacebookAdapter withId(@Size(min = com.admanager.Consts.AD_UNIT_SIZE_MIN, max = com.admanager.Consts.AD_UNIT_SIZE_MAX) String adUnitId) {
         if (this.adUnitId != null) {
             throw new IllegalStateException("You already set adUnitId with 'withRemoteConfig' method");
         }

@@ -4,10 +4,12 @@ package com.admanager.recyclerview;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.CallSuper;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
@@ -18,25 +20,36 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-abstract class ABaseSearchAdapter<T, VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private final Activity activity;
     boolean show_native;
     //native
     int DEFAULT_NO_OF_DATA_BETWEEN_ADS;
+    List<RowWrapper> rowWrappers;
     private List<T> data;
-    private List<RowWrapper> rowWrappers;
+
+    private Class<VH> vhClass;
+
+    @LayoutRes
+    private int layout;
     private boolean isLoading = false;
     private boolean isLoadingPage = false;
 
-    ABaseSearchAdapter(final Activity activity, List<T> data) {
-        this(activity, data, false);
+    ABaseAdapter(final Activity activity, Class<VH> vhClass, @LayoutRes int layout) {
+        this(activity, vhClass, layout, new ArrayList<T>());
     }
 
-    ABaseSearchAdapter(final Activity activity, List<T> data, boolean show_native) {
+    ABaseAdapter(final Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data) {
+        this(activity, vhClass, layout, data, false);
+    }
+
+    ABaseAdapter(final Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data, boolean show_native) {
         this.activity = activity;
         this.data = data;
         this.show_native = show_native;
+        this.vhClass = vhClass;
+        this.layout = layout;
         int gridSize = gridSize();
 
         if (gridSize > 1) {
@@ -49,11 +62,11 @@ abstract class ABaseSearchAdapter<T, VH extends RecyclerView.ViewHolder> extends
         rowWrappers = getRowWrappers();
     }
 
-    public int density(){
+    public int density() {
         return 3;
     }
 
-    public int gridSize(){
+    public int gridSize() {
         return 1;
     }
 
@@ -61,9 +74,6 @@ abstract class ABaseSearchAdapter<T, VH extends RecyclerView.ViewHolder> extends
     public final int getItemViewType(int position) {
         return rowWrappers.get(position).type.ordinal();
     }
-
-    public abstract VH onCreateViewHolder(ViewGroup parent);
-    public abstract void onBindViewHolder(Activity activity, VH holder, T t, int position);
 
     @Override
     public final int getItemCount() {
@@ -101,7 +111,12 @@ abstract class ABaseSearchAdapter<T, VH extends RecyclerView.ViewHolder> extends
             view = rel;
             holder = new LoadingViewHolder(view);
         } else if (viewType == RowWrapper.Type.LIST.ordinal()) {
-            holder = onCreateViewHolder(parent);
+            view = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
+            try {
+                holder = vhClass.getConstructor(View.class).newInstance(view);
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
         }
         return holder;
     }
@@ -111,7 +126,9 @@ abstract class ABaseSearchAdapter<T, VH extends RecyclerView.ViewHolder> extends
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (rowWrappers.get(position).type.ordinal() == RowWrapper.Type.LIST.ordinal()) {
             int pos = rowWrappers.get(position).listIndex;
-            onBindViewHolder(activity, (VH) holder, data.get(pos), pos);
+            if (holder instanceof BindableViewHolder) {
+                ((BindableViewHolder) holder).bindTo(activity, data.get(pos), pos);
+            }
         }
     }
 
@@ -231,7 +248,7 @@ abstract class ABaseSearchAdapter<T, VH extends RecyclerView.ViewHolder> extends
         };
     }
 
-    protected int getListIndex(int position) {
+    protected final int getListIndex(int position) {
         return rowWrappers.get(position).listIndex;
 
     }

@@ -1,7 +1,6 @@
 package com.admanager.recyclerview;
 
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -18,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-class FaceNativeBannerAdViewHolder extends RecyclerView.ViewHolder {
+public class FaceNativeBannerAdViewHolder extends BindableFaceAdViewHolder {
     private RelativeLayout adChoicesContainer;
     private TextView nativeAdTitle;
     private TextView nativeAdSocialContext;
@@ -36,9 +35,24 @@ class FaceNativeBannerAdViewHolder extends RecyclerView.ViewHolder {
         nativeAdSocialContext = adView.findViewById(R.id.native_ad_social_context);
         sponsoredLabel = adView.findViewById(R.id.native_ad_sponsored_label);
         nativeAdCallToAction = adView.findViewById(R.id.native_ad_call_to_action);
+
+        String alert = "You should use View with id '%s' in layout file.";
+        if (nativeAdIcon == null)
+            throw new IllegalStateException(String.format(alert, "native_ad_icon"));
+        if (adChoicesContainer == null)
+            throw new IllegalStateException(String.format(alert, "ad_choices_container"));
+        if (nativeAdTitle == null)
+            throw new IllegalStateException(String.format(alert, "native_ad_title"));
+        if (nativeAdSocialContext == null)
+            throw new IllegalStateException(String.format(alert, "native_ad_social_context"));
+        if (sponsoredLabel == null)
+            throw new IllegalStateException(String.format(alert, "native_ad_sponsored_label"));
+        if (nativeAdCallToAction == null)
+            throw new IllegalStateException(String.format(alert, "native_ad_call_to_action"));
     }
 
-    void bindTo(NativeAdsManager manager) {
+    @Override
+    public void bindTo(NativeAdsManager manager) {
         // Inflate Native Banner Ad into Container
         if (manager == null) {
             itemView.setVisibility(View.GONE);
@@ -55,27 +69,20 @@ class FaceNativeBannerAdViewHolder extends RecyclerView.ViewHolder {
         itemView.setVisibility(View.VISIBLE);
 
         nativeAd.unregisterView();
-        // Add the AdChoices icon
+
         AdOptionsView adOptionsView = new AdOptionsView(itemView.getContext(), nativeAd, null);
+        adChoicesContainer.removeAllViews();
         adChoicesContainer.addView(adOptionsView, 0);
 
-
-        // Set the Text.
         nativeAdTitle.setText(nativeAd.getAdvertiserName());
         nativeAdSocialContext.setText(nativeAd.getAdSocialContext());
         nativeAdCallToAction.setVisibility(nativeAd.hasCallToAction() ? View.VISIBLE : View.INVISIBLE);
         nativeAdCallToAction.setText(nativeAd.getAdCallToAction());
         sponsoredLabel.setText(nativeAd.getSponsoredTranslation());
 
-        // Create a list of clickable views
         List<View> clickableViews = new ArrayList<>();
         clickableViews.add(nativeAdTitle);
         clickableViews.add(nativeAdCallToAction);
-
-        // Register the Title and CTA button to listen for clicks.
-        nativeAd.registerViewForInteraction(
-                adView,
-                nativeAdIcon,
-                clickableViews);
+        nativeAd.registerViewForInteraction(adView, nativeAdIcon, clickableViews);
     }
 }

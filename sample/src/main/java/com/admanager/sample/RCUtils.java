@@ -26,6 +26,9 @@ public class RCUtils {
     public static final String S2_FACEBOOK_ID = "s2_facebook_id";
     public static final String MAIN_FACEBOOK_ID = "main_facebook_id";
 
+    public static final String NATIVE_FACEBOOK_ENABLED = "native_facebook_enabled";
+    public static final String NATIVE_FACEBOOK_ID = "native_facebook_id";
+
 
     private static HashMap<String, Object> defaults = null;
 
@@ -43,6 +46,7 @@ public class RCUtils {
 
             defaults.put(ONEXIT_UNITY_ENABLED, true);
             defaults.put(ONRESUME_UNITY_ENABLED, true);
+            defaults.put(NATIVE_FACEBOOK_ENABLED, true);
 
             defaults.put(S1_ADMOB_ID, "ca-app-pub-3940256099942544/1033173712"); // TODO
             defaults.put(S2_ADMOB_ID, "ca-app-pub-3940256099942544/1033173712"); // TODO
@@ -51,6 +55,7 @@ public class RCUtils {
             defaults.put(S1_FACEBOOK_ID, "YOUR_PLACEMENT_ID"); // TODO
             defaults.put(S2_FACEBOOK_ID, "YOUR_PLACEMENT_ID"); // TODO
             defaults.put(MAIN_FACEBOOK_ID, "YOUR_PLACEMENT_ID"); // TODO
+            defaults.put(NATIVE_FACEBOOK_ID, "YOUR_PLACEMENT_ID"); // TODO
         }
         return defaults;
     }
