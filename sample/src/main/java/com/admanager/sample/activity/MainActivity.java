@@ -1,27 +1,21 @@
 package com.admanager.sample.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 
 import com.admanager.admob.AdmobAdapter;
-import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.AdManager;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.DummyAdapter;
 import com.admanager.facebook.FacebookAdapter;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
-import com.admanager.sample.adapter.TrackAdapter;
-import com.admanager.sample.adapter.TrackModel;
 import com.admanager.unity.UnityAdapter;
 
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -32,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     AdManager adManager;
     AdManager unityOnExit;
     AdManager unityOnResume;
-    TrackAdapter trackAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -63,31 +56,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .build();
 
 
-        // Recycler View
-        boolean showNative = RemoteConfigHelper.getConfigs().getBoolean(RCUtils.NATIVE_FACEBOOK_ENABLED);
-        String nativeId = RemoteConfigHelper.getConfigs().getString(RCUtils.NATIVE_FACEBOOK_ID);
-
-        RecyclerView recyclerView = findViewById(R.id.recyclerView);
-        trackAdapter = new TrackAdapter(this, new ArrayList<TrackModel>(), showNative, nativeId);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(trackAdapter);
-
-        loadTracks();
-    }
-
-    private void loadTracks() {
-        trackAdapter.loadingMore();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                ArrayList<TrackModel> data = new ArrayList<>();
-                for (int i = 0; i < 50; i++) {
-                    data.add(new TrackModel(i, "Track_" + i));
-                }
-                trackAdapter.setData(data);
-                trackAdapter.loaded();
-            }
-        }, 4000);
+        Button recyclerViewExample = findViewById(R.id.recycler_view_example);
+        recyclerViewExample.setOnClickListener(this);
     }
 
     @Override
@@ -104,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.action_without_ads:
                 // action_without_ads();
+                break;
+            case R.id.recycler_view_example:
+                startActivity(new Intent(this, NativeListActivity.class));
                 break;
         }
     }

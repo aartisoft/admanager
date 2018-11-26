@@ -32,6 +32,14 @@
             android:name=".activity.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".activity.NativeListActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat" />
+
+        <!--todo grid list example-->
+        <!--todo custom native example-->
+        <!--todo face big native example-->
     </application>
 
 </manifest>
