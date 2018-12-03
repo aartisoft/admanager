@@ -20,7 +20,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 
 /**
- * Created by Gust on 20.12.2017.
+ * Created by Gust on 20.11.2018.
  */
 public class CustomBanner extends ImageView {
 

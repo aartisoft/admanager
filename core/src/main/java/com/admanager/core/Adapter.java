@@ -35,7 +35,7 @@ public abstract class Adapter {
     }
 
     protected final void error(String error) {
-        Log.d(manager.TAG, getClass().getSimpleName() + " error :" + error);
+        Log.e(manager.TAG, getClass().getSimpleName() + " error :" + error);
         this.manager.setLoaded(order);
         this.manager.setSkip(order);
 

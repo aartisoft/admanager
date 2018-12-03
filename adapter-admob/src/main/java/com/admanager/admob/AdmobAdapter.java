@@ -30,6 +30,7 @@ public class AdmobAdapter extends Adapter {
     };
     private String adUnitId;
     private InterstitialAd ad;
+    private boolean anyIdMethodCalled;
 
 
     public AdmobAdapter(@Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
@@ -37,6 +38,7 @@ public class AdmobAdapter extends Adapter {
     }
 
     public AdmobAdapter withRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
+        anyIdMethodCalled = true;
         if (this.adUnitId != null) {
             throw new IllegalStateException("You already set adUnitId with 'withId' method.");
         }
@@ -45,6 +47,7 @@ public class AdmobAdapter extends Adapter {
     }
 
     public AdmobAdapter withId(@Size(min = 35, max = 40) String adUnitId) {
+        anyIdMethodCalled = true;
         if (this.adUnitId != null) {
             throw new IllegalStateException("You already set adUnitId with 'withRemoteConfig' method");
         }
@@ -54,8 +57,12 @@ public class AdmobAdapter extends Adapter {
 
     @Override
     protected void init() {
+        if (!anyIdMethodCalled) {
+            throw new IllegalStateException("call 'withId' or 'withRemoteConfigId' method after adapter creation.");
+        }
         if (TextUtils.isEmpty(this.adUnitId)) {
-            throw new IllegalStateException("NO AD_UNIT_ID FOUND!");
+            error("NO AD_UNIT_ID FOUND!");
+            return;
         }
 
         ad = new InterstitialAd(getActivity());
@@ -71,7 +78,7 @@ public class AdmobAdapter extends Adapter {
 
     @Override
     protected void show() {
-        if (ad.isLoaded()) {
+        if (ad != null && ad.isLoaded()) {
             ad.show();
         } else {
             closed();

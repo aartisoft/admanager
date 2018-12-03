@@ -1,6 +1,7 @@
 package com.admanager.unity;
 
 import android.support.annotation.Size;
+import android.text.TextUtils;
 
 import com.admanager.core.Adapter;
 import com.unity3d.ads.UnityAds;
@@ -62,6 +63,9 @@ public class UnityAdapter extends Adapter {
 
     @Override
     protected void init() {
+        if (TextUtils.isEmpty(gameId) || TextUtils.isEmpty(placementId)) {
+            throw new IllegalStateException("call 'withId(gameId, placementId)' method after adapter creation.");
+        }
         UnityRouter.addListener(placementId, LISTENER);
         if (!UnityRouter.isInitialized()) {
             UnityRouter.initUnityAds(gameId, getActivity());

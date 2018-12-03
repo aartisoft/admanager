@@ -18,6 +18,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class FacebookAdapter extends Adapter {
     private String adUnitId;
     private InterstitialAd ad;
+    private boolean anyIdMethodCalled;
 
     private AtomicBoolean mIsSdkInitialized = new AtomicBoolean(false);
     private InterstitialAdListener LISTENER = new InterstitialAdListener() {
@@ -58,6 +59,7 @@ public class FacebookAdapter extends Adapter {
     }
 
     public FacebookAdapter withRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
+        anyIdMethodCalled = true;
         if (this.adUnitId != null) {
             throw new IllegalStateException("You already set adUnitId with 'withId' method.");
         }
@@ -66,6 +68,7 @@ public class FacebookAdapter extends Adapter {
     }
 
     public FacebookAdapter withId(@Size(min = com.admanager.Consts.AD_UNIT_SIZE_MIN, max = com.admanager.Consts.AD_UNIT_SIZE_MAX) String adUnitId) {
+        anyIdMethodCalled = true;
         if (this.adUnitId != null) {
             throw new IllegalStateException("You already set adUnitId with 'withRemoteConfig' method");
         }
@@ -75,8 +78,12 @@ public class FacebookAdapter extends Adapter {
 
     @Override
     protected void init() {
+        if (!anyIdMethodCalled) {
+            throw new IllegalStateException("call 'withId' or 'withRemoteConfigId' method after adapter creation.");
+        }
         if (TextUtils.isEmpty(this.adUnitId)) {
-            throw new IllegalStateException("NO AD_UNIT_ID FOUND!");
+            error("NO AD_UNIT_ID FOUND!");
+            return;
         }
         if (!mIsSdkInitialized.getAndSet(true)) {
             AudienceNetworkAds.initialize(getActivity());
@@ -99,7 +106,7 @@ public class FacebookAdapter extends Adapter {
 
     @Override
     protected void show() {
-        if (ad.isAdLoaded()) {
+        if (ad != null && ad.isAdLoaded()) {
             ad.show();
         } else {
             closed();

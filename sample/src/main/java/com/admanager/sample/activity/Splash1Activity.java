@@ -12,7 +12,7 @@ import com.admanager.facebook.FacebookAdapter;
 import com.admanager.sample.RCUtils;
 
 /**
- * Created by Gust on 20.12.2017.
+ * Created by Gust on 20.11.2018.
  */
 public class Splash1Activity extends AppCompatActivity {
     @Override

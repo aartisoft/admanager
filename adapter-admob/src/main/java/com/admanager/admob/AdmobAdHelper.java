@@ -15,12 +15,13 @@ import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.VideoController;
 import com.google.android.gms.ads.formats.MediaView;
 import com.google.android.gms.ads.formats.NativeAd;
 import com.google.android.gms.ads.formats.NativeAppInstallAd;
 import com.google.android.gms.ads.formats.NativeAppInstallAdView;
+import com.google.android.gms.ads.formats.NativeContentAd;
+import com.google.android.gms.ads.formats.NativeContentAdView;
 
 import java.util.List;
 
@@ -42,7 +43,6 @@ public class AdmobAdHelper {
         AdView mAdView = new AdView(context);
         mAdView.setAdUnitId(adUnitId);
         mAdView.setAdSize(AdSize.SMART_BANNER);
-        MobileAds.initialize(context, mAdView.getAdUnitId());
 
         AdRequest.Builder builder = new AdRequest.Builder();
         AdRequest adRequest = builder.build();
@@ -125,5 +125,40 @@ public class AdmobAdHelper {
             adView.getStarRatingView().setVisibility(View.VISIBLE);
         }
 
+    }
+
+
+    public static void populateContentAdView(NativeContentAd nativeContentAd, NativeContentAdView adView) {
+        adView.setHeadlineView(adView.findViewById(R.id.contentad_headline));
+        adView.setImageView(adView.findViewById(R.id.contentad_image));
+        adView.setBodyView(adView.findViewById(R.id.contentad_body));
+        adView.setCallToActionView(adView.findViewById(R.id.contentad_call_to_action));
+        adView.setLogoView(adView.findViewById(R.id.contentad_logo));
+        adView.setAdvertiserView(adView.findViewById(R.id.contentad_advertiser));
+
+        // Some assets are guaranteed to be in every NativeContentAd.
+        ((TextView) adView.getHeadlineView()).setText(nativeContentAd.getHeadline());
+        ((TextView) adView.getBodyView()).setText(nativeContentAd.getBody());
+        ((TextView) adView.getCallToActionView()).setText(nativeContentAd.getCallToAction());
+        ((TextView) adView.getAdvertiserView()).setText(nativeContentAd.getAdvertiser());
+
+        List<NativeAd.Image> images = nativeContentAd.getImages();
+
+        if (images.size() > 0) {
+            ((ImageView) adView.getImageView()).setImageDrawable(images.get(0).getDrawable());
+        }
+
+        // Some aren't guaranteed, however, and should be checked.
+        NativeAd.Image logoImage = nativeContentAd.getLogo();
+
+        if (logoImage == null) {
+            adView.getLogoView().setVisibility(View.INVISIBLE);
+        } else {
+            ((ImageView) adView.getLogoView()).setImageDrawable(logoImage.getDrawable());
+            adView.getLogoView().setVisibility(View.VISIBLE);
+        }
+
+        // Assign native ad object to the native view.
+        adView.setNativeAd(nativeContentAd);
     }
 }

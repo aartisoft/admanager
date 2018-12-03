@@ -129,6 +129,10 @@ public class AdManager {
 
     private void destroy() {
         Log.d(TAG, "Destroying");
+        for (int i = 0; i < SKIP.size(); i++) {
+            this.LOADED.set(i, true);
+            this.SKIP.set(i, true);
+        }
         for (Adapter adapter : ADAPTERS) {
             adapter.destroy();
         }

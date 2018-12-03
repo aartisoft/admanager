@@ -11,6 +11,7 @@ import com.admanager.admob.AdmobAdapter;
 import com.admanager.core.AdManager;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.DummyAdapter;
+import com.admanager.facebook.FacebookAdHelper;
 import com.admanager.facebook.FacebookAdapter;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
@@ -19,7 +20,7 @@ import com.admanager.unity.UnityAdapter;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by Gust on 20.12.2017.
+ * Created by Gust on 20.11.2018.
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -55,9 +56,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 .add(new UnityAdapter(RCUtils.ONRESUME_UNITY_ENABLED).withId(getString(R.string.unity_game_id), getString(R.string.unity_placement_id_onresume)))
                 .build();
 
-
         Button recyclerViewExample = findViewById(R.id.recycler_view_example);
         recyclerViewExample.setOnClickListener(this);
+
+        FacebookAdHelper.showNsecInters(6000, this, RCUtils.MAIN_6SEC_FACEBOOK_ENABLED, RCUtils.MAIN_6SEC_FACEBOOK_ID);
     }
 
     @Override
@@ -84,8 +86,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
-        unityOnResume.showOneByTimeCap(TimeUnit.SECONDS.toMillis(15));
-//        unityOnResume.showOneByTimeCap(TimeUnit.MINUTES.toMillis(1));
+        unityOnResume.showOneByTimeCap(TimeUnit.MINUTES.toMillis(1));
     }
 
     @Override

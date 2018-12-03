@@ -16,7 +16,7 @@ import com.admanager.sample.adapter.TrackModel;
 import java.util.ArrayList;
 
 /**
- * Created by Gust on 20.12.2017.
+ * Created by Gust on 20.11.2018.
  */
 public class NativeListActivity extends AppCompatActivity {
 

@@ -12,7 +12,7 @@ import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
 
 /**
- * Created by Gust on 20.12.2017.
+ * Created by Gust on 20.11.2018.
  */
 public class Splash2Activity extends AppCompatActivity {
     @Override
