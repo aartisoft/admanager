@@ -33,11 +33,11 @@ buildscript {
 
 // In your app projects build.gradle file:
 dependencies {
-    implementation 'com.github.fgustovo.admanager:adapter-admob:0.1.3'
-    implementation 'com.github.fgustovo.admanager:adapter-unity:0.1.3'
-    implementation 'com.github.fgustovo.admanager:adapter-applovin:0.1.3'
-    implementation 'com.github.fgustovo.admanager:adapter-facebook:0.1.3'
-    implementation 'com.github.fgustovo.admanager:custom=banner:0.1.3'
+    implementation 'com.github.fgustovo.admanager:adapter-admob:0.2.0'
+    implementation 'com.github.fgustovo.admanager:adapter-unity:0.2.0'
+    implementation 'com.github.fgustovo.admanager:adapter-applovin:0.2.0'
+    implementation 'com.github.fgustovo.admanager:adapter-facebook:0.2.0'
+    implementation 'com.github.fgustovo.admanager:custom=banner:0.2.0'
 }
 ```
 
@@ -83,6 +83,8 @@ AdManager manager = new AdManagerBuilder(this)
         .thenStart(Splash2Activity.class)
         .build();
 ```
+
+You can check [Sample](tree/master/sample) project.
 
  -----
 __Displaying Options__
