@@ -84,7 +84,7 @@ AdManager manager = new AdManagerBuilder(this)
         .build();
 ```
 
-You can check [Sample](tree/master/sample) project.
+You can check [Sample](sample) project.
 
  -----
 __Displaying Options__
