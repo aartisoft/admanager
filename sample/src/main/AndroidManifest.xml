@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppBaseTheme"
+        android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".activity.Splash1Activity"
@@ -30,16 +30,39 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat" />
-        <activity
-            android:name=".activity.NativeListActivity"
-            android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat" />
+            android:label="@string/app_name" />
 
-        <!--todo grid list example-->
-        <!--todo custom native example-->
-        <!--todo face big native example-->
+        <activity
+            android:name=".activity.MainIntersActivity"
+            android:label="@string/ex_inters" />
+        <activity
+            android:name=".activity.Facebook6SecsActivity"
+            android:label="@string/ex_face_6_sec" />
+        <activity
+            android:name=".activity.BannerDemoActivity"
+            android:label="@string/ex_banner_demo" />
+        <activity
+            android:name=".activity.RecyclerViewAdmobDefaultActivity"
+            android:label="@string/ex_recycler_view_admob_default" />
+        <activity
+            android:name=".activity.RecyclerViewDefaultActivity"
+            android:label="@string/ex_recycler_view_default" />
+        <activity
+            android:name=".activity.RecyclerViewDensityActivity"
+            android:label="@string/ex_recycler_view_density" />
+        <activity
+            android:name=".activity.RecyclerViewGridActivity"
+            android:label="@string/ex_recycler_view_grid" />
+        <activity
+            android:name=".activity.RecyclerViewBigNativeActivity"
+            android:label="@string/ex_recycler_view_bignative" />
+        <activity
+            android:name=".activity.RecyclerViewCustomDesignActivity"
+            android:label="@string/ex_recycler_view_custom_design" />
+        <activity
+            android:name=".activity.RecyclerViewCustomActivity"
+            android:label="@string/ex_recycler_view_custom" />
+
     </application>
 
 </manifest>

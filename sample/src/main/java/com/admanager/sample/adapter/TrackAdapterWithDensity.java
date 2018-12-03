@@ -7,9 +7,9 @@ import com.admanager.recyclerview.BaseAdapterWithFaceNative;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
 
-public class TrackAdapter extends BaseAdapterWithFaceNative<TrackModel, TrackViewHolder> {
+public class TrackAdapterWithDensity extends BaseAdapterWithFaceNative<TrackModel, TrackViewHolder> {
 
-    public TrackAdapter(Activity activity) {
+    public TrackAdapterWithDensity(Activity activity) {
         super(activity, TrackViewHolder.class, R.layout.item_track, null, showNative(), getNativeId());
     }
 
@@ -19,5 +19,10 @@ public class TrackAdapter extends BaseAdapterWithFaceNative<TrackModel, TrackVie
 
     private static String getNativeId() {
         return RemoteConfigHelper.getConfigs().getString(RCUtils.NATIVE_FACEBOOK_ID);
+    }
+
+    @Override
+    public int density() {
+        return 5; // show 1 native between 5 rows
     }
 }

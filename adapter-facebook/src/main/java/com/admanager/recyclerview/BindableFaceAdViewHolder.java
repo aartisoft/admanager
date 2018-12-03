@@ -13,5 +13,5 @@ public abstract class BindableFaceAdViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
     }
 
-    abstract void bindTo(NativeAdsManager manager);
+    protected abstract void bindTo(NativeAdsManager manager);
 }

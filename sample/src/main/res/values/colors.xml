@@ -3,4 +3,9 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <!--todo define this colors if you want to change default native text colors-->
+    <color name="colorNativeBg">#f5f5f5</color>
+    <color name="colorAction">#022900</color>
+    <color name="colorPrimaryLight">#208f84</color>
 </resources>

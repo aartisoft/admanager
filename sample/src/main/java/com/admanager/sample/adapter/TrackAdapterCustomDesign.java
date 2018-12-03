@@ -7,9 +7,9 @@ import com.admanager.recyclerview.BaseAdapterWithFaceNative;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
 
-public class TrackAdapter extends BaseAdapterWithFaceNative<TrackModel, TrackViewHolder> {
+public class TrackAdapterCustomDesign extends BaseAdapterWithFaceNative<TrackModel, TrackViewHolder> {
 
-    public TrackAdapter(Activity activity) {
+    public TrackAdapterCustomDesign(Activity activity) {
         super(activity, TrackViewHolder.class, R.layout.item_track, null, showNative(), getNativeId());
     }
 
@@ -19,5 +19,15 @@ public class TrackAdapter extends BaseAdapterWithFaceNative<TrackModel, TrackVie
 
     private static String getNativeId() {
         return RemoteConfigHelper.getConfigs().getString(RCUtils.NATIVE_FACEBOOK_ID);
+    }
+
+    /**
+     * You should use same 'ids' with {@link com.admanager.facebook.R.layout.item_face_native_banner_ad}
+     * or
+     * If you are using {@link NativeType.NATIVE_LARGE}, then check 'ids' from {@link com.admanager.facebook.R.layout.item_face_native_ad}
+     */
+    @Override
+    public int getCustomNativeLayout() {
+        return R.layout.custom_item_face_native_banner_ad;
     }
 }

@@ -46,7 +46,7 @@ public class AdmobAdapter extends Adapter {
         return this;
     }
 
-    public AdmobAdapter withId(@Size(min = 35, max = 40) String adUnitId) {
+    public AdmobAdapter withId(@Size(min = com.admanager.admob.Consts.AD_UNIT_SIZE_MIN, max = com.admanager.admob.Consts.AD_UNIT_SIZE_MAX) String adUnitId) {
         anyIdMethodCalled = true;
         if (this.adUnitId != null) {
             throw new IllegalStateException("You already set adUnitId with 'withRemoteConfig' method");

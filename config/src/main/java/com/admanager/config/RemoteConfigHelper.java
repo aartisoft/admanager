@@ -16,7 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by Gust on 10.04.2017.
+ * Created by Gust on 10.04.2018.
  */
 
 public class RemoteConfigHelper implements OnCompleteListener<Void> {

@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">Ad Manager Sample Project</string>
 
+    <string name="ex_inters">Main Inters</string>
+    <string name="ex_face_6_sec">Face 6 Secs</string>
+    <string name="ex_banner_demo">Banner Demo</string>
+    <string name="ex_recycler_view_admob_default">RecyclerView (Admob) Default</string>
+    <string name="ex_recycler_view_default">RecyclerView (Facebook) Default</string>
+    <string name="ex_recycler_view_density">RecyclerView (Facebook) Density</string>
+    <string name="ex_recycler_view_grid">RecyclerView (Facebook) Grid</string>
+    <string name="ex_recycler_view_bignative">RecyclerView (Facebook) Big Native</string>
+    <string name="ex_recycler_view_custom_design">RecyclerView (Facebook) Custom Native Design</string>
+    <string name="ex_recycler_view_custom">RecyclerView (Facebook) Custom Native</string>
+
     <string name="accept">I ACCEPT</string>
 
     <string name="unity_game_id">2908042</string> <!--todo-->

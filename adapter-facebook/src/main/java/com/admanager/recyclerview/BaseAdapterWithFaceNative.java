@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.admanager.Consts;
+import com.admanager.facebook.Consts;
 import com.admanager.facebook.R;
 import com.facebook.ads.AdError;
 import com.facebook.ads.NativeAdsManager;
@@ -19,7 +19,7 @@ import java.util.List;
 
 
 /**
- * Created by Gust on 19.12.2017.
+ * Created by Gust on 20.11.2018.
  */
 public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH> {
     private static final String TAG = "FaceSearchAdapter";

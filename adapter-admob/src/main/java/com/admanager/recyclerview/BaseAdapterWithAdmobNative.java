@@ -4,6 +4,7 @@ package com.admanager.recyclerview;
 import android.app.Activity;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Size;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -28,7 +29,11 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
         super(activity, vhClass, layout, data);
     }
 
-    public BaseAdapterWithAdmobNative(Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data, boolean show_native, String nativeAdUnitId) {
+    public BaseAdapterWithAdmobNative(Activity activity, Class<VH> vhClass,
+                                      @LayoutRes int layout,
+                                      List<T> data,
+                                      boolean show_native,
+                                      @Size(min = com.admanager.admob.Consts.AD_UNIT_SIZE_MIN, max = com.admanager.admob.Consts.AD_UNIT_SIZE_MAX) String nativeAdUnitId) {
         super(activity, vhClass, layout, data, show_native);
         if (mAdLoader == null) {
             mAdLoader = new AdLoader.Builder(activity, nativeAdUnitId)
@@ -85,4 +90,12 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
             ((AdmobNativeAdViewHolder) holder).bindTo(ad);
         }
     }
+
+    /** todo
+     * public enum NativeType {
+     *       NATIVE_BANNER, NATIVE_LARGE,
+     *       NATIVE_BANNER_CONTENT_AD, NATIVE_LARGE_CONTENT_AD,
+     *       CUSTOM
+     * }
+     * */
 }

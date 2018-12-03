@@ -21,6 +21,9 @@ public class Splash1Activity extends AppCompatActivity {
 
         RemoteConfigHelper.init(this);
 
+//        If you want to close all ads for testing, use this method
+//        RemoteConfigHelper.setAdsEnabled(BuildConfig.DEBUG);
+
         AdManager manager = new AdManagerBuilder(this)
                 .add(new AdmobAdapter(RCUtils.S1_ADMOB_ENABLED).withRemoteConfigId(RCUtils.S1_ADMOB_ID))
                 .add(new FacebookAdapter(RCUtils.S1_FACEBOOK_ENABLED).withRemoteConfigId(RCUtils.S1_FACEBOOK_ID))

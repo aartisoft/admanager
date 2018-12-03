@@ -1,9 +1,11 @@
 <resources>
 
 
-    <style name="AppBaseTheme" parent="@android:style/Theme.Holo.Light.NoActionBar">
-        <item name="android:windowBackground">@color/colorPrimary</item>
-        <item name="android:windowAnimationStyle">@null</item>
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -22,7 +24,15 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="main_button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:background">#96e2dd</item>
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+    </style>
 
-    <style name="AppTheme" parent="AppBaseTheme" />
 
 </resources>

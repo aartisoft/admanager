@@ -28,7 +28,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
     boolean show_native;
     //native
     int DEFAULT_NO_OF_DATA_BETWEEN_ADS;
-    List<RowWrapper> rowWrappers;
+    private List<RowWrapper> rowWrappers;
     private List<T> data;
 
     private Class<VH> vhClass;
@@ -48,7 +48,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
 
     ABaseAdapter(final Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data, boolean show_native) {
         this.activity = activity;
-        this.data = data;
+        this.data = data == null ? new ArrayList<T>() : data;
         this.show_native = show_native;
         this.vhClass = vhClass;
         this.layout = layout;

@@ -7,7 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- * Created by Gust on 19.12.2017.
+ * Created by Gust on 20.11.2018.
  */
 public abstract class BindableViewHolder<T> extends RecyclerView.ViewHolder {
     public BindableViewHolder(@NonNull View itemView) {

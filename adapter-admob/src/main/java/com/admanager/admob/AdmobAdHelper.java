@@ -1,20 +1,12 @@
 package com.admanager.admob;
 
 
-import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.admanager.config.RemoteConfigHelper;
-import com.google.android.gms.ads.AdListener;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.VideoController;
 import com.google.android.gms.ads.formats.MediaView;
 import com.google.android.gms.ads.formats.NativeAd;
@@ -28,40 +20,6 @@ import java.util.List;
 public class AdmobAdHelper {
 
     private static final String TAG = "MyAdmobHelper";
-
-    public static void loadBanner(final Activity context, final LinearLayout adContainer, String remoteConfigBannerEnabledKey, String remoteConfigBannerAdKey) {
-        RemoteConfigHelper.init(context);
-        if (!RemoteConfigHelper.getConfigs().getBoolean(remoteConfigBannerEnabledKey) || !RemoteConfigHelper.areAdsEnabled()) {
-            adContainer.setVisibility(View.GONE);
-            return;
-        }
-        adContainer.setVisibility(View.VISIBLE);
-        adContainer.removeAllViews();
-
-        String adUnitId = RemoteConfigHelper.getConfigs().getString(remoteConfigBannerAdKey);
-
-        AdView mAdView = new AdView(context);
-        mAdView.setAdUnitId(adUnitId);
-        mAdView.setAdSize(AdSize.SMART_BANNER);
-
-        AdRequest.Builder builder = new AdRequest.Builder();
-        AdRequest adRequest = builder.build();
-
-        mAdView.setAdListener(new AdListener() {
-            @Override
-            public void onAdFailedToLoad(int i) {
-                adContainer.setVisibility(View.GONE);
-                Log.e(TAG, "onAdFailedToLoad: " + i);
-            }
-
-            @Override
-            public void onAdLoaded() {
-
-            }
-        });
-        mAdView.loadAd(adRequest);
-        adContainer.addView(mAdView);
-    }
 
 
     public static void populateAppInstallAdView(NativeAppInstallAd nativeAppInstallAd, NativeAppInstallAdView adView) {

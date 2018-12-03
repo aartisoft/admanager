@@ -5,93 +5,66 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 
-import com.admanager.admob.AdmobAdapter;
-import com.admanager.core.AdManager;
-import com.admanager.core.AdManagerBuilder;
-import com.admanager.core.DummyAdapter;
-import com.admanager.facebook.FacebookAdHelper;
-import com.admanager.facebook.FacebookAdapter;
 import com.admanager.sample.R;
-import com.admanager.sample.RCUtils;
-import com.admanager.unity.UnityAdapter;
-
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by Gust on 20.11.2018.
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    AdManager adManager;
-    AdManager unityOnExit;
-    AdManager unityOnResume;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button anyAction = findViewById(R.id.any_action);
-        anyAction.setOnClickListener(this);
-
-        Button otherAction = findViewById(R.id.other_action);
-        otherAction.setOnClickListener(this);
-
-        Button actionWithoutAds = findViewById(R.id.action_without_ads);
-        actionWithoutAds.setOnClickListener(this);
-
-        adManager = new AdManagerBuilder(this)
-                .add(new DummyAdapter())
-                .add(new AdmobAdapter(RCUtils.MAIN_ADMOB_ENABLED).withRemoteConfigId(RCUtils.MAIN_ADMOB_ID))
-                .add(new FacebookAdapter(RCUtils.MAIN_FACEBOOK_ENABLED).withRemoteConfigId(RCUtils.MAIN_FACEBOOK_ID))
-                .build();
-
-        unityOnExit = new AdManagerBuilder(this)
-                .add(new UnityAdapter(RCUtils.ONEXIT_UNITY_ENABLED).withId(getString(R.string.unity_game_id), getString(R.string.unity_placement_id_onexit)))
-                .build();
-
-        unityOnResume = new AdManagerBuilder(this)
-                .add(new UnityAdapter(RCUtils.ONRESUME_UNITY_ENABLED).withId(getString(R.string.unity_game_id), getString(R.string.unity_placement_id_onresume)))
-                .build();
-
-        Button recyclerViewExample = findViewById(R.id.recycler_view_example);
-        recyclerViewExample.setOnClickListener(this);
-
-        FacebookAdHelper.showNsecInters(6000, this, RCUtils.MAIN_6SEC_FACEBOOK_ENABLED, RCUtils.MAIN_6SEC_FACEBOOK_ID);
+        findViewById(R.id.ex_inters).setOnClickListener(this);
+        findViewById(R.id.ex_face_6_sec).setOnClickListener(this);
+        findViewById(R.id.ex_banner_demo).setOnClickListener(this);
+        findViewById(R.id.ex_recycler_view_admob_default).setOnClickListener(this);
+        findViewById(R.id.ex_recycler_view_default).setOnClickListener(this);
+        findViewById(R.id.ex_recycler_view_density).setOnClickListener(this);
+        findViewById(R.id.ex_recycler_view_grid).setOnClickListener(this);
+        findViewById(R.id.ex_recycler_view_bignative).setOnClickListener(this);
+        findViewById(R.id.ex_recycler_view_custom_design).setOnClickListener(this);
+        findViewById(R.id.ex_recycler_view_custom).setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
-            case R.id.any_action:
-                // any_action();
-                adManager.showOne();
+            case R.id.ex_inters:
+                startActivity(new Intent(this, MainIntersActivity.class));
                 break;
-            case R.id.other_action:
-                // other_action();
-                adManager.showOne();
+            case R.id.ex_face_6_sec:
+                startActivity(new Intent(this, Facebook6SecsActivity.class));
                 break;
-            case R.id.action_without_ads:
-                // action_without_ads();
+            case R.id.ex_banner_demo:
+                startActivity(new Intent(this, BannerDemoActivity.class));
                 break;
-            case R.id.recycler_view_example:
-                startActivity(new Intent(this, NativeListActivity.class));
+            case R.id.ex_recycler_view_admob_default:
+                startActivity(new Intent(this, RecyclerViewAdmobDefaultActivity.class));
+                break;
+            case R.id.ex_recycler_view_default:
+                startActivity(new Intent(this, RecyclerViewDefaultActivity.class));
+                break;
+            case R.id.ex_recycler_view_density:
+                startActivity(new Intent(this, RecyclerViewDensityActivity.class));
+                break;
+            case R.id.ex_recycler_view_grid:
+                startActivity(new Intent(this, RecyclerViewGridActivity.class));
+                break;
+            case R.id.ex_recycler_view_bignative:
+                startActivity(new Intent(this, RecyclerViewBigNativeActivity.class));
+                break;
+            case R.id.ex_recycler_view_custom_design:
+                startActivity(new Intent(this, RecyclerViewCustomDesignActivity.class));
+                break;
+            case R.id.ex_recycler_view_custom:
+                startActivity(new Intent(this, RecyclerViewCustomActivity.class));
                 break;
         }
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        unityOnResume.showOneByTimeCap(TimeUnit.MINUTES.toMillis(1));
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        unityOnExit.showAndFinish();
     }
 }
