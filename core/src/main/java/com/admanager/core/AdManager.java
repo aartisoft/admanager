@@ -20,6 +20,9 @@ public class AdManager {
     private final CopyOnWriteArrayList<String> ENABLE_KEYS = new CopyOnWriteArrayList<>();
     private final ArrayList<Adapter> ADAPTERS = new ArrayList<>();
     String TAG;
+    private boolean showable = false;
+    private Listener listener;
+    private Activity context;
     private final Application.ActivityLifecycleCallbacks LIFECYCLE_CALLBACKS = new Application.ActivityLifecycleCallbacks() {
         @Override
         public void onActivityCreated(Activity activity, Bundle bundle) {
@@ -60,9 +63,6 @@ public class AdManager {
             }
         }
     };
-    private boolean showable = false;
-    private Listener listener;
-    private Activity context;
     private boolean stepByStep = false;
     private Intent intent;
     private View clickView;
@@ -188,13 +188,22 @@ public class AdManager {
     }
 
     synchronized void display() {
+        display(false);
+    }
+
+    synchronized void display(boolean closedRecently) {
         if (Utils.anyFalse(LOADED)) {
+            // Wait until all ads are loaded
             return;
         }
 
-        reload();
+        if (closedRecently) {
+            // reload only after ad closed
+            reload();
+        }
 
         if (!showable) {
+            // 'show..' method not called yet. Don't show ads and let user to call 'show..'
             return;
         }
 
@@ -203,6 +212,7 @@ public class AdManager {
         }
 
         if (stepByStep) {
+            // if stepbystep mode on, wait another 'show..' call to continue next ad.
             showable = false;
         }
 
@@ -233,6 +243,7 @@ public class AdManager {
             return;
         }
 
+        // reload if error occurred
         reload();
 
         startNextActivity();

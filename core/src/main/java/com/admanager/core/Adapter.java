@@ -46,7 +46,7 @@ public abstract class Adapter {
         Log.d(manager.TAG, getClass().getSimpleName() + " closed");
         this.manager.setClosed(order);
 
-        this.manager.display();
+        this.manager.display(true);
     }
 
     protected final void loge(String message) {
