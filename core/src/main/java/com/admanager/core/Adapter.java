@@ -28,6 +28,10 @@ public abstract class Adapter {
         return manager.getActivity();
     }
 
+    protected final boolean isTestMode() {
+        return manager.testMode;
+    }
+
     protected final void loaded() {
         Log.d(manager.TAG, getClass().getSimpleName() + " loaded");
         this.manager.setLoaded(order);

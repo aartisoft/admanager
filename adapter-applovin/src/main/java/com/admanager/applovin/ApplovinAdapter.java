@@ -86,6 +86,7 @@ public class ApplovinAdapter extends Adapter {
         }
         if (sdk == null) {
             AppLovinSdkSettings appLovinSdkSettings = new AppLovinSdkSettings();
+            appLovinSdkSettings.setTestAdsEnabled(isTestMode());
             sdk = AppLovinSdk.getInstance(sdkKey, appLovinSdkSettings, getActivity());
         }
         sdk.getAdService().loadNextAd(AppLovinAdSize.INTERSTITIAL, LISTENER);

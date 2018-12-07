@@ -21,12 +21,12 @@ class UnityRouter {
         return initialized;
     }
 
-    static boolean initUnityAds(String gameId, Activity launcherActivity) {
+    static boolean initUnityAds(String gameId, Activity launcherActivity, boolean testMode) {
         if (gameId == null || gameId.isEmpty()) {
             return false;
         }
 
-        UnityAds.initialize(launcherActivity, gameId, sUnityAdsListener);
+        UnityAds.initialize(launcherActivity, gameId, sUnityAdsListener, testMode);
         initialized = true;
         return true;
     }

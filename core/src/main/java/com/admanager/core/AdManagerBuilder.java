@@ -22,8 +22,10 @@ public class AdManagerBuilder {
     }
 
     public AdManager build() {
-        AdManager manager = adManager.build(listener);
-        return manager;
+        return build(false);
+    }
+    public AdManager build(boolean testMode) {
+        return adManager.build(listener, testMode);
     }
 
     public AdManagerBuilder thenStart(Intent intent) {

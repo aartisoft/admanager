@@ -8,6 +8,7 @@ import com.admanager.core.Adapter;
 import com.admanager.core.Consts;
 import com.facebook.ads.Ad;
 import com.facebook.ads.AdError;
+import com.facebook.ads.AdSettings;
 import com.facebook.ads.AudienceNetworkAds;
 import com.facebook.ads.InterstitialAd;
 import com.facebook.ads.InterstitialAdListener;
@@ -73,6 +74,12 @@ public class FacebookAdapter extends Adapter {
             throw new IllegalStateException("You already set adUnitId with 'withRemoteConfig' method");
         }
         this.adUnitId = adUnitId;
+        return this;
+    }
+
+
+    public FacebookAdapter addTestDevice(@Size(min = 36, max = 36) String testDevice) {
+        AdSettings.addTestDevice(testDevice);
         return this;
     }
 

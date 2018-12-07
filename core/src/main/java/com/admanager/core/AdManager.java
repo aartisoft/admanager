@@ -69,6 +69,7 @@ public class AdManager {
     private boolean showAndFinish;
     private long timeCap;
     private long lastTimeShowed;
+    boolean testMode;
 
     AdManager(Activity activity) {
         RemoteConfigHelper.init(activity);
@@ -104,12 +105,13 @@ public class AdManager {
     }
 
     AdManager build() {
-        return build(null);
+        return build(null, false);
     }
 
-    AdManager build(Listener listener) {
+    AdManager build(Listener listener, boolean testMode) {
         Log.d(TAG, "initializing");
         this.listener = listener;
+        this.testMode = testMode;
 
         if (ENABLE_KEYS.size() != LOADED.size() || LOADED.size() != SKIP.size()) {
             throw new IllegalStateException("WRONG INITIALIZED ADS");
@@ -272,7 +274,7 @@ public class AdManager {
         if (stepByStep && Utils.allTrue(SKIP)) {
             Log.d(TAG, "Reloading ads");
             destroy();
-            build(listener);
+            build(listener, testMode);
             this.showable = false;
         }
     }

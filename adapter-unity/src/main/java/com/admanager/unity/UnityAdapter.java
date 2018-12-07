@@ -68,7 +68,7 @@ public class UnityAdapter extends Adapter {
         }
         UnityRouter.addListener(placementId, LISTENER);
         if (!UnityRouter.isInitialized()) {
-            UnityRouter.initUnityAds(gameId, getActivity());
+            UnityRouter.initUnityAds(gameId, getActivity(), isTestMode());
         }
     }
 

@@ -31,6 +31,7 @@ public class AdmobAdapter extends Adapter {
     private String adUnitId;
     private InterstitialAd ad;
     private boolean anyIdMethodCalled;
+    private String testDevice;
 
 
     public AdmobAdapter(@Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
@@ -55,6 +56,11 @@ public class AdmobAdapter extends Adapter {
         return this;
     }
 
+    public AdmobAdapter addTestDevice(@Size(min = 32, max = 32) String testDevice) {
+        this.testDevice = testDevice;
+        return this;
+    }
+
     @Override
     protected void init() {
         if (!anyIdMethodCalled) {
@@ -68,7 +74,11 @@ public class AdmobAdapter extends Adapter {
         ad = new InterstitialAd(getActivity());
         ad.setAdUnitId(adUnitId);
         ad.setAdListener(ADMOB_AD_LISTENER);
-        ad.loadAd(new AdRequest.Builder().build());
+        AdRequest.Builder builder = new AdRequest.Builder();
+        if(testDevice != null) {
+            builder.addTestDevice(testDevice);
+        }
+        ad.loadAd(builder.build());
     }
 
     @Override
