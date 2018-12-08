@@ -85,7 +85,7 @@ public class AdmobAdHelper {
 
     }
 
-
+/*
     public static void populateContentAdView(NativeContentAd nativeContentAd, NativeContentAdView adView) {
         adView.setHeadlineView(adView.findViewById(R.id.contentad_headline));
         adView.setImageView(adView.findViewById(R.id.contentad_image));
@@ -118,5 +118,5 @@ public class AdmobAdHelper {
 
         // Assign native ad object to the native view.
         adView.setNativeAd(nativeContentAd);
-    }
+    }*/
 }
