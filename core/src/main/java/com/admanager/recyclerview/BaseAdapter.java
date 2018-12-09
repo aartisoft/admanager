@@ -10,12 +10,12 @@ import java.util.List;
 public abstract class BaseAdapter<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH> {
     private static final String TAG = "BaseAdapter";
 
-    public BaseAdapter(Activity activity, Class<VH> vhClass, int layout) {
-        super(activity, vhClass, layout);
+    public BaseAdapter(Activity activity, int layout) {
+        super(activity, layout);
     }
 
-    public BaseAdapter(Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data) {
-        super(activity, vhClass, layout, data);
+    public BaseAdapter(Activity activity, @LayoutRes int layout, List<T> data) {
+        super(activity, layout, data);
     }
 
 }
