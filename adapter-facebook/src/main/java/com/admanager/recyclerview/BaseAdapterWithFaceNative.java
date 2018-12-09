@@ -25,16 +25,16 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
     private static final String TAG = "FaceSearchAdapter";
     private NativeAdsManager manager;
 
-    public BaseAdapterWithFaceNative(Activity activity, Class<VH> vhClass, @LayoutRes int layout) {
-        super(activity, vhClass, layout);
+    public BaseAdapterWithFaceNative(Activity activity, @LayoutRes int layout) {
+        super(activity,  layout);
     }
 
-    public BaseAdapterWithFaceNative(Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data) {
-        super(activity, vhClass, layout, data);
+    public BaseAdapterWithFaceNative(Activity activity, @LayoutRes int layout, List<T> data) {
+        super(activity, layout, data);
     }
 
-    public BaseAdapterWithFaceNative(Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data, boolean show_native, @Size(min = Consts.AD_UNIT_SIZE_MIN, max = Consts.AD_UNIT_SIZE_MAX) String nativeAdUnitId) {
-        super(activity, vhClass, layout, data, show_native);
+    public BaseAdapterWithFaceNative(Activity activity, @LayoutRes int layout, List<T> data, boolean show_native, @Size(min = Consts.AD_UNIT_SIZE_MIN, max = Consts.AD_UNIT_SIZE_MAX) String nativeAdUnitId) {
+        super(activity, layout, data, show_native);
         if (manager == null) {
             manager = new NativeAdsManager(activity, nativeAdUnitId, 5);
             manager.setListener(new NativeAdsManager.Listener() {

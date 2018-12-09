@@ -24,7 +24,7 @@ import java.util.List;
 public class TrackAdapterCustom extends BaseAdapterWithFaceNative<TrackModel, TrackViewHolder> {
 
     public TrackAdapterCustom(Activity activity) {
-        super(activity, TrackViewHolder.class, R.layout.item_track, null, showNative(), getNativeId());
+        super(activity,  R.layout.item_track, null, showNative(), getNativeId());
     }
 
     private static boolean showNative() {
@@ -33,6 +33,11 @@ public class TrackAdapterCustom extends BaseAdapterWithFaceNative<TrackModel, Tr
 
     private static String getNativeId() {
         return RemoteConfigHelper.getConfigs().getString(RCUtils.NATIVE_FACEBOOK_ID);
+    }
+
+    @Override
+    public TrackViewHolder createViewHolder(View view) {
+        return new TrackViewHolder(view);
     }
 
     @NonNull

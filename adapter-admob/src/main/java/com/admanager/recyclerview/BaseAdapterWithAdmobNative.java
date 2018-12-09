@@ -25,16 +25,16 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
     private AdLoader mAdLoader;
     private CopyOnWriteArrayList<NativeAppInstallAd> mAppInstallAd = new CopyOnWriteArrayList<>();
 
-    public BaseAdapterWithAdmobNative(Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data) {
-        super(activity, vhClass, layout, data);
+    public BaseAdapterWithAdmobNative(Activity activity, @LayoutRes int layout, List<T> data) {
+        super(activity, layout, data);
     }
 
-    public BaseAdapterWithAdmobNative(Activity activity, Class<VH> vhClass,
+    public BaseAdapterWithAdmobNative(Activity activity,
                                       @LayoutRes int layout,
                                       List<T> data,
                                       boolean show_native,
                                       @Size(min = com.admanager.admob.Consts.AD_UNIT_SIZE_MIN, max = com.admanager.admob.Consts.AD_UNIT_SIZE_MAX) String nativeAdUnitId) {
-        super(activity, vhClass, layout, data, show_native);
+        super(activity, layout, data, show_native);
         if (mAdLoader == null) {
             mAdLoader = new AdLoader.Builder(activity, nativeAdUnitId)
                     .forAppInstallAd(new NativeAppInstallAd.OnAppInstallAdLoadedListener() {

@@ -31,26 +31,24 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
     private List<RowWrapper> rowWrappers;
     private List<T> data;
 
-    private Class<VH> vhClass;
 
     @LayoutRes
     private int layout;
     private boolean isLoading = false;
     private boolean isLoadingPage = false;
 
-    ABaseAdapter(final Activity activity, Class<VH> vhClass, @LayoutRes int layout) {
-        this(activity, vhClass, layout, new ArrayList<T>());
+    ABaseAdapter(final Activity activity,@LayoutRes int layout) {
+        this(activity, layout, new ArrayList<T>());
     }
 
-    ABaseAdapter(final Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data) {
-        this(activity, vhClass, layout, data, false);
+    ABaseAdapter(final Activity activity, @LayoutRes int layout, List<T> data) {
+        this(activity, layout, data, false);
     }
 
-    ABaseAdapter(final Activity activity, Class<VH> vhClass, @LayoutRes int layout, List<T> data, boolean show_native) {
+    ABaseAdapter(final Activity activity, @LayoutRes int layout, List<T> data, boolean show_native) {
         this.activity = activity;
         this.data = data == null ? new ArrayList<T>() : data;
         this.show_native = show_native;
-        this.vhClass = vhClass;
         this.layout = layout;
         int gridSize = gridSize();
 
@@ -71,6 +69,8 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
     public int gridSize() {
         return 1;
     }
+
+    public abstract VH createViewHolder(View view);
 
     @Override
     public final int getItemViewType(int position) {
@@ -114,16 +114,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
             holder = new LoadingViewHolder(view);
         } else if (viewType == RowWrapper.Type.LIST.ordinal()) {
             view = LayoutInflater.from(parent.getContext()).inflate(layout, parent, false);
-            try {
-                holder = vhClass.getConstructor(View.class).newInstance(view);
-            } catch (Throwable e) {
-                try {
-                    holder = vhClass.getConstructor(getClass(), View.class).newInstance(this, view);
-                } catch (Throwable e2) {
-                    Log.e(TAG, "Couldn't find suitable Constructor for " + vhClass.getSimpleName() + ". There should be 1 parameter (View) constructor.");
-                    e2.printStackTrace();
-                }
-            }
+            holder = createViewHolder(view);
         }
         return holder;
     }
