@@ -63,6 +63,11 @@
             android:name=".activity.RecyclerViewCustomActivity"
             android:label="@string/ex_recycler_view_custom" />
 
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/admob_app_id"
+            tools:replace="android:value" />
+
     </application>
 
 </manifest>

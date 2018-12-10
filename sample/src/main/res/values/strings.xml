@@ -14,6 +14,7 @@
 
     <string name="accept">I ACCEPT</string>
 
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string> <!--todo-->
     <string name="unity_game_id">2908042</string> <!--todo-->
     <string name="unity_placement_id_onresume">onresume</string> <!--todo-->
     <string name="unity_placement_id_onexit">video</string> <!--todo-->
