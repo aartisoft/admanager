@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.support.annotation.DrawableRes;
 
 public class NotificationConfigs {
-    public Class<? extends Activity> clickToGo;
+    Class<? extends Activity> clickToGo;
 
     @DrawableRes
-    public int smallIcon;
+    int smallIcon;
 
     @DrawableRes
-    public int largeIcon;
+    int largeIcon;
 
     public NotificationConfigs(Class<? extends Activity> clickToGo, @DrawableRes int smallIcon, @DrawableRes int largeIcon) {
         this.clickToGo = clickToGo;

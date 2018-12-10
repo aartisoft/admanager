@@ -45,6 +45,11 @@ public class RCUtils {
     public static final String CUSTOM_BANNER_IMAGE_URL = "custom_banner_image_url";
     public static final String CUSTOM_BANNER_CLICK_URL = "custom_banner_click_url";
 
+    public static final String NOTIF_ENABLE = "notif_enable";
+    public static final String NOTIF_DAYS = "notif_days";
+    public static final String NOTIF_TITLE = "notif_title";
+    public static final String NOTIF_TICKER = "notif_ticker";
+    public static final String NOTIF_CONTENT = "notif_content";
 
     private static HashMap<String, Object> defaults = null;
 
@@ -86,6 +91,13 @@ public class RCUtils {
 
             defaults.put(CUSTOM_BANNER_IMAGE_URL, "https://image.oaking.tk/raw/kwd2i0ndex.gif");
             defaults.put(CUSTOM_BANNER_CLICK_URL, "https://play.google.com/store/apps/details?id=comm.essagechat.listing");
+
+            //NOTIFIC
+            defaults.put(NOTIF_ENABLE, false);
+            defaults.put(NOTIF_DAYS, 1);
+            defaults.put(NOTIF_TITLE, "");
+            defaults.put(NOTIF_TICKER, "");
+            defaults.put(NOTIF_CONTENT, "");
         }
         return defaults;
     }

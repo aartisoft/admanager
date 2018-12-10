@@ -15,6 +15,7 @@ import android.support.v4.app.JobIntentService;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class ReminderService extends JobIntentService {
@@ -26,6 +27,7 @@ public class ReminderService extends JobIntentService {
     public static void setAlarm(Context context) {
         Notif notif = Helper.getNotif(context);
         if (notif == null) {
+            Log.e(TAG, "setAlarm notif is null");
             return;
         }
 
@@ -35,9 +37,9 @@ public class ReminderService extends JobIntentService {
     private static void setAlarm(Context context, @NonNull Notif notif) {
         long delay;
 
-        if (notif.isEnabled())
+        if (notif.isEnabled()) {
             delay = TimeUnit.DAYS.toMillis(1) * notif.days;
-        else {
+        } else {
             delay = TimeUnit.HOURS.toMillis(1); // try 1 hours later
         }
 
@@ -47,7 +49,7 @@ public class ReminderService extends JobIntentService {
         long lastLaunchDate = Helper.with(context).getLastLaunchDate();
         if (lastLaunchDate + delay < System.currentTimeMillis())
             lastLaunchDate = System.currentTimeMillis();
-        Log.i(TAG, " time:" + (lastLaunchDate + delay));
+        Log.i(TAG, "Next Alarm Time:" + new Date(lastLaunchDate + delay));
         am.set(AlarmManager.RTC_WAKEUP, lastLaunchDate + delay, pi);
     }
 

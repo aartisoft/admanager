@@ -35,5 +35,6 @@ dependencies {
     implementation project(path: ':adapter-facebook')
     implementation project(path: ':adapter-unity')
     implementation project(path: ':custom-banner')
+    implementation project(path: ':periodic-notification')
 }
 apply plugin: 'com.google.gms.google-services'

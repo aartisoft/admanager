@@ -7,7 +7,7 @@ public class PeriodicNotificationKeys {
     public String ticker;
     public String content;
 
-    public PeriodicNotificationKeys() {
+    PeriodicNotificationKeys() {
         this.enabled = "notif_enabled";
         this.days = "notif_days";
         this.title = "notif_title";

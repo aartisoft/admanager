@@ -5,13 +5,24 @@ import android.text.TextUtils;
 import com.admanager.config.RemoteConfigHelper;
 
 public class Notif {
+    private static String SPLITTER = "!_--_!";
     public boolean enabled;
     public long days;
     public String title;
     public String ticker;
     public String content;
 
-    public Notif(PeriodicNotificationKeys keys) {
+
+    private Notif(String[] serialized) {
+        int i = 0;
+        this.days = Long.parseLong(serialized[i++]);
+        this.enabled = Boolean.parseBoolean(serialized[i++]);
+        this.title = serialized[i++];
+        this.ticker = serialized[i++];
+        this.content = serialized[i];
+    }
+
+    Notif(PeriodicNotificationKeys keys) {
         this.enabled = RemoteConfigHelper.getConfigs().getBoolean(keys.enabled);
         this.days = RemoteConfigHelper.getConfigs().getLong(keys.days);
         this.title = RemoteConfigHelper.getConfigs().getString(keys.title);
@@ -19,25 +30,31 @@ public class Notif {
         this.content = RemoteConfigHelper.getConfigs().getString(keys.content);
     }
 
-    public static Notif deserialize(String string) {
-        return null;
+    static Notif deserialize(String string) {
+        if (TextUtils.isEmpty(string)) {
+            return null;
+        }
+
+        String[] split = string.split(SPLITTER);
+        if (split.length != 5) {
+            return null;
+        }
+
+        return new Notif(split);
     }
 
     public boolean isValid() {
         if (TextUtils.isEmpty(title) || TextUtils.isEmpty(ticker) || TextUtils.isEmpty(content)) {
             return false;
         }
-        if (days < 1) {
-            return false;
-        }
-        return true;
+        return days >= 1;
     }
 
     public boolean isEnabled() {
         return isValid() && enabled;
     }
 
-    public String serialize() {
-        return null;
+    String serialize() {
+        return days + SPLITTER + enabled + SPLITTER + title + SPLITTER + ticker + SPLITTER + content;
     }
 }

@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
+import com.admanager.config.RemoteConfigHelper;
+
 import static com.admanager.periodicnotification.PeriodicNotification.TAG;
 
 /**
@@ -33,7 +35,7 @@ public class Helper {
         return instance;
     }
 
-    public static PeriodicNotificationKeys getKeys(Context context) {
+    private static PeriodicNotificationKeys getKeys(Context context) {
         PeriodicNotificationApp app = getPeriodicNotificationApp(context);
         if (app == null) {
             return null;
@@ -42,11 +44,11 @@ public class Helper {
         return app.withRemoteConfigKeys();
     }
 
-    public static PeriodicNotificationApp getPeriodicNotificationApp(Context context) {
+    static PeriodicNotificationApp getPeriodicNotificationApp(Context context) {
         if (context == null) {
             return null;
         }
-        if (!(context instanceof PeriodicNotificationApp)) {
+        if (!(context.getApplicationContext() instanceof PeriodicNotificationApp)) {
             throw new IllegalStateException("Application should implements 'PeriodicNotificationApp'");
         }
         return ((PeriodicNotificationApp) context.getApplicationContext());
@@ -54,10 +56,12 @@ public class Helper {
 
 
     @Nullable
-    public static Notif getNotif(Context context) {
+    static Notif getNotif(Context context) {
         if (context == null) {
             return null;
         }
+
+        RemoteConfigHelper.init(context);
 
         // get keys from application context
         PeriodicNotificationKeys keys = Helper.getKeys(context);
@@ -84,7 +88,7 @@ public class Helper {
         return notif;
     }
 
-    Notif getNotif() {
+    private Notif getNotif() {
         String string = sharedPreferences.getString(PREF_KEY_NOTIFICATION, null);
         if (string == null) {
             return null;
@@ -115,12 +119,12 @@ public class Helper {
     }
 
 
-    public long getLastLaunchDate() {
+    long getLastLaunchDate() {
         return sharedPreferences
                 .getLong(PREF_KEY_LAST_LAUNCH_DATE, 0);
     }
 
-    public void increaseLaunchTimes() {
+    void increaseLaunchTimes() {
         int launchTimes = getLaunchTimes();
         if (launchTimes == 0) {
             setInstallDate();
@@ -132,7 +136,7 @@ public class Helper {
                 .apply();
     }
 
-    public int getLaunchTimes() {
+    private int getLaunchTimes() {
         return sharedPreferences
                 .getInt(PREF_KEY_LAUNCH_TIMES, 0);
     }

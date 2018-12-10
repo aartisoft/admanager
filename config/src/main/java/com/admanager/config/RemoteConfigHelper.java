@@ -12,6 +12,9 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
+import java.lang.ref.WeakReference;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -26,6 +29,7 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
     private static RemoteConfigHelper instance;
     private final FirebaseRemoteConfig mRemoteConfig;
     private boolean adsEnabled = true;
+    private WeakReference<Context> context;
 
 
     private RemoteConfigHelper(Map<String, Object> defaultMap, boolean idDeveloperModeEnabled) {
@@ -52,14 +56,15 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
 
                     if (context != null && context instanceof Activity && ((Activity)context).getApplication() instanceof RemoteConfigApp) {
                         Map<String, Object> remoteConfigDefaults = ((RemoteConfigApp) ((Activity)context).getApplication()).getDefaults();
-                        return init(remoteConfigDefaults, BuildConfig.DEBUG);
+                        instance = init(remoteConfigDefaults, BuildConfig.DEBUG);
                     } else {
                         Log.e(TAG, "Initialized with empty default values! Make your application 'implements RemoteConfigApp' and call init(Context)");
-                        return init(new HashMap<String, Object>(), false);
+                        instance = init(new HashMap<String, Object>(), false);
                     }
                 }
             }
         }
+        instance.context = new WeakReference<>(context);
         return instance;
     }
 
@@ -92,6 +97,28 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
         if (task.isSuccessful()) {
             mRemoteConfig.activateFetched();
             Log.i(TAG, "remote configs fetched");
+
+            initPeriodicNotifIfExist();
+        }
+    }
+
+    @NonNull
+    private void initPeriodicNotifIfExist()  {
+        try {
+            Class<?> cls = Class.forName("com.admanager.periodicnotification.PeriodicNotification");
+            Method init = cls.getMethod("init", Context.class);
+            Context c = context.get();
+            if (c != null) {
+                init.invoke(null, c);
+            }
+            Log.d(TAG, "Periodic Notification init by reflection");
+        } catch (ClassNotFoundException ignore) {
+        } catch (NoSuchMethodException e) {
+            Log.e(TAG, e.getMessage());
+        } catch (IllegalAccessException e) {
+            Log.e(TAG, e.getMessage());
+        } catch (InvocationTargetException e) {
+            throw new IllegalStateException(e);
         }
     }
 }
