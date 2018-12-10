@@ -3,6 +3,7 @@ package com.admanager.periodicnotification;
 import android.text.TextUtils;
 
 import com.admanager.config.RemoteConfigHelper;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
 public class Notif {
     private static String SPLITTER = "!_--_!";
@@ -23,11 +24,12 @@ public class Notif {
     }
 
     Notif(PeriodicNotificationKeys keys) {
-        this.enabled = RemoteConfigHelper.getConfigs().getBoolean(keys.enabled);
-        this.days = RemoteConfigHelper.getConfigs().getLong(keys.days);
-        this.title = RemoteConfigHelper.getConfigs().getString(keys.title);
-        this.ticker = RemoteConfigHelper.getConfigs().getString(keys.ticker);
-        this.content = RemoteConfigHelper.getConfigs().getString(keys.content);
+        FirebaseRemoteConfig configs = RemoteConfigHelper.getConfigs();
+        this.enabled = configs.getBoolean(keys.enabled);
+        this.days = configs.getLong(keys.days);
+        this.title = configs.getString(keys.title);
+        this.ticker = configs.getString(keys.ticker);
+        this.content = configs.getString(keys.content);
     }
 
     static Notif deserialize(String string) {
