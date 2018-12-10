@@ -1,7 +1,6 @@
 package com.admanager.recyclerview;
 
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,7 +11,7 @@ import com.google.android.gms.ads.formats.NativeAppInstallAd;
 import com.google.android.gms.ads.formats.NativeAppInstallAdView;
 
 
-class AdmobNativeAdViewHolder extends RecyclerView.ViewHolder {
+class AdmobNativeAdViewHolder extends BindableAdmobAdViewHolder {
     private NativeAppInstallAdView mAdView;
 
     AdmobNativeAdViewHolder(View itemView) {
@@ -24,7 +23,7 @@ class AdmobNativeAdViewHolder extends RecyclerView.ViewHolder {
         mAdView.setIconView(this.itemView.findViewById(R.id.appinstall_app_icon));
     }
 
-    void bindTo(NativeAppInstallAd appInstallAd) {
+    protected void bindTo(NativeAppInstallAd appInstallAd) {
         if (appInstallAd == null) {
             mAdView.setVisibility(View.GONE);
             return;

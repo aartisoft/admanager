@@ -59,7 +59,6 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
 
     }
 
-
     @Override
     @NonNull
     public final RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -70,8 +69,38 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
             return holder;
         } else if (viewType == RowWrapper.Type.NATIVE_AD.ordinal()) {
             final LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-            view = layoutInflater.inflate(R.layout.ad_app_install, parent, false);
-            holder = new AdmobNativeAdViewHolder(view);
+
+            //////////////////
+            ///// Layout /////
+            //////////////////
+            int layout = getLayoutId();
+            if (layout == 0) {
+                throw new IllegalArgumentException("Override 'getCustomLayout()' and give valid Layout ID");
+            }
+
+            // use Custom Layout if user filled
+            int customLayout = getCustomNativeLayout();
+            if (customLayout != 0) {
+                layout = customLayout;
+            }
+
+            view = layoutInflater.inflate(layout, parent, false);
+
+            ///////////////////
+            /// View Holder ///
+            ///////////////////
+            RecyclerView.ViewHolder vh = getViewHolder(view);
+            if (vh == null) {
+                throw new IllegalArgumentException("Override 'getCustomViewHolder()' and give valid ViewHolder");
+            }
+
+            // use Custom View Holder  if user filled
+            BindableAdmobAdViewHolder customViewHolder = getCustomNativeViewHolder(view);
+            if (customViewHolder != null) {
+                vh = customViewHolder;
+            }
+
+            holder = vh;
         }
         return holder;
     }
@@ -79,7 +108,7 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
     @Override
     public final void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         super.onBindViewHolder(holder, position);
-        if (holder instanceof AdmobNativeAdViewHolder) {
+        if (holder instanceof BindableAdmobAdViewHolder) {
             NativeAppInstallAd ad = null;
             try {
                 int index = (position / super.DEFAULT_NO_OF_DATA_BETWEEN_ADS) % mAppInstallAd.size();
@@ -87,15 +116,51 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
             } catch (Exception ignored) {
 
             }
-            ((AdmobNativeAdViewHolder) holder).bindTo(ad);
+            ((BindableAdmobAdViewHolder) holder).bindTo(ad);
         }
     }
 
-    /** todo
-     * public enum NativeType {
-     *       NATIVE_BANNER, NATIVE_LARGE,
-     *       NATIVE_BANNER_CONTENT_AD, NATIVE_LARGE_CONTENT_AD,
-     *       CUSTOM
-     * }
-     * */
+    public BindableAdmobAdViewHolder getCustomNativeViewHolder(View view) {
+        return null;
+    }
+
+    @LayoutRes
+    public int getCustomNativeLayout() {
+        return 0;
+    }
+
+    private BindableAdmobAdViewHolder getViewHolder(View view) {
+        switch (getNativeType()) {
+            case CUSTOM:
+                return getCustomNativeViewHolder(view);
+            case NATIVE_LARGE:
+                return new AdmobNativeAdViewHolder(view);
+            case NATIVE_BANNER:
+            default:
+                return new AdmobNativeAdViewHolder(view);
+        }
+    }
+
+    @LayoutRes
+    private int getLayoutId() {
+        switch (getNativeType()) {
+            case CUSTOM:
+                return getCustomNativeLayout();
+            case NATIVE_LARGE:
+                return R.layout.ad_app_install;
+            case NATIVE_BANNER:
+            default:
+                return R.layout.ad_app_install_sm;
+        }
+    }
+
+    @NonNull
+    public NativeType getNativeType() {
+        return NativeType.NATIVE_BANNER;
+    }
+
+
+    public enum NativeType {
+        NATIVE_BANNER, NATIVE_LARGE, CUSTOM
+    }
 }

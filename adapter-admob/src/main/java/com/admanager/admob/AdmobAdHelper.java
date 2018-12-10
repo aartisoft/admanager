@@ -1,27 +1,11 @@
 package com.admanager.admob;
 
 
-import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.RatingBar;
-import android.widget.TextView;
-
-import com.google.android.gms.ads.VideoController;
-import com.google.android.gms.ads.formats.MediaView;
-import com.google.android.gms.ads.formats.NativeAd;
-import com.google.android.gms.ads.formats.NativeAppInstallAd;
-import com.google.android.gms.ads.formats.NativeAppInstallAdView;
-import com.google.android.gms.ads.formats.NativeContentAd;
-import com.google.android.gms.ads.formats.NativeContentAdView;
-
-import java.util.List;
-
 public class AdmobAdHelper {
 
     private static final String TAG = "MyAdmobHelper";
 
-
+/*
     public static void populateAppInstallAdView(NativeAppInstallAd nativeAppInstallAd, NativeAppInstallAdView adView) {
         VideoController videoController = nativeAppInstallAd.getVideoController();
 
@@ -83,7 +67,7 @@ public class AdmobAdHelper {
             adView.getStarRatingView().setVisibility(View.VISIBLE);
         }
 
-    }
+    }*/
 
 /*
     public static void populateContentAdView(NativeContentAd nativeContentAd, NativeContentAdView adView) {
