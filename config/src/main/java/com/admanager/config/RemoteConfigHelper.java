@@ -81,7 +81,7 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
 
     private static RemoteConfigHelper getInstance() {
         if (instance == null) {
-            Log.e(TAG, "Not initialized yet! Call init() method first, or make your application 'RemoteConfigApp' ");
+            Log.e(TAG, "Not initialized yet! Call init() method first, or make your application 'RemoteConfigApp'");
             init(null);
         }
         return instance;
