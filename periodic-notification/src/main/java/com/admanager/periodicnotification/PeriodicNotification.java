@@ -1,5 +1,6 @@
 package com.admanager.periodicnotification;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.Keep;
 
@@ -14,7 +15,9 @@ public class PeriodicNotification {
         RemoteConfigHelper.init(context);
 
         // save last launch date
-        Helper.with(context).increaseLaunchTimes();
+        if (context instanceof Activity) {
+            Helper.with(context).increaseLaunchTimes();
+        }
 
         // set alarm
         ReminderService.setAlarm(context);
