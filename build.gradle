@@ -29,6 +29,9 @@ allprojects {
         maven {
             url "https://jitpack.io"
         }
+        maven {
+            url 'https://google.bintray.com/exoplayer/'
+        }
         flatDir{
             dirs 'libs'
         }
