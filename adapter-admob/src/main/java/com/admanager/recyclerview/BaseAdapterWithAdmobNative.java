@@ -36,6 +36,9 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
                                       @Size(min = com.admanager.admob.Consts.AD_UNIT_SIZE_MIN, max = com.admanager.admob.Consts.AD_UNIT_SIZE_MAX) String nativeAdUnitId) {
         super(activity, layout, data, show_native);
         if (mAdLoader == null) {
+            if (activity == null) {
+                return;
+            }
             mAdLoader = new AdLoader.Builder(activity, nativeAdUnitId)
                     .forAppInstallAd(new NativeAppInstallAd.OnAppInstallAdLoadedListener() {
                         @Override

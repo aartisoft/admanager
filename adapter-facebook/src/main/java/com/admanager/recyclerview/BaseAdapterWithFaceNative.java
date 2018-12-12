@@ -36,6 +36,9 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
     public BaseAdapterWithFaceNative(Activity activity, @LayoutRes int layout, List<T> data, boolean show_native, @Size(min = Consts.AD_UNIT_SIZE_MIN, max = Consts.AD_UNIT_SIZE_MAX) String nativeAdUnitId) {
         super(activity, layout, data, show_native);
         if (manager == null) {
+            if (activity == null) {
+                return;
+            }
             manager = new NativeAdsManager(activity, nativeAdUnitId, 5);
             manager.setListener(new NativeAdsManager.Listener() {
                 @Override
