@@ -26,7 +26,9 @@ public class AdManager {
     private final Application.ActivityLifecycleCallbacks LIFECYCLE_CALLBACKS = new Application.ActivityLifecycleCallbacks() {
         @Override
         public void onActivityCreated(Activity activity, Bundle bundle) {
-
+            if (isActivityEquals(activity)) {
+                onCreated();
+            }
         }
 
         @Override
@@ -37,12 +39,16 @@ public class AdManager {
 
         @Override
         public void onActivityResumed(Activity activity) {
-
+            if (isActivityEquals(activity)) {
+                onResume();
+            }
         }
 
         @Override
         public void onActivityPaused(Activity activity) {
-
+            if (isActivityEquals(activity)) {
+                onPause();
+            }
         }
 
         @Override
@@ -129,6 +135,26 @@ public class AdManager {
         return this;
     }
 
+    private void onPause() {
+        Log.d(TAG, "pause");
+        for (Adapter adapter : ADAPTERS) {
+            adapter.onPause();
+        }
+    }
+
+    private void onCreated() {
+        Log.d(TAG, "onCreated");
+        for (Adapter adapter : ADAPTERS) {
+            adapter.onCreated();
+        }
+    }
+
+    private void onResume() {
+        Log.d(TAG, "resume");
+        for (Adapter adapter : ADAPTERS) {
+            adapter.onResume();
+        }
+    }
     private void destroy() {
         Log.d(TAG, "Destroying");
         for (int i = 0; i < SKIP.size(); i++) {
@@ -295,7 +321,7 @@ public class AdManager {
     }
 
     private boolean isActivityEquals(Activity activity) {
-        return activity.getClass().getName().equals(getActivity().getClass().getName());
+        return activity != null && activity.getClass().getName().equals(getActivity().getClass().getName());
     }
 
     void setLoaded(int order) {

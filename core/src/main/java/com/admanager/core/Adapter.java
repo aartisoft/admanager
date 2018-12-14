@@ -34,27 +34,49 @@ public abstract class Adapter {
 
     protected final void loaded() {
         Log.d(manager.TAG, getClass().getSimpleName() + " loaded");
-        this.manager.setLoaded(order);
-        this.manager.display();
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Adapter.this.manager.setLoaded(order);
+                Adapter.this.manager.display();
+
+            }
+        });
     }
 
     protected final void error(String error) {
         Log.e(manager.TAG, getClass().getSimpleName() + " error :" + error);
-        this.manager.setLoaded(order);
-        this.manager.setSkip(order);
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Adapter.this.manager.setLoaded(order);
+                Adapter.this.manager.setSkip(order);
 
-        this.manager.display();
+                Adapter.this.manager.display();
+
+            }
+        });
     }
 
     protected final void closed() {
         Log.d(manager.TAG, getClass().getSimpleName() + " closed");
-        this.manager.setClosed(order);
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Adapter.this.manager.setClosed(order);
 
-        this.manager.display(true);
+                Adapter.this.manager.display(true);
+
+            }
+        });
     }
 
     protected final void loge(String message) {
         Log.e(manager.TAG, getClass().getSimpleName() + ": " + message);
+    }
+
+    protected final void logv(String message) {
+        Log.v(manager.TAG, getClass().getSimpleName() + ": " + message);
     }
 
     protected abstract void show();
@@ -62,4 +84,16 @@ public abstract class Adapter {
     protected abstract void init();
 
     protected abstract void destroy();
+
+    protected void onCreated() {
+
+    }
+
+    protected void onPause() {
+
+    }
+
+    protected void onResume() {
+
+    }
 }

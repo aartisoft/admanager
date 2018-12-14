@@ -1,1 +1,1 @@
-include ':config', ':adapter-facebook', ':adapter-admob', ':core', ':custom-banner', ':adapter-unity', ':adapter-applovin', ':sample', ':periodic-notification'
+include ':config', ':adapter-facebook', ':adapter-admob', ':core', ':custom-banner', ':adapter-unity', ':adapter-applovin', ':adapter-ironsource', ':sample', ':periodic-notification'
