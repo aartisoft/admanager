@@ -13,6 +13,7 @@ AdManager's unique set of features:
 |----------------|------------|------------|------------|
 |**Admob:**|OK|OK|OK|
 |**Facebook:**|OK|OK|OK|
+|**Ironsource:**|OK|OK||
 |**AppLovin:**|OK|||
 |**Unity:**|OK|||
 
@@ -33,11 +34,11 @@ buildscript {
 
 // In your app projects build.gradle file:
 dependencies {
-    implementation 'com.github.fgustovo.admanager:adapter-admob:0.2.8'
-    implementation 'com.github.fgustovo.admanager:adapter-unity:0.2.8'
-    implementation 'com.github.fgustovo.admanager:adapter-applovin:0.2.8'
-    implementation 'com.github.fgustovo.admanager:adapter-facebook:0.2.8'
-    implementation 'com.github.fgustovo.admanager:custom-banner:0.2.8'
+    implementation 'com.github.fgustovo.admanager:adapter-admob:0.2.11'
+    implementation 'com.github.fgustovo.admanager:adapter-unity:0.2.11'
+    implementation 'com.github.fgustovo.admanager:adapter-applovin:0.2.11'
+    implementation 'com.github.fgustovo.admanager:adapter-facebook:0.2.11'
+    implementation 'com.github.fgustovo.admanager:custom-banner:0.2.11'
 }
 ```
 
