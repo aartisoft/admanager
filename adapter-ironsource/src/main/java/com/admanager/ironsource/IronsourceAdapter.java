@@ -25,6 +25,7 @@ public class IronsourceAdapter extends Adapter {
         @Override
         public void onInterstitialAdLoadFailed(IronSourceError ironSourceError) {
             logv("onInterstitialAdLoadFailed");
+            IronSource.removeInterstitialListener();
             error(ironSourceError != null ? (ironSourceError.getErrorCode() + ":" + ironSourceError.getErrorMessage()) : "");
         }
 
@@ -50,6 +51,7 @@ public class IronsourceAdapter extends Adapter {
         @Override
         public void onInterstitialAdShowFailed(IronSourceError ironSourceError) {
             logv("onInterstitialAdShowFailed");
+            IronSource.removeInterstitialListener();
             error(ironSourceError != null ? (ironSourceError.getErrorCode() + ":" + ironSourceError.getErrorMessage()) : "");
         }
 
@@ -88,7 +90,7 @@ public class IronsourceAdapter extends Adapter {
 
     @Override
     protected void destroy() {
-        IronSource.removeInterstitialListener();
+
     }
 
     @Override
