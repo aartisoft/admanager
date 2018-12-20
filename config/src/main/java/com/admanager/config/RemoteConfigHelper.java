@@ -49,17 +49,20 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
     }
 
     public static RemoteConfigHelper init(Context context) {
-        if (instance == null) {
+        return init(context, false);
+    }
+    public static RemoteConfigHelper init(Context context, boolean reload) {
+        if (instance == null || reload) {
             synchronized (RemoteConfigHelper.class) {
-                if (instance == null) {
+                if (instance == null || reload) {
                     FirebaseApp.initializeApp(context);
 
                     if (context != null && context instanceof Activity && ((Activity)context).getApplication() instanceof RemoteConfigApp) {
                         Map<String, Object> remoteConfigDefaults = ((RemoteConfigApp) ((Activity)context).getApplication()).getDefaults();
-                        instance = init(remoteConfigDefaults, BuildConfig.DEBUG);
+                        instance = init(remoteConfigDefaults, BuildConfig.DEBUG, reload);
                     } else {
                         Log.e(TAG, "Initialized with empty default values! Make your application 'implements RemoteConfigApp' and call init(Context)");
-                        instance = init(new HashMap<String, Object>(), false);
+                        instance = init(new HashMap<String, Object>(), false, reload);
                     }
                 }
             }
@@ -68,10 +71,10 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
         return instance;
     }
 
-    private static RemoteConfigHelper init(Map<String, Object> defaultMap, boolean idDeveloperModeEnabled) {
-        if (instance == null) {
+    private static RemoteConfigHelper init(Map<String, Object> defaultMap, boolean idDeveloperModeEnabled, boolean reload) {
+        if (instance == null || reload) {
             synchronized (RemoteConfigHelper.class) {
-                if (instance == null) {
+                if (instance == null || reload) {
                     instance = new RemoteConfigHelper(defaultMap, idDeveloperModeEnabled);
                 }
             }
