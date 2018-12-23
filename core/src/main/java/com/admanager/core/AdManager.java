@@ -249,7 +249,7 @@ public class AdManager {
                 String enableKey = ENABLE_KEYS.get(i);
                 Adapter adapter = ADAPTERS.get(i);
 
-                boolean enabled = enableKey == null || RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey);
+                boolean enabled = enableKey != null && RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey);
                 if (enabled) {
                     Log.d(TAG, "Displaying " + adapter.getClass().getSimpleName());
                     adapter.show();
