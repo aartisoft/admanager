@@ -20,6 +20,7 @@ public class AdManager {
     private final CopyOnWriteArrayList<String> ENABLE_KEYS = new CopyOnWriteArrayList<>();
     private final ArrayList<Adapter> ADAPTERS = new ArrayList<>();
     String TAG;
+    boolean testMode;
     private boolean showable = false;
     private Listener listener;
     private Activity context;
@@ -75,7 +76,6 @@ public class AdManager {
     private boolean showAndFinish;
     private long timeCap;
     private long lastTimeShowed;
-    boolean testMode;
 
     AdManager(Activity activity) {
         RemoteConfigHelper.init(activity);
@@ -87,6 +87,22 @@ public class AdManager {
         context.getApplication().registerActivityLifecycleCallbacks(LIFECYCLE_CALLBACKS);
     }
 
+    public static String arrayToString(CopyOnWriteArrayList<?> list) {
+        if (list == null) {
+            return "null";
+        }
+        StringBuilder ret = new StringBuilder();
+        for (int i = 0; i < list.size(); i++) {
+            Object o = list.get(i);
+            if (o == null) {
+                ret.append("null,");
+            } else {
+                ret.append(o.toString())
+                        .append(",");
+            }
+        }
+        return ret.toString();
+    }
 
     Activity getActivity() {
         return this.context;
@@ -155,6 +171,7 @@ public class AdManager {
             adapter.onResume();
         }
     }
+
     private void destroy() {
         Log.d(TAG, "Destroying");
         for (int i = 0; i < SKIP.size(); i++) {
@@ -183,7 +200,6 @@ public class AdManager {
         this.timeCap = timeCap;
         showOne();
     }
-
 
     public void showAndFinish() {
         if (this.intent != null) {
@@ -249,7 +265,16 @@ public class AdManager {
                 String enableKey = ENABLE_KEYS.get(i);
                 Adapter adapter = ADAPTERS.get(i);
 
-                boolean enabled = enableKey != null && RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey);
+                boolean enabledNotNull = enableKey != null;
+                boolean areAdsEnabled = RemoteConfigHelper.areAdsEnabled();
+                boolean remoteConfigEnabled = RemoteConfigHelper.getConfigs().getBoolean(enableKey);
+                boolean enabled = enabledNotNull && areAdsEnabled && remoteConfigEnabled;
+
+                Log.v(TAG, " enableKey:" + enableKey);
+                Log.v(TAG, " enabledNotNull:" + enabledNotNull + " areAdsEnabled:" + areAdsEnabled + " remoteConfigEnabled:" + remoteConfigEnabled + " enabled:" + enabled);
+                Log.v(TAG, " LOADED size:" + LOADED.size() + " list:" + arrayToString(LOADED));
+                Log.v(TAG, " SKIP size:" + SKIP.size() + " list:" + arrayToString(SKIP));
+                Log.v(TAG, " ENABLE_KEYS size:" + ENABLE_KEYS.size() + " list:" + arrayToString(ENABLE_KEYS));
                 if (enabled) {
                     Log.d(TAG, "Displaying " + adapter.getClass().getSimpleName());
                     adapter.show();
