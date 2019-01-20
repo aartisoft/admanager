@@ -22,6 +22,16 @@ android {
     }
 }
 
+repositories {
+    maven {
+        url "https://dl.bintray.com/ironsource-mobile/android-sdk"
+    }
+    maven {
+        url 'https://dl.bintray.com/ironsource-mobile/android-adapters'
+    }
+}
+
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
@@ -33,8 +43,19 @@ dependencies {
     implementation project(path: ':config')
     implementation project(path: ':adapter-admob')
     implementation project(path: ':adapter-facebook')
-    implementation project(path: ':adapter-unity')
+    implementation project(path: ':adapter-ironsource')
     implementation project(path: ':custom-banner')
     implementation project(path: ':periodic-notification')
+
+/* IRONSOURCE RELATED ADDITIONAL ADAPTERS
+// Add Fyber Network (Adapter only)
+    implementation 'com.ironsource.adapters:fyberadapter:4.3.0@jar'
+// Add InMobi Network
+    implementation 'com.ironsource.adapters:inmobiadapter:4.3.0@jar'
+// Add UnityAds Network
+    implementation 'com.ironsource.adapters:unityadsadapter:4.1.3@jar'
+
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.picasso:picasso:2.5.2'*/
 }
 apply plugin: 'com.google.gms.google-services'

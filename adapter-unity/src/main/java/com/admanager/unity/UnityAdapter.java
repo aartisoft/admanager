@@ -55,6 +55,11 @@ public class UnityAdapter extends Adapter {
         super(enableKey);
     }
 
+    @Override
+    protected String getAdapterName() {
+        return "Unity";
+    }
+
     public UnityAdapter withId(@Size(min = 5, max = 9) String gameId, @Size(min = 2) String placementId) {
         this.gameId = gameId;
         this.placementId = placementId;

@@ -2,7 +2,6 @@ package com.admanager.ironsource;
 
 import android.support.annotation.Size;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.admanager.core.Adapter;
 import com.admanager.core.Consts;
@@ -65,6 +64,11 @@ public class IronsourceAdapter extends Adapter {
 
     public IronsourceAdapter(@Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
         super(rcEnableKey);
+    }
+
+    @Override
+    protected String getAdapterName() {
+        return "Ironsource";
     }
 
     public IronsourceAdapter withId(@Size(min = 5, max = 10) String appKey, @Size(min = 2, max = 20) String placement) {

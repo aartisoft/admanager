@@ -2,39 +2,27 @@ package com.admanager.recyclerview;
 
 
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import com.admanager.admob.R;
-import com.google.android.gms.ads.formats.NativeAppInstallAd;
-import com.google.android.gms.ads.formats.NativeAppInstallAdView;
+import com.admanager.admob.AdmobAdHelper;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
+import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 
 
 class AdmobNativeAdViewHolder extends BindableAdmobAdViewHolder {
-    private NativeAppInstallAdView mAdView;
+    private UnifiedNativeAdView mAdView;
 
     AdmobNativeAdViewHolder(View itemView) {
         super(itemView);
-        mAdView = (NativeAppInstallAdView) this.itemView;
-        mAdView.setHeadlineView(this.itemView.findViewById(R.id.appinstall_headline));
-        mAdView.setBodyView(this.itemView.findViewById(R.id.appinstall_body));
-        mAdView.setCallToActionView(this.itemView.findViewById(R.id.appinstall_call_to_action));
-        mAdView.setIconView(this.itemView.findViewById(R.id.appinstall_app_icon));
+        mAdView = (UnifiedNativeAdView) this.itemView;
     }
 
-    protected void bindTo(NativeAppInstallAd appInstallAd) {
-        if (appInstallAd == null) {
+    protected void bindTo(UnifiedNativeAd unifiedNativeAd) {
+        if (unifiedNativeAd == null) {
             mAdView.setVisibility(View.GONE);
             return;
         }
-        ((TextView) mAdView.getHeadlineView()).setText(appInstallAd.getHeadline());
-        ((TextView) mAdView.getBodyView()).setText(appInstallAd.getBody());
-        ((Button) mAdView.getCallToActionView()).setText(appInstallAd.getCallToAction());
-        ((ImageView) mAdView.getIconView()).setImageDrawable(appInstallAd.getIcon().getDrawable());
 
-        // assign native ad object to the native view and make visible
-        mAdView.setNativeAd(appInstallAd);
         mAdView.setVisibility(View.VISIBLE);
+        AdmobAdHelper.populateUnifiedNativeAdView(unifiedNativeAd, mAdView);
     }
 }

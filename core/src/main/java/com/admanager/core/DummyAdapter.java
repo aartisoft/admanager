@@ -18,6 +18,11 @@ public class DummyAdapter extends Adapter {
     }
 
     @Override
+    protected String getAdapterName() {
+        return "Dummy";
+    }
+
+    @Override
     protected void show() {
         closed();
     }

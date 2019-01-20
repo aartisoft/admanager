@@ -33,7 +33,7 @@ public abstract class Adapter {
     }
 
     protected final void loaded() {
-        Log.d(manager.TAG, getClass().getSimpleName() + " loaded");
+        Log.d(manager.TAG, getAdapterName() + " loaded");
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -45,7 +45,7 @@ public abstract class Adapter {
     }
 
     protected final void error(String error) {
-        Log.e(manager.TAG, getClass().getSimpleName() + " error :" + error);
+        Log.e(manager.TAG, getAdapterName() + " error :" + error);
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -59,7 +59,7 @@ public abstract class Adapter {
     }
 
     protected final void closed() {
-        Log.d(manager.TAG, getClass().getSimpleName() + " closed");
+        Log.d(manager.TAG, getAdapterName() + " closed");
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -72,12 +72,14 @@ public abstract class Adapter {
     }
 
     protected final void loge(String message) {
-        Log.e(manager.TAG, getClass().getSimpleName() + ": " + message);
+        Log.e(manager.TAG, getAdapterName() + ": " + message);
     }
 
     protected final void logv(String message) {
-        Log.v(manager.TAG, getClass().getSimpleName() + ": " + message);
+        Log.v(manager.TAG, getAdapterName() + ": " + message);
     }
+
+    protected abstract String getAdapterName();
 
     protected abstract void show();
 

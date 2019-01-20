@@ -52,6 +52,11 @@ public class ApplovinAdapter extends Adapter {
         super(rcEnableKey);
     }
 
+    @Override
+    protected String getAdapterName() {
+        return "Applovin";
+    }
+
     private static AppLovinAd dequeueAd() {
         synchronized (GLOBAL_INTERSTITIAL_ADS_LOCK) {
             AppLovinAd preloadedAd = null;

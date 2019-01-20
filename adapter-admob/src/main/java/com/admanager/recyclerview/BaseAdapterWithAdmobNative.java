@@ -15,7 +15,7 @@ import com.admanager.admob.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
 import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.formats.NativeAppInstallAd;
+import com.google.android.gms.ads.formats.UnifiedNativeAd;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -23,7 +23,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH> {
     private static final String TAG = "AdmobSearchAdapter";
     private AdLoader mAdLoader;
-    private CopyOnWriteArrayList<NativeAppInstallAd> mAppInstallAd = new CopyOnWriteArrayList<>();
+    private CopyOnWriteArrayList<UnifiedNativeAd> mAppInstallAd = new CopyOnWriteArrayList<>();
 
     public BaseAdapterWithAdmobNative(Activity activity, @LayoutRes int layout, List<T> data) {
         super(activity, layout, data);
@@ -40,10 +40,10 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
                 return;
             }
             mAdLoader = new AdLoader.Builder(activity, nativeAdUnitId)
-                    .forAppInstallAd(new NativeAppInstallAd.OnAppInstallAdLoadedListener() {
+                    .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                         @Override
-                        public void onAppInstallAdLoaded(NativeAppInstallAd nativeAppInstallAd) {
-                            mAppInstallAd.add(nativeAppInstallAd);
+                        public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+                            mAppInstallAd.add(unifiedNativeAd);
                             refreshRowWrappers();
                         }
                     })
@@ -112,7 +112,7 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
     public final void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         super.onBindViewHolder(holder, position);
         if (holder instanceof BindableAdmobAdViewHolder) {
-            NativeAppInstallAd ad = null;
+            UnifiedNativeAd ad = null;
             try {
                 int index = (position / super.DEFAULT_NO_OF_DATA_BETWEEN_ADS) % mAppInstallAd.size();
                 ad = mAppInstallAd.get(index);
@@ -150,10 +150,10 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
             case CUSTOM:
                 return getCustomNativeLayout();
             case NATIVE_LARGE:
-                return R.layout.ad_app_install;
+                return R.layout.ad_native_unified;
             case NATIVE_BANNER:
             default:
-                return R.layout.ad_app_install_sm;
+                return R.layout.ad_native_unified_sm;
         }
     }
 

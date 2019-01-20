@@ -38,6 +38,11 @@ public class AdmobAdapter extends Adapter {
         super(rcEnableKey);
     }
 
+    @Override
+    protected String getAdapterName() {
+        return "Admob";
+    }
+
     public AdmobAdapter withRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
         anyIdMethodCalled = true;
         if (this.adUnitId != null) {
