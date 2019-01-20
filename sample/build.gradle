@@ -43,11 +43,12 @@ dependencies {
     implementation project(path: ':config')
     implementation project(path: ':adapter-admob')
     implementation project(path: ':adapter-facebook')
-    implementation project(path: ':adapter-ironsource')
+    implementation project(path: ':adapter-unity')
     implementation project(path: ':custom-banner')
     implementation project(path: ':periodic-notification')
 
 /* IRONSOURCE RELATED ADDITIONAL ADAPTERS
+    implementation project(path: ':adapter-ironsource')
 // Add Fyber Network (Adapter only)
     implementation 'com.ironsource.adapters:fyberadapter:4.3.0@jar'
 // Add InMobi Network
