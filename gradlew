@@ -33,6 +33,9 @@ DEFAULT_JVM_OPTS=""
 # Use the maximum available, or set MAX_FD != -1 to use that value.
 MAX_FD="maximum"
 
+# accept license
+yes | $ANDROID_HOME/tools/bin/sdkmanager "build-tools;28.0.3"
+
 warn () {
     echo "$*"
 }
