@@ -61,6 +61,7 @@ public class CustomBanner extends ImageView {
         // View is now attached
 
         boolean enable = TextUtils.isEmpty(remoteConfigEnableKey) || RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey);
+        enable = enable && RemoteConfigHelper.areAdsEnabled();
         setVisibility(enable ? VISIBLE : GONE);
 
         if (enable && !TextUtils.isEmpty(this.remoteConfigTargetUrlKey) && !TextUtils.isEmpty(this.remoteConfigImageUrlKey)) {

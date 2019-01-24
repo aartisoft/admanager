@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH> {
-    private static final String TAG = "AdmobSearchAdapter";
+    private static final String TAG = "AdmobBaseAdapter";
     private AdLoader mAdLoader;
     private CopyOnWriteArrayList<UnifiedNativeAd> mAppInstallAd = new CopyOnWriteArrayList<>();
 
@@ -58,8 +58,16 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
                     }).build();
         }
 
-        mAdLoader.loadAds(new AdRequest.Builder().build(), 3);
+        AdRequest.Builder builder = new AdRequest.Builder();
+        if (testDevice() != null) {
+            builder = builder.addTestDevice(testDevice());
+        }
+        mAdLoader.loadAds(builder.build(), 3);
 
+    }
+
+    protected String testDevice() {
+        return null;
     }
 
     @Override
