@@ -43,6 +43,8 @@ dependencies {
     implementation project(path: ':config')
     implementation project(path: ':adapter-admob')
     implementation project(path: ':adapter-facebook')
+    implementation project(path: ':adapter-inmobi')
+    implementation project(path: ':adapter-mopub')
     implementation project(path: ':adapter-unity')
     implementation project(path: ':custom-banner')
     implementation project(path: ':periodic-notification')

@@ -3,12 +3,22 @@ package com.admanager.core;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+import android.os.Looper;
+import android.support.annotation.ColorRes;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.admanager.config.RemoteConfigHelper;
 
-public abstract class BannerLoader {
-    public static final String TAG = "AdManagerBanner";
+public abstract class BannerLoader<L extends BannerLoader> {
+    public static final String TAG = "BannerLoader";
+    public static final int DEFAULT_BORDER_SIZE = 2;
+    public static final int DEFAULT_BORDER_COLOR = R.color.colorPrimary;
+    private final LinearLayout container;
+    private final LinearLayout adContainer;
     private Activity activity;
     private final Application.ActivityLifecycleCallbacks LIFECYCLE_CALLBACKS = new Application.ActivityLifecycleCallbacks() {
         @Override
@@ -50,12 +60,25 @@ public abstract class BannerLoader {
             }
         }
     };
+    private Integer topSizeDp;
+    private Integer topColor;
+    private Integer bottomSizeDp;
+    private Integer bottomColor;
     private String enableKey;
 
-    public BannerLoader(Activity activity, String enableKey) {
+    public BannerLoader(Activity activity, LinearLayout adContainer, String enableKey) {
         RemoteConfigHelper.init(activity);
+        adContainer.setOrientation(LinearLayout.VERTICAL);
         this.activity = activity;
         this.enableKey = enableKey;
+        this.container = adContainer;
+        this.adContainer = new LinearLayout(getActivity());
+        this.adContainer.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        this.adContainer.setOrientation(LinearLayout.VERTICAL);
+
+        if (!isEnabled()) {
+            hideLayout();
+        }
 
         this.activity.getApplication().registerActivityLifecycleCallbacks(LIFECYCLE_CALLBACKS);
     }
@@ -68,15 +91,97 @@ public abstract class BannerLoader {
         return RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey);
     }
 
-    public void error(String error) {
-        Log.e(TAG, error);
+    protected void error(String error) {
+        Log.e(TAG, getClass().getSimpleName() + ": a" + error);
+        hideLayout();
     }
 
-    public Activity getActivity() {
+    private void hideLayout() {
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            container.setVisibility(View.GONE);
+        } else {
+            if (getActivity() != null && !getActivity().isFinishing()) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        container.setVisibility(View.GONE);
+                    }
+                });
+            }
+        }
+    }
+
+    protected Activity getActivity() {
         return activity;
     }
 
     public void destroy() {
 
     }
+
+    protected void initContainer() {
+        initContainer(null);
+    }
+
+    protected void initContainer(View view) {
+        container.setVisibility(View.VISIBLE);
+        container.removeAllViews();
+
+        addBorderView(topSizeDp, topColor);
+        container.addView(adContainer);
+        addBorderView(bottomSizeDp, bottomColor);
+
+        if (view != null) {
+            if (view.getParent() != null)
+                ((ViewGroup) view.getParent()).removeView(view);
+            adContainer.addView(view);
+        }
+
+    }
+
+    private void addBorderView(Integer sizeDp, Integer color) {
+        if (color == null || sizeDp == null) {
+            return;
+        }
+        LinearLayout border = new LinearLayout(getActivity());
+        int borderSize = (int) Utils.convertDpToPixel(sizeDp, getActivity());
+        border.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, borderSize));
+        border.setOrientation(LinearLayout.VERTICAL);
+        border.setBackgroundColor(ContextCompat.getColor(getActivity(), color));
+        container.addView(border);
+    }
+
+    protected LinearLayout getAdContainer() {
+        return adContainer;
+    }
+
+    public L withTopBorder(Integer topSizeDp, @ColorRes Integer topColor) {
+        this.topSizeDp = topSizeDp;
+        this.topColor = topColor;
+        return (L) this;
+    }
+
+    public L withBottomBorder(Integer bottomSizeDp, @ColorRes Integer bottomColor) {
+        this.bottomSizeDp = bottomSizeDp;
+        this.bottomColor = bottomColor;
+        return (L) this;
+    }
+
+    public L withBorder(Integer sizeDp, @ColorRes Integer colorRes) {
+        withBottomBorder(sizeDp, colorRes);
+        return withTopBorder(sizeDp, colorRes);
+    }
+
+    public L withBorderSize(Integer sizeDp) {
+        return withBorder(sizeDp, DEFAULT_BORDER_COLOR);
+    }
+
+    public L withBorderColor(@ColorRes Integer colorRes) {
+        return withBorder(DEFAULT_BORDER_SIZE, colorRes);
+    }
+
+    public L withBorder() {
+        return withBorder(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);
+    }
+
 }

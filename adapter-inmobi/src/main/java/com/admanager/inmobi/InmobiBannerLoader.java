@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.support.annotation.Size;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
@@ -17,19 +16,17 @@ import com.inmobi.ads.InMobiBanner;
 import com.inmobi.ads.listeners.BannerAdEventListener;
 import com.inmobi.sdk.InMobiSdk;
 
-public class InmobiBannerLoader extends BannerLoader {
+public class InmobiBannerLoader extends BannerLoader<InmobiBannerLoader> {
 
     private static final String TAG = "InmobiBannerLoader";
 
 
     private long adUnitId;
     private String accountId;
-    private LinearLayout adContainer;
     private InMobiBanner inMobiBanner;
 
     public InmobiBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
-        super(activity, rcEnableKey);
-        this.adContainer = adContainer;
+        super(activity, adContainer, rcEnableKey);
     }
 
     public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAccountIdKey, @Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
@@ -46,25 +43,22 @@ public class InmobiBannerLoader extends BannerLoader {
 
     private void load() {
         if (adUnitId == 0) {
-            adContainer.setVisibility(View.GONE);
             error("NO AD_UNIT_ID FOUND!");
             return;
         }
 
         if (!super.isEnabled()) {
-            adContainer.setVisibility(View.GONE);
             return;
         }
 
         InMobiSdk.init(getActivity(), accountId);
 
-        adContainer.setVisibility(View.VISIBLE);
-        adContainer.removeAllViews();
+        initContainer();
 
-        ViewGroup.LayoutParams params = adContainer.getLayoutParams();
+        ViewGroup.LayoutParams params = getAdContainer().getLayoutParams();
         params.height = (int) (50 * ((float) getActivity().getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT));
         params.width = ViewGroup.LayoutParams.MATCH_PARENT;
-        adContainer.setLayoutParams(params);
+        getAdContainer().setLayoutParams(params);
 
         inMobiBanner = new InMobiBanner(getActivity(), this.adUnitId);
         inMobiBanner.setBannerSize(320, 50);
@@ -72,17 +66,12 @@ public class InmobiBannerLoader extends BannerLoader {
             @Override
             public void onAdLoadSucceeded(InMobiBanner inMobiBanner) {
                 Log.d(TAG, "onAdLoadSucceeded");
-                adContainer.setVisibility(View.VISIBLE);
-                adContainer.removeAllViews();
-                if (inMobiBanner.getParent() != null)
-                    ((ViewGroup) inMobiBanner.getParent()).removeView(inMobiBanner);
-                adContainer.addView(inMobiBanner);
+                initContainer(inMobiBanner);
             }
 
             @Override
             public void onAdLoadFailed(InMobiBanner inMobiBanner, InMobiAdRequestStatus inMobiAdRequestStatus) {
-                adContainer.setVisibility(View.GONE);
-                Log.e(TAG, "onAdLoadFailed: " + (inMobiAdRequestStatus != null ? inMobiAdRequestStatus.getMessage() : ""));
+                error("onAdLoadFailed: " + (inMobiAdRequestStatus != null ? inMobiAdRequestStatus.getMessage() : ""));
             }
         });
         inMobiBanner.load();

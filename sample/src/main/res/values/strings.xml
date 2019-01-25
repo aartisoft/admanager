@@ -18,5 +18,8 @@
     <string name="unity_game_id">2908042</string> <!--todo-->
     <string name="unity_placement_id_onresume">onresume</string> <!--todo-->
     <string name="unity_placement_id_onexit">video</string> <!--todo-->
+    <string name="mopub_banner">b195f8dd8ded45fe847ad89ed1d016da</string> <!--todo-->
+    <string name="inmobi_banner">1547483178070</string> <!--todo-->
+    <string name="inmobi_account_id">0ebbbd7c75be47feb316d4dde2017b89</string> <!--todo-->
 
 </resources>

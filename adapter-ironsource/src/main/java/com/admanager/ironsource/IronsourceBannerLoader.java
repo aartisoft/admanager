@@ -3,8 +3,6 @@ package com.admanager.ironsource;
 import android.app.Activity;
 import android.support.annotation.Size;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import com.admanager.core.BannerLoader;
@@ -18,45 +16,38 @@ import com.ironsource.mediationsdk.sdk.BannerListener;
 /**
  * Created by Gust on 20.11.2018.
  */
-public class IronsourceBannerLoader extends BannerLoader {
+public class IronsourceBannerLoader extends BannerLoader<IronsourceBannerLoader> {
     private static final String TAG = "IronsourceBannerLoader";
     private String placement;
     private String appKey;
-    private LinearLayout adContainer;
     private IronSourceBannerLayout banner;
 
     public IronsourceBannerLoader(Activity activity, LinearLayout adContainer, String enableKey) {
-        super(activity, enableKey);
-        this.adContainer = adContainer;
+        super(activity, adContainer, enableKey);
     }
 
-    public IronsourceBannerLoader withId(@Size(min = 5, max = 10) String appKey, @Size(min = 2, max = 20) String placement) {
+    public void withId(@Size(min = 5, max = 10) String appKey, @Size(min = 2, max = 20) String placement) {
         this.appKey = appKey;
         this.placement = placement;
         load();
-        return this;
     }
 
 
     private void load() {
         if (TextUtils.isEmpty(this.appKey)) {
-            adContainer.setVisibility(View.GONE);
             error("NO AD_UNIT_ID FOUND!");
             return;
         }
 
         if (!isEnabled()) {
-            adContainer.setVisibility(View.GONE);
             return;
         }
 
         IronSource.init(getActivity(), this.appKey, IronSource.AD_UNIT.BANNER);
 
-
-        adContainer.setVisibility(View.VISIBLE);
+        initContainer();
 
         banner = IronSource.createBanner(getActivity(), ISBannerSize.SMART);
-
         banner.setBannerListener(new BannerListener() {
             @Override
             public void onBannerAdLoaded() {
@@ -65,15 +56,7 @@ public class IronsourceBannerLoader extends BannerLoader {
 
             @Override
             public void onBannerAdLoadFailed(IronSourceError ironSourceError) {
-                Log.e(TAG, "onError: " + ironSourceError.getErrorCode() + ":" + ironSourceError.getErrorMessage());
-                if (getActivity() != null && !getActivity().isFinishing()) {
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            adContainer.setVisibility(View.GONE);
-                        }
-                    });
-                }
+                error("onError: " + ironSourceError.getErrorCode() + ":" + ironSourceError.getErrorMessage());
             }
 
             @Override
@@ -97,8 +80,7 @@ public class IronsourceBannerLoader extends BannerLoader {
             }
         });
 
-        adContainer.removeAllViews();
-        adContainer.addView(banner);
+        initContainer(banner);
 
         if (placement == null) {
             IronSource.loadBanner(banner);

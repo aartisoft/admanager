@@ -41,6 +41,9 @@ public class RCUtils {
     public static final String FACEBOOK_BANNER_ENABLED = "facebook_banner_enabled";
     public static final String FACEBOOK_BANNER_ID = "facebook_banner_id";
 
+    public static final String MOPUB_BANNER_ENABLED = "mopub_banner_enabled";
+    public static final String INMOBI_BANNER_ENABLED = "inmobi_banner_enabled";
+
     public static final String CUSTOM_BANNER_ENABLED = "custom_banner_enabled";
     public static final String CUSTOM_BANNER_IMAGE_URL = "custom_banner_image_url";
     public static final String CUSTOM_BANNER_CLICK_URL = "custom_banner_click_url";
@@ -75,6 +78,8 @@ public class RCUtils {
             defaults.put(FACEBOOK_BANNER_ENABLED, true);
             defaults.put(ADMOB_BANNER_ENABLED, true);
             defaults.put(CUSTOM_BANNER_ENABLED, true);
+            defaults.put(MOPUB_BANNER_ENABLED, true);
+            defaults.put(INMOBI_BANNER_ENABLED, true);
 
             defaults.put(S1_ADMOB_ID, "ca-app-pub-3940256099942544/1033173712"); // TODO
             defaults.put(S2_ADMOB_ID, "ca-app-pub-3940256099942544/1033173712"); // TODO

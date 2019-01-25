@@ -4,8 +4,6 @@ package com.admanager.admob;
 import android.app.Activity;
 import android.support.annotation.Size;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
 import android.widget.LinearLayout;
 
 import com.admanager.config.RemoteConfigHelper;
@@ -16,17 +14,15 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
-public class AdmobBannerLoader extends BannerLoader {
+public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
 
     private static final String TAG = "AdmobBannerLoader";
 
 
     private String adUnitId;
-    private LinearLayout adContainer;
 
     public AdmobBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
-        super(activity, rcEnableKey);
-        this.adContainer = adContainer;
+        super(activity, adContainer, rcEnableKey);
     }
 
     public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
@@ -41,18 +37,15 @@ public class AdmobBannerLoader extends BannerLoader {
 
     private void load() {
         if (TextUtils.isEmpty(this.adUnitId)) {
-            adContainer.setVisibility(View.GONE);
             error("NO AD_UNIT_ID FOUND!");
             return;
         }
 
         if (!super.isEnabled()) {
-            adContainer.setVisibility(View.GONE);
             return;
         }
-        adContainer.setVisibility(View.VISIBLE);
-        adContainer.removeAllViews();
 
+        initContainer();
 
         AdView mAdView = new AdView(getActivity());
         mAdView.setAdUnitId(adUnitId);
@@ -64,8 +57,7 @@ public class AdmobBannerLoader extends BannerLoader {
         mAdView.setAdListener(new AdListener() {
             @Override
             public void onAdFailedToLoad(int i) {
-                adContainer.setVisibility(View.GONE);
-                Log.e(TAG, "onAdFailedToLoad: " + i);
+                error("onAdFailedToLoad: " + i);
             }
 
             @Override
@@ -74,6 +66,6 @@ public class AdmobBannerLoader extends BannerLoader {
             }
         });
         mAdView.loadAd(adRequest);
-        adContainer.addView(mAdView);
+        initContainer(mAdView);
     }
 }

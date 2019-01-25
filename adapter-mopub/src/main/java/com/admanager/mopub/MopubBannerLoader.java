@@ -6,7 +6,6 @@ import android.support.annotation.Size;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.admanager.config.RemoteConfigHelper;
@@ -23,18 +22,16 @@ import com.mopub.mobileads.MoPubView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MopubBannerLoader extends BannerLoader {
+public class MopubBannerLoader extends BannerLoader<MopubBannerLoader> {
 
     private static final String TAG = "MopubBannerLoader";
 
 
     private String adUnitId;
-    private LinearLayout adContainer;
     private MoPubView moPubView;
 
     public MopubBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
-        super(activity, rcEnableKey);
-        this.adContainer = adContainer;
+        super(activity, adContainer, rcEnableKey);
     }
 
     public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
@@ -49,13 +46,11 @@ public class MopubBannerLoader extends BannerLoader {
 
     private void load() {
         if (TextUtils.isEmpty(this.adUnitId)) {
-            adContainer.setVisibility(View.GONE);
             error("NO AD_UNIT_ID FOUND!");
             return;
         }
 
         if (!super.isEnabled()) {
-            adContainer.setVisibility(View.GONE);
             return;
         }
 
@@ -81,29 +76,22 @@ public class MopubBannerLoader extends BannerLoader {
     }
 
     private void _load() {
-        adContainer.setVisibility(View.VISIBLE);
-        adContainer.removeAllViews();
-
+        initContainer();
 
         moPubView = new MoPubView(getActivity());
         moPubView.setAdUnitId(adUnitId);
         moPubView.setBannerAdListener(new DefaultBannerAdListener() {
             @Override
             public void onBannerFailed(MoPubView banner, MoPubErrorCode errorCode) {
-                Log.e(TAG, "onBannerFailed: " + errorCode);
+                error("onBannerFailed: " + errorCode);
                 moPubView.setVisibility(View.GONE);
-                adContainer.setVisibility(View.GONE);
             }
 
             @Override
             public void onBannerLoaded(MoPubView banner) {
                 Log.d(TAG, "onBannerLoaded");
                 moPubView.setVisibility(View.VISIBLE);
-                adContainer.setVisibility(View.VISIBLE);
-                adContainer.removeAllViews();
-                if (banner.getParent() != null)
-                    ((ViewGroup) banner.getParent()).removeView(banner);
-                adContainer.addView(banner);
+                initContainer(banner);
             }
         });
         moPubView.loadAd();

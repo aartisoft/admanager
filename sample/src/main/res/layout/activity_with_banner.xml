@@ -14,11 +14,18 @@
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/mopub_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@id/admob_container" />
+
     <com.admanager.custombanner.view.CustomBanner
         android:id="@+id/custom_banner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/admob_container"
+        app:layout_constraintTop_toBottomOf="@id/mopub_container"
         app:remoteConfigEnableKey="custom_banner_enabled"
         app:remoteConfigImageUrlKey="custom_banner_image_url"
         app:remoteConfigTargetUrlKey="custom_banner_click_url" />
@@ -31,9 +38,15 @@
         android:gravity="center"
         android:text="Page Content"
         android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@id/facebook_container"
+        app:layout_constraintBottom_toTopOf="@id/inmobi_container"
         app:layout_constraintTop_toBottomOf="@id/custom_banner" />
 
+    <LinearLayout
+        android:id="@+id/inmobi_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/facebook_container" />
 
     <LinearLayout
         android:id="@+id/facebook_container"
