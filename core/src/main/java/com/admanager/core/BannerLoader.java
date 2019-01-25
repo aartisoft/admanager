@@ -15,8 +15,8 @@ import com.admanager.config.RemoteConfigHelper;
 
 public abstract class BannerLoader<L extends BannerLoader> {
     public static final String TAG = "BannerLoader";
-    public static final int DEFAULT_BORDER_SIZE = 2;
-    public static final int DEFAULT_BORDER_COLOR = R.color.colorPrimary;
+    private static final int DEFAULT_BORDER_SIZE = 2;
+    private static final int DEFAULT_BORDER_COLOR = R.color.colorPrimary;
     private final LinearLayout container;
     private final LinearLayout adContainer;
     private Activity activity;
@@ -155,33 +155,64 @@ public abstract class BannerLoader<L extends BannerLoader> {
         return adContainer;
     }
 
-    public L withTopBorder(Integer topSizeDp, @ColorRes Integer topColor) {
+    public L withBorderSize(Integer sizeDp) {
+        this.topSizeDp = sizeDp;
+        this.bottomSizeDp = sizeDp;
+
+        if (this.topColor == null) {
+            this.topColor = DEFAULT_BORDER_COLOR;
+        }
+
+        if (this.bottomColor == null) {
+            this.bottomColor = DEFAULT_BORDER_COLOR;
+        }
+        return (L) this;
+    }
+
+    public L withBorderColor(@ColorRes Integer colorRes) {
+        this.bottomColor = colorRes;
+        this.topColor = colorRes;
+
+        if (this.topSizeDp == null) {
+            this.topSizeDp = DEFAULT_BORDER_SIZE;
+        }
+
+        if (this.bottomSizeDp == null) {
+            this.bottomSizeDp = DEFAULT_BORDER_SIZE;
+        }
+
+        return (L) this;
+    }
+
+    public L withBorderTop(Integer topSizeDp, @ColorRes Integer topColor) {
         this.topSizeDp = topSizeDp;
         this.topColor = topColor;
         return (L) this;
     }
 
-    public L withBottomBorder(Integer bottomSizeDp, @ColorRes Integer bottomColor) {
+    public L withBorderBottom(Integer bottomSizeDp, @ColorRes Integer bottomColor) {
         this.bottomSizeDp = bottomSizeDp;
         this.bottomColor = bottomColor;
         return (L) this;
     }
 
     public L withBorder(Integer sizeDp, @ColorRes Integer colorRes) {
-        withBottomBorder(sizeDp, colorRes);
-        return withTopBorder(sizeDp, colorRes);
+        withBorderBottom(sizeDp, colorRes);
+        return withBorderTop(sizeDp, colorRes);
     }
 
-    public L withBorderSize(Integer sizeDp) {
-        return withBorder(sizeDp, DEFAULT_BORDER_COLOR);
-    }
-
-    public L withBorderColor(@ColorRes Integer colorRes) {
-        return withBorder(DEFAULT_BORDER_SIZE, colorRes);
-    }
 
     public L withBorder() {
-        return withBorder(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);
+        withBorderTop(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);
+        return withBorderBottom(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);
+    }
+
+    public L withBorderTop() {
+        return withBorderTop(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);
+    }
+
+    public L withBorderBottom() {
+        return withBorderBottom(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);
     }
 
 }
