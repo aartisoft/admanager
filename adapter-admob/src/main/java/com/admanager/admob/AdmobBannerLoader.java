@@ -20,9 +20,15 @@ public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
 
 
     private String adUnitId;
+    private AdSize size = AdSize.SMART_BANNER;
 
     public AdmobBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
         super(activity, adContainer, rcEnableKey);
+    }
+
+    public AdmobBannerLoader size(AdSize size) {
+        this.size = size;
+        return this;
     }
 
     public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
@@ -49,7 +55,7 @@ public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
 
         AdView mAdView = new AdView(getActivity());
         mAdView.setAdUnitId(adUnitId);
-        mAdView.setAdSize(AdSize.SMART_BANNER);
+        mAdView.setAdSize(size);
 
         AdRequest.Builder AdmobBanner = new AdRequest.Builder();
         AdRequest adRequest = AdmobBanner.build();

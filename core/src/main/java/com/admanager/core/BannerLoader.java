@@ -92,7 +92,7 @@ public abstract class BannerLoader<L extends BannerLoader> {
     }
 
     protected void error(String error) {
-        Log.e(TAG, getClass().getSimpleName() + ": a" + error);
+        Log.e(TAG, getClass().getSimpleName() + ": " + error);
         hideLayout();
     }
 
