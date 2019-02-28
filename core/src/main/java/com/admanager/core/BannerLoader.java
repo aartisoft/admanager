@@ -215,4 +215,7 @@ public abstract class BannerLoader<L extends BannerLoader> {
         return withBorderBottom(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);
     }
 
+    protected boolean isTestMode() {
+        return RemoteConfigHelper.isTestMode();
+    }
 }

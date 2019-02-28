@@ -31,4 +31,9 @@ public class TrackAdapterWithGrid extends BaseAdapterWithFaceNative<TrackModel, 
     public int gridSize() {
         return 2; // column number
     }
+
+    @Override
+    public int density() {
+        return 3;
+    }
 }

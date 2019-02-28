@@ -3,6 +3,8 @@ package com.admanager.core;
 import android.app.Activity;
 import android.content.Intent;
 
+import com.admanager.config.RemoteConfigHelper;
+
 public class AdManagerBuilder {
     private AdManager adManager;
     private AdManager.Listener listener;
@@ -22,7 +24,7 @@ public class AdManagerBuilder {
     }
 
     public AdManager build() {
-        return build(false);
+        return build(RemoteConfigHelper.isTestMode());
     }
     public AdManager build(boolean testMode) {
         return adManager.build(listener, testMode);

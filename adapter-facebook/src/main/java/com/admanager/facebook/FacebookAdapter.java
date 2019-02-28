@@ -17,6 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class FacebookAdapter extends Adapter {
+    private static final String FACEBOOK_INTERS_TEST_ID = "YOUR_PLACEMENT_ID";
     private String adUnitId;
     private InterstitialAd ad;
     private boolean anyIdMethodCalled;
@@ -90,6 +91,9 @@ public class FacebookAdapter extends Adapter {
 
     @Override
     protected void init() {
+        if (isTestMode()) {
+            this.adUnitId = FACEBOOK_INTERS_TEST_ID;
+        }
         if (!anyIdMethodCalled) {
             throw new IllegalStateException("call 'withId' or 'withRemoteConfigId' method after adapter creation.");
         }

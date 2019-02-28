@@ -23,6 +23,7 @@ import java.util.List;
  */
 public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH> {
     private static final String TAG = "FaceSearchAdapter";
+    private static final String FACEBOOK_NATIVE_TEST_ID = "YOUR_PLACEMENT_ID";
     private NativeAdsManager manager;
 
     public BaseAdapterWithFaceNative(Activity activity, @LayoutRes int layout) {
@@ -38,6 +39,9 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
         if (manager == null) {
             if (activity == null) {
                 return;
+            }
+            if (isTestMode()) {
+                nativeAdUnitId = FACEBOOK_NATIVE_TEST_ID;
             }
             manager = new NativeAdsManager(activity, nativeAdUnitId, 5);
             manager.setListener(new NativeAdsManager.Listener() {

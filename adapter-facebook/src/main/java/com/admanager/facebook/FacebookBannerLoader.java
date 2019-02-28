@@ -20,8 +20,10 @@ import com.facebook.ads.AdView;
  */
 public class FacebookBannerLoader extends BannerLoader<FacebookBannerLoader> {
     private static final String TAG = "MyFacebookHelper";
+    private static final String FACEBOOK_BANNER_TEST_ID = "YOUR_PLACEMENT_ID";
     private String adUnitId;
     private AdView adView;
+    private AdSize size = AdSize.BANNER_HEIGHT_50;
 
     public FacebookBannerLoader(Activity activity, LinearLayout adContainer, String enableKey) {
         super(activity, adContainer, enableKey);
@@ -37,8 +39,16 @@ public class FacebookBannerLoader extends BannerLoader<FacebookBannerLoader> {
         load();
     }
 
+    public FacebookBannerLoader size(AdSize size) {
+        this.size = size;
+        return this;
+    }
+
 
     private void load() {
+        if (isTestMode()) {
+            this.adUnitId = FACEBOOK_BANNER_TEST_ID;
+        }
         if (TextUtils.isEmpty(this.adUnitId)) {
             error("NO AD_UNIT_ID FOUND!");
             return;
@@ -48,8 +58,7 @@ public class FacebookBannerLoader extends BannerLoader<FacebookBannerLoader> {
             return;
         }
 
-
-        com.facebook.ads.AdView adView = new com.facebook.ads.AdView(getActivity(), adUnitId, AdSize.BANNER_HEIGHT_50);
+        com.facebook.ads.AdView adView = new com.facebook.ads.AdView(getActivity(), adUnitId, this.size);
         initContainer(adView);
 
         adView.setAdListener(new AdListener() {

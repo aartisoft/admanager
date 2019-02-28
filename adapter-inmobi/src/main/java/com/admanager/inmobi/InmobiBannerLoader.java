@@ -19,7 +19,8 @@ import com.inmobi.sdk.InMobiSdk;
 public class InmobiBannerLoader extends BannerLoader<InmobiBannerLoader> {
 
     private static final String TAG = "InmobiBannerLoader";
-
+    private static final long INMOBI_BANNER_TEST_ID = 1547483178070L;
+    private static final String INMOBI_ACCOUNT_TEST_ID = "0ebbbd7c75be47feb316d4dde2017b89";
 
     private long adUnitId;
     private String accountId;
@@ -42,6 +43,10 @@ public class InmobiBannerLoader extends BannerLoader<InmobiBannerLoader> {
     }
 
     private void load() {
+        if (isTestMode()) {
+            this.adUnitId = INMOBI_BANNER_TEST_ID;
+            this.accountId = INMOBI_ACCOUNT_TEST_ID;
+        }
         if (adUnitId == 0) {
             error("NO AD_UNIT_ID FOUND!");
             return;

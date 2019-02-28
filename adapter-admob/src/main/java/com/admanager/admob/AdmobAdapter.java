@@ -12,6 +12,7 @@ import com.google.android.gms.ads.InterstitialAd;
 
 
 public class AdmobAdapter extends Adapter {
+    private static final String ADMOB_INTERS_TEST_ID = "ca-app-pub-3940256099942544/1033173712";
     private final AdListener ADMOB_AD_LISTENER = new AdListener() {
         @Override
         public void onAdClosed() {
@@ -68,6 +69,9 @@ public class AdmobAdapter extends Adapter {
 
     @Override
     protected void init() {
+        if (isTestMode()) {
+            this.adUnitId = ADMOB_INTERS_TEST_ID;
+        }
         if (!anyIdMethodCalled) {
             throw new IllegalStateException("call 'withId' or 'withRemoteConfigId' method after adapter creation.");
         }

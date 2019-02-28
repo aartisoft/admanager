@@ -25,7 +25,7 @@ import java.util.List;
 public class MopubBannerLoader extends BannerLoader<MopubBannerLoader> {
 
     private static final String TAG = "MopubBannerLoader";
-
+    private static final String MOPUB_BANNER_TEST_ID = "b195f8dd8ded45fe847ad89ed1d016da";
 
     private String adUnitId;
     private MoPubView moPubView;
@@ -45,6 +45,9 @@ public class MopubBannerLoader extends BannerLoader<MopubBannerLoader> {
     }
 
     private void load() {
+        if (isTestMode()) {
+            this.adUnitId = MOPUB_BANNER_TEST_ID;
+        }
         if (TextUtils.isEmpty(this.adUnitId)) {
             error("NO AD_UNIT_ID FOUND!");
             return;
@@ -79,6 +82,9 @@ public class MopubBannerLoader extends BannerLoader<MopubBannerLoader> {
         initContainer();
 
         moPubView = new MoPubView(getActivity());
+        if (isTestMode()) {
+            moPubView.setTesting(true);
+        }
         moPubView.setAdUnitId(adUnitId);
         moPubView.setBannerAdListener(new DefaultBannerAdListener() {
             @Override

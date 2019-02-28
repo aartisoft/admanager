@@ -5,17 +5,17 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.CallSuper;
 import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+
+import com.admanager.config.RemoteConfigHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,6 +30,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
     int DEFAULT_NO_OF_DATA_BETWEEN_ADS;
     private List<RowWrapper> rowWrappers;
     private List<T> data;
+    private int defaultDensity = 3;
 
 
     @LayoutRes
@@ -53,7 +54,8 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
         int gridSize = gridSize();
 
         if (gridSize > 1) {
-            DEFAULT_NO_OF_DATA_BETWEEN_ADS = gridSize;
+            defaultDensity = 1;
+            DEFAULT_NO_OF_DATA_BETWEEN_ADS = gridSize * density();
         } else if (gridSize == 1) {
             DEFAULT_NO_OF_DATA_BETWEEN_ADS = density();
         } else {
@@ -63,7 +65,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
     }
 
     public int density() {
-        return 3;
+        return defaultDensity;
     }
 
     public int gridSize() {
@@ -82,7 +84,6 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
         return rowWrappers.size();
     }
 
-    @NonNull
     @Override
     @CallSuper
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -235,13 +236,13 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
             @Override
             public int getSpanSize(int position) {
                 if (isLoading) {
-                    return DEFAULT_NO_OF_DATA_BETWEEN_ADS;
+                    return gridSize();
                 } else if (!show_native) {
                     return 1;
                 } else if (getItemViewType(position) == RowWrapper.Type.LIST.ordinal()) {
                     return 1;
                 }
-                return DEFAULT_NO_OF_DATA_BETWEEN_ADS;
+                return gridSize();
             }
         };
     }
@@ -281,4 +282,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
         }
     }
 
+    boolean isTestMode() {
+        return RemoteConfigHelper.isTestMode();
+    }
 }

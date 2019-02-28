@@ -22,6 +22,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH> {
     private static final String TAG = "AdmobBaseAdapter";
+    private static final String ADMOB_NATIVE_TEST_ID = "ca-app-pub-3940256099942544/2247696110";
     private AdLoader mAdLoader;
     private CopyOnWriteArrayList<UnifiedNativeAd> mAppInstallAd = new CopyOnWriteArrayList<>();
 
@@ -38,6 +39,9 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
         if (mAdLoader == null) {
             if (activity == null) {
                 return;
+            }
+            if (isTestMode()) {
+                nativeAdUnitId = ADMOB_NATIVE_TEST_ID;
             }
             mAdLoader = new AdLoader.Builder(activity, nativeAdUnitId)
                     .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {

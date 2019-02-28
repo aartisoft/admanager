@@ -29,6 +29,7 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
     private static RemoteConfigHelper instance;
     private final FirebaseRemoteConfig mRemoteConfig;
     private boolean adsEnabled = true;
+    private boolean testMode = BuildConfig.DEBUG;
     private WeakReference<Context> context;
 
 
@@ -46,6 +47,14 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
 
     public static void setAdsEnabled(boolean adsEnabled) {
         getInstance().adsEnabled = adsEnabled;
+    }
+
+    public static boolean isTestMode() {
+        return getInstance().testMode;
+    }
+
+    public static void setTestMode(boolean useTestIDs) {
+        getInstance().testMode = useTestIDs;
     }
 
     public static RemoteConfigHelper init(Context context) {

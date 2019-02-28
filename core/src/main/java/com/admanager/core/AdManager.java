@@ -126,10 +126,6 @@ public class AdManager {
         return this;
     }
 
-    AdManager build() {
-        return build(null, false);
-    }
-
     AdManager build(Listener listener, boolean testMode) {
         Log.d(TAG, "initializing");
         this.listener = listener;
