@@ -49,7 +49,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
     ABaseAdapter(final Activity activity, @LayoutRes int layout, List<T> data, boolean show_native) {
         this.activity = activity;
         this.data = data == null ? new ArrayList<T>() : data;
-        this.show_native = show_native;
+        this.show_native = show_native || RemoteConfigHelper.isTestMode();
         this.layout = layout;
         int gridSize = gridSize();
 
