@@ -88,7 +88,7 @@ public abstract class BannerLoader<L extends BannerLoader> {
     }
 
     protected final boolean isEnabled() {
-        return RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey);
+        return (RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey)) || isTestMode();
     }
 
     protected void error(String error) {

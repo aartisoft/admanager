@@ -36,6 +36,9 @@ public class FacebookAdHelper {
     public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey) {
         RemoteConfigHelper.init(context);
         boolean enable = RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey) && RemoteConfigHelper.areAdsEnabled();
+        if (RemoteConfigHelper.isTestMode()) {
+            enable = true;
+        }
         if (!enable) {
             return;
         }
@@ -43,6 +46,9 @@ public class FacebookAdHelper {
             @Override
             public void run() {
                 String adAudienceId = RemoteConfigHelper.getConfigs().getString(remoteConfigIdKey);
+                if (RemoteConfigHelper.isTestMode()) {
+                    adAudienceId = FacebookAdapter.FACEBOOK_INTERS_TEST_ID;
+                }
                 final InterstitialAd ad = new InterstitialAd(context, adAudienceId);
                 ad.setAdListener(new AbstractAdListener() {
                     @Override

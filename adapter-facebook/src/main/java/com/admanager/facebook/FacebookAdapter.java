@@ -17,7 +17,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 
 
 public class FacebookAdapter extends Adapter {
-    private static final String FACEBOOK_INTERS_TEST_ID = "YOUR_PLACEMENT_ID";
+    static final String FACEBOOK_INTERS_TEST_ID = "YOUR_PLACEMENT_ID";
     private String adUnitId;
     private InterstitialAd ad;
     private boolean anyIdMethodCalled;
