@@ -271,7 +271,7 @@ public class AdManager {
                 Log.v(TAG, " LOADED size:" + LOADED.size() + " list:" + arrayToString(LOADED));
                 Log.v(TAG, " SKIP size:" + SKIP.size() + " list:" + arrayToString(SKIP));
                 Log.v(TAG, " ENABLE_KEYS size:" + ENABLE_KEYS.size() + " list:" + arrayToString(ENABLE_KEYS));
-                if (enabled) {
+                if (enabled || testMode) {
                     Log.d(TAG, "Displaying " + adapter.getClass().getSimpleName());
                     adapter.show();
                     lastTimeShowed = System.currentTimeMillis();

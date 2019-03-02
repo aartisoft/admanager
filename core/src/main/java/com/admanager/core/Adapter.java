@@ -3,8 +3,6 @@ package com.admanager.core;
 import android.app.Activity;
 import android.util.Log;
 
-import com.admanager.config.RemoteConfigHelper;
-
 public abstract class Adapter {
     private int order = 0;
     private AdManager manager = null;
@@ -101,7 +99,4 @@ public abstract class Adapter {
 
     }
 
-    protected boolean useTestIDs() {
-        return RemoteConfigHelper.isTestMode();
-    }
 }
