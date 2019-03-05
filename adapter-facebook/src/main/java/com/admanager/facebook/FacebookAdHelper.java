@@ -1,13 +1,11 @@
 package com.admanager.facebook;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.admanager.config.RemoteConfigHelper;
@@ -16,8 +14,8 @@ import com.facebook.ads.Ad;
 import com.facebook.ads.AdIconView;
 import com.facebook.ads.AdOptionsView;
 import com.facebook.ads.InterstitialAd;
-import com.facebook.ads.NativeAdLayout;
-import com.facebook.ads.NativeBannerAd;
+import com.facebook.ads.MediaView;
+import com.facebook.ads.NativeAd;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,50 +62,78 @@ public class FacebookAdHelper {
         }, N);
     }
 
+    public static void attachNativeToContainer(LinearLayout adView, LinearLayout container) {
+        if (container == null || adView == null) {
+            return;
+        }
+        if (adView.getParent() != null) {
+            ((ViewGroup) adView.getParent()).removeView(adView);
+        }
+        container.addView(adView);
+    }
 
-    private static void inflateMiniNativeAd(Activity context, NativeBannerAd nativeAd, LinearLayout adContainer) {
+    public static void populateNativeAd(NativeAd nativeAd, LinearLayout adView) {
+        AdIconView nativeAdIcon = adView.findViewById(R.id.native_ad_icon);
+        TextView nativeAdTitle = adView.findViewById(R.id.native_ad_title);
+        TextView nativeAdBody = adView.findViewById(R.id.native_ad_body);
+        Button nativeAdCallToAction = adView.findViewById(R.id.native_ad_call_to_action);
+        LinearLayout adChoicesContainer = adView.findViewById(R.id.ad_choices_container);
+        TextView sponsoredLabel = adView.findViewById(R.id.native_ad_sponsored_label);
+        MediaView mediaView = adView.findViewById(R.id.media_view);
+
+        String alert = "You should use View with id '%s' in layout file.";
+        if (nativeAdIcon == null) {
+            throw new IllegalStateException(String.format(alert, "native_ad_icon"));
+        }
+        if (nativeAdTitle == null) {
+            throw new IllegalStateException(String.format(alert, "native_ad_title"));
+        }
+        if (nativeAdBody == null) {
+            throw new IllegalStateException(String.format(alert, "native_ad_body"));
+        }
+        if (nativeAdCallToAction == null) {
+            throw new IllegalStateException(String.format(alert, "native_ad_call_to_action"));
+        }
+        if (adChoicesContainer == null) {
+            throw new IllegalStateException(String.format(alert, "ad_choices_container"));
+        }
+        if (sponsoredLabel == null) {
+            throw new IllegalStateException(String.format(alert, "native_ad_sponsored_label"));
+        }
+
+        if (nativeAd == null) {
+            adView.setVisibility(View.GONE);
+            return;
+        }
+
+        adView.setVisibility(View.VISIBLE);
+
         nativeAd.unregisterView();
 
-        NativeAdLayout nativeAdLayout = new NativeAdLayout(context);
-        adContainer.removeAllViews();
-        adContainer.addView(nativeAdLayout);
-
-        LayoutInflater inflater = LayoutInflater.from(context);
-        // Inflate the Ad view.  The layout referenced should be the one you created in the last step.
-        View adView = inflater.inflate(R.layout.item_face_native_banner_ad, nativeAdLayout, false);
-        nativeAdLayout.addView(adView);
-
-        // Add the AdChoices icon
-        RelativeLayout adChoicesContainer = adView.findViewById(R.id.ad_choices_container);
-        AdOptionsView adOptionsView = new AdOptionsView(context, nativeAd, nativeAdLayout);
+        AdOptionsView adOptionsView = new AdOptionsView(adView.getContext(), nativeAd, null);
         adChoicesContainer.removeAllViews();
         adChoicesContainer.addView(adOptionsView, 0);
 
 
-        // Create native UI using the ad metadata.
-        AdIconView nativeAdIcon = adView.findViewById(R.id.native_ad_icon);
-        TextView nativeAdTitle = adView.findViewById(R.id.native_ad_title);
-        TextView nativeAdSocialContext = adView.findViewById(R.id.native_ad_social_context);
-        TextView sponsoredLabel = adView.findViewById(R.id.native_ad_sponsored_label);
-        Button nativeAdCallToAction = adView.findViewById(R.id.native_ad_call_to_action);
-
-        // Set the Text.
         nativeAdTitle.setText(nativeAd.getAdvertiserName());
-        nativeAdSocialContext.setText(nativeAd.getAdSocialContext());
-        nativeAdCallToAction.setVisibility(nativeAd.hasCallToAction() ? View.VISIBLE : View.INVISIBLE);
+        nativeAdBody.setText(nativeAd.getAdBodyText());
         nativeAdCallToAction.setText(nativeAd.getAdCallToAction());
+        nativeAdCallToAction.setVisibility(nativeAd.hasCallToAction() ? View.VISIBLE : View.INVISIBLE);
         sponsoredLabel.setText(nativeAd.getSponsoredTranslation());
 
-        // Create a list of clickable views
         List<View> clickableViews = new ArrayList<>();
+        if (mediaView != null) {
+            clickableViews.add(mediaView);
+        }
         clickableViews.add(nativeAdTitle);
         clickableViews.add(nativeAdCallToAction);
 
-        // Register the Title and CTA button to listen for clicks.
-        nativeAd.registerViewForInteraction(
-                adView,
-                nativeAdIcon,
-                clickableViews);
+        if (mediaView != null) {
+            nativeAd.registerViewForInteraction(adView, mediaView, nativeAdIcon, clickableViews);
+        } else {
+            nativeAd.registerViewForInteraction(adView, nativeAdIcon, clickableViews);
+        }
+
     }
 
 

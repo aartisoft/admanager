@@ -30,6 +30,16 @@
                 android:text="@string/ex_banner_demo" />
 
             <Button
+                android:id="@+id/ex_admob_native"
+                style="@style/main_button"
+                android:text="@string/ex_admob_native" />
+
+            <Button
+                android:id="@+id/ex_face_native"
+                style="@style/main_button"
+                android:text="@string/ex_face_native" />
+
+            <Button
                 android:id="@+id/ex_recycler_view_admob_default"
                 style="@style/main_button"
                 android:text="@string/ex_recycler_view_admob_default" />
@@ -63,6 +73,8 @@
                 android:id="@+id/ex_recycler_view_custom"
                 style="@style/main_button"
                 android:text="@string/ex_recycler_view_custom" />
+
+
         </LinearLayout>
 
 

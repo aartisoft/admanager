@@ -1,70 +1,55 @@
 package com.admanager.sample.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.admanager.sample.R;
+
+import java.util.HashMap;
 
 /**
  * Created by Gust on 20.11.2018.
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    HashMap<Integer, Class<? extends Activity>> clickMap = new HashMap<>();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.ex_inters).setOnClickListener(this);
-        findViewById(R.id.ex_face_6_sec).setOnClickListener(this);
-        findViewById(R.id.ex_banner_demo).setOnClickListener(this);
-        findViewById(R.id.ex_recycler_view_admob_default).setOnClickListener(this);
-        findViewById(R.id.ex_recycler_view_default).setOnClickListener(this);
-        findViewById(R.id.ex_recycler_view_density).setOnClickListener(this);
-        findViewById(R.id.ex_recycler_view_grid).setOnClickListener(this);
-        findViewById(R.id.ex_recycler_view_bignative).setOnClickListener(this);
-        findViewById(R.id.ex_recycler_view_custom_design).setOnClickListener(this);
-        findViewById(R.id.ex_recycler_view_custom).setOnClickListener(this);
+        clickMap.put(R.id.ex_inters, MainIntersActivity.class);
+        clickMap.put(R.id.ex_face_6_sec, Facebook6SecsActivity.class);
+        clickMap.put(R.id.ex_banner_demo, BannerDemoActivity.class);
+        clickMap.put(R.id.ex_admob_native, AdmobNativeActivity.class);
+        clickMap.put(R.id.ex_face_native, FacebookNativeActivity.class);
+        clickMap.put(R.id.ex_recycler_view_admob_default, RecyclerViewAdmobDefaultActivity.class);
+        clickMap.put(R.id.ex_recycler_view_default, RecyclerViewDefaultActivity.class);
+        clickMap.put(R.id.ex_recycler_view_density, RecyclerViewDensityActivity.class);
+        clickMap.put(R.id.ex_recycler_view_grid, RecyclerViewGridActivity.class);
+        clickMap.put(R.id.ex_recycler_view_bignative, RecyclerViewBigNativeActivity.class);
+        clickMap.put(R.id.ex_recycler_view_custom_design, RecyclerViewCustomDesignActivity.class);
+        clickMap.put(R.id.ex_recycler_view_custom, RecyclerViewCustomActivity.class);
+
+        for (Integer i : clickMap.keySet()) {
+            findViewById(i).setOnClickListener(this);
+        }
     }
 
     @Override
     public void onClick(View v) {
         int id = v.getId();
-        switch (id) {
-            case R.id.ex_inters:
-                startActivity(new Intent(this, MainIntersActivity.class));
-                break;
-            case R.id.ex_face_6_sec:
-                startActivity(new Intent(this, Facebook6SecsActivity.class));
-                break;
-            case R.id.ex_banner_demo:
-                startActivity(new Intent(this, BannerDemoActivity.class));
-                break;
-            case R.id.ex_recycler_view_admob_default:
-                startActivity(new Intent(this, RecyclerViewAdmobDefaultActivity.class));
-                break;
-            case R.id.ex_recycler_view_default:
-                startActivity(new Intent(this, RecyclerViewDefaultActivity.class));
-                break;
-            case R.id.ex_recycler_view_density:
-                startActivity(new Intent(this, RecyclerViewDensityActivity.class));
-                break;
-            case R.id.ex_recycler_view_grid:
-                startActivity(new Intent(this, RecyclerViewGridActivity.class));
-                break;
-            case R.id.ex_recycler_view_bignative:
-                startActivity(new Intent(this, RecyclerViewBigNativeActivity.class));
-                break;
-            case R.id.ex_recycler_view_custom_design:
-                startActivity(new Intent(this, RecyclerViewCustomDesignActivity.class));
-                break;
-            case R.id.ex_recycler_view_custom:
-                startActivity(new Intent(this, RecyclerViewCustomActivity.class));
-                break;
+        Class<? extends Activity> activityClass = clickMap.get(id);
+        if (activityClass == null) {
+            Toast.makeText(this, "Add activity to map", Toast.LENGTH_LONG).show();
+            return;
         }
+        startActivity(new Intent(this, activityClass));
     }
 }

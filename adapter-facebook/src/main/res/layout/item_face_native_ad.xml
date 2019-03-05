@@ -10,7 +10,7 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/adChoicesContainer"
+        android:id="@+id/ad_choices_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="top|right"
@@ -25,7 +25,7 @@
         android:orientation="horizontal">
 
         <com.facebook.ads.AdIconView
-            android:id="@+id/adIconView"
+            android:id="@+id/native_ad_icon"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_gravity="center_vertical"
@@ -38,7 +38,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvAdTitle"
+                android:id="@+id/native_ad_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
@@ -47,7 +47,7 @@
                 tools:text="Ad Title" />
 
             <TextView
-                android:id="@+id/tvAdBody"
+                android:id="@+id/native_ad_body"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:ellipsize="end"
@@ -59,7 +59,7 @@
     </LinearLayout>
 
     <com.facebook.ads.MediaView
-        android:id="@+id/mediaView"
+        android:id="@+id/media_view"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_marginLeft="10dp"
@@ -72,7 +72,7 @@
         android:layout_marginRight="10dp">
 
         <TextView
-            android:id="@+id/sponsored_label"
+            android:id="@+id/native_ad_sponsored_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -81,7 +81,7 @@
             android:textSize="10sp" />
 
         <Button
-            android:id="@+id/btnCTA"
+            android:id="@+id/native_ad_call_to_action"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="130dp"
             android:layout_height="40dp"

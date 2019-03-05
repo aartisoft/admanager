@@ -62,6 +62,12 @@
         <activity
             android:name=".activity.RecyclerViewCustomActivity"
             android:label="@string/ex_recycler_view_custom" />
+        <activity
+            android:name=".activity.AdmobNativeActivity"
+            android:label="@string/ex_admob_native" />
+        <activity
+            android:name=".activity.FacebookNativeActivity"
+            android:label="@string/ex_face_native" />
 
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"

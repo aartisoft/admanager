@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.admanager.config.RemoteConfigHelper;
@@ -59,7 +58,7 @@ public class TrackAdapterCustom extends BaseAdapterWithFaceNative<TrackModel, Tr
 
 
     public static class CustomFaceNativeViewHolder extends BindableFaceAdViewHolder {
-        private RelativeLayout adChoicesContainer;
+        private LinearLayout adChoicesContainer;
         private TextView nativeAdTitle;
         private TextView nativeAdSocialContext;
         private AdIconView nativeAdIcon;
@@ -73,7 +72,7 @@ public class TrackAdapterCustom extends BaseAdapterWithFaceNative<TrackModel, Tr
             nativeAdIcon = adView.findViewById(com.admanager.facebook.R.id.native_ad_icon);
             adChoicesContainer = adView.findViewById(com.admanager.facebook.R.id.ad_choices_container);
             nativeAdTitle = adView.findViewById(com.admanager.facebook.R.id.native_ad_title);
-            nativeAdSocialContext = adView.findViewById(com.admanager.facebook.R.id.native_ad_social_context);
+            nativeAdSocialContext = adView.findViewById(com.admanager.facebook.R.id.native_ad_body);
             sponsoredLabel = adView.findViewById(com.admanager.facebook.R.id.native_ad_sponsored_label);
             nativeAdCallToAction = adView.findViewById(com.admanager.facebook.R.id.native_ad_call_to_action);
         }

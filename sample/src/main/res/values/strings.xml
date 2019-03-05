@@ -11,6 +11,8 @@
     <string name="ex_recycler_view_bignative">RecyclerView (Facebook) Big Native</string>
     <string name="ex_recycler_view_custom_design">RecyclerView (Facebook) Custom Native Design</string>
     <string name="ex_recycler_view_custom">RecyclerView (Facebook) Custom Native</string>
+    <string name="ex_admob_native">Admob Native</string>
+    <string name="ex_face_native">Facebook Native</string>
 
     <string name="accept">I ACCEPT</string>
 

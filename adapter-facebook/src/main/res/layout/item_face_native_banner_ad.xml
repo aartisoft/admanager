@@ -10,10 +10,12 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/ad_choices_container"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="top|right"
+            android:orientation="vertical"
             android:padding="2dp" />
 
         <TextView
@@ -59,7 +61,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/native_ad_social_context"
+                android:id="@+id/native_ad_body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"

@@ -9,15 +9,15 @@ AdManager's unique set of features:
 * **Custom Banner:** Helps you to show custom banners via remote config urls.
 * **Adapters:**
 
-|                |Interstitial|Banner|RecyclerView Adapter for Native Ads
-|----------------|------------|------------|------------|
-|**Admob:**|OK|OK|OK|
-|**Facebook:**|OK|OK|OK|
-|**Ironsource:**|OK|OK||
-|**AppLovin:**|OK|||
-|**Unity:**|OK|||
-|**Inmobi:**||OK||
-|**Mopub:**||OK||
+|                |Interstitial|Banner|Native|RecyclerView Adapter for Native Ads
+|----------------|------------|------------|------------|------------|
+|**Admob:**|OK|OK|OK|OK|
+|**Facebook:**|OK|OK|OK|OK|
+|**Ironsource:**|OK|OK|||
+|**AppLovin:**|OK||||
+|**Unity:**|OK||||
+|**Inmobi:**||OK|||
+|**Mopub:**||OK|||
 
 
 Add AdManager to your project:
