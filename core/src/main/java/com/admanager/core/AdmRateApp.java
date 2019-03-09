@@ -99,7 +99,7 @@ public class AdmRateApp {
             play.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Utils.openApp(context, context.getPackageName());
+                    AdmUtils.openApp(context, context.getPackageName());
                     Prefs.with(context).setUserRate(5);
                     Prefs.with(context).increaseUserRateStoreCount(true);
                     rd.dismiss();
@@ -158,7 +158,7 @@ public class AdmRateApp {
 
         public AdmRateApp build(Bundle savedInstanceState) {
             Activity activity = this.context.get();
-            if (Utils.isContextInvalid(activity)) {
+            if (AdmUtils.isContextInvalid(activity)) {
                 return null;
             }
             AdmRateApp admRateApp = new AdmRateApp(activity, firstAskAfterOpening, askingRateDayInterval, askingStoreInterval, customLayout);

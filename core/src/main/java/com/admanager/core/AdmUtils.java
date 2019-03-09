@@ -30,8 +30,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public class Utils {
-    public static final String TAG = "Utils";
+public class AdmUtils {
+    public static final String TAG = "AdmUtils";
 
     // context - START
     public static boolean isContextInvalid(Activity context) {

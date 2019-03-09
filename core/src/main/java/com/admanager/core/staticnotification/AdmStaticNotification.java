@@ -25,8 +25,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
 
+import com.admanager.core.AdmUtils;
 import com.admanager.core.BaseHelper;
-import com.admanager.core.Utils;
 
 import java.lang.ref.WeakReference;
 
@@ -70,7 +70,7 @@ public class AdmStaticNotification extends BaseHelper {
     }
 
     private static void checkAndDisplay(Context context) {
-        if (Utils.isContextInvalid(context)) {
+        if (AdmUtils.isContextInvalid(context)) {
             return;
         }
         final SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
@@ -85,7 +85,7 @@ public class AdmStaticNotification extends BaseHelper {
     }
 
     public static void saveStatus(Context context, boolean show) {
-        if (Utils.isContextInvalid(context)) {
+        if (AdmUtils.isContextInvalid(context)) {
             return;
         }
         final SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
@@ -157,7 +157,7 @@ public class AdmStaticNotification extends BaseHelper {
 
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        if (Utils.isActivityEquals(activity, startIn)) {
+        if (AdmUtils.isActivityEquals(activity, startIn)) {
             checkAndDisplay(activity);
         }
     }

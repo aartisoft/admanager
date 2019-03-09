@@ -12,8 +12,8 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.admanager.core.AdmRateApp;
+import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
-import com.admanager.core.Utils;
 import com.admanager.core.staticnotification.AdmStaticNotification;
 import com.admanager.popupad.AdmPopupAd;
 import com.admanager.sample.R;
@@ -84,17 +84,17 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
         } else if (id == R.id.nav_share) {
             ShareUtils.shareApp(this, "Lets check interesting app", true);
         } else if (id == R.id.isConnected) {
-            toast(item.getTitle(), Utils.isConnected(this));
+            toast(item.getTitle(), AdmUtils.isConnected(this));
         } else if (id == R.id.isConnectedMobile) {
-            toast(item.getTitle(), Utils.isConnectedMobile(this));
+            toast(item.getTitle(), AdmUtils.isConnectedMobile(this));
         } else if (id == R.id.isConnectedWifi) {
-            toast(item.getTitle(), Utils.isConnectedWifi(this));
+            toast(item.getTitle(), AdmUtils.isConnectedWifi(this));
         } else if (id == R.id.dpToPx) {
-            toast(item.getTitle(), Utils.dpToPx(this, 50));
+            toast(item.getTitle(), AdmUtils.dpToPx(this, 50));
         } else if (id == R.id.pxToDp) {
-            toast(item.getTitle(), Utils.pxToDp(this, 50));
+            toast(item.getTitle(), AdmUtils.pxToDp(this, 50));
         } else if (id == R.id.capitalize) {
-            toast(item.getTitle(), Utils.capitalize("CaPiTAlizEd"));
+            toast(item.getTitle(), AdmUtils.capitalize("CaPiTAlizEd"));
         }
         return false;
     }

@@ -232,7 +232,7 @@ public class AdManager {
     }
 
     synchronized void display(boolean closedRecently) {
-        if (Utils.anyFalse(LOADED)) {
+        if (AdmUtils.anyFalse(LOADED)) {
             // Wait until all ads are loaded
             return;
         }
@@ -288,7 +288,7 @@ public class AdManager {
             }
         }
 
-        if (Utils.anyFalse(SKIP)) {
+        if (AdmUtils.anyFalse(SKIP)) {
             return;
         }
 
@@ -318,7 +318,7 @@ public class AdManager {
     }
 
     private void reload() {
-        if (stepByStep && Utils.allTrue(SKIP)) {
+        if (stepByStep && AdmUtils.allTrue(SKIP)) {
             Log.d(TAG, "Reloading ads");
             destroy();
             build(listener, testMode);
@@ -347,7 +347,7 @@ public class AdManager {
 
     void setLoaded(int order) {
         this.LOADED.set(order, true);
-        if (Utils.allTrue(LOADED)) {
+        if (AdmUtils.allTrue(LOADED)) {
             Log.d(TAG, "loaded all");
             if (listener != null) {
                 listener.loaded();
@@ -358,7 +358,7 @@ public class AdManager {
 
     void setSkip(int order) {
         this.SKIP.set(order, true);
-        if (Utils.allTrue(SKIP)) {
+        if (AdmUtils.allTrue(SKIP)) {
             Log.d(TAG, "closed all");
             if (listener != null) {
                 listener.closed();

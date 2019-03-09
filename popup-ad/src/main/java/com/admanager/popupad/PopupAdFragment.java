@@ -21,7 +21,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import com.admanager.core.Utils;
+import com.admanager.core.AdmUtils;
 import com.admanager.userad.R;
 import com.bumptech.glide.Glide;
 
@@ -80,7 +80,7 @@ public class PopupAdFragment extends DialogFragment implements View.OnClickListe
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.openLink(getContext(), adSpecs.getUrl());
+                AdmUtils.openLink(getContext(), adSpecs.getUrl());
                 dismiss();
             }
         });
@@ -136,7 +136,7 @@ public class PopupAdFragment extends DialogFragment implements View.OnClickListe
     public void onClick(View v) {
         int id = v.getId();
         if (id == yes.getId()) {
-            Utils.openLink(getContext(), adSpecs.getUrl());
+            AdmUtils.openLink(getContext(), adSpecs.getUrl());
             dismiss();
         } else if (id == no.getId()) {
             dismiss();

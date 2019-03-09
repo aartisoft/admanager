@@ -3,7 +3,7 @@ package com.admanager.popupad;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
-import com.admanager.core.Utils;
+import com.admanager.core.AdmUtils;
 
 import java.lang.ref.WeakReference;
 
@@ -19,7 +19,7 @@ public class AdmPopupAd {
 
     public void show() {
         final AdSpecs adSpecs = new AdSpecs(this.keys);
-        if (!adSpecs.isEnable() || Utils.isContextInvalid(activity)) {
+        if (!adSpecs.isEnable() || AdmUtils.isContextInvalid(activity)) {
             return;
         }
 
@@ -42,7 +42,7 @@ public class AdmPopupAd {
                 .setPositiveButton(adSpecs.getYes(), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Utils.openLink(activity, adSpecs.getUrl());
+                        AdmUtils.openLink(activity, adSpecs.getUrl());
                     }
                 })
                 .create()
@@ -66,7 +66,7 @@ public class AdmPopupAd {
 
         public AdmPopupAd build() {
             AppCompatActivity act = this.activityWeakReference.get();
-            if (Utils.isContextInvalid(act)) {
+            if (AdmUtils.isContextInvalid(act)) {
                 return null;
             }
             if (keys == null) {
