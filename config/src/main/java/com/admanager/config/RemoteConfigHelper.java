@@ -1,8 +1,7 @@
 package com.admanager.config;
 
-
-import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -15,7 +14,6 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -25,13 +23,11 @@ import java.util.Map;
 public class RemoteConfigHelper implements OnCompleteListener<Void> {
     private static final String TAG = "RemoteConfigHelper";
 
-
     private static RemoteConfigHelper instance;
     private final FirebaseRemoteConfig mRemoteConfig;
     private boolean adsEnabled = true;
-    private boolean testMode = BuildConfig.DEBUG;
+    private boolean testMode;
     private WeakReference<Context> context;
-
 
     private RemoteConfigHelper(Map<String, Object> defaultMap, boolean idDeveloperModeEnabled) {
         mRemoteConfig = FirebaseRemoteConfig.getInstance();
@@ -39,6 +35,7 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
         mRemoteConfig.setDefaults(defaultMap);
         mRemoteConfig.setConfigSettings(new FirebaseRemoteConfigSettings.Builder().setDeveloperModeEnabled(idDeveloperModeEnabled).build());
         mRemoteConfig.fetch(mRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled() ? 0 : 10800).addOnCompleteListener(this);
+        testMode = idDeveloperModeEnabled;
     }
 
     public static boolean areAdsEnabled() {
@@ -60,19 +57,24 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
     public static RemoteConfigHelper init(Context context) {
         return init(context, false);
     }
+
     public static RemoteConfigHelper init(Context context, boolean reload) {
         if (instance == null || reload) {
             synchronized (RemoteConfigHelper.class) {
                 if (instance == null || reload) {
-                    FirebaseApp.initializeApp(context);
-
-                    if (context != null && context instanceof Activity && ((Activity)context).getApplication() instanceof RemoteConfigApp) {
-                        Map<String, Object> remoteConfigDefaults = ((RemoteConfigApp) ((Activity)context).getApplication()).getDefaults();
-                        instance = init(remoteConfigDefaults, BuildConfig.DEBUG, reload);
-                    } else {
-                        Log.e(TAG, "Initialized with empty default values! Make your application 'implements RemoteConfigApp' and call init(Context)");
-                        instance = init(new HashMap<String, Object>(), false, reload);
+                    if (context != null) {
+                        FirebaseApp.initializeApp(context);
                     }
+
+                    //                    if (context != null && context instanceof Activity && ((Activity)context).getApplication() instanceof RemoteConfigApp) {
+                    boolean debug = context != null && (0 != (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
+
+                    //                        Map<String, Object> remoteConfigDefaults = ((RemoteConfigApp) ((Activity)context).getApplication()).getDefaults();
+                    instance = init(RemoteConfigApp.getInstance().getDefaults(), debug, reload);
+                    //                    } else {
+                    //                        Log.e(TAG, "Initialized with empty default values! Make your application 'implements RemoteConfigApp' and call init(Context)");
+                    //                        instance = init(new HashMap<String, Object>(), false, reload);
+                    //                    }
                 }
             }
         }
@@ -99,7 +101,6 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
         return instance;
     }
 
-
     public static FirebaseRemoteConfig getConfigs() {
         return getInstance().mRemoteConfig;
     }
@@ -115,7 +116,7 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
     }
 
     @NonNull
-    private void initPeriodicNotifIfExist()  {
+    private void initPeriodicNotifIfExist() {
         try {
             Class<?> cls = Class.forName("com.admanager.periodicnotification.PeriodicNotification");
             Method init = cls.getMethod("init", Context.class);

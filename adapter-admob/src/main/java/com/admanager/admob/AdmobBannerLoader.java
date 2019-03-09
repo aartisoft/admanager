@@ -54,9 +54,7 @@ public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
             return;
         }
 
-        initContainer();
-
-        AdView mAdView = new AdView(getActivity());
+        final AdView mAdView = new AdView(getActivity());
         mAdView.setAdUnitId(adUnitId);
         mAdView.setAdSize(size);
 
@@ -71,10 +69,9 @@ public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
 
             @Override
             public void onAdLoaded() {
-
+                initContainer(mAdView);
             }
         });
         mAdView.loadAd(adRequest);
-        initContainer(mAdView);
     }
 }

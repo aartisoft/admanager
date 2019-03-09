@@ -58,8 +58,7 @@ public class FacebookBannerLoader extends BannerLoader<FacebookBannerLoader> {
             return;
         }
 
-        com.facebook.ads.AdView adView = new com.facebook.ads.AdView(getActivity(), adUnitId, this.size);
-        initContainer(adView);
+        final com.facebook.ads.AdView adView = new com.facebook.ads.AdView(getActivity(), adUnitId, this.size);
 
         adView.setAdListener(new AdListener() {
             @Override
@@ -69,7 +68,7 @@ public class FacebookBannerLoader extends BannerLoader<FacebookBannerLoader> {
 
             @Override
             public void onAdLoaded(Ad ad) {
-
+                initContainer(adView);
             }
 
             @Override

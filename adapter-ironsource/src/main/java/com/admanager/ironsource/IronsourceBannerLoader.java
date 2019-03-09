@@ -45,13 +45,11 @@ public class IronsourceBannerLoader extends BannerLoader<IronsourceBannerLoader>
 
         IronSource.init(getActivity(), this.appKey, IronSource.AD_UNIT.BANNER);
 
-        initContainer();
-
         banner = IronSource.createBanner(getActivity(), ISBannerSize.SMART);
         banner.setBannerListener(new BannerListener() {
             @Override
             public void onBannerAdLoaded() {
-
+                initContainer(banner);
             }
 
             @Override
@@ -79,8 +77,6 @@ public class IronsourceBannerLoader extends BannerLoader<IronsourceBannerLoader>
 
             }
         });
-
-        initContainer(banner);
 
         if (placement == null) {
             IronSource.loadBanner(banner);

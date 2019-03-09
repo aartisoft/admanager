@@ -63,47 +63,40 @@ public class ReminderService extends JobIntentService {
     }
 
     public static void sendNotification(Context context, Notif notif) {
-        PeriodicNotificationApp app = Helper.getPeriodicNotificationApp(context);
-        NotificationConfigs configs = app == null ? null : app.withConfigs();
-
+        PeriodicNotificationApp app = PeriodicNotificationApp.getInstance();
+        if (app == null) {
+            return;
+        }
 
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        String channelId = "remind_me";
-        String channelName = "Keeps you updated.";
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel mChannel = new NotificationChannel(channelId, channelName, NotificationManager.IMPORTANCE_HIGH);
+            NotificationChannel mChannel = new NotificationChannel(app.getChannelId(), app.getChannelName(), NotificationManager.IMPORTANCE_HIGH);
             notificationManager.createNotificationChannel(mChannel);
         }
         long[] VIBRATE = new long[]{1000, 1000, 1000, 1000, 1000};
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, channelId)
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, app.getChannelId())
                 .setContentTitle(notif.title)
                 .setContentText(notif.content)
                 .setTicker(notif.ticker)
                 .setVibrate(VIBRATE)
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
 
+        if (app.getIconSmall() != 0) {
+            mBuilder = mBuilder.setSmallIcon(app.getIconSmall());
+        }
 
-        if (configs != null) {
-            if (configs.smallIcon != 0) {
-                mBuilder = mBuilder.setSmallIcon(configs.smallIcon);
-            }
+        if (app.getIconBig() != 0) {
+            mBuilder = mBuilder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), app.getIconBig()));
+        }
 
-
-            if (configs.largeIcon != 0) {
-                mBuilder = mBuilder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), configs.largeIcon));
-            }
-
-            if (configs.clickToGo != null) {
-                Intent clickIntent = new Intent(context, configs.clickToGo);
-
-                TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
-                stackBuilder.addNextIntent(clickIntent);
-                PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(
-                        0,
-                        PendingIntent.FLAG_UPDATE_CURRENT
-                );
-                mBuilder = mBuilder.setContentIntent(resultPendingIntent);
-            }
+        if (app.getIntent() != null) {
+            TaskStackBuilder stackBuilder = TaskStackBuilder.create(context);
+            stackBuilder.addNextIntent(app.getIntent());
+            PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(
+                    0,
+                    PendingIntent.FLAG_UPDATE_CURRENT
+            );
+            mBuilder = mBuilder.setContentIntent(resultPendingIntent);
         }
 
 

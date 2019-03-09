@@ -79,8 +79,6 @@ public class MopubBannerLoader extends BannerLoader<MopubBannerLoader> {
     }
 
     private void _load() {
-        initContainer();
-
         moPubView = new MoPubView(getActivity());
         if (isTestMode()) {
             moPubView.setTesting(true);

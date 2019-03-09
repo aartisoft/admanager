@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/isConnected"
+            android:title="isConnected" />
+        <item
+            android:id="@+id/isConnectedMobile"
+            android:title="isConnectedMobile" />
+        <item
+            android:id="@+id/isConnectedWifi"
+            android:title="isConnectedWifi" />
+        <item
+            android:id="@+id/dpToPx"
+            android:title="dpToPx(50)" />
+        <item
+            android:id="@+id/pxToDp"
+            android:title="pxToDp(50)" />
+        <item
+            android:id="@+id/capitalize"
+            android:title="CaPiTAlizEd" />
+    </group>
+    <group
+        android:id="@+id/second"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_notification"
+            android:title="@string/nav_notification"
+            app:actionLayout="@layout/menu_switch"
+            app:showAsAction="always" />
+
+    </group>
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/nav_rate"
+                android:title="Rate" />
+        </menu>
+    </item>
+
+</menu>

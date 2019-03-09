@@ -35,24 +35,6 @@ public class Helper {
         return instance;
     }
 
-    private static PeriodicNotificationKeys getKeys(Context context) {
-        PeriodicNotificationApp app = getPeriodicNotificationApp(context);
-        if (app == null) {
-            return null;
-        }
-
-        return app.withRemoteConfigKeys();
-    }
-
-    static PeriodicNotificationApp getPeriodicNotificationApp(Context context) {
-        if (context == null) {
-            return null;
-        }
-        if (!(context.getApplicationContext() instanceof PeriodicNotificationApp)) {
-            throw new IllegalStateException("Application should implements 'PeriodicNotificationApp'");
-        }
-        return ((PeriodicNotificationApp) context.getApplicationContext());
-    }
 
 
     @Nullable
@@ -63,8 +45,13 @@ public class Helper {
 
         RemoteConfigHelper.init(context);
 
+        PeriodicNotificationApp pna = PeriodicNotificationApp.getInstance();
+        if (pna == null) {
+            return null;
+        }
+
         // get keys from application context
-        PeriodicNotificationKeys keys = Helper.getKeys(context);
+        PeriodicNotificationKeys keys = pna.getKeys();
 
         // return null keys
         if (keys == null) {

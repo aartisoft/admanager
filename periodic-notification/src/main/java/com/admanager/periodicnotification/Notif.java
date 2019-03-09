@@ -25,11 +25,11 @@ public class Notif {
 
     Notif(PeriodicNotificationKeys keys) {
         FirebaseRemoteConfig configs = RemoteConfigHelper.getConfigs();
-        this.enabled = configs.getBoolean(keys.enabled);
-        this.days = configs.getLong(keys.days);
-        this.title = configs.getString(keys.title);
-        this.ticker = configs.getString(keys.ticker);
-        this.content = configs.getString(keys.content);
+        this.enabled = configs.getBoolean(keys.enabledKey);
+        this.days = configs.getLong(keys.daysKey);
+        this.title = configs.getString(keys.titleKey);
+        this.ticker = configs.getString(keys.tickerKey);
+        this.content = configs.getString(keys.contentKey);
     }
 
     static Notif deserialize(String string) {

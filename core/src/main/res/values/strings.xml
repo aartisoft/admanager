@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Ad Manager Core</string>
+    <string name="share_app_chooser">Share with</string>
+    <string name="nav_notification">Easy Access</string>
+
+    <string name="rate_header">Rate &amp; Preview</string>
+    <string name="rate_title">Do you want to rate our app?</string>
+    <string name="rate_btn_store">Rate Now</string>
+    <string name="rate_text_store">Rate our app in the Play Store</string>
+    <string name="rate_text_thanks">Thanks for the rating!</string>
+
+    <string name="adm_tutorial_next">Next</string>
+    <string name="adm_tutorial_goto_app">Go to app</string>
+
 </resources>

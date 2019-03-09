@@ -144,7 +144,7 @@ public abstract class BannerLoader<L extends BannerLoader> {
             return;
         }
         LinearLayout border = new LinearLayout(getActivity());
-        int borderSize = (int) Utils.convertDpToPixel(sizeDp, getActivity());
+        int borderSize = (int) Utils.dpToPx(getActivity(), sizeDp);
         border.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, borderSize));
         border.setOrientation(LinearLayout.VERTICAL);
         border.setBackgroundColor(ContextCompat.getColor(getActivity(), color));

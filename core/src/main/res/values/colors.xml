@@ -2,6 +2,8 @@
 <resources>
     <color name="colorNativeBg">#ffffff</color>
     <color name="colorAction">#1d7119</color>
+    <color name="colorAccent">#716D19</color>
     <color name="colorPrimaryLight">#ff8a7f</color>
     <color name="colorPrimary">#FF6051</color>
+    <color name="colorPrimaryDark">#F84130</color>
 </resources>

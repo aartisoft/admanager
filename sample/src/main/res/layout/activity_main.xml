@@ -13,6 +13,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <Button
+                android:id="@+id/ex_sample_main"
+                style="@style/main_button"
+                android:text="@string/ex_sample_main" />
 
             <Button
                 android:id="@+id/ex_inters"

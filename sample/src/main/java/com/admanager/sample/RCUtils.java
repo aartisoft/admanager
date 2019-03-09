@@ -1,5 +1,7 @@
 package com.admanager.sample;
 
+import com.admanager.core.Consts;
+
 import java.util.HashMap;
 
 /**
@@ -48,11 +50,6 @@ public class RCUtils {
     public static final String CUSTOM_BANNER_IMAGE_URL = "custom_banner_image_url";
     public static final String CUSTOM_BANNER_CLICK_URL = "custom_banner_click_url";
 
-    public static final String NOTIF_ENABLE = "notif_enable";
-    public static final String NOTIF_DAYS = "notif_days";
-    public static final String NOTIF_TITLE = "notif_title";
-    public static final String NOTIF_TICKER = "notif_ticker";
-    public static final String NOTIF_CONTENT = "notif_content";
 
     private static HashMap<String, Object> defaults = null;
 
@@ -98,11 +95,21 @@ public class RCUtils {
             defaults.put(CUSTOM_BANNER_CLICK_URL, "https://play.google.com/store/apps/details?id=comm.essagechat.listing");
 
             //NOTIFIC
-            defaults.put(NOTIF_ENABLE, false);
-            defaults.put(NOTIF_DAYS, 1);
-            defaults.put(NOTIF_TITLE, "");
-            defaults.put(NOTIF_TICKER, "");
-            defaults.put(NOTIF_CONTENT, "");
+            defaults.put(Consts.PeriodicNotification.DEFAULT_ENABLE_KEY, false);
+            defaults.put(Consts.PeriodicNotification.DEFAULT_DAYS_KEY, 1);
+            defaults.put(Consts.PeriodicNotification.DEFAULT_TITLE_KEY, "");
+            defaults.put(Consts.PeriodicNotification.DEFAULT_TICKER_KEY, "");
+            defaults.put(Consts.PeriodicNotification.DEFAULT_CONTENT_KEY, "");
+
+            defaults.put(Consts.PopupAd.DEFAULT_ENABLE_KEY, true);
+            defaults.put(Consts.PopupAd.DEFAULT_MESSAGE_KEY, "You can find whatever you want.");
+            defaults.put(Consts.PopupAd.DEFAULT_NO_KEY, "Not now");
+            defaults.put(Consts.PopupAd.DEFAULT_TITLE_KEY, "Do you want to see best app ever?");
+            defaults.put(Consts.PopupAd.DEFAULT_URL_KEY, "https://www.google.com");
+            defaults.put(Consts.PopupAd.DEFAULT_YES_KEY, "Great!");
+            defaults.put(Consts.PopupAd.DEFAULT_LOGO_URL_KEY, "https://lh3.googleusercontent.com/ICVLzXLgYXK1qpaq30txfWaJsA9DT_hOtWp5oesic8a_CJhQMtKue-G7-DnhyGxsPYM=s180-rw");
+            defaults.put(Consts.PopupAd.DEFAULT_VIDEO_URL_KEY, "https://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4"); //
+            defaults.put(Consts.PopupAd.DEFAULT_IMAGE_URL_KEY, ""); // http://oi48.tinypic.com/25exzle.jpg
         }
         return defaults;
     }
