@@ -156,22 +156,26 @@ public class PopupAdFragment extends DialogFragment implements View.OnClickListe
         videoLoading.setVisibility(View.GONE);
         try {
             mp.start();
+            unmute();
         } catch (IllegalStateException e) {
             e.printStackTrace();
         }
-        unmute();
     }
 
     private void mute() {
-        mp.setVolume(0f, 0f);
-        mute.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.sound_on_icon));
-        muted = true;
+        if (mp != null && mp.isPlaying()) {
+            mp.setVolume(0f, 0f);
+            mute.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.sound_on_icon));
+            muted = true;
+        }
     }
 
     private void unmute() {
-        mp.setVolume(1f, 1f);
-        mute.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.mute_icon));
-        muted = false;
+        if (mp != null && mp.isPlaying()) {
+            mp.setVolume(1f, 1f);
+            mute.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.mute_icon));
+            muted = false;
+        }
     }
 
     @Override
