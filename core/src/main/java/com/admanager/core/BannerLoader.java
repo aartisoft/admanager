@@ -15,8 +15,8 @@ import com.admanager.config.RemoteConfigHelper;
 
 public abstract class BannerLoader<L extends BannerLoader> {
     public static final String TAG = "BannerLoader";
-    private static final int DEFAULT_BORDER_SIZE = 2;
-    private static final int DEFAULT_BORDER_COLOR = R.color.colorPrimary;
+    public static final int DEFAULT_BORDER_SIZE = 2;
+    public static final int DEFAULT_BORDER_COLOR = R.color.colorPrimary;
     private final LinearLayout container;
     private final LinearLayout adContainer;
     private Activity activity;

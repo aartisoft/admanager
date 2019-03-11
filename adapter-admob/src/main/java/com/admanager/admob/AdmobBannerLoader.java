@@ -24,6 +24,7 @@ public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
 
     public AdmobBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
         super(activity, adContainer, rcEnableKey);
+        withBorder(1, DEFAULT_BORDER_COLOR);
     }
 
     public AdmobBannerLoader size(AdSize size) {

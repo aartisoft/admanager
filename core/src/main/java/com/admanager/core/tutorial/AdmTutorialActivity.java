@@ -82,6 +82,8 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         waWormDotsIndicator.setViewPager(viewPager);
         configuration.applyDotsLayoutStyle(waWormDotsIndicator);
 
+        waWormDotsIndicator.setVisibility(configuration.hideButton ? View.VISIBLE : View.GONE);
+
         loadAllAds();
         onPageSelected(0);
     }
