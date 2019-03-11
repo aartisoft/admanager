@@ -20,9 +20,9 @@ public class Consts {
         public static final String DEFAULT_TITLE_KEY = "userad_title";
         public static final String DEFAULT_URL_KEY = "userad_url";
         public static final String DEFAULT_YES_KEY = "userad_yes";
-        public static final String DEFAULT_VIDEO_URL_KEY = "userad_video";
-        public static final String DEFAULT_IMAGE_URL_KEY = "userad_image";
-        public static final String DEFAULT_LOGO_URL_KEY = "userad_logo";
+        public static final String DEFAULT_VIDEO_URL_KEY = "userad_video_url";
+        public static final String DEFAULT_IMAGE_URL_KEY = "userad_image_url";
+        public static final String DEFAULT_LOGO_URL_KEY = "userad_logo_url";
     }
 
 }
