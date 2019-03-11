@@ -24,7 +24,6 @@ public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
 
     public AdmobBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
         super(activity, adContainer, rcEnableKey);
-        withBorder(1, DEFAULT_BORDER_COLOR);
     }
 
     public AdmobBannerLoader size(AdSize size) {
@@ -53,6 +52,10 @@ public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
 
         if (!super.isEnabled()) {
             return;
+        }
+
+        if (!size.equals(AdSize.MEDIUM_RECTANGLE)) {
+            withBorder(1, DEFAULT_BORDER_COLOR);
         }
 
         final AdView mAdView = new AdView(getActivity());
