@@ -161,7 +161,7 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
     private void loaded(boolean loaded) {
         // we can hide native view if not 'loaded'
         adLoaded = true;
-        onPageSelected(viewPager.getCurrentItem());
+        setNextButtonVisibility(viewPager.getCurrentItem());
     }
 
     private int getItem(int i) {
@@ -176,15 +176,9 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
 
     @Override
     public final void onPageSelected(int position) {
-        if (!configuration.hideButton) {
-            if (position == layouts.size() - 1) {
-                btnNext.setText(getString(R.string.adm_tutorial_goto_app));
-                btnNext.setVisibility(adLoaded ? View.VISIBLE : View.INVISIBLE);
-            } else {
-                btnNext.setVisibility(View.VISIBLE);
-                btnNext.setText(getString(R.string.adm_tutorial_next));
-            }
-        } else {
+        setNextButtonVisibility(position);
+
+        if (configuration.hideButton) {
             // last Page is used for triggering AdManager
             if (position == layouts.size() - 1) {
                 new Handler().postDelayed(new Runnable() {
@@ -200,6 +194,18 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
             loadAd(adplaceholder);
         }
 
+    }
+
+    private void setNextButtonVisibility(int position) {
+        if (!configuration.hideButton) {
+            if (position == layouts.size() - 1) {
+                btnNext.setText(getString(R.string.adm_tutorial_goto_app));
+                btnNext.setVisibility(adLoaded ? View.VISIBLE : View.INVISIBLE);
+            } else {
+                btnNext.setVisibility(View.VISIBLE);
+                btnNext.setText(getString(R.string.adm_tutorial_next));
+            }
+        }
     }
 
     @Override
