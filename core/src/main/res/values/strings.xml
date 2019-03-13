@@ -11,5 +11,6 @@
 
     <string name="adm_tutorial_next">Next</string>
     <string name="adm_tutorial_goto_app">Go to app</string>
+    <string name="adm_tutorial_redirecting">Please wait..</string>
 
 </resources>

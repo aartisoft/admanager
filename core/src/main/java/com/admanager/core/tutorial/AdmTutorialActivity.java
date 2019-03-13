@@ -1,6 +1,8 @@
 package com.admanager.core.tutorial;
 
 import android.content.Context;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -154,6 +156,16 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         }
         if (image != 0) {
             iv.setImageDrawable(ContextCompat.getDrawable(this, image));
+        }
+        if (image == 0 && desc == 0) {
+            try {
+                ApplicationInfo info = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+                iv.setImageDrawable(ContextCompat.getDrawable(this, info.icon));
+                iv.setScaleType(ImageView.ScaleType.CENTER);
+            } catch (Throwable ignored) {
+
+            }
+            tvDesc.setText(R.string.adm_tutorial_redirecting);
         }
         layouts.add(view);
     }

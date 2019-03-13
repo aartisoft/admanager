@@ -108,7 +108,7 @@ public class RCUtils {
             defaults.put(Consts.PopupAd.DEFAULT_URL_KEY, "https://www.google.com");
             defaults.put(Consts.PopupAd.DEFAULT_YES_KEY, "Great!");
             defaults.put(Consts.PopupAd.DEFAULT_LOGO_URL_KEY, "https://lh3.googleusercontent.com/ICVLzXLgYXK1qpaq30txfWaJsA9DT_hOtWp5oesic8a_CJhQMtKue-G7-DnhyGxsPYM=s180-rw");
-            defaults.put(Consts.PopupAd.DEFAULT_VIDEO_URL_KEY, "https://videocdn.bodybuilding.com/video/mp4/62000/62792m.mp4"); //
+            defaults.put(Consts.PopupAd.DEFAULT_VIDEO_URL_KEY, "https://www.50dirham.com/storage/file/ads/toy_blast.mp4"); //
             defaults.put(Consts.PopupAd.DEFAULT_IMAGE_URL_KEY, ""); // http://oi48.tinypic.com/25exzle.jpg
         }
         return defaults;
