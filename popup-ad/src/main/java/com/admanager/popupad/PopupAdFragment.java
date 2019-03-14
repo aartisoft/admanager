@@ -26,8 +26,8 @@ import com.admanager.userad.R;
 import com.bumptech.glide.Glide;
 
 public class PopupAdFragment extends DialogFragment implements View.OnClickListener, MediaPlayer.OnPreparedListener, MediaPlayer.OnInfoListener, MediaPlayer.OnErrorListener {
+    private static final String AD_SPECS = "adSpecs";
     private static final String TAG = "PopupAdFragment";
-
     private ImageView logo;
     private TextView title;
     private TextView body;
@@ -77,6 +77,11 @@ public class PopupAdFragment extends DialogFragment implements View.OnClickListe
         yes.setOnClickListener(this);
         no.setOnClickListener(this);
         mute.setOnClickListener(this);
+
+        if (savedInstanceState != null && savedInstanceState.getSerializable(AD_SPECS) != null) {
+            adSpecs = (AdSpecs) savedInstanceState.getSerializable(AD_SPECS);
+        }
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,6 +91,11 @@ public class PopupAdFragment extends DialogFragment implements View.OnClickListe
         });
         return view;
 
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putSerializable(AD_SPECS, adSpecs);
     }
 
     @Override
@@ -187,6 +197,7 @@ public class PopupAdFragment extends DialogFragment implements View.OnClickListe
     @Override
     public boolean onError(MediaPlayer mp, int what, int extra) {
         Log.e(TAG, "onError: " + what + " -> " + extra);
-        return false;
+        videoViewContainer.setVisibility(View.GONE);
+        return true;
     }
 }

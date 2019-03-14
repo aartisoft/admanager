@@ -81,6 +81,10 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
         int id = item.getItemId();
         if (id == R.id.nav_rate) {
             rateApp.rate();
+        } else if (id == R.id.nav_dialogad) {
+            new AdmPopupAd.Builder(this)
+                    .build()
+                    .show();
         } else if (id == R.id.nav_share) {
             ShareUtils.shareApp(this, "Lets check interesting app", true);
         } else if (id == R.id.isConnected) {

@@ -37,6 +37,9 @@
     <item android:title="Communicate">
         <menu>
             <item
+                android:id="@+id/nav_dialogad"
+                android:title="Dialog Ad" />
+            <item
                 android:id="@+id/nav_share"
                 android:title="Share" />
             <item
