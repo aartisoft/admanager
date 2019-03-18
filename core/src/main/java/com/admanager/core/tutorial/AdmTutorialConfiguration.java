@@ -5,6 +5,7 @@ import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IntRange;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.Button;
@@ -20,6 +21,8 @@ public class AdmTutorialConfiguration {
     boolean reloadAdsPerPage;
     int layout = R.layout.adm_activity_tutorial;
     int pageLayout = R.layout.adm_tutorial_page;
+    int buttonTextNext = R.string.adm_tutorial_next;
+    int buttonTextLast = R.string.adm_tutorial_goto_app;
     private int textColor;
     private int textSize;
     private int buttonTextSize;
@@ -46,6 +49,16 @@ public class AdmTutorialConfiguration {
 
     public AdmTutorialConfiguration buttonTextSize(@IntRange(from = 8, to = 99) int buttonTextSize) {
         this.buttonTextSize = buttonTextSize;
+        return this;
+    }
+
+    public AdmTutorialConfiguration buttonTextNext(@StringRes int buttonTextNext) {
+        this.buttonTextNext = buttonTextNext;
+        return this;
+    }
+
+    public AdmTutorialConfiguration buttonTextLast(@StringRes int buttonTextLast) {
+        this.buttonTextLast = buttonTextLast;
         return this;
     }
 

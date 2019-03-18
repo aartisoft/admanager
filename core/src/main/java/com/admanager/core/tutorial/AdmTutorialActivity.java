@@ -211,11 +211,11 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
     private void setNextButtonVisibility(int position) {
         if (!configuration.hideButton) {
             if (position == layouts.size() - 1) {
-                btnNext.setText(getString(R.string.adm_tutorial_goto_app));
+                btnNext.setText(configuration.buttonTextLast);
                 btnNext.setVisibility(adLoaded ? View.VISIBLE : View.INVISIBLE);
             } else {
                 btnNext.setVisibility(View.VISIBLE);
-                btnNext.setText(getString(R.string.adm_tutorial_next));
+                btnNext.setText(configuration.buttonTextNext);
             }
         }
     }
