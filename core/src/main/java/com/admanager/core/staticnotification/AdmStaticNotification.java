@@ -131,8 +131,8 @@ public class AdmStaticNotification extends BaseHelper {
     private static void show(Context context, String title, String content, String channelID, String channelName, int largeIcon, int smallIcon, Intent intent) {
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        if (Build.VERSION.SDK_INT >= 26) {
-            NotificationChannel channel = new NotificationChannel(channelID, channelName, NotificationManager.IMPORTANCE_DEFAULT);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(channelID, channelName, NotificationManager.IMPORTANCE_LOW);
             nm.createNotificationChannel(channel);
         }
 
@@ -141,7 +141,7 @@ public class AdmStaticNotification extends BaseHelper {
                 .setSmallIcon(smallIcon)
                 .setContentTitle(title)
                 .setContentText(content)
-                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+                .setPriority(NotificationCompat.PRIORITY_MAX);
         builder.setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
         builder.setOngoing(true);
         nm.notify(ID, builder.build());
