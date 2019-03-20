@@ -21,4 +21,9 @@ public abstract class BaseAdapter<T, VH extends BindableViewHolder<T>> extends A
     protected final AdmAdapterConfiguration<?> createDefaultConfiguration() {
         return new AdmAdapterConfiguration<>();
     }
+
+    @Override
+    protected final void fillDefaultTypeOfConfiguration() {
+
+    }
 }

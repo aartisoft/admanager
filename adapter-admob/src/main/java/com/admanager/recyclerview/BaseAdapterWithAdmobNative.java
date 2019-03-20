@@ -36,9 +36,6 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
                                       boolean show_native,
                                       @Size(min = com.admanager.admob.Consts.AD_UNIT_SIZE_MIN, max = com.admanager.admob.Consts.AD_UNIT_SIZE_MAX) String nativeAdUnitId) {
         super(activity, layout, data, show_native);
-        if (configuration.getType() == null) {
-            configuration = configuration.type(NativeType.NATIVE_BANNER);
-        }
         if (mAdLoader == null) {
             if (activity == null) {
                 return;
@@ -71,6 +68,13 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
         }
         mAdLoader.loadAds(builder.build(), 3);
 
+    }
+
+    @Override
+    protected final void fillDefaultTypeOfConfiguration() {
+        if (configuration.getType() == null) {
+            configuration = configuration.type(NativeType.NATIVE_BANNER);
+        }
     }
 
     @Override

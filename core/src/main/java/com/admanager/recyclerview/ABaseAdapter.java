@@ -52,6 +52,8 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>, CONF extends Ad
         if (this.configuration == null) {
             this.configuration = createDefaultConfiguration();
         }
+        fillDefaultTypeOfConfiguration();
+
         int gridSize = configuration.getGridSize();
 
         if (gridSize > 1) {
@@ -63,6 +65,8 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>, CONF extends Ad
         }
         rowWrappers = getRowWrappers();
     }
+
+    protected abstract void fillDefaultTypeOfConfiguration();
 
     protected abstract CONF createDefaultConfiguration();
 

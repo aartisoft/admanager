@@ -36,9 +36,6 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
 
     public BaseAdapterWithFaceNative(Activity activity, @LayoutRes int layout, List<T> data, boolean show_native, @Size(min = Consts.AD_UNIT_SIZE_MIN, max = Consts.AD_UNIT_SIZE_MAX) String nativeAdUnitId) {
         super(activity, layout, data, show_native);
-        if (configuration.getType() == null) {
-            configuration = configuration.type(NativeType.NATIVE_BANNER);
-        }
         if (manager == null) {
             if (activity == null) {
                 return;
@@ -62,6 +59,13 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
             });
         }
         manager.loadAds();
+    }
+
+    @Override
+    protected final void fillDefaultTypeOfConfiguration() {
+        if (configuration.getType() == null) {
+            configuration = configuration.type(NativeType.NATIVE_BANNER);
+        }
     }
 
     @Override
