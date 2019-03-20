@@ -1,7 +1,6 @@
 package com.admanager.sample.adapter;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.admanager.config.RemoteConfigHelper;
@@ -12,7 +11,7 @@ import com.admanager.sample.RCUtils;
 public class TrackAdmobAdapter extends BaseAdapterWithAdmobNative<TrackModel, TrackViewHolder> {
 
     public TrackAdmobAdapter(Activity activity) {
-        super(activity,  R.layout.item_track, null, showNative(), getNativeId());
+        super(activity, R.layout.item_track, null, showNative(), getNativeId());
     }
 
     private static boolean showNative() {
@@ -28,9 +27,4 @@ public class TrackAdmobAdapter extends BaseAdapterWithAdmobNative<TrackModel, Tr
         return new TrackViewHolder(view);
     }
 
-    @NonNull
-    @Override
-    protected NativeType getNativeType() {
-        return NativeType.NATIVE_BANNER;
-    }
 }

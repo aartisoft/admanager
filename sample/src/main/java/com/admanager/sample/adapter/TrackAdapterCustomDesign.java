@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 
 import com.admanager.config.RemoteConfigHelper;
+import com.admanager.recyclerview.AdmAdapterConfiguration;
 import com.admanager.recyclerview.BaseAdapterWithFaceNative;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
@@ -33,7 +34,9 @@ public class TrackAdapterCustomDesign extends BaseAdapterWithFaceNative<TrackMod
      * If you are using {@link NativeType.NATIVE_LARGE}, then check 'ids' from {@link com.admanager.facebook.R.layout.item_face_native_ad}
      */
     @Override
-    protected int getCustomNativeLayout() {
-        return R.layout.custom_item_face_native_banner_ad;
+    protected AdmAdapterConfiguration<NativeType> configure() {
+        return new AdmAdapterConfiguration<NativeType>()
+                .customNativeLayout(R.layout.custom_item_face_native_banner_ad);
     }
+
 }

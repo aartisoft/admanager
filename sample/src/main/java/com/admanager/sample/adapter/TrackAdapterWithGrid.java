@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 
 import com.admanager.config.RemoteConfigHelper;
+import com.admanager.recyclerview.AdmAdapterConfiguration;
 import com.admanager.recyclerview.BaseAdapterWithFaceNative;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
@@ -23,17 +24,14 @@ public class TrackAdapterWithGrid extends BaseAdapterWithFaceNative<TrackModel, 
     }
 
     @Override
+    protected AdmAdapterConfiguration<NativeType> configure() {
+        return new AdmAdapterConfiguration<NativeType>()
+                .gridSize(2);
+    }
+
+    @Override
     protected TrackViewHolder createViewHolder(View view) {
         return new TrackViewHolder(view);
     }
 
-    @Override
-    public int gridSize() {
-        return 2; // column number
-    }
-
-    @Override
-    protected int density() {
-        return 3;
-    }
 }

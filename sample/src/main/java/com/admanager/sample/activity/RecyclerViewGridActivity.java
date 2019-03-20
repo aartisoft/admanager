@@ -30,7 +30,7 @@ public class RecyclerViewGridActivity extends AppCompatActivity {
         trackAdapter = new TrackAdapterWithGrid(this);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         // create grid layout
-        GridLayoutManager layout = new GridLayoutManager(this, trackAdapter.gridSize());
+        GridLayoutManager layout = new GridLayoutManager(this, trackAdapter.getGridSize());
         layout.setSpanSizeLookup(trackAdapter.getSpanSizeLookup());
         recyclerView.setLayoutManager(layout);
 

@@ -19,8 +19,7 @@ import com.admanager.config.RemoteConfigHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-
-abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>, CONF extends AdmAdapterConfiguration<?>> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final String TAG = "ABaseAdapter";
 
     private final Activity activity;
@@ -29,8 +28,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
     int DEFAULT_NO_OF_DATA_BETWEEN_ADS;
     private List<RowWrapper> rowWrappers;
     private List<T> data;
-    private int defaultDensity = 3;
-
+    CONF configuration;
 
     @LayoutRes
     private int layout;
@@ -50,25 +48,30 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
         this.data = data == null ? new ArrayList<T>() : data;
         this.show_native = show_native || RemoteConfigHelper.isTestMode();
         this.layout = layout;
-        int gridSize = gridSize();
+        this.configuration = configure();
+        if (this.configuration == null) {
+            this.configuration = createDefaultConfiguration();
+        }
+        int gridSize = configuration.getGridSize();
 
         if (gridSize > 1) {
-            defaultDensity = 1;
-            DEFAULT_NO_OF_DATA_BETWEEN_ADS = gridSize * density();
+            DEFAULT_NO_OF_DATA_BETWEEN_ADS = gridSize * configuration.getDensityForGrid();
         } else if (gridSize == 1) {
-            DEFAULT_NO_OF_DATA_BETWEEN_ADS = density();
+            DEFAULT_NO_OF_DATA_BETWEEN_ADS = configuration.getDensity();
         } else {
             DEFAULT_NO_OF_DATA_BETWEEN_ADS = 0;
         }
         rowWrappers = getRowWrappers();
     }
 
-    protected int density() {
-        return defaultDensity;
+    protected abstract CONF createDefaultConfiguration();
+
+    protected CONF configure() {
+        return null;
     }
 
-    public int gridSize() {
-        return 1;
+    public final int getGridSize() {
+        return configuration.getGridSize();
     }
 
     protected abstract VH createViewHolder(View view);
@@ -233,13 +236,13 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
             @Override
             public int getSpanSize(int position) {
                 if (isLoading) {
-                    return gridSize();
+                    return configuration.getGridSize();
                 } else if (!show_native) {
                     return 1;
                 } else if (getItemViewType(position) == RowWrapper.Type.LIST.ordinal()) {
                     return 1;
                 }
-                return gridSize();
+                return configuration.getGridSize();
             }
         };
     }

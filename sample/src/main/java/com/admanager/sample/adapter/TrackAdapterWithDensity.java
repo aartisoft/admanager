@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 
 import com.admanager.config.RemoteConfigHelper;
+import com.admanager.recyclerview.AdmAdapterConfiguration;
 import com.admanager.recyclerview.BaseAdapterWithFaceNative;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
@@ -23,12 +24,15 @@ public class TrackAdapterWithDensity extends BaseAdapterWithFaceNative<TrackMode
     }
 
     @Override
+    protected AdmAdapterConfiguration<NativeType> configure() {
+        return new AdmAdapterConfiguration<NativeType>()
+                .density(5); // show 1 native between 5 rows
+    }
+
+
+    @Override
     protected TrackViewHolder createViewHolder(View view) {
         return new TrackViewHolder(view);
     }
 
-    @Override
-    protected int density() {
-        return 5; // show 1 native between 5 rows
-    }
 }

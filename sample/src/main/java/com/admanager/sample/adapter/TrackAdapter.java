@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.view.View;
 
 import com.admanager.config.RemoteConfigHelper;
+import com.admanager.recyclerview.AdmAdapterConfiguration;
 import com.admanager.recyclerview.BaseAdapterWithFaceNative;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
@@ -11,7 +12,7 @@ import com.admanager.sample.RCUtils;
 public class TrackAdapter extends BaseAdapterWithFaceNative<TrackModel, TrackViewHolder> {
 
     public TrackAdapter(Activity activity) {
-        super(activity,  R.layout.item_track, null, showNative(), getNativeId());
+        super(activity, R.layout.item_track, null, showNative(), getNativeId());
     }
 
     private static boolean showNative() {
@@ -20,6 +21,13 @@ public class TrackAdapter extends BaseAdapterWithFaceNative<TrackModel, TrackVie
 
     private static String getNativeId() {
         return RemoteConfigHelper.getConfigs().getString(RCUtils.NATIVE_FACEBOOK_ID);
+    }
+
+    @Override
+    protected AdmAdapterConfiguration<NativeType> configure() {
+        return new AdmAdapterConfiguration<NativeType>()
+                .density(3)
+                .gridSize(1);
     }
 
     @Override

@@ -1,10 +1,10 @@
 package com.admanager.sample.adapter;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.admanager.config.RemoteConfigHelper;
+import com.admanager.recyclerview.AdmAdapterConfiguration;
 import com.admanager.recyclerview.BaseAdapterWithFaceNative;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
@@ -28,9 +28,9 @@ public class TrackAdapterBigNative extends BaseAdapterWithFaceNative<TrackModel,
         return RemoteConfigHelper.getConfigs().getString(RCUtils.NATIVE_FACEBOOK_ID);
     }
 
-    @NonNull
     @Override
-    protected NativeType getNativeType() {
-        return NativeType.NATIVE_LARGE;
+    protected AdmAdapterConfiguration<NativeType> configure() {
+        return new AdmAdapterConfiguration<NativeType>()
+                .type(NativeType.NATIVE_LARGE);
     }
 }

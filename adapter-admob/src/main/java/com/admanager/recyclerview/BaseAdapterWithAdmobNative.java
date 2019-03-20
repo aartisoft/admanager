@@ -20,7 +20,7 @@ import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
-public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH> {
+public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH, AdmAdapterConfiguration<BaseAdapterWithAdmobNative.NativeType>> {
     private static final String TAG = "AdmobBaseAdapter";
     private static final String ADMOB_NATIVE_TEST_ID = "ca-app-pub-3940256099942544/2247696110";
     private AdLoader mAdLoader;
@@ -36,6 +36,9 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
                                       boolean show_native,
                                       @Size(min = com.admanager.admob.Consts.AD_UNIT_SIZE_MIN, max = com.admanager.admob.Consts.AD_UNIT_SIZE_MAX) String nativeAdUnitId) {
         super(activity, layout, data, show_native);
+        if (configuration.getType() == null) {
+            configuration = configuration.type(NativeType.NATIVE_BANNER);
+        }
         if (mAdLoader == null) {
             if (activity == null) {
                 return;
@@ -70,6 +73,11 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
 
     }
 
+    @Override
+    protected final AdmAdapterConfiguration<NativeType> createDefaultConfiguration() {
+        return new AdmAdapterConfiguration<>();
+    }
+
     protected String testDevice() {
         return null;
     }
@@ -94,7 +102,7 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
             }
 
             // use Custom Layout if user filled
-            int customLayout = getCustomNativeLayout();
+            int customLayout = configuration.getCustomNativeLayout();
             if (customLayout != 0) {
                 layout = customLayout;
             }
@@ -110,7 +118,7 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
             }
 
             // use Custom View Holder  if user filled
-            BindableAdmobAdViewHolder customViewHolder = getCustomNativeViewHolder(view);
+            BindableAdmobAdViewHolder customViewHolder = onCreateCustomNativeViewHolder(view);
             if (customViewHolder != null) {
                 vh = customViewHolder;
             }
@@ -135,19 +143,15 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
         }
     }
 
-    protected BindableAdmobAdViewHolder getCustomNativeViewHolder(View view) {
+    protected BindableAdmobAdViewHolder onCreateCustomNativeViewHolder(View view) {
         return null;
     }
 
-    @LayoutRes
-    protected int getCustomNativeLayout() {
-        return 0;
-    }
 
     private BindableAdmobAdViewHolder getViewHolder(View view) {
-        switch (getNativeType()) {
+        switch (configuration.getType()) {
             case CUSTOM:
-                return getCustomNativeViewHolder(view);
+                return onCreateCustomNativeViewHolder(view);
             case NATIVE_LARGE:
             case NATIVE_BANNER:
             default:
@@ -157,20 +161,15 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
 
     @LayoutRes
     private int getLayoutId() {
-        switch (getNativeType()) {
+        switch (configuration.getType()) {
             case CUSTOM:
-                return getCustomNativeLayout();
+                return configuration.getCustomNativeLayout();
             case NATIVE_LARGE:
                 return R.layout.ad_native_unified;
             case NATIVE_BANNER:
             default:
                 return R.layout.ad_native_unified_sm;
         }
-    }
-
-    @NonNull
-    protected NativeType getNativeType() {
-        return NativeType.NATIVE_BANNER;
     }
 
 

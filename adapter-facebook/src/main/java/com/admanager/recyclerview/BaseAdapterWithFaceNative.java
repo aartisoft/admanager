@@ -21,7 +21,7 @@ import java.util.List;
 /**
  * Created by Gust on 20.11.2018.
  */
-public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH> {
+public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH, AdmAdapterConfiguration<BaseAdapterWithFaceNative.NativeType>> {
     private static final String TAG = "FaceSearchAdapter";
     private static final String FACEBOOK_NATIVE_TEST_ID = "YOUR_PLACEMENT_ID";
     private NativeAdsManager manager;
@@ -36,6 +36,9 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
 
     public BaseAdapterWithFaceNative(Activity activity, @LayoutRes int layout, List<T> data, boolean show_native, @Size(min = Consts.AD_UNIT_SIZE_MIN, max = Consts.AD_UNIT_SIZE_MAX) String nativeAdUnitId) {
         super(activity, layout, data, show_native);
+        if (configuration.getType() == null) {
+            configuration = configuration.type(NativeType.NATIVE_BANNER);
+        }
         if (manager == null) {
             if (activity == null) {
                 return;
@@ -61,6 +64,10 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
         manager.loadAds();
     }
 
+    @Override
+    protected final AdmAdapterConfiguration<NativeType> createDefaultConfiguration() {
+        return new AdmAdapterConfiguration<>();
+    }
 
     @Override
     @NonNull
@@ -82,7 +89,7 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
             }
 
             // use Custom Layout if user filled
-            int customLayout = getCustomNativeLayout();
+            int customLayout = configuration.getCustomNativeLayout();
             if (customLayout != 0) {
                 layout = customLayout;
             }
@@ -98,7 +105,7 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
             }
 
             // use Custom View Holder  if user filled
-            BindableFaceAdViewHolder customViewHolder = getCustomNativeViewHolder(view);
+            BindableFaceAdViewHolder customViewHolder = onCreateCustomNativeViewHolder(view);
             if (customViewHolder != null) {
                 vh = customViewHolder;
             }
@@ -116,19 +123,14 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
         }
     }
 
-    protected BindableFaceAdViewHolder getCustomNativeViewHolder(View view) {
+    protected BindableFaceAdViewHolder onCreateCustomNativeViewHolder(View view) {
         return null;
     }
 
-    @LayoutRes
-    protected int getCustomNativeLayout() {
-        return 0;
-    }
-
     private BindableFaceAdViewHolder getViewHolder(View view) {
-        switch (getNativeType()) {
+        switch (configuration.getType()) {
             case CUSTOM:
-                return getCustomNativeViewHolder(view);
+                return onCreateCustomNativeViewHolder(view);
             case NATIVE_LARGE:
             case NATIVE_BANNER:
             default:
@@ -138,9 +140,9 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
 
     @LayoutRes
     private int getLayoutId() {
-        switch (getNativeType()) {
+        switch (configuration.getType()) {
             case CUSTOM:
-                return getCustomNativeLayout();
+                return configuration.getCustomNativeLayout();
             case NATIVE_LARGE:
                 return R.layout.item_face_native_ad;
             case NATIVE_BANNER:
@@ -148,12 +150,6 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
                 return R.layout.item_face_native_banner_ad;
         }
     }
-
-    @NonNull
-    protected NativeType getNativeType() {
-        return NativeType.NATIVE_BANNER;
-    }
-
 
     public enum NativeType {
         NATIVE_BANNER, NATIVE_LARGE, CUSTOM

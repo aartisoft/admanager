@@ -6,8 +6,7 @@ import android.support.annotation.LayoutRes;
 
 import java.util.List;
 
-
-public abstract class BaseAdapter<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH> {
+public abstract class BaseAdapter<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH, AdmAdapterConfiguration<?>> {
     private static final String TAG = "BaseAdapter";
 
     public BaseAdapter(Activity activity, int layout) {
@@ -18,4 +17,8 @@ public abstract class BaseAdapter<T, VH extends BindableViewHolder<T>> extends A
         super(activity, layout, data);
     }
 
+    @Override
+    protected final AdmAdapterConfiguration<?> createDefaultConfiguration() {
+        return new AdmAdapterConfiguration<>();
+    }
 }

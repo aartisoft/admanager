@@ -1,13 +1,13 @@
 package com.admanager.sample.adapter;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.admanager.config.RemoteConfigHelper;
+import com.admanager.recyclerview.AdmAdapterConfiguration;
 import com.admanager.recyclerview.BaseAdapterWithFaceNative;
 import com.admanager.recyclerview.BindableFaceAdViewHolder;
 import com.admanager.sample.R;
@@ -23,7 +23,7 @@ import java.util.List;
 public class TrackAdapterCustom extends BaseAdapterWithFaceNative<TrackModel, TrackViewHolder> {
 
     public TrackAdapterCustom(Activity activity) {
-        super(activity,  R.layout.item_track, null, showNative(), getNativeId());
+        super(activity, R.layout.item_track, null, showNative(), getNativeId());
     }
 
     private static boolean showNative() {
@@ -39,23 +39,17 @@ public class TrackAdapterCustom extends BaseAdapterWithFaceNative<TrackModel, Tr
         return new TrackViewHolder(view);
     }
 
-    @NonNull
     @Override
-    protected NativeType getNativeType() {
-        return NativeType.CUSTOM;
+    protected AdmAdapterConfiguration<NativeType> configure() {
+        return new AdmAdapterConfiguration<NativeType>()
+                .customNativeLayout(R.layout.custom_face_native)
+                .type(NativeType.CUSTOM);
     }
 
     @Override
-    protected BindableFaceAdViewHolder getCustomNativeViewHolder(View view) {
+    protected BindableFaceAdViewHolder onCreateCustomNativeViewHolder(View view) {
         return new CustomFaceNativeViewHolder(view);
     }
-
-
-    @Override
-    protected int getCustomNativeLayout() {
-        return R.layout.custom_face_native;
-    }
-
 
     public static class CustomFaceNativeViewHolder extends BindableFaceAdViewHolder {
         private LinearLayout adChoicesContainer;
