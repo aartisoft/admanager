@@ -3,6 +3,11 @@ package com.admanager.recyclerview;
 
 import android.app.Activity;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.List;
 
@@ -19,11 +24,28 @@ public abstract class BaseAdapter<T, VH extends BindableViewHolder<T>> extends A
 
     @Override
     protected final AdmAdapterConfiguration<?> createDefaultConfiguration() {
-        return new AdmAdapterConfiguration<>();
+        return new AdmAdapterConfiguration<>()
+                .density(0);
     }
 
     @Override
     protected final void fillDefaultTypeOfConfiguration() {
 
     }
+
+    @Override
+    @NonNull
+    public final RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        RecyclerView.ViewHolder holder = super.onCreateViewHolder(parent, viewType);
+        View view;
+
+        if (holder != null) {
+            return holder;
+        } else {
+            final LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
+            view = layoutInflater.inflate(super.layout, parent, false);
+            return createViewHolder(view);
+        }
+    }
+
 }

@@ -31,7 +31,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>, CONF extends Ad
     CONF configuration;
 
     @LayoutRes
-    private int layout;
+    int layout;
     private boolean isLoading = false;
     private boolean isLoadingPage = false;
 

@@ -44,6 +44,9 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
 
     public static void setAdsEnabled(boolean adsEnabled) {
         getInstance().adsEnabled = adsEnabled;
+        if (!adsEnabled) {
+            disableTestMode();
+        }
     }
 
     public static boolean isTestMode() {
