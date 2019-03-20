@@ -34,7 +34,7 @@ dependencies {
         transitive = true
     }
 
-    api project(path: ':config')
+    api project(path: ':core')
 }
 
 task sourcesJar(type: Jar) {

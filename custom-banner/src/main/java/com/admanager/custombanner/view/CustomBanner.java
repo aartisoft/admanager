@@ -16,7 +16,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 
 /**
@@ -28,9 +27,9 @@ public class CustomBanner extends ImageView {
     public static final String TAG_PREFIX = "http://schemas.android.com/apk/res-auto";
 
     public AdListener adListener;
-    private String remoteConfigTargetUrlKey;
-    private String remoteConfigImageUrlKey;
-    private String remoteConfigEnableKey;
+    private String targetUrl;
+    private String imageUrl;
+    private boolean enable;
 
     public CustomBanner(Context context) {
         super(context);
@@ -41,11 +40,25 @@ public class CustomBanner extends ImageView {
         super(context, attrs);
         RemoteConfigHelper.init(context);
 
-        this.remoteConfigTargetUrlKey = attrs.getAttributeValue(TAG_PREFIX, "remoteConfigTargetUrlKey");
-        this.remoteConfigImageUrlKey = attrs.getAttributeValue(TAG_PREFIX, "remoteConfigImageUrlKey");
-        this.remoteConfigEnableKey = attrs.getAttributeValue(TAG_PREFIX, "remoteConfigEnableKey");
-    }
+        String remoteConfigTargetUrlKey = attrs.getAttributeValue(TAG_PREFIX, "remoteConfigTargetUrlKey");
+        String remoteConfigImageUrlKey = attrs.getAttributeValue(TAG_PREFIX, "remoteConfigImageUrlKey");
+        String remoteConfigEnableKey = attrs.getAttributeValue(TAG_PREFIX, "remoteConfigEnableKey");
 
+        if (!TextUtils.isEmpty(remoteConfigEnableKey)) {
+            enable = RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey);
+        } else {
+            enable = true;
+        }
+        enable = enable && RemoteConfigHelper.areAdsEnabled();
+
+        if (!TextUtils.isEmpty(remoteConfigImageUrlKey)) {
+            imageUrl = RemoteConfigHelper.getConfigs().getString(remoteConfigImageUrlKey);
+        }
+
+        if (!TextUtils.isEmpty(remoteConfigTargetUrlKey)) {
+            targetUrl = RemoteConfigHelper.getConfigs().getString(remoteConfigTargetUrlKey);
+        }
+    }
 
     public AdListener getAdListener() {
         return adListener;
@@ -55,22 +68,33 @@ public class CustomBanner extends ImageView {
         this.adListener = adListener;
     }
 
+    public CustomBanner setTargetUrl(String targetUrl) {
+        this.targetUrl = targetUrl;
+        return this;
+    }
+
+    public CustomBanner setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+        return this;
+    }
+
+    public CustomBanner setEnable(boolean enable) {
+        this.enable = enable;
+        return this;
+    }
+
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
         // View is now attached
 
-        boolean enable = TextUtils.isEmpty(remoteConfigEnableKey) || RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey);
-        enable = enable && RemoteConfigHelper.areAdsEnabled();
+        load();
+    }
+
+    public void load() {
         setVisibility(enable ? VISIBLE : GONE);
-
-        if (enable && !TextUtils.isEmpty(this.remoteConfigTargetUrlKey) && !TextUtils.isEmpty(this.remoteConfigImageUrlKey)) {
-            String imageUrl = RemoteConfigHelper.getConfigs().getString(remoteConfigImageUrlKey);
-            String targetUrl = RemoteConfigHelper.getConfigs().getString(remoteConfigTargetUrlKey);
-
-            if (!TextUtils.isEmpty(imageUrl) && !TextUtils.isEmpty(targetUrl)) {
-                loadBanner(imageUrl, targetUrl);
-            }
+        if (enable && !TextUtils.isEmpty(imageUrl) && !TextUtils.isEmpty(targetUrl)) {
+            loadBanner(imageUrl, targetUrl);
         }
     }
 
@@ -82,12 +106,18 @@ public class CustomBanner extends ImageView {
                     public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         Log.d(TAG, "load failed.", e);
                         setVisibility(View.GONE);
+                        if (adListener != null) {
+                            adListener.onError((e != null && e.getMessage() != null) ? e.getMessage() : "");
+                        }
                         return true;
                     }
 
                     @Override
                     public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                         setVisibility(View.VISIBLE);
+                        if (adListener != null) {
+                            adListener.onLoaded(imageUrl);
+                        }
                         setOnClickListener(new OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -97,7 +127,6 @@ public class CustomBanner extends ImageView {
                         return false;
                     }
                 })
-                .apply(new RequestOptions().override(getLayoutParams().width, Target.SIZE_ORIGINAL))
                 .into(this);
     }
 
@@ -107,7 +136,6 @@ public class CustomBanner extends ImageView {
         // View is now detached, and about to be destroyed
 
     }
-
 
     private void openUrl(Context c, String url) {
         try {
@@ -136,5 +164,9 @@ public class CustomBanner extends ImageView {
 
     public interface AdListener {
         void onClick(String url);
+
+        void onLoaded(String imageUrl);
+
+        void onError(String error);
     }
 }
