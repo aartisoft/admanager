@@ -151,6 +151,14 @@ public class AdmStaticNotification extends BaseHelper {
         ((NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE)).cancel(ID);
     }
 
+    public static boolean getStatus(Context context) {
+        if (AdmUtils.isContextInvalid(context)) {
+            return false;
+        }
+        final SharedPreferences sharedPreferences = context.getApplicationContext().getSharedPreferences(PREF_FILE_NAME, Context.MODE_PRIVATE);
+        return getStatus(sharedPreferences);
+    }
+
     private static boolean getStatus(SharedPreferences sharedPreferences) {
         return sharedPreferences.getBoolean(EASY_ACCESS, true);
     }
