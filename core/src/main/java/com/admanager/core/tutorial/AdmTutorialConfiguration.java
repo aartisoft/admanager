@@ -18,6 +18,7 @@ import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 public class AdmTutorialConfiguration {
     private static final String TAG = "AdmTutorialConf";
     boolean hideButton;
+    boolean hideLogoAtLastPage;
     boolean reloadAdsPerPage;
     int layout = R.layout.adm_activity_tutorial;
     int pageLayout = R.layout.adm_tutorial_page;
@@ -99,6 +100,11 @@ public class AdmTutorialConfiguration {
 
     public AdmTutorialConfiguration hideButton() {
         this.hideButton = true;
+        return this;
+    }
+
+    public AdmTutorialConfiguration hideLogoAtLastPage() {
+        this.hideLogoAtLastPage = true;
         return this;
     }
 

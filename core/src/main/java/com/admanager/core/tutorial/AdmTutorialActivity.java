@@ -170,6 +170,7 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
 
             }
             tvDesc.setText(R.string.adm_tutorial_redirecting);
+            iv.setVisibility(configuration.hideLogoAtLastPage ? View.GONE : View.VISIBLE);
         }
         layouts.add(view);
     }
