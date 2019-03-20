@@ -27,6 +27,7 @@ import android.widget.TextView;
 
 import com.admanager.core.AdManager;
 import com.admanager.core.AdManagerBuilder;
+import com.admanager.core.AdmUtils;
 import com.admanager.core.R;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
@@ -162,7 +163,9 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
             try {
                 ApplicationInfo info = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
                 iv.setImageDrawable(ContextCompat.getDrawable(this, info.icon));
-                iv.setScaleType(ImageView.ScaleType.CENTER);
+                iv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                int p = (int) AdmUtils.pxToDp(getApplicationContext(), 40);
+                iv.setPadding(p, p, p, p);
             } catch (Throwable ignored) {
 
             }
