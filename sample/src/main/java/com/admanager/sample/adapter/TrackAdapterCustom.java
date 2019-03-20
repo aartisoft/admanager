@@ -35,24 +35,24 @@ public class TrackAdapterCustom extends BaseAdapterWithFaceNative<TrackModel, Tr
     }
 
     @Override
-    public TrackViewHolder createViewHolder(View view) {
+    protected TrackViewHolder createViewHolder(View view) {
         return new TrackViewHolder(view);
     }
 
     @NonNull
     @Override
-    public NativeType getNativeType() {
+    protected NativeType getNativeType() {
         return NativeType.CUSTOM;
     }
 
     @Override
-    public BindableFaceAdViewHolder getCustomNativeViewHolder(View view) {
+    protected BindableFaceAdViewHolder getCustomNativeViewHolder(View view) {
         return new CustomFaceNativeViewHolder(view);
     }
 
 
     @Override
-    public int getCustomNativeLayout() {
+    protected int getCustomNativeLayout() {
         return R.layout.custom_face_native;
     }
 

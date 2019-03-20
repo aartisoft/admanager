@@ -1,5 +1,6 @@
 package com.admanager.sample.activity;
 
+import android.support.annotation.NonNull;
 import android.widget.LinearLayout;
 
 import com.admanager.admob.AdmobAdapter;
@@ -17,10 +18,12 @@ import com.google.android.gms.ads.AdSize;
  */
 public class Splash2Activity extends AdmTutorialActivity {
 
+    @NonNull
     @Override
-    protected void configure(AdmTutorialConfiguration conf) {
-        conf.hideButton();
+    protected AdmTutorialConfiguration configure() {
         // use Configuration for custom styling
+        return new AdmTutorialConfiguration(this)
+                .hideButton();
     }
 
     @Override

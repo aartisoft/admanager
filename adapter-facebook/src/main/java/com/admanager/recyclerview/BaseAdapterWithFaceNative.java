@@ -116,12 +116,12 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
         }
     }
 
-    public BindableFaceAdViewHolder getCustomNativeViewHolder(View view) {
+    protected BindableFaceAdViewHolder getCustomNativeViewHolder(View view) {
         return null;
     }
 
     @LayoutRes
-    public int getCustomNativeLayout() {
+    protected int getCustomNativeLayout() {
         return 0;
     }
 
@@ -130,10 +130,9 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
             case CUSTOM:
                 return getCustomNativeViewHolder(view);
             case NATIVE_LARGE:
-                return new FaceNativeAdViewHolder(view);
             case NATIVE_BANNER:
             default:
-                return new FaceNativeBannerAdViewHolder(view);
+                return new FaceNativeAdViewHolder(view);
         }
     }
 
@@ -151,7 +150,7 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
     }
 
     @NonNull
-    public NativeType getNativeType() {
+    protected NativeType getNativeType() {
         return NativeType.NATIVE_BANNER;
     }
 

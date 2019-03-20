@@ -135,12 +135,12 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
         }
     }
 
-    public BindableAdmobAdViewHolder getCustomNativeViewHolder(View view) {
+    protected BindableAdmobAdViewHolder getCustomNativeViewHolder(View view) {
         return null;
     }
 
     @LayoutRes
-    public int getCustomNativeLayout() {
+    protected int getCustomNativeLayout() {
         return 0;
     }
 
@@ -149,7 +149,6 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
             case CUSTOM:
                 return getCustomNativeViewHolder(view);
             case NATIVE_LARGE:
-                return new AdmobNativeAdViewHolder(view);
             case NATIVE_BANNER:
             default:
                 return new AdmobNativeAdViewHolder(view);
@@ -170,7 +169,7 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
     }
 
     @NonNull
-    public NativeType getNativeType() {
+    protected NativeType getNativeType() {
         return NativeType.NATIVE_BANNER;
     }
 

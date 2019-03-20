@@ -23,7 +23,7 @@ public class TrackAdapterWithGrid extends BaseAdapterWithFaceNative<TrackModel, 
     }
 
     @Override
-    public TrackViewHolder createViewHolder(View view) {
+    protected TrackViewHolder createViewHolder(View view) {
         return new TrackViewHolder(view);
     }
 
@@ -33,7 +33,7 @@ public class TrackAdapterWithGrid extends BaseAdapterWithFaceNative<TrackModel, 
     }
 
     @Override
-    public int density() {
+    protected int density() {
         return 3;
     }
 }

@@ -23,12 +23,12 @@ public class TrackAdapterWithDensity extends BaseAdapterWithFaceNative<TrackMode
     }
 
     @Override
-    public TrackViewHolder createViewHolder(View view) {
+    protected TrackViewHolder createViewHolder(View view) {
         return new TrackViewHolder(view);
     }
 
     @Override
-    public int density() {
+    protected int density() {
         return 5; // show 1 native between 5 rows
     }
 }

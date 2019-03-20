@@ -34,7 +34,7 @@ public class AdmTutorialConfiguration {
     private int bgColor;
     private int bg;
 
-    AdmTutorialConfiguration(Context context) {
+    public AdmTutorialConfiguration(Context context) {
     }
 
     public AdmTutorialConfiguration textColor(@ColorRes int textColor) {

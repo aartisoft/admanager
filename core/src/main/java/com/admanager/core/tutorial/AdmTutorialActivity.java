@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.DrawableRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
@@ -54,8 +55,7 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         hideStatusBar();
 
         // Create and get configuration
-        configuration = new AdmTutorialConfiguration(this);
-        configure(configuration);
+        configuration = configure();
 
         setContentView(configuration.layout);
 
@@ -105,8 +105,9 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         }
     }
 
-    protected void configure(AdmTutorialConfiguration conf) {
-
+    @NonNull
+    protected AdmTutorialConfiguration configure() {
+        return new AdmTutorialConfiguration(this);
     }
 
     private void loadAllAds() {

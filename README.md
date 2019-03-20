@@ -7,6 +7,11 @@ Features
 AdManager's unique set of features:
 * **RemoteConfigHelper:** Helper class for remote configs.
 * **Custom Banner:** Helps you to show custom banners via remote config urls.
+* **Firebase Builtin Ads:** Helps you to show popup ads.
+* **Rate App:** App rating dialog
+* **Static Notification**
+* **Periodic Notification**
+* **Utilities:** Samples in the sample module.
 * **Adapters:**
 
 |                |Interstitial|Banner|Native|RecyclerView Adapter for Native Ads
@@ -36,20 +41,31 @@ buildscript {
 
 // In your app projects build.gradle file:
 dependencies {
-    implementation 'com.github.fgustovo.admanager:adapter-admob:0.4.2'
-    implementation 'com.github.fgustovo.admanager:adapter-unity:0.4.2'
-    implementation 'com.github.fgustovo.admanager:adapter-applovin:0.4.2'
-    implementation 'com.github.fgustovo.admanager:adapter-facebook:0.4.2'
-    implementation 'com.github.fgustovo.admanager:custom-banner:0.4.2'
+    implementation 'com.github.fgustovo.admanager:adapter-admob:1.0.0'
+    implementation 'com.github.fgustovo.admanager:adapter-unity:1.0.0'
+    implementation 'com.github.fgustovo.admanager:adapter-applovin:1.0.0'
+    implementation 'com.github.fgustovo.admanager:adapter-facebook:1.0.0'
+    implementation 'com.github.fgustovo.admanager:custom-banner:1.0.0'
+    implementation 'com.github.fgustovo.admanager:periodic-notification:1.0.0'
+    implementation 'com.github.fgustovo.admanager:popup-ad:1.0.0'
 }
 ```
 
-Make your Application implements **RemoteConfigApp**
+Initialize libraries in the Application class
 ```groovy
-public class MyApplication extends Application implements RemoteConfigApp {
+public class MyApplication extends Application {
     @Override
-    public Map<String, Object> getDefaults() {
-        return RCUtils.getDefaults();
+    public void onCreate() {
+        super.onCreate();
+
+        new AdmStaticNotification.Builder(this, R.string.easy_access_title, R.string.easy_access_text)
+                .build();
+
+        new PeriodicNotificationApp.Builder(this)
+                .build();
+
+        new RemoteConfigApp.Builder(RCUtils.getDefaults())
+                .build();
     }
 }
 ```

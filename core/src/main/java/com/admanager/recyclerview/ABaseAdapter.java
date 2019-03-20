@@ -1,6 +1,5 @@
 package com.admanager.recyclerview;
 
-
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.CallSuper;
@@ -38,7 +37,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
     private boolean isLoading = false;
     private boolean isLoadingPage = false;
 
-    ABaseAdapter(final Activity activity,@LayoutRes int layout) {
+    ABaseAdapter(final Activity activity, @LayoutRes int layout) {
         this(activity, layout, new ArrayList<T>());
     }
 
@@ -64,7 +63,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
         rowWrappers = getRowWrappers();
     }
 
-    public int density() {
+    protected int density() {
         return defaultDensity;
     }
 
@@ -72,7 +71,7 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
         return 1;
     }
 
-    public abstract VH createViewHolder(View view);
+    protected abstract VH createViewHolder(View view);
 
     @Override
     public final int getItemViewType(int position) {
@@ -203,7 +202,6 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
             }
 
             rowWrappers.add(new RowWrapper(j));
-
         }
         if (isLoadingPage) {
             rowWrappers.add(new RowWrapper(RowWrapper.Type.LOADING_PAGE));
@@ -222,7 +220,6 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
             rowWrappers = getRowWrappers();
         }
     }
-
 
     public final void add(ArrayList<T> data) {
         for (T d : data) {
@@ -250,6 +247,10 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
     protected final int getListIndex(int position) {
         return rowWrappers.get(position).listIndex;
 
+    }
+
+    boolean isTestMode() {
+        return RemoteConfigHelper.isTestMode();
     }
 
     static class RowWrapper {
@@ -280,9 +281,5 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>> extends Recycle
         LoadingViewHolder(View itemView) {
             super(itemView);
         }
-    }
-
-    boolean isTestMode() {
-        return RemoteConfigHelper.isTestMode();
     }
 }

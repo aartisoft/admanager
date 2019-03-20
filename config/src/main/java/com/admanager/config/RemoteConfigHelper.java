@@ -50,8 +50,8 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
         return getInstance().testMode;
     }
 
-    public static void setTestMode(boolean useTestIDs) {
-        getInstance().testMode = useTestIDs;
+    public static void disableTestMode() {
+        getInstance().testMode = false;
     }
 
     public static RemoteConfigHelper init(Context context) {
@@ -66,15 +66,8 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
                         FirebaseApp.initializeApp(context);
                     }
 
-                    //                    if (context != null && context instanceof Activity && ((Activity)context).getApplication() instanceof RemoteConfigApp) {
                     boolean debug = context != null && (0 != (context.getApplicationInfo().flags & ApplicationInfo.FLAG_DEBUGGABLE));
-
-                    //                        Map<String, Object> remoteConfigDefaults = ((RemoteConfigApp) ((Activity)context).getApplication()).getDefaults();
                     instance = init(RemoteConfigApp.getInstance().getDefaults(), debug, reload);
-                    //                    } else {
-                    //                        Log.e(TAG, "Initialized with empty default values! Make your application 'implements RemoteConfigApp' and call init(Context)");
-                    //                        instance = init(new HashMap<String, Object>(), false, reload);
-                    //                    }
                 }
             }
         }

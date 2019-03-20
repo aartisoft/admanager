@@ -23,7 +23,7 @@ public class TrackAdapter extends BaseAdapterWithFaceNative<TrackModel, TrackVie
     }
 
     @Override
-    public TrackViewHolder createViewHolder(View view) {
+    protected TrackViewHolder createViewHolder(View view) {
         return new TrackViewHolder(view);
     }
 }

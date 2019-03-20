@@ -16,7 +16,7 @@ public class TrackAdapterBigNative extends BaseAdapterWithFaceNative<TrackModel,
     }
 
     @Override
-    public TrackViewHolder createViewHolder(View view) {
+    protected TrackViewHolder createViewHolder(View view) {
         return new TrackViewHolder(view);
     }
 
@@ -30,7 +30,7 @@ public class TrackAdapterBigNative extends BaseAdapterWithFaceNative<TrackModel,
 
     @NonNull
     @Override
-    public NativeType getNativeType() {
+    protected NativeType getNativeType() {
         return NativeType.NATIVE_LARGE;
     }
 }
