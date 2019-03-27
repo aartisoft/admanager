@@ -209,10 +209,12 @@ public class AdManager {
         show(true);
     }
 
+    @Deprecated
     public void showOnClick(@IdRes int viewId) {
         showOnClick(viewId, false);
     }
 
+    @Deprecated
     public void showOnClick(@IdRes int viewId, boolean hideViewWhenLoading) {
         final View view = getActivity().findViewById(viewId);
         if (hideViewWhenLoading) {
