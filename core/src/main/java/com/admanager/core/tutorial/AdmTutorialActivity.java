@@ -113,6 +113,8 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
 
     private void loadAllAds() {
         // load Banner / Native
+        loadTopAd((LinearLayout) findViewById(R.id.top_container));
+        loadBottomAd((LinearLayout) findViewById(R.id.bottom_container));
         loadAd(adplaceholder);
 
         // Load Inters Adds
@@ -137,6 +139,14 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
     protected abstract void addTutorialPages();
 
     protected abstract void loadAd(LinearLayout container);
+
+    protected void loadTopAd(LinearLayout container) {
+
+    }
+
+    protected void loadBottomAd(LinearLayout container) {
+
+    }
 
     protected abstract AdManagerBuilder createAdManagerBuilder();
 
