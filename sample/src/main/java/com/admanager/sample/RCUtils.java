@@ -49,7 +49,7 @@ public class RCUtils {
     public static final String CUSTOM_BANNER_ENABLED = "custom_banner_enabled";
     public static final String CUSTOM_BANNER_IMAGE_URL = "custom_banner_image_url";
     public static final String CUSTOM_BANNER_CLICK_URL = "custom_banner_click_url";
-
+    public static final String OPENER_DELAY = "opener_delay";
 
     private static HashMap<String, Object> defaults = null;
 
@@ -110,6 +110,8 @@ public class RCUtils {
             defaults.put(Consts.PopupAd.DEFAULT_LOGO_URL_KEY, "https://lh3.googleusercontent.com/ICVLzXLgYXK1qpaq30txfWaJsA9DT_hOtWp5oesic8a_CJhQMtKue-G7-DnhyGxsPYM=s180-rw");
             defaults.put(Consts.PopupAd.DEFAULT_VIDEO_URL_KEY, "https://www.50dirham.com/storage/file/ads/toy_blast.mp4"); //
             defaults.put(Consts.PopupAd.DEFAULT_IMAGE_URL_KEY, ""); // http://oi48.tinypic.com/25exzle.jpg
+
+            defaults.put(OPENER_DELAY, 2000);
         }
         return defaults;
     }

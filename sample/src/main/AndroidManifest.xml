@@ -36,6 +36,12 @@
             android:name=".activity.MainIntersActivity"
             android:label="@string/ex_inters" />
         <activity
+            android:name=".activity.PackNameOpenerActivity"
+            android:label="@string/ex_pack_name_opener" />
+        <activity
+            android:name=".activity.PackNameRedirectingActivity"
+            android:label="@string/ex_pack_name_opener" />
+        <activity
             android:name=".activity.Facebook6SecsActivity"
             android:label="@string/ex_face_6_sec" />
         <activity

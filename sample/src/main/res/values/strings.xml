@@ -16,6 +16,7 @@
     <string name="ex_sample_main">Rate, Popup Ad, Static Notif</string>
     <string name="ex_admob_native">Admob Native</string>
     <string name="ex_face_native">Facebook Native</string>
+    <string name="ex_pack_name_opener">Package Name Opener</string>
 
     <string name="easy_access_title">All in one discounts</string>
     <string name="easy_access_text">Don\'t miss discounts, follow us periodically.</string>
