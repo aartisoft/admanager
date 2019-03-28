@@ -99,7 +99,7 @@ public class FacebookNativeLoader extends NativeLoader<FacebookNativeLoader> {
                 }
 
                 FacebookAdHelper.populateNativeAd(nativeAd, linearLayout);
-                loaded(linearLayout);
+                initContainer(linearLayout);
             }
 
             @Override

@@ -86,7 +86,7 @@ public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
                     @Override
                     public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
                         AdmobAdHelper.populateUnifiedNativeAdView(unifiedNativeAd, unifiedNativeAdView);
-                        loaded(unifiedNativeAdView);
+                        initContainer(unifiedNativeAdView);
                     }
                 })
                 .withAdListener(new AdListener() {

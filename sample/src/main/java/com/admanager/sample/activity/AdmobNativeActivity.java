@@ -23,6 +23,7 @@ public class AdmobNativeActivity extends AppCompatActivity {
         LinearLayout container = findViewById(R.id.container);
 
         new AdmobNativeLoader(this, container, RCUtils.NATIVE_ADMOB_ENABLED)
+                .withBorder()
                 .loadWithRemoteConfigId(RCUtils.NATIVE_ADMOB_ID);
     }
 
