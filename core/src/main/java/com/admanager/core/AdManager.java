@@ -4,13 +4,12 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.util.Log;
-import android.view.View;
 
 import com.admanager.config.RemoteConfigHelper;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class AdManager {
@@ -18,6 +17,7 @@ public class AdManager {
     private final CopyOnWriteArrayList<Boolean> LOADED = new CopyOnWriteArrayList<>();
     private final CopyOnWriteArrayList<Boolean> SKIP = new CopyOnWriteArrayList<>();
     private final CopyOnWriteArrayList<String> ENABLE_KEYS = new CopyOnWriteArrayList<>();
+    private final CopyOnWriteArrayList<Boolean> ADAPTER_FINISH_LISTENER_CALLED = new CopyOnWriteArrayList<>();
     private final ArrayList<Adapter> ADAPTERS = new ArrayList<>();
     String TAG;
     boolean testMode;
@@ -36,7 +36,6 @@ public class AdManager {
         public void onActivityStarted(Activity activity) {
 
         }
-
 
         @Override
         public void onActivityResumed(Activity activity) {
@@ -72,7 +71,6 @@ public class AdManager {
     };
     private boolean stepByStep = false;
     private Intent intent;
-    private View clickView;
     private boolean showAndFinish;
     private long timeCap;
     private long lastTimeShowed;
@@ -112,16 +110,13 @@ public class AdManager {
         this.intent = intent;
     }
 
-    private void setClickView(View clickView) {
-        this.clickView = clickView;
-    }
-
     AdManager add(Adapter adapter) {
         adapter.setOrder(ENABLE_KEYS.size());
         adapter.setManager(this);
         ENABLE_KEYS.add(adapter.getEnableKey());
         LOADED.add(false);
         SKIP.add(false);
+        ADAPTER_FINISH_LISTENER_CALLED.add(false);
         ADAPTERS.add(adapter);
         return this;
     }
@@ -139,6 +134,9 @@ public class AdManager {
         }
         for (int i = 0; i < LOADED.size(); i++) {
             SKIP.set(i, false);
+        }
+        for (int i = 0; i < ADAPTER_FINISH_LISTENER_CALLED.size(); i++) {
+            ADAPTER_FINISH_LISTENER_CALLED.set(i, false);
         }
 
         for (Adapter adapter : ADAPTERS) {
@@ -209,26 +207,6 @@ public class AdManager {
         show(true);
     }
 
-    @Deprecated
-    public void showOnClick(@IdRes int viewId) {
-        showOnClick(viewId, false);
-    }
-
-    @Deprecated
-    public void showOnClick(@IdRes int viewId, boolean hideViewWhenLoading) {
-        final View view = getActivity().findViewById(viewId);
-        if (hideViewWhenLoading) {
-            view.setVisibility(View.INVISIBLE);
-            setClickView(view);
-        }
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                show();
-            }
-        });
-    }
-
     synchronized void display() {
         display(false);
     }
@@ -259,33 +237,32 @@ public class AdManager {
         }
 
         for (int i = 0; i < LOADED.size(); i++) {
-            if (!SKIP.get(i)) {
-                String enableKey = ENABLE_KEYS.get(i);
-                Adapter adapter = ADAPTERS.get(i);
+            if (SKIP.get(i)) {
+                adapterFinished(i, false, false);
+                continue;
+            }
+            String enableKey = ENABLE_KEYS.get(i);
+            Adapter adapter = ADAPTERS.get(i);
 
-                boolean enabledNotNull = enableKey != null;
-                boolean areAdsEnabled = RemoteConfigHelper.areAdsEnabled();
-                boolean remoteConfigEnabled = RemoteConfigHelper.getConfigs().getBoolean(enableKey);
-                boolean enabled = enabledNotNull && areAdsEnabled && remoteConfigEnabled;
+            boolean enabledNotNull = enableKey != null;
+            boolean areAdsEnabled = RemoteConfigHelper.areAdsEnabled();
+            boolean remoteConfigEnabled = RemoteConfigHelper.getConfigs().getBoolean(enableKey);
+            boolean enabled = enabledNotNull && areAdsEnabled && remoteConfigEnabled;
 
-                Log.v(TAG, " enableKey:" + enableKey);
-                Log.v(TAG, " enabledNotNull:" + enabledNotNull + " areAdsEnabled:" + areAdsEnabled + " remoteConfigEnabled:" + remoteConfigEnabled + " enabled:" + enabled);
-                Log.v(TAG, " LOADED size:" + LOADED.size() + " list:" + arrayToString(LOADED));
-                Log.v(TAG, " SKIP size:" + SKIP.size() + " list:" + arrayToString(SKIP));
-                Log.v(TAG, " ENABLE_KEYS size:" + ENABLE_KEYS.size() + " list:" + arrayToString(ENABLE_KEYS));
-                if (enabled || testMode) {
-                    Log.d(TAG, "Displaying " + adapter.getClass().getSimpleName());
-                    adapter.show();
-                    lastTimeShowed = System.currentTimeMillis();
-                    this.showable = false; // stop showing new ads
+            if (enabled || testMode) {
+                Log.d(TAG, "Displaying " + adapter.getClass().getSimpleName());
+                adapter.show();
+                lastTimeShowed = System.currentTimeMillis();
+                this.showable = false; // stop showing new ads
+                break;
+            } else {
+                Log.d(TAG, adapter.getClass().getSimpleName() + " not enabled");
+                SKIP.set(i, true);
+
+                adapterFinished(i, false, true);
+
+                if (stepByStep) {
                     break;
-                } else {
-                    Log.d(TAG, adapter.getClass().getSimpleName() + " not enabled");
-                    SKIP.set(i, true);
-
-                    if (stepByStep) {
-                        break;
-                    }
                 }
             }
         }
@@ -294,17 +271,15 @@ public class AdManager {
             return;
         }
 
+        if (listener != null) {
+            Log.d(TAG, "finished all");
+            listener.finishedAll();
+        }
+
         // reload if error occurred
         reload();
 
         startNextActivity();
-    }
-
-    private void setClickViewVisible() {
-        if (clickView != null) {
-            clickView.setVisibility(View.VISIBLE);
-            clickView = null;
-        }
     }
 
     private void startNextActivity() {
@@ -347,26 +322,32 @@ public class AdManager {
         return activity != null && activity.getClass().getName().equals(getActivity().getClass().getName());
     }
 
-    void setLoaded(int order) {
+    void setLoaded(int order, boolean loaded) {
         this.LOADED.set(order, true);
+        if (!loaded) {
+            setSkip(order);
+        }
+        // Adapter listener: INITIALIZED
+        if (listener instanceof AdapterListener) {
+            Class<? extends Adapter> clz = ADAPTERS.get(order).getClass();
+            ((AdapterListener) listener).initialized(order, clz, loaded);
+        }
+
+        // Listener: INITIALIZED_ALL
         if (AdmUtils.allTrue(LOADED)) {
-            Log.d(TAG, "loaded all");
+            Log.d(TAG, "initialized all");
             if (listener != null) {
-                listener.loaded();
+                ArrayList<Boolean> loadedList = new ArrayList<>();
+                for (Boolean bo : SKIP) {
+                    loadedList.add(!bo);
+                }
+                listener.initializedAll(loadedList);
             }
-            setClickViewVisible();
         }
     }
 
-    void setSkip(int order) {
+    private void setSkip(int order) {
         this.SKIP.set(order, true);
-        if (AdmUtils.allTrue(SKIP)) {
-            Log.d(TAG, "closed all");
-            if (listener != null) {
-                listener.closed();
-            }
-        }
-
     }
 
     void setClosed(int order) {
@@ -375,12 +356,69 @@ public class AdManager {
             this.showable = true; // enable to display new ads
         }
         this.lastTimeShowed = System.currentTimeMillis();
+
+        // Adapter listener: FINISHED
+        adapterFinished(order, true, true);
+    }
+
+    private void adapterFinished(int i, boolean displayed, boolean showOneBarrier) {
+        Boolean called = ADAPTER_FINISH_LISTENER_CALLED.get(i);
+        if (called) {
+            return;
+        }
+        ADAPTER_FINISH_LISTENER_CALLED.set(i, true);
+
+        // adapter listener
+        if (listener instanceof AdapterListener) {
+            Class<? extends Adapter> clz = ADAPTERS.get(i).getClass();
+            ((AdapterListener) listener).finished(i, clz, displayed, showOneBarrier);
+        }
     }
 
     public interface Listener {
-        void closed();
+        void finishedAll();
 
-        void loaded();
+        void initializedAll(List<Boolean> loaded);
+    }
+
+    public interface AdapterListener extends Listener {
+        void finished(int order, Class<? extends Adapter> clz, boolean displayed, boolean showOneBarrier);
+
+        void initialized(int order, Class<? extends Adapter> clz, boolean loaded);
+    }
+
+    public abstract static class AAdapterListener implements AdapterListener {
+        @Override
+        public void finishedAll() {
+
+        }
+
+        @Override
+        public void initializedAll(List<Boolean> loaded) {
+
+        }
+
+        @Override
+        public void finished(int order, Class<? extends Adapter> clz, boolean displayed, boolean showOneBarrier) {
+
+        }
+
+        @Override
+        public void initialized(int order, Class<? extends Adapter> clz, boolean loaded) {
+
+        }
+    }
+
+    public abstract static class AListener implements Listener {
+        @Override
+        public void finishedAll() {
+
+        }
+
+        @Override
+        public void initializedAll(List<Boolean> loaded) {
+
+        }
     }
 
 }

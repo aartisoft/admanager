@@ -8,7 +8,9 @@ import android.view.View;
 import com.admanager.admob.AdmobAdapter;
 import com.admanager.core.AdManager;
 import com.admanager.core.AdManagerBuilder;
+import com.admanager.core.Adapter;
 import com.admanager.core.DummyAdapter;
+import com.admanager.facebook.FacebookAdapter;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
 
@@ -28,18 +30,19 @@ public class PackNameOpenerActivity extends AppCompatActivity implements View.On
         findViewById(R.id.btn_whatsapp).setOnClickListener(this);
         findViewById(R.id.btn_gmail).setOnClickListener(this);
 
-        loadAdChain();
-    }
 
-    private void loadAdChain() {
         adManager = new AdManagerBuilder(this)
+                .add(new DummyAdapter())
                 .add(new AdmobAdapter(RCUtils.MAIN_ADMOB_ENABLED).withRemoteConfigId(RCUtils.MAIN_ADMOB_ID))
-                .add(new DummyAdapter(new Runnable() {
+                .add(new FacebookAdapter(RCUtils.MAIN_FACEBOOK_ENABLED).withRemoteConfigId(RCUtils.MAIN_FACEBOOK_ID))
+                .listener(new AdManager.AAdapterListener() {
                     @Override
-                    public void run() {
-                        PackNameRedirectingActivity.redirectTo(PackNameOpenerActivity.this, packageName);
+                    public void finished(int order, Class<? extends Adapter> clz, boolean displayed, boolean showOneBarrier) {
+                        if (showOneBarrier) {
+                            PackNameRedirectingActivity.redirectTo(PackNameOpenerActivity.this, packageName);
+                        }
                     }
-                }))
+                })
                 .build();
     }
 
@@ -54,10 +57,7 @@ public class PackNameOpenerActivity extends AppCompatActivity implements View.On
         }
 
         //display ads
-        adManager.show();
-
-        // load again
-        loadAdChain();
+        adManager.showOne();
     }
 
 }

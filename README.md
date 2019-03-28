@@ -111,8 +111,6 @@ __Displaying Options__
 |Method|Description|Suitable For|
 |----------------|-------------------------------|-------------------------------|
 |`manager.show();` |Shows all ads serially.|Splash 1|
-|`manager.showOnClick(int viewId);`|Shows all ads serially when given viewId clicked|Splash 2|
-|`manager.showOnClick(int viewId, boolean hideViewWhenLoading);`|Shows all ads serially when given viewId clicked|Splash 2|
 |`manager.showOne();` |Shows only one ad per call|Main menu ads|
 |`manager.showOneByTimeCap(long timeCap);` |Shows one ad with given time cap|onResume|
 |`manager.showAndFinish();` |Shows all ads and finishes current activity|onExit|

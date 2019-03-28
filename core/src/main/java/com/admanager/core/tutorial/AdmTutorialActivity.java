@@ -32,6 +32,7 @@ import com.admanager.core.R;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class AdmTutorialActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, View.OnClickListener {
     private static final String TAG = "AdmTutorialActivity";
@@ -122,15 +123,10 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
 
         // Add listener for inters ad
         adManager = builder
-                .listener(new AdManager.Listener() {
+                .listener(new AdManager.AListener() {
                     @Override
-                    public void closed() {
-                        AdmTutorialActivity.this.loaded(false);
-                    }
-
-                    @Override
-                    public void loaded() {
-                        AdmTutorialActivity.this.loaded(true);
+                    public void initializedAll(List<Boolean> loaded) {
+                        AdmTutorialActivity.this.loaded();
                     }
                 })
                 .build();
@@ -185,8 +181,7 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         layouts.add(view);
     }
 
-    private void loaded(boolean loaded) {
-        // we can hide native view if not 'loaded'
+    private void loaded() {
         adLoaded = true;
         setNextButtonVisibility(viewPager.getCurrentItem());
     }

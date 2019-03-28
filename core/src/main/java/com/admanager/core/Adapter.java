@@ -37,7 +37,7 @@ public abstract class Adapter {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Adapter.this.manager.setLoaded(order);
+                Adapter.this.manager.setLoaded(order, true);
                 Adapter.this.manager.display();
 
             }
@@ -49,9 +49,7 @@ public abstract class Adapter {
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Adapter.this.manager.setLoaded(order);
-                Adapter.this.manager.setSkip(order);
-
+                Adapter.this.manager.setLoaded(order, false);
                 Adapter.this.manager.display();
 
             }
