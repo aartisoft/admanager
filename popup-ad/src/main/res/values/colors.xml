@@ -5,4 +5,5 @@
     <color name="popupadBody">#696969</color>
     <color name="popupadPositiveButton">#FF4F9A</color>
     <color name="popupadNegativeButton">#8B8B8B</color>
+    <color name="popupadAdBg">#FFEDC9</color>
 </resources>

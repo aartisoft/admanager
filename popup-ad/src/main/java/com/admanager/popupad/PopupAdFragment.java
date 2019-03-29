@@ -45,6 +45,7 @@ public class PopupAdFragment extends DialogFragment implements View.OnClickListe
 
     public static PopupAdFragment createInstance(AdSpecs adSpecs) {
         PopupAdFragment fragment = new PopupAdFragment();
+        fragment.setCancelable(false);
         fragment.adSpecs = adSpecs;
         return fragment;
     }
@@ -63,6 +64,8 @@ public class PopupAdFragment extends DialogFragment implements View.OnClickListe
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup parent, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.popup_ad_layout, parent, false);
+        getDialog().setCanceledOnTouchOutside(false);
+
         logo = view.findViewById(R.id.logo);
         title = view.findViewById(R.id.title);
         body = view.findViewById(R.id.body);

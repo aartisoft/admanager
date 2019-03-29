@@ -29,24 +29,6 @@ public class AdmPopupAd {
 
         PopupAdFragment fragment = PopupAdFragment.createInstance(adSpecs);
         fragment.show(activity.getSupportFragmentManager(), "popup_ad");
-
-        /*new AlertDialog.Builder(activity)
-                .setTitle(adSpecs.getTitle())
-                .setMessage(adSpecs.getMessage())
-                .setNegativeButton(adSpecs.getNo(), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .setPositiveButton(adSpecs.getYes(), new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        AdmUtils.openLink(activity, adSpecs.getUrl());
-                    }
-                })
-                .create()
-                .show();*/
     }
 
     public static class Builder {

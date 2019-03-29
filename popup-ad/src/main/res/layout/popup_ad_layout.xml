@@ -6,6 +6,19 @@
     android:layout_height="wrap_content"
     android:background="@color/popupadBg">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/popupadAdBg"
+        android:paddingLeft="2dp"
+        android:paddingTop="0dp"
+        android:paddingRight="2dp"
+        android:paddingBottom="0dp"
+        android:text="@string/ad"
+        android:textColor="@color/popupadBg"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/header"
