@@ -207,6 +207,11 @@ public abstract class BannerLoader<L extends BannerLoader> {
         return withBorderBottom(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);
     }
 
+    public boolean hasBorder() {
+        return topColor != null || bottomColor != null;
+    }
+
+
     public L withBorderTop() {
         return withBorderTop(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);
     }

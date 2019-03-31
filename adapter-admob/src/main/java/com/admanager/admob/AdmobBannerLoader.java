@@ -54,7 +54,7 @@ public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
             return;
         }
 
-        if (!size.equals(AdSize.MEDIUM_RECTANGLE)) {
+        if (!size.equals(AdSize.MEDIUM_RECTANGLE) && !hasBorder()) {
             withBorder(1, DEFAULT_BORDER_COLOR);
         }
 
