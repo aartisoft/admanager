@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.ColorRes;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -26,13 +28,15 @@ public class AdmRateApp {
     private final int askingRateDayInterval;
     private final int askingStoreInterval;
     private final int customLayout;
+    private final int primaryColor;
     private final Activity context;
 
-    private AdmRateApp(Activity context, int firstAskAfterOpening, int askingRateDayInterval, int askingStoreInterval, int customLayout) {
+    private AdmRateApp(Activity context, int firstAskAfterOpening, int askingRateDayInterval, int askingStoreInterval, int customLayout, int primaryColor) {
         this.context = context;
         this.firstAskAfterOpening = firstAskAfterOpening;
         this.askingRateDayInterval = askingRateDayInterval;
         this.askingStoreInterval = askingStoreInterval;
+        this.primaryColor = primaryColor;
         this.customLayout = customLayout == 0 ? R.layout.popup_rate_layout : customLayout;
     }
 
@@ -59,6 +63,8 @@ public class AdmRateApp {
             rd.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             rd.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
             View inflate = context.getLayoutInflater().inflate(customLayout, null);
+
+            applyStyle(inflate);
 
             final TextView dismiss = inflate.findViewById(R.id.dismiss);
             final Button play = inflate.findViewById(R.id.play);
@@ -124,6 +130,21 @@ public class AdmRateApp {
         }
     }
 
+    private void applyStyle(View view) {
+        if (primaryColor == 0) {
+            // no need to update colors
+            return;
+        }
+        FrameLayout root = (FrameLayout) view;
+        TextView header = view.findViewById(R.id.header);
+        TextView text = view.findViewById(R.id.text);
+
+        int color = ContextCompat.getColor(context, primaryColor);
+        root.setBackgroundColor(color);
+        header.setTextColor(color);
+        text.setTextColor(color);
+    }
+
     public static class Builder {
 
         private final WeakReference<Activity> context;
@@ -131,6 +152,7 @@ public class AdmRateApp {
         private int askingRateDayInterval = 7;
         private int askingStoreInterval = 1;
         private int customLayout = 0;
+        private int primaryColor = 0;
 
         public Builder(@NonNull Activity activity) {
             this.context = new WeakReference<>(activity);
@@ -156,12 +178,17 @@ public class AdmRateApp {
             return this;
         }
 
+        public Builder primaryColor(@ColorRes int primaryColor) {
+            this.primaryColor = primaryColor;
+            return this;
+        }
+
         public AdmRateApp build(Bundle savedInstanceState) {
             Activity activity = this.context.get();
             if (AdmUtils.isContextInvalid(activity)) {
                 return null;
             }
-            AdmRateApp admRateApp = new AdmRateApp(activity, firstAskAfterOpening, askingRateDayInterval, askingStoreInterval, customLayout);
+            AdmRateApp admRateApp = new AdmRateApp(activity, firstAskAfterOpening, askingRateDayInterval, askingStoreInterval, customLayout, primaryColor);
             if (savedInstanceState == null) {
                 Prefs.with(activity).appOpened();
             }
