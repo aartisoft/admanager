@@ -1,13 +1,17 @@
 package com.admanager.admob;
 
-
+import android.content.Context;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.VideoController;
+import com.admanager.config.RemoteConfigHelper;
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.formats.MediaView;
 import com.google.android.gms.ads.formats.UnifiedNativeAd;
 import com.google.android.gms.ads.formats.UnifiedNativeAdView;
@@ -105,33 +109,37 @@ public class AdmobAdHelper {
         // native ad view with this native ad. The SDK will populate the adView's MediaView
         // with the media content from this native ad.
         adView.setNativeAd(nativeAd);
+    }
 
-        // Get the video controller for the ad. One will always be provided, even if the ad doesn't
-        // have a video asset.
-        VideoController vc = nativeAd.getVideoController();
-
-        // Updates the UI to say whether or not this ad has a video asset.
-        /*if (vc.hasVideoContent()) {
-            videoStatus.setText(String.format(Locale.getDefault(),
-                    "Video status: Ad contains a %.2f:1 video asset.",
-                    vc.getAspectRatio()));
-
-            // Create a new VideoLifecycleCallbacks object and pass it to the VideoController. The
-            // VideoController will call methods on this object when events occur in the video
-            // lifecycle.
-            vc.setVideoLifecycleCallbacks(new VideoController.VideoLifecycleCallbacks() {
-                @Override
-                public void onVideoEnd() {
-                    // Publishers should allow native ads to complete video playback before
-                    // refreshing or replacing them with another ad in the same UI location.
-                    refresh.setEnabled(true);
-                    videoStatus.setText("Video status: Video playback has ended.");
-                    super.onVideoEnd();
+    public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey) {
+        RemoteConfigHelper.init(context);
+        boolean enable = RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey) && RemoteConfigHelper.areAdsEnabled();
+        if (RemoteConfigHelper.isTestMode()) {
+            enable = true;
+        }
+        if (!enable) {
+            return;
+        }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                String adUnitId = RemoteConfigHelper.getConfigs().getString(remoteConfigIdKey);
+                if (RemoteConfigHelper.isTestMode()) {
+                    adUnitId = AdmobAdapter.ADMOB_INTERS_TEST_ID;
                 }
-            });
-        } else {
-            videoStatus.setText("Video status: Ad does not contain a video asset.");
-            refresh.setEnabled(true);
-        }*/
+                final InterstitialAd ad = new InterstitialAd(context);
+                ad.setAdUnitId(adUnitId);
+                ad.setAdListener(new AdListener() {
+                    @Override
+                    public void onAdLoaded() {
+                        super.onAdLoaded();
+                        if (ad.isLoaded()) {
+                            ad.show();
+                        }
+                    }
+                });
+                ad.loadAd(new AdRequest.Builder().build());
+            }
+        }, N);
     }
 }

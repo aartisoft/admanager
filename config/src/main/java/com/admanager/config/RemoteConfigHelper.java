@@ -116,11 +116,14 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
         try {
             Class<?> cls = Class.forName("com.admanager.periodicnotification.PeriodicNotification");
             Method init = cls.getMethod("init", Context.class);
-            Context c = context.get();
-            if (c != null) {
-                init.invoke(null, c);
+
+            if (context != null) {
+                Context c = context.get();
+                if (c != null) {
+                    init.invoke(null, c);
+                }
+                Log.d(TAG, "Periodic Notification init by reflection");
             }
-            Log.d(TAG, "Periodic Notification init by reflection");
         } catch (ClassNotFoundException ignore) {
         } catch (NoSuchMethodException e) {
             Log.e(TAG, e.getMessage());
