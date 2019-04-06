@@ -68,7 +68,8 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         adplaceholder = findViewById(R.id.adplaceholder);
         waWormDotsIndicator = findViewById(R.id.worm_dots_indicator);
         btnNext.setOnClickListener(this);
-        configuration.applyLayoutStyle(root, btnNext);
+        configuration.applyRootLayoutStyle(root, 0);
+        configuration.applyButtonStyle(btnNext, 0);
 
         // Let developer to define pages
         addTutorialPages();
@@ -198,6 +199,8 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
 
     @Override
     public final void onPageSelected(int position) {
+        configuration.applyRootLayoutStyle(root, position);
+        configuration.applyButtonStyle(btnNext, position);
         setNextButtonVisibility(position);
 
         if (configuration.hideButton) {

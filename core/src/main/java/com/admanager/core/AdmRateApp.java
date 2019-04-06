@@ -21,6 +21,7 @@ import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
 
+@Deprecated
 public class AdmRateApp {
     private static final String TAG = "AdmRateApp";
 
@@ -40,7 +41,12 @@ public class AdmRateApp {
         this.customLayout = customLayout == 0 ? R.layout.popup_rate_layout : customLayout;
     }
 
+    @Deprecated
     public void rate() {
+
+    }
+
+    public void show() {
         rate(true);
     }
 
@@ -192,7 +198,7 @@ public class AdmRateApp {
             if (savedInstanceState == null) {
                 Prefs.with(activity).appOpened();
             }
-            admRateApp.rate(false);
+            //            admRateApp.rate(false);
             return admRateApp;
         }
     }

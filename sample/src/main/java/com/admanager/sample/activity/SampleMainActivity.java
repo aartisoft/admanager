@@ -11,7 +11,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.admanager.core.AdmRateApp;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
 import com.admanager.core.staticnotification.AdmStaticNotification;
@@ -23,7 +22,6 @@ import com.admanager.sample.R;
  */
 public class SampleMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String TAG = "RateAndPopupAds";
-    AdmRateApp rateApp;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -54,13 +52,6 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
         new AdmPopupAd.Builder(this)
                 .build()
                 .show();
-
-        /*
-         * Ask user for rating after 3rd open or 7 days after then first open
-         * */
-        rateApp = new AdmRateApp.Builder(this)
-                .build(savedInstanceState);
-
     }
 
     private void toast(CharSequence title, boolean text) {
@@ -79,9 +70,7 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.nav_rate) {
-            rateApp.rate();
-        } else if (id == R.id.nav_dialogad) {
+        if (id == R.id.nav_dialogad) {
             new AdmPopupAd.Builder(this)
                     .build()
                     .show();

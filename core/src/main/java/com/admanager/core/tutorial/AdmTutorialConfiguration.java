@@ -1,6 +1,11 @@
 package com.admanager.core.tutorial;
 
+import android.animation.ArgbEvaluator;
+import android.animation.ValueAnimator;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.support.annotation.IntRange;
@@ -32,8 +37,8 @@ public class AdmTutorialConfiguration {
     private LinearLayout.LayoutParams buttonLayoutParams;
     private int buttonBgColor;
     private int dotsColor;
-    private int bgColor;
-    private int bg;
+    private int[] bgColor;
+    private int[] bg;
 
     public AdmTutorialConfiguration(Context context) {
     }
@@ -88,12 +93,12 @@ public class AdmTutorialConfiguration {
         return this;
     }
 
-    public AdmTutorialConfiguration bgColor(@ColorRes int bgColor) {
+    public AdmTutorialConfiguration bgColor(@ColorRes int... bgColor) {
         this.bgColor = bgColor;
         return this;
     }
 
-    public AdmTutorialConfiguration bg(@DrawableRes int bg) {
+    public AdmTutorialConfiguration bg(@DrawableRes int... bg) {
         this.bg = bg;
         return this;
     }
@@ -134,34 +139,60 @@ public class AdmTutorialConfiguration {
         }
     }
 
-    void applyLayoutStyle(LinearLayout root, Button btnNext) {
-        if (root != null) {
-            if (bgColor != 0) {
-                root.setBackgroundColor(ContextCompat.getColor(root.getContext(), bgColor));
-            }
-            if (bg != 0) {
-                root.setBackground(ContextCompat.getDrawable(root.getContext(), bg));
-            }
+    void applyRootLayoutStyle(LinearLayout root, int position) {
+        if (root == null) {
+            return;
         }
-        if (btnNext != null) {
-            if (buttonTextSize != 0) {
-                btnNext.setTextSize(buttonTextSize);
+        if (bgColor != null && bgColor.length > 0) {
+            int val = bgColor[position % bgColor.length];
+            animateColor(root, ContextCompat.getColor(root.getContext(), val));
+        }
+        if (bg != null && bg.length > 0) {
+            int val = bg[position % bg.length];
+            root.setBackground(ContextCompat.getDrawable(root.getContext(), val));
+        }
+    }
+
+    private void animateColor(final LinearLayout root, int colorTo) {
+        int colorFrom = Color.TRANSPARENT;
+        Drawable background = root.getBackground();
+        if (background instanceof ColorDrawable) {
+            colorFrom = ((ColorDrawable) background).getColor();
+        }
+        ValueAnimator colorAnimation = ValueAnimator.ofObject(new ArgbEvaluator(), colorFrom, colorTo);
+        colorAnimation.setDuration(250); // milliseconds
+        colorAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+            @Override
+            public void onAnimationUpdate(ValueAnimator animator) {
+                root.setBackgroundColor((int) animator.getAnimatedValue());
             }
-            if (buttonTextColor != 0) {
-                btnNext.setTextColor(ContextCompat.getColor(btnNext.getContext(), buttonTextColor));
-            }
-            if (buttonBg != 0) {
-                btnNext.setBackground(ContextCompat.getDrawable(btnNext.getContext(), buttonBg));
-            }
-            if (buttonBgColor != 0) {
-                btnNext.setBackgroundColor(ContextCompat.getColor(btnNext.getContext(), buttonBgColor));
-            }
-            if (buttonLayoutParams != null) {
-                btnNext.setLayoutParams(buttonLayoutParams);
-            }
-            if (hideButton) {
-                btnNext.setVisibility(View.GONE);
-            }
+
+        });
+        colorAnimation.start();
+    }
+
+    void applyButtonStyle(Button btnNext, int position) {
+        if (btnNext == null) {
+            return;
+        }
+        if (buttonTextSize != 0) {
+            btnNext.setTextSize(buttonTextSize);
+        }
+        if (buttonTextColor != 0) {
+            btnNext.setTextColor(ContextCompat.getColor(btnNext.getContext(), buttonTextColor));
+        }
+        if (buttonBg != 0) {
+            btnNext.setBackground(ContextCompat.getDrawable(btnNext.getContext(), buttonBg));
+        }
+        if (buttonBgColor != 0) {
+            btnNext.setBackgroundColor(ContextCompat.getColor(btnNext.getContext(), buttonBgColor));
+        }
+        if (buttonLayoutParams != null) {
+            btnNext.setLayoutParams(buttonLayoutParams);
+        }
+        if (hideButton) {
+            btnNext.setVisibility(View.GONE);
         }
     }
 
