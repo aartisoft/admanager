@@ -8,9 +8,11 @@ public abstract class Adapter {
     private int order = 0;
     private AdManager manager = null;
     private String enableKey;
+    private String adapterName;
 
-    public Adapter(String enableKey) {
+    public Adapter(String adapterName, String enableKey) {
         this.enableKey = enableKey;
+        this.adapterName = adapterName;
     }
 
     final String getEnableKey() {
@@ -78,7 +80,9 @@ public abstract class Adapter {
         Log.v(manager.TAG, getAdapterName() + ": " + message);
     }
 
-    protected abstract String getAdapterName();
+    String getAdapterName() {
+        return adapterName;
+    }
 
     protected abstract void show();
 

@@ -57,12 +57,7 @@ public class FacebookAdapter extends Adapter {
 
 
     public FacebookAdapter(@Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
-        super(rcEnableKey);
-    }
-
-    @Override
-    protected String getAdapterName() {
-        return "Facebook";
+        super("Facebook", rcEnableKey);
     }
 
     public FacebookAdapter withRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {

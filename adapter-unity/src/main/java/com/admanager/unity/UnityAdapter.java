@@ -52,12 +52,7 @@ public class UnityAdapter extends Adapter {
     };
 
     public UnityAdapter(String enableKey) {
-        super(enableKey);
-    }
-
-    @Override
-    protected String getAdapterName() {
-        return "Unity";
+        super("Unity", enableKey);
     }
 
     public UnityAdapter withId(@Size(min = 5, max = 9) String gameId, @Size(min = 2) String placementId) {

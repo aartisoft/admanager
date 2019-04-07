@@ -49,12 +49,7 @@ public class ApplovinAdapter extends Adapter {
 
 
     public ApplovinAdapter(@Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
-        super(rcEnableKey);
-    }
-
-    @Override
-    protected String getAdapterName() {
-        return "Applovin";
+        super("Applovin", rcEnableKey);
     }
 
     private static AppLovinAd dequeueAd() {
