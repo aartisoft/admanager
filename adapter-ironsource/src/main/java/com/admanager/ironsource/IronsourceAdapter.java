@@ -92,10 +92,6 @@ public class IronsourceAdapter extends Adapter {
         IronSource.loadInterstitial();
     }
 
-    @Override
-    protected void destroy() {
-
-    }
 
     @Override
     protected void show() {

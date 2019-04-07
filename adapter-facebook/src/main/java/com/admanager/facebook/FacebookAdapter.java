@@ -114,6 +114,7 @@ public class FacebookAdapter extends Adapter {
 
     @Override
     protected void destroy() {
+        super.destroy();
         if (ad != null) {
             ad.destroy();
         }

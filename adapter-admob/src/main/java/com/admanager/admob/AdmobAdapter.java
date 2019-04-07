@@ -92,6 +92,7 @@ public class AdmobAdapter extends Adapter {
 
     @Override
     protected void destroy() {
+        super.destroy();
         ad = null;
     }
 

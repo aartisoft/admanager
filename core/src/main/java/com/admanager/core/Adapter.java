@@ -1,6 +1,7 @@
 package com.admanager.core;
 
 import android.app.Activity;
+import android.support.annotation.CallSuper;
 import android.util.Log;
 
 public abstract class Adapter {
@@ -83,7 +84,10 @@ public abstract class Adapter {
 
     protected abstract void init();
 
-    protected abstract void destroy();
+    @CallSuper
+    protected void destroy() {
+
+    }
 
     protected void onCreated() {
 

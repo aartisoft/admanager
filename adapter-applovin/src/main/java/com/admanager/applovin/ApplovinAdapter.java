@@ -99,6 +99,7 @@ public class ApplovinAdapter extends Adapter {
 
     @Override
     protected void destroy() {
+        super.destroy();
         sdk = null;
     }
 

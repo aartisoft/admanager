@@ -12,11 +12,6 @@ public class DummyAdapter extends Adapter {
     }
 
     @Override
-    protected void destroy() {
-
-    }
-
-    @Override
     protected String getAdapterName() {
         return "Dummy";
     }

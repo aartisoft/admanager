@@ -79,6 +79,7 @@ public class UnityAdapter extends Adapter {
 
     @Override
     protected void destroy() {
+        super.destroy();
         UnityRouter.removeListener(placementId);
     }
 
