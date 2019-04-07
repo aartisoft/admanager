@@ -85,23 +85,6 @@ public class AdManager {
         context.getApplication().registerActivityLifecycleCallbacks(LIFECYCLE_CALLBACKS);
     }
 
-    public static String arrayToString(CopyOnWriteArrayList<?> list) {
-        if (list == null) {
-            return "null";
-        }
-        StringBuilder ret = new StringBuilder();
-        for (int i = 0; i < list.size(); i++) {
-            Object o = list.get(i);
-            if (o == null) {
-                ret.append("null,");
-            } else {
-                ret.append(o.toString())
-                        .append(",");
-            }
-        }
-        return ret.toString();
-    }
-
     Activity getActivity() {
         return this.context;
     }
@@ -250,13 +233,13 @@ public class AdManager {
             boolean enabled = enabledNotNull && areAdsEnabled && remoteConfigEnabled;
 
             if (enabled || testMode) {
-                Log.d(TAG, "Displaying " + adapter.getClass().getSimpleName());
+                Log.d(TAG, "Displaying " + adapter.getAdapterName());
                 adapter.show();
                 lastTimeShowed = System.currentTimeMillis();
                 this.showable = false; // stop showing new ads
                 break;
             } else {
-                Log.d(TAG, adapter.getClass().getSimpleName() + " not enabled");
+                Log.d(TAG, adapter.getAdapterName() + " not enabled");
                 SKIP.set(i, true);
 
                 adapterFinished(i, false, true);
