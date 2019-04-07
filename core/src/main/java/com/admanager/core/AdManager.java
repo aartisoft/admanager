@@ -114,11 +114,7 @@ public class AdManager {
         }
         for (int i = 0; i < LOADED.size(); i++) {
             LOADED.set(i, false);
-        }
-        for (int i = 0; i < LOADED.size(); i++) {
             SKIP.set(i, false);
-        }
-        for (int i = 0; i < ADAPTER_FINISH_LISTENER_CALLED.size(); i++) {
             ADAPTER_FINISH_LISTENER_CALLED.set(i, false);
         }
 
@@ -270,6 +266,7 @@ public class AdManager {
             Log.d(TAG, "Starting Next Activity");
             getActivity().startActivity(intent);
             getActivity().finish();
+            intent = null;
         } else {
             if (showAndFinish) {
                 getActivity().finish();
