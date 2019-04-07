@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.1.6-RC1] - 2019-04-07
+### Added
+- Timeout feature to Adapters
+- UnityAdapter default timeout value is 5000ms.
+
 ## [1.1.5] - 2019-04-06
 ### Added
 - Multiple background color support added to AdmTutorialActivity
