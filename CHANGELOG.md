@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.1.6-RC2] - 2019-04-07
+### Changed
+- Bug fix
+
 ## [1.1.6-RC1] - 2019-04-07
 ### Added
 - Timeout feature to Adapters
