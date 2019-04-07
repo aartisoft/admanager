@@ -1,7 +1,9 @@
 package com.admanager.core;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.support.annotation.CallSuper;
+import android.support.annotation.IntRange;
 import android.util.Log;
 
 public abstract class Adapter {
@@ -9,10 +11,34 @@ public abstract class Adapter {
     private AdManager manager = null;
     private String enableKey;
     private String adapterName;
+    private int timeout;
+    private Handler handler;
+    private Runnable r = new Runnable() {
+        @Override
+        public void run() {
+            loge("timeout");
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    Adapter.this.manager.setLoaded(order, true);
+                    Adapter.this.manager.display();
+
+                }
+            });
+        }
+    };
 
     public Adapter(String adapterName, String enableKey) {
         this.enableKey = enableKey;
         this.adapterName = adapterName;
+    }
+
+    public Adapter withTimeout(@IntRange(from = 0, to = 120_000) int timeout) {
+        if (timeout > 0 && timeout < 3000) {
+            Log.w(manager.TAG, getAdapterName() + ": You should pass timeout in milliseconds. AdManager recommend timeout longer than 3000 ms.");
+        }
+        this.timeout = timeout;
+        return this;
     }
 
     final String getEnableKey() {
@@ -37,6 +63,7 @@ public abstract class Adapter {
 
     protected final void loaded() {
         Log.d(manager.TAG, getAdapterName() + " loaded");
+        stopTimer();
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -49,6 +76,7 @@ public abstract class Adapter {
 
     protected final void error(String error) {
         Log.e(manager.TAG, getAdapterName() + " error :" + error);
+        stopTimer();
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
@@ -90,7 +118,7 @@ public abstract class Adapter {
 
     @CallSuper
     protected void destroy() {
-
+        stopTimer();
     }
 
     protected void onCreated() {
@@ -105,4 +133,18 @@ public abstract class Adapter {
 
     }
 
+    private void stopTimer() {
+        if (handler != null && r != null) {
+            handler.removeCallbacks(r);
+            handler = null;
+        }
+    }
+
+    void startTimer() {
+        if (timeout <= 0) {
+            return;
+        }
+        handler = new Handler();
+        handler.postDelayed(r, timeout);
+    }
 }

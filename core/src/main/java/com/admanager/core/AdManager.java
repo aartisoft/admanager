@@ -120,6 +120,7 @@ public class AdManager {
 
         for (Adapter adapter : ADAPTERS) {
             adapter.init();
+            adapter.startTimer();
         }
         return this;
     }
