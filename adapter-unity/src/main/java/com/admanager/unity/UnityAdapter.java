@@ -53,6 +53,7 @@ public class UnityAdapter extends Adapter {
 
     public UnityAdapter(String enableKey) {
         super("Unity", enableKey);
+        withTimeout(5_000);
     }
 
     public UnityAdapter withId(@Size(min = 5, max = 9) String gameId, @Size(min = 2) String placementId) {
