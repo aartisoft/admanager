@@ -1,0 +1,21 @@
+<resources>
+
+    <style name="booster_image">
+        <item name="android:padding">2.5dp</item>
+        <item name="android:layout_width">27.5dp</item>
+        <item name="android:layout_height">27.5dp</item>
+        <item name="android:layout_marginTop">0.33dp</item>
+        <item name="android:scaleType">fitXY</item>
+    </style>
+
+    <style name="booster_text">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">#ffbebfbf</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">5.67dp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+</resources>
