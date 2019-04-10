@@ -24,11 +24,12 @@
         <ImageView
             android:id="@+id/i1"
             style="@style/booster_image"
-            android:src="@android:drawable/ic_btn_speak_now" />
+            android:src="@drawable/ram_active" />
 
         <TextView
+            android:id="@+id/t1"
             style="@style/booster_text"
-            android:text="sa/k7" />
+            android:text="@string/p1" />
     </LinearLayout>
 
     <LinearLayout
@@ -44,11 +45,12 @@
         <ImageView
             android:id="@+id/i2"
             style="@style/booster_image"
-            android:src="@android:drawable/ic_menu_close_clear_cancel" />
+            android:src="@drawable/cpu_active" />
 
         <TextView
+            android:id="@+id/t2"
             style="@style/booster_text"
-            android:text="sa/bqn" />
+            android:text="@string/p2" />
     </LinearLayout>
 
     <LinearLayout
@@ -64,10 +66,11 @@
         <ImageView
             android:id="@+id/i3"
             style="@style/booster_image"
-            android:src="@android:drawable/ic_input_add" />
+            android:src="@drawable/battery_active" />
 
         <TextView
-            android:id="@+id/br"
+            android:id="@+id/t3"
+            android:text="@string/p3"
             style="@style/booster_text" />
     </LinearLayout>
 
@@ -84,11 +87,12 @@
         <ImageView
             android:id="@+id/i4"
             style="@style/booster_image"
-            android:src="@android:drawable/ic_btn_speak_now" />
+            android:src="@drawable/data_active" />
 
         <TextView
+            android:id="@+id/t4"
             style="@style/booster_text"
-            android:text="sa/zz" />
+            android:text="@string/p4" />
     </LinearLayout>
 
     <LinearLayout
@@ -104,11 +108,12 @@
         <ImageView
             android:id="@+id/i5"
             style="@style/booster_image"
-            android:src="@android:drawable/ic_btn_speak_now" />
+            android:src="@drawable/torch_passive" />
 
         <TextView
+            android:id="@+id/t5"
             style="@style/booster_text"
-            android:text="sa/a00" />
+            android:text="@string/p5" />
     </LinearLayout>
 
     <LinearLayout
@@ -124,11 +129,11 @@
         <ImageView
             android:id="@+id/i6"
             style="@style/booster_image"
-            android:src="@android:drawable/ic_btn_speak_now" />
+            android:src="@drawable/wifi_active" />
 
         <TextView
-            android:id="@+id/bt"
+            android:id="@+id/t6"
             style="@style/booster_text"
-            android:text="sa/a03" />
+            android:text="@string/p6" />
     </LinearLayout>
 </LinearLayout>

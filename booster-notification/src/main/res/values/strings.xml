@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Ad Manager Booster Notif</string>
     <string name="permdesc_flashlight">For enabling flashlight</string>
+    
+    <string name="p1">Boost</string>
+    <string name="p2">Cpu</string>
+    <string name="p3">Battery</string>
+    <string name="p4">Wi-fi</string>
+    <string name="p5">Torch</string>
+    <string name="p6">Data</string>
 </resources>

@@ -2,10 +2,10 @@
 
     <style name="booster_image">
         <item name="android:padding">2.5dp</item>
-        <item name="android:layout_width">27.5dp</item>
-        <item name="android:layout_height">27.5dp</item>
+        <item name="android:layout_width">37.5dp</item>
+        <item name="android:layout_height">37.5dp</item>
         <item name="android:layout_marginTop">0.33dp</item>
-        <item name="android:scaleType">fitXY</item>
+        <item name="android:scaleType">fitCenter</item>
     </style>
 
     <style name="booster_text">
