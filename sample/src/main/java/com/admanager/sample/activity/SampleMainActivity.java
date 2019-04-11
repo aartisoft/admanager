@@ -11,9 +11,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
-import com.admanager.core.staticnotification.AdmStaticNotification;
 import com.admanager.popupad.AdmPopupAd;
 import com.admanager.sample.R;
 
@@ -43,7 +43,7 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
         /*
          *  inits switch compat menu, and handles clicks events automatically
          * */
-        AdmStaticNotification.configureSwitchMenu(navView, R.id.nav_notification);
+        BoosterNotificationApp.configureSwitchMenu(navView, R.id.nav_notification);
         navView.setNavigationItemSelectedListener(this);
 
         /*
