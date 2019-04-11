@@ -7,6 +7,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -26,6 +27,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RemoteViews;
 
+import com.admanager.boosternotification.battery.BatteryStatusReceiver;
 import com.admanager.boosternotification.receiver.BoosterNotificationReceiver;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.BaseHelper;
@@ -38,6 +40,7 @@ public class BoosterNotificationApp extends BaseHelper {
     private static final String PREF_FILE_NAME = "notif_helper_prefs";
     private static final String EASY_ACCESS = "easy_access";
     private static com.admanager.boosternotification.BoosterNotificationApp INSTANCE;
+    private static BatteryStatusReceiver batteryStatusReceiver;
     private String channelId;
     private String channelName;
     private int iconBig;
@@ -141,8 +144,20 @@ public class BoosterNotificationApp extends BaseHelper {
         contentView.setOnClickPendingIntent(R.id.p4, getPendingIntent(context, BoosterNotificationReceiver.ACTION_DATA, true));
         contentView.setOnClickPendingIntent(R.id.p5, getPendingIntent(context, BoosterNotificationReceiver.ACTION_FLASHLIGHT, true));
         contentView.setOnClickPendingIntent(R.id.p6, getPendingIntent(context, BoosterNotificationReceiver.ACTION_WIFI, true));
+
         final boolean hasCameraFlash = context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
-        contentView.setViewVisibility(R.id.p5, hasCameraFlash ? View.VISIBLE : View.GONE);
+        if (hasCameraFlash) {
+            contentView.setViewVisibility(R.id.p5, View.VISIBLE);
+            contentView.setImageViewResource(R.id.i5, BoosterNotificationReceiver.isFlashlightOn() ? R.drawable.torch_active
+                    : R.drawable.torch_passive);
+        } else {
+            contentView.setViewVisibility(R.id.p5, View.GONE);
+        }
+
+
+        if (INSTANCE.batteryStatusReceiver != null && INSTANCE.batteryStatusReceiver.hasRecievedStatus()) {
+            contentView.setTextViewText(R.id.t3, INSTANCE.batteryStatusReceiver.getStatusString());
+        }
 
         // todo colors batery etc updates
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelID)
@@ -264,9 +279,14 @@ public class BoosterNotificationApp extends BaseHelper {
             setDefaultIcons(context);
             setDefaultIntent(context);
             setDefaultStartIn(context);
+
             Application app = (Application) context.getApplicationContext();
             BoosterNotificationApp.init(new BoosterNotificationApp(app, startIn, channelId, channelName, iconBig, iconSmall, intent));
             BoosterNotificationApp.checkAndDisplay(context);
+
+            batteryStatusReceiver = new BatteryStatusReceiver();
+            context.registerReceiver(batteryStatusReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+
         }
 
         private void setDefaultStartIn(Context context) {

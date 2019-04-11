@@ -16,7 +16,7 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
     public static final String ACTION_DATA = "action_data";
     public static final String ACTION_FLASHLIGHT = "action_flashlight";
     public static final String ACTION_WIFI = "action_wifi";
-    Camera cam;
+    private static Camera cam;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -45,7 +45,7 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
                 data(collapse);
                 break;
             case ACTION_FLASHLIGHT:
-                flashlight(collapse); // todo not worked
+                flashlight(collapse);
                 break;
             case ACTION_WIFI:
                 wifi(collapse);
@@ -72,34 +72,31 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
     }
 
     private void flashlight(boolean collapse) {
-        cam = Camera.open();
-        Camera.Parameters params = cam.getParameters();
-        String flashMode = params.getFlashMode();
-        if (flashMode != null && flashMode.equals(Camera.Parameters.FLASH_MODE_ON)) {
-            ledon();
-        } else {
-            ledoff();
+        if (cam == null) {
+            cam = Camera.open();
         }
+        if (isFlashlightOn()) {
+            cam.stopPreview();
+            cam.release();
+            cam = null;
+            return;
+        }
+        Camera.Parameters p = cam.getParameters();
+        p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+        cam.setParameters(p);
+    }
+
+    public static boolean isFlashlightOn() {
+        if (cam != null) {
+            Camera.Parameters p = cam.getParameters();
+            String flashMode = p.getFlashMode();
+            return flashMode != null && flashMode.equals(Camera.Parameters.FLASH_MODE_TORCH);
+        }
+        return false;
     }
 
     private void wifi(boolean collapse) {
 
-    }
-
-    void ledon() {
-        Camera.Parameters params = cam.getParameters();
-        params.setFlashMode(Camera.Parameters.FLASH_MODE_ON);
-        cam.setParameters(params);
-        cam.startPreview();
-        cam.autoFocus(new Camera.AutoFocusCallback() {
-            public void onAutoFocus(boolean success, Camera camera) {
-            }
-        });
-    }
-
-    void ledoff() {
-        cam.stopPreview();
-        cam.release();
     }
 
 
