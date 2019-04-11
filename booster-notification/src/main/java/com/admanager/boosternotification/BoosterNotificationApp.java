@@ -29,6 +29,7 @@ import android.widget.RemoteViews;
 
 import com.admanager.boosternotification.battery.BatteryStatusReceiver;
 import com.admanager.boosternotification.receiver.BoosterNotificationReceiver;
+import com.admanager.boosternotification.receiver.ConnectionStatusReceiver;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.BaseHelper;
 
@@ -41,6 +42,7 @@ public class BoosterNotificationApp extends BaseHelper {
     private static final String EASY_ACCESS = "easy_access";
     private static com.admanager.boosternotification.BoosterNotificationApp INSTANCE;
     private static BatteryStatusReceiver batteryStatusReceiver;
+    private static ConnectionStatusReceiver connectionStatusReceiver;
     private String channelId;
     private String channelName;
     private int iconBig;
@@ -154,12 +156,15 @@ public class BoosterNotificationApp extends BaseHelper {
             contentView.setViewVisibility(R.id.p5, View.GONE);
         }
 
-
-        if (INSTANCE.batteryStatusReceiver != null && INSTANCE.batteryStatusReceiver.hasRecievedStatus()) {
-            contentView.setTextViewText(R.id.t3, INSTANCE.batteryStatusReceiver.getStatusString());
+        if (batteryStatusReceiver != null) {
+            batteryStatusReceiver.updateUI(contentView, R.id.p3, R.id.i3, R.id.t3);
         }
 
-        // todo colors batery etc updates
+        if (connectionStatusReceiver != null) {
+            connectionStatusReceiver.updateWifiUI(context, contentView, R.id.p6, R.id.i6, R.id.t6);
+            connectionStatusReceiver.updateDataUI(context, contentView, R.id.p4, R.id.i4, R.id.t4);
+        }
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelID)
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), largeIcon))
                 .setSmallIcon(smallIcon)
@@ -286,6 +291,11 @@ public class BoosterNotificationApp extends BaseHelper {
 
             batteryStatusReceiver = new BatteryStatusReceiver();
             context.registerReceiver(batteryStatusReceiver, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+
+            connectionStatusReceiver = new ConnectionStatusReceiver();
+            context.registerReceiver(connectionStatusReceiver, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
+            context.registerReceiver(connectionStatusReceiver, new IntentFilter("android.net.wifi.STATE_CHANGE"));
+            context.registerReceiver(connectionStatusReceiver, new IntentFilter("android.net.ConnectivityManager.CONNECTIVITY_ACTION"));
 
         }
 

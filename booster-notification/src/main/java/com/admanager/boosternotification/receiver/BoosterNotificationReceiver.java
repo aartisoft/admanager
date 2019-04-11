@@ -1,9 +1,13 @@
 package com.admanager.boosternotification.receiver;
 
+import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Camera;
+import android.net.wifi.WifiManager;
+import android.util.Log;
 
 import com.admanager.boosternotification.BoosterNotificationApp;
 
@@ -17,6 +21,15 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
     public static final String ACTION_FLASHLIGHT = "action_flashlight";
     public static final String ACTION_WIFI = "action_wifi";
     private static Camera cam;
+
+    public static boolean isFlashlightOn() {
+        if (cam != null) {
+            Camera.Parameters p = cam.getParameters();
+            String flashMode = p.getFlashMode();
+            return flashMode != null && flashMode.equals(Camera.Parameters.FLASH_MODE_TORCH);
+        }
+        return false;
+    }
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -42,13 +55,13 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
                 battery(collapse);
                 break;
             case ACTION_DATA:
-                data(collapse);
+                data(context, collapse);
                 break;
             case ACTION_FLASHLIGHT:
                 flashlight(collapse);
                 break;
             case ACTION_WIFI:
-                wifi(collapse);
+                wifi(context, collapse);
                 break;
         }
 
@@ -67,8 +80,19 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
 
     }
 
-    private void data(boolean collapse) {
+    private void data(Context context, boolean collapse) {
+        // todo update icon via connection status
+        String SETTINGS_PACKAGE = "com.android.settings";
+        String SETTINGS_CLASS_DATA_USAGE_SETTINGS = "com.android.settings.Settings$DataUsageSummaryActivity";
 
+        try {
+            final Intent intent = new Intent(Intent.ACTION_MAIN, null);
+            final ComponentName cn = new ComponentName(SETTINGS_PACKAGE, SETTINGS_CLASS_DATA_USAGE_SETTINGS);
+            intent.setComponent(cn);
+            context.startActivity(intent);
+        } catch (ActivityNotFoundException e) {
+            Log.v(TAG, "Data settings usage Activity is not present");
+        }
     }
 
     private void flashlight(boolean collapse) {
@@ -86,17 +110,10 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
         cam.setParameters(p);
     }
 
-    public static boolean isFlashlightOn() {
-        if (cam != null) {
-            Camera.Parameters p = cam.getParameters();
-            String flashMode = p.getFlashMode();
-            return flashMode != null && flashMode.equals(Camera.Parameters.FLASH_MODE_TORCH);
-        }
-        return false;
-    }
-
-    private void wifi(boolean collapse) {
-
+    private void wifi(Context context, boolean collapse) {
+        WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        boolean wifiEnabled = wifiManager.isWifiEnabled();
+        wifiManager.setWifiEnabled(!wifiEnabled);
     }
 
 

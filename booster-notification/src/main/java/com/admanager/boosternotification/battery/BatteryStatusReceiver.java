@@ -5,45 +5,33 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.BatteryManager;
 import android.util.Log;
+import android.widget.RemoteViews;
 
-import static com.admanager.boosternotification.BoosterNotificationApp.checkAndDisplay;
+import com.admanager.boosternotification.BoosterNotificationApp;
+import com.admanager.boosternotification.R;
 
 public class BatteryStatusReceiver extends BroadcastReceiver {
 
     private static final String TAG = "BatteryStatusReceiver";
-    private BatteryStatus batteryStatus;
+    private int level;
 
     public BatteryStatusReceiver() {
     }
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        int level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
-        float temp = (float) intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, -1) / 10;
-        float voltage = (float) intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1) / 1000;
+        Log.e(TAG, "onReceive:" + intent.getAction());
+        level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
 
-        Log.d(TAG, this + ":" + intent.getExtras());
-
-        updateBatteryStatus(context, level, temp, voltage);
+        BoosterNotificationApp.checkAndDisplay(context);
     }
 
-    public void updateBatteryStatus(Context context, int level, float temp, float voltage) {
-        if (batteryStatus == null) {
-            batteryStatus = new BatteryStatus();
+    public void updateUI(RemoteViews contentView, int containerId, int imageId, int textId) {
+        contentView.setTextViewText(textId, String.format("%s %%", level));
+        if (level < 20) {
+            contentView.setImageViewResource(imageId, R.drawable.battery_poor);
+        } else {
+            contentView.setImageViewResource(imageId, R.drawable.battery_active);
         }
-
-        batteryStatus.setLevel(level);
-        batteryStatus.setTemp(temp);
-        batteryStatus.setVoltage(voltage);
-        checkAndDisplay(context);
-    }
-
-    public boolean hasRecievedStatus() {
-        return batteryStatus != null;
-    }
-
-    public CharSequence getStatusString() {
-        if (batteryStatus == null) return "";
-        return batteryStatus.getStatusString();
     }
 }
