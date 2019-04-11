@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
 
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -23,6 +24,8 @@
         android:protectionLevel="normal" />
 
     <application>
+        <activity android:name=".boost.RamBoostActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".boost.BatteryBoostActivity" android:theme="@style/AppTheme.NoActionBar" />
 
         <receiver android:name=".BootReceiver">
             <intent-filter>
@@ -30,7 +33,7 @@
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".battery.BatteryStatusReceiver">
+        <receiver android:name=".receiver.BatteryStatusReceiver">
             <intent-filter android:priority="1000">
                 <action android:name="android.intent.action.BATTERY_CHANGED" />
             </intent-filter>

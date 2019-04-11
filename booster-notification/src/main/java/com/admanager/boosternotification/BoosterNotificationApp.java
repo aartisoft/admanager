@@ -27,7 +27,7 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.RemoteViews;
 
-import com.admanager.boosternotification.battery.BatteryStatusReceiver;
+import com.admanager.boosternotification.receiver.BatteryStatusReceiver;
 import com.admanager.boosternotification.receiver.BoosterNotificationReceiver;
 import com.admanager.boosternotification.receiver.ConnectionStatusReceiver;
 import com.admanager.core.AdmUtils;

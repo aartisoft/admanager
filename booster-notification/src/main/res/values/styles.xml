@@ -1,5 +1,12 @@
 <resources>
 
+
+    <style name="NoActionBar" parent="Theme.AppCompat.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
     <style name="booster_image">
         <item name="android:padding">2.5dp</item>
         <item name="android:layout_width">37.5dp</item>

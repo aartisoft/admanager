@@ -12,6 +12,8 @@ import android.os.Build;
 import android.util.Log;
 
 import com.admanager.boosternotification.BoosterNotificationApp;
+import com.admanager.boosternotification.boost.BatteryBoostActivity;
+import com.admanager.boosternotification.boost.RamBoostActivity;
 
 public class BoosterNotificationReceiver extends BroadcastReceiver {
     public static final String TAG = "Booster";
@@ -54,13 +56,13 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
 
         switch (action) {
             case ACTION_BOOST:
-                boost(collapse);
+                boost(context, collapse);
                 break;
             case ACTION_CPU:
                 cpu(collapse);
                 break;
             case ACTION_BATTERY:
-                battery(collapse);
+                battery(context, collapse);
                 break;
             case ACTION_DATA:
                 data(context, collapse);
@@ -76,16 +78,20 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
         BoosterNotificationApp.checkAndDisplay(context);
     }
 
-    private void boost(boolean collapse) {
-
+    private void boost(Context context, boolean collapse) {
+        Intent ramBoostIntent = new Intent(context, RamBoostActivity.class);
+        ramBoostIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(ramBoostIntent);
     }
 
     private void cpu(boolean collapse) {
 
     }
 
-    private void battery(boolean collapse) {
-
+    private void battery(Context context, boolean collapse) {
+        Intent ramBoostIntent = new Intent(context, BatteryBoostActivity.class);
+        ramBoostIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(ramBoostIntent);
     }
 
     private void data(Context context, boolean collapse) {
