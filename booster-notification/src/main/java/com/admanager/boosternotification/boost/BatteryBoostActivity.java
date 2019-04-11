@@ -5,7 +5,9 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -36,9 +38,8 @@ public class BatteryBoostActivity extends AppCompatActivity {
         setContentView(R.layout.activity_boost);
 
         ads = BoosterNotificationApp.getInstance().getAds();
-        ads.loadBottom(this, (LinearLayout) findViewById(R.id.bottom_container)); // todo add to layout
-        ads.loadMiddle(this, (LinearLayout) findViewById(R.id.middle_container)); // todo add to layout
-        ads.loadTop(this, (LinearLayout) findViewById(R.id.top_container)); // todo add to layout
+        ads.loadBottom(this, (LinearLayout) findViewById(R.id.bottom_container));
+        ads.loadTop(this, (LinearLayout) findViewById(R.id.top_container));
 
         lottieView = findViewById(R.id.lottieView);
         txtResult = findViewById(R.id.txtResult);
@@ -101,8 +102,16 @@ public class BatteryBoostActivity extends AppCompatActivity {
 
 
     public void close(View v) {
+        PackageManager pm = getPackageManager();
+        Intent launchIntentForPackage = pm.getLaunchIntentForPackage(getPackageName());
+        launchIntentForPackage.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(launchIntentForPackage);
         finish();
     }
 
+    @Override
+    public void onBackPressed() {
+        close(null);
+    }
 }
 

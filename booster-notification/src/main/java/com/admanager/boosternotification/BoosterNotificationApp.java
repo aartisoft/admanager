@@ -148,11 +148,13 @@ public class BoosterNotificationApp extends BaseHelper {
 
         RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.adm_booster_notification);
         contentView.setOnClickPendingIntent(R.id.p1, getPendingIntent(context, BoosterNotificationReceiver.ACTION_BOOST, true));
-        contentView.setOnClickPendingIntent(R.id.p2, getPendingIntent(context, BoosterNotificationReceiver.ACTION_CPU, true));
+        contentView.setOnClickPendingIntent(R.id.p2, getPendingIntent(context, BoosterNotificationReceiver.ACTION_LAUNCH, true));
         contentView.setOnClickPendingIntent(R.id.p3, getPendingIntent(context, BoosterNotificationReceiver.ACTION_BATTERY, true));
         contentView.setOnClickPendingIntent(R.id.p4, getPendingIntent(context, BoosterNotificationReceiver.ACTION_DATA, true));
         contentView.setOnClickPendingIntent(R.id.p5, getPendingIntent(context, BoosterNotificationReceiver.ACTION_FLASHLIGHT, false));
         contentView.setOnClickPendingIntent(R.id.p6, getPendingIntent(context, BoosterNotificationReceiver.ACTION_WIFI, false));
+
+        contentView.setTextViewText(R.id.t2, context.getApplicationInfo().loadLabel(context.getPackageManager()));
 
         final boolean hasCameraFlash = context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
         if (hasCameraFlash) {

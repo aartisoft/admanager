@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraManager;
 import android.net.wifi.WifiManager;
@@ -19,7 +20,7 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
     public static final String TAG = "Booster";
     public static final String PARAM_COLLAPSE = "auto_collapse";
     public static final String ACTION_BOOST = "action_boost";
-    public static final String ACTION_CPU = "action_cpu";
+    public static final String ACTION_LAUNCH = "action_launch";
     public static final String ACTION_BATTERY = "action_battery";
     public static final String ACTION_DATA = "action_data";
     public static final String ACTION_FLASHLIGHT = "action_flashlight";
@@ -58,8 +59,8 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
             case ACTION_BOOST:
                 boost(context);
                 break;
-            case ACTION_CPU:
-                cpu();
+            case ACTION_LAUNCH:
+                launch(context);
                 break;
             case ACTION_BATTERY:
                 battery(context);
@@ -84,8 +85,11 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
         context.startActivity(ramBoostIntent);
     }
 
-    private void cpu() {
-
+    private void launch(Context context) {
+        PackageManager pm = context.getPackageManager();
+        Intent launchIntentForPackage = pm.getLaunchIntentForPackage(context.getPackageName());
+        launchIntentForPackage.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(launchIntentForPackage);
     }
 
     private void battery(Context context) {

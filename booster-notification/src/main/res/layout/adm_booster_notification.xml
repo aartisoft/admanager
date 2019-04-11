@@ -33,28 +33,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/p2"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:visibility="gone"
-        android:background="@drawable/booster_selectable_bg"
-        android:clickable="true"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <ImageView
-            android:id="@+id/i2"
-            style="@style/booster_image"
-            android:src="@drawable/cpu_active" />
-
-        <TextView
-            android:id="@+id/t2"
-            style="@style/booster_text"
-            android:text="@string/p2" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/p3"
         android:layout_width="0dp"
         android:layout_height="match_parent"
@@ -71,8 +49,8 @@
 
         <TextView
             android:id="@+id/t3"
-            android:text="@string/p3"
-            style="@style/booster_text" />
+            style="@style/booster_text"
+            android:text="@string/p3" />
     </LinearLayout>
 
     <LinearLayout
@@ -136,5 +114,26 @@
             android:id="@+id/t6"
             style="@style/booster_text"
             android:text="@string/p6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/p2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@drawable/booster_selectable_bg"
+        android:clickable="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/i2"
+            style="@style/booster_image"
+            android:src="@drawable/applauncher" />
+
+        <TextView
+            android:id="@+id/t2"
+            style="@style/booster_text"
+            android:text="@string/p2" />
     </LinearLayout>
 </LinearLayout>

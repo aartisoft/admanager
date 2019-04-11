@@ -5,13 +5,17 @@ import android.animation.AnimatorListenerAdapter;
 import android.animation.ValueAnimator;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.boosternotification.R;
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -26,11 +30,17 @@ public class RamBoostActivity extends AppCompatActivity {
     TextView txtStatus;
     private int color = 0xFF67C8F4;
     private Button btnClose;
+    private BoosterNotificationApp.Ads ads;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boost);
+
+        ads = BoosterNotificationApp.getInstance().getAds();
+        ads.loadBottom(this, (LinearLayout) findViewById(R.id.bottom_container));
+        ads.loadTop(this, (LinearLayout) findViewById(R.id.top_container));
+
 
         lottieView = findViewById(R.id.lottieView);
         txtResult = findViewById(R.id.txtResult);
@@ -98,8 +108,16 @@ public class RamBoostActivity extends AppCompatActivity {
     }
 
     public void close(View v) {
+        PackageManager pm = getPackageManager();
+        Intent launchIntentForPackage = pm.getLaunchIntentForPackage(getPackageName());
+        launchIntentForPackage.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(launchIntentForPackage);
         finish();
     }
 
+    @Override
+    public void onBackPressed() {
+        close(null);
+    }
 }
 
