@@ -32,7 +32,7 @@ import java.lang.ref.WeakReference;
 
 public class AdmStaticNotification extends BaseHelper {
     private static final String TAG = "AdmStaticNotification";
-    private static final int ID = 999;
+    private static final int ID = 52189;
     private static final String PREF_FILE_NAME = "notif_helper_prefs";
     private static final String EASY_ACCESS = "easy_access";
     private static AdmStaticNotification INSTANCE;
