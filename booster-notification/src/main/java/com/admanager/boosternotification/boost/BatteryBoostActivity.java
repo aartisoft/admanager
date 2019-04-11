@@ -10,8 +10,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.boosternotification.R;
 import com.airbnb.lottie.LottieAnimationView;
 
@@ -26,11 +28,17 @@ public class BatteryBoostActivity extends AppCompatActivity {
     TextView txtStatus;
     private int color = 0xFF30E471;
     private Button btnClose;
+    private BoosterNotificationApp.Ads ads;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_boost);
+
+        ads = BoosterNotificationApp.getInstance().getAds();
+        ads.loadBottom(this, (LinearLayout) findViewById(R.id.bottom_container)); // todo add to layout
+        ads.loadMiddle(this, (LinearLayout) findViewById(R.id.middle_container)); // todo add to layout
+        ads.loadTop(this, (LinearLayout) findViewById(R.id.top_container)); // todo add to layout
 
         lottieView = findViewById(R.id.lottieView);
         txtResult = findViewById(R.id.txtResult);
