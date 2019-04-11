@@ -150,7 +150,7 @@ public class BoosterNotificationApp extends BaseHelper {
         final boolean hasCameraFlash = context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
         if (hasCameraFlash) {
             contentView.setViewVisibility(R.id.p5, View.VISIBLE);
-            contentView.setImageViewResource(R.id.i5, BoosterNotificationReceiver.isFlashlightOn() ? R.drawable.torch_active
+            contentView.setImageViewResource(R.id.i5, BoosterNotificationReceiver.isFlashOpen ? R.drawable.torch_active
                     : R.drawable.torch_passive);
         } else {
             contentView.setViewVisibility(R.id.p5, View.GONE);

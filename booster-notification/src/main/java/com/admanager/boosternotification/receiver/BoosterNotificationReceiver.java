@@ -6,7 +6,9 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Camera;
+import android.hardware.camera2.CameraManager;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.util.Log;
 
 import com.admanager.boosternotification.BoosterNotificationApp;
@@ -21,14 +23,15 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
     public static final String ACTION_FLASHLIGHT = "action_flashlight";
     public static final String ACTION_WIFI = "action_wifi";
     private static Camera cam;
+    public static boolean isFlashOpen = false;
 
-    public static boolean isFlashlightOn() {
+    private boolean isFlashlightOn() {
         if (cam != null) {
             Camera.Parameters p = cam.getParameters();
             String flashMode = p.getFlashMode();
             return flashMode != null && flashMode.equals(Camera.Parameters.FLASH_MODE_TORCH);
         }
-        return false;
+        return isFlashOpen;
     }
 
     @Override
@@ -63,7 +66,7 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
                 data(context, collapse);
                 break;
             case ACTION_FLASHLIGHT:
-                flashlight(collapse);
+                flashlight(context, collapse);
                 break;
             case ACTION_WIFI:
                 wifi(context, collapse);
@@ -99,19 +102,34 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
         }
     }
 
-    private void flashlight(boolean collapse) {
-        if (cam == null) {
-            cam = Camera.open();
+    private void flashlight(Context context, boolean collapse) {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                CameraManager camManager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
+                if (camManager != null) {
+                    String cameraId = camManager.getCameraIdList()[0];
+                    camManager.setTorchMode(cameraId, !isFlashOpen);
+                    isFlashOpen = !isFlashOpen;
+                }
+            } else {
+                if (cam == null) {
+                    cam = Camera.open();
+                }
+                if (isFlashlightOn()) {
+                    cam.stopPreview();
+                    cam.release();
+                    cam = null;
+                    isFlashOpen = false;
+                    return;
+                }
+                Camera.Parameters p = cam.getParameters();
+                p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
+                cam.setParameters(p);
+                isFlashOpen = true;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        if (isFlashlightOn()) {
-            cam.stopPreview();
-            cam.release();
-            cam = null;
-            return;
-        }
-        Camera.Parameters p = cam.getParameters();
-        p.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
-        cam.setParameters(p);
     }
 
     private void wifi(Context context, boolean collapse) {
