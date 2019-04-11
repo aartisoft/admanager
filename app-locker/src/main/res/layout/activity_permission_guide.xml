@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77000000"
+    android:fitsSystemWindows="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txvMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:lineSpacingMultiplier="1.2"
+        android:text="@string/enable_accessibility_service_guide"
+        android:textColor="@android:color/white"
+        android:textSize="14sp" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/bg_white_item_round"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/imvIcon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:contentDescription="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:maxLines="1"
+            android:text="@string/app_name"
+            android:textColor="@color/textColorPrimary"
+            app:layout_constraintLeft_toRightOf="@+id/imvIcon"
+            app:layout_constraintRight_toLeftOf="@+id/stcSwitch"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txvDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="16dp"
+            android:maxLines="1"
+            android:text="@string/off"
+            android:textColor="@color/textColorGary"
+            android:textSize="12sp"
+            app:layout_constraintLeft_toRightOf="@+id/imvIcon"
+            app:layout_constraintRight_toLeftOf="@+id/stcSwitch"
+            app:layout_constraintTop_toBottomOf="@+id/txvName" />
+
+        <Switch
+            android:id="@+id/stcSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:clickable="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:showText="false" />
+    </android.support.constraint.ConstraintLayout>
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.admanager.applocker">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <application
+        android:allowBackup="true"
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        tools:ignore="GoogleAppIndexingWarning">
+
+        <activity
+            android:name=".activities.SplashActivity"
+            android:excludeFromRecents="true"
+            android:label="@string/app_lock_app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppLockerTheme"></activity>
+        <activity
+            android:name=".activities.PasswordPatternActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity=".PasswordActivity"
+            android:theme="@style/AppLockerTheme.NoActionBar" />
+        <activity
+            android:name=".activities.PasswordPinActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity=".PasswordActivity"
+            android:theme="@style/AppLockerTheme.NoActionBar" />
+        <activity
+            android:name=".activities.PasswordTypeActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleInstance"
+            android:noHistory="true"
+            android:screenOrientation="portrait"
+            android:taskAffinity=".PasswordActivity"
+            android:theme="@style/AppLockerTheme.NoActionBar" />
+        <activity
+            android:name=".activities.PasswordRecoveryActivity"
+            android:excludeFromRecents="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppLockerThemeCustom" />
+        <activity
+            android:name=".activities.HomeActivity"
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppLockerTheme.NoActionBar" />
+
+        <activity
+            android:name=".activities.PermissionGuideActivity"
+            android:theme="@style/AppLockerTheme.Translucent" />
+
+        <service
+            android:name=".services.AppCheckServices"
+            android:exported="false" />
+
+        <receiver
+            android:name=".services.BootComplete"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_RESTARTED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 
+## [1.2.0] - 2019-04-11
+### Added
+- App Lock Module
+- Booster Notification Module
+
 ## [1.1.6-RC2] - 2019-04-07
 ### Changed
 - Bug fix
