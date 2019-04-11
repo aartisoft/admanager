@@ -101,6 +101,7 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
         try {
             final Intent intent = new Intent(Intent.ACTION_MAIN, null);
             final ComponentName cn = new ComponentName(SETTINGS_PACKAGE, SETTINGS_CLASS_DATA_USAGE_SETTINGS);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.setComponent(cn);
             context.startActivity(intent);
         } catch (ActivityNotFoundException e) {
