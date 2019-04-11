@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -82,9 +81,7 @@ public abstract class PasswordActivity extends AppCompatActivity implements View
     @Override
     protected void onPause() {
         super.onPause();
-        Log.e("AppCheckServicePASS", "onPause");
         if (askForPackage != null) {
-            Log.e("AppCheckServicePASS", "removing package name recently asking list");
             AppCheckServices.removedAsked(askForPackage);
         }
         if (!success && askForPackage != null) {

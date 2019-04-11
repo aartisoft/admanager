@@ -147,11 +147,11 @@ public class AppCheckServices extends Service {
         }
         long diff = System.currentTimeMillis() - time;
         if (diff > 5000) {
-            Log.e(TAG, "RECENTLY ASK timeout:" + diff);
+            Log.v(TAG, "RECENTLY ASK timeout:" + diff);
             recentlyAskedMap.remove(currentApp);
             return false;
         } else {
-            Log.e(TAG, "RECENTLY ASKED:" + diff);
+            Log.v(TAG, "RECENTLY ASKED:" + diff);
         }
         return true;
     }
@@ -165,9 +165,9 @@ public class AppCheckServices extends Service {
             if (timePassed > TIMEOUT) {
                 String pn = entry.getKey();
                 recentlyUnlockedMap.remove(pn);
-                Log.e(TAG, "removing recent app list: " + pn);
+                Log.v(TAG, "removing recent app list: " + pn);
             } else {
-                Log.e(TAG, "NOT TIMEOUT: " + (TIMEOUT - timePassed));
+                Log.v(TAG, "NOT TIMEOUT: " + (TIMEOUT - timePassed));
             }
         }
     }
@@ -180,7 +180,6 @@ public class AppCheckServices extends Service {
 
     @Override
     public void onCreate() {
-        Log.e(TAG, "onCreate");
         super.onCreate();
         prefs = Prefs.with(getApplicationContext());
         packageNamesNeedLock = prefs.getLocked();
@@ -231,7 +230,6 @@ public class AppCheckServices extends Service {
                 long diff = System.currentTimeMillis() - time;
                 if (diff > AUTO_CLOSE) {
                     recentlyUnlockedMap.remove(currentApp);
-                    Log.e(TAG, "AUTO CLOSE: " + currentApp);
                     return true;
                     //                    AppLockConstants.startHomeLauncher(this);
                 }
@@ -246,7 +244,6 @@ public class AppCheckServices extends Service {
         for (ActivityManager.RunningTaskInfo info : task) {
             b.append(info.topActivity.getPackageName()).append("\t\t\t");
         }
-        Log.e(TAG, "tasks: " + b.toString());
         if (task.size() > 0) {
             ComponentName componentInfo = task.get(0).topActivity;
             return componentInfo.getPackageName();
@@ -284,7 +281,6 @@ public class AppCheckServices extends Service {
 
     @Override
     public void onDestroy() {
-        Log.e(TAG, "onDestroy");
         super.onDestroy();
         timer.cancel();
         timer = null;

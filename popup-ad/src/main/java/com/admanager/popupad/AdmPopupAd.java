@@ -28,7 +28,12 @@ public class AdmPopupAd {
         }
 
         PopupAdFragment fragment = PopupAdFragment.createInstance(adSpecs);
-        fragment.show(activity.getSupportFragmentManager(), "popup_ad");
+        try {
+            // for dismissing " Can not perform this action after onSaveInstanceState" error
+            fragment.show(activity.getSupportFragmentManager(), "popup_ad");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static class Builder {

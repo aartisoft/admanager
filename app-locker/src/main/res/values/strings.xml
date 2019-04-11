@@ -18,7 +18,7 @@
 
     <string name="perm_overlay_text">permit drawing other apps</string>
     <string name="perm_usage_access_text">You must permit Usage Access for AppLock feature.</string>
-    <string name="perm_text">You need to give some permissions for security policies.</string>
+    <string name="perm_text">Lock your apps, no one can use without your password! \nYou need to give some permissions for security policies.</string>
     <string name="perm_title">Permissions</string>
     <string name="password_text">Set Password for Security</string>
 

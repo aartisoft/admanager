@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.0-rc5] - 2019-04-11
+### Changed
+- Popup Ad opens play store only if clicked yes button.
+- Bug fix
+
 ## [1.2.0-rc4] - 2019-04-11
 ### Changed
 - Bug fix
