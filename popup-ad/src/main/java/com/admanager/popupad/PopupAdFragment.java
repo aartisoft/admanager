@@ -85,13 +85,6 @@ public class PopupAdFragment extends DialogFragment implements View.OnClickListe
             adSpecs = (AdSpecs) savedInstanceState.getSerializable(AD_SPECS);
         }
 
-        view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AdmUtils.openLink(getContext(), adSpecs.getUrl());
-                dismiss();
-            }
-        });
         return view;
 
     }
