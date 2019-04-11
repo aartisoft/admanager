@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
 import com.admanager.boosternotification.receiver.BatteryStatusReceiver;
@@ -46,12 +47,14 @@ public class BoosterNotificationApp extends BaseHelper {
     private String channelId;
     private String channelName;
     private int iconBig;
+    private Ads ads;
     private int iconSmall;
     private Intent intent;
     private Class<? extends Activity> startIn;
 
-    private BoosterNotificationApp(Application application, Class<? extends Activity> startIn, String channelId, String channelName, int iconBig, int iconSmall, Intent intent) {
+    private BoosterNotificationApp(Application application, Ads ads, Class<? extends Activity> startIn, String channelId, String channelName, int iconBig, int iconSmall, Intent intent) {
         super(application);
+        this.ads = ads;
         this.channelId = channelId;
         this.channelName = channelName;
         this.iconBig = iconBig;
@@ -60,11 +63,15 @@ public class BoosterNotificationApp extends BaseHelper {
         this.startIn = startIn;
     }
 
-    private static com.admanager.boosternotification.BoosterNotificationApp getInstance() {
+    public static com.admanager.boosternotification.BoosterNotificationApp getInstance() {
         if (INSTANCE == null) {
             throw new IllegalStateException("You should initialize BoosterNotificationApp!");
         }
         return INSTANCE;
+    }
+
+    public Ads getAds() {
+        return ads;
     }
 
     private static com.admanager.boosternotification.BoosterNotificationApp init(com.admanager.boosternotification.BoosterNotificationApp BoosterNotificationApp) {
@@ -214,9 +221,15 @@ public class BoosterNotificationApp extends BaseHelper {
         private int iconSmall;
         private Intent intent;
         private Class<? extends Activity> startIn;
+        private Ads ads;
 
         public Builder(@NonNull Application context) {
             this.context = new WeakReference<>(context.getApplicationContext());
+        }
+
+        public Builder ads(Ads ads) {
+            this.ads = ads;
+            return this;
         }
 
         public BoosterNotificationApp.Builder channelId(String channelId) {
@@ -280,13 +293,16 @@ public class BoosterNotificationApp extends BaseHelper {
         }
 
         public void build() {
+            if (ads == null) {
+                ads = new Ads();
+            }
             Context context = this.context.get();
             setDefaultIcons(context);
             setDefaultIntent(context);
             setDefaultStartIn(context);
 
             Application app = (Application) context.getApplicationContext();
-            BoosterNotificationApp.init(new BoosterNotificationApp(app, startIn, channelId, channelName, iconBig, iconSmall, intent));
+            BoosterNotificationApp.init(new BoosterNotificationApp(app, ads, startIn, channelId, channelName, iconBig, iconSmall, intent));
             BoosterNotificationApp.checkAndDisplay(context);
 
             batteryStatusReceiver = new BatteryStatusReceiver();
@@ -343,4 +359,17 @@ public class BoosterNotificationApp extends BaseHelper {
         }
     }
 
+    public static class Ads {
+        public void loadTop(Activity activity, LinearLayout container) {
+
+        }
+
+        public void loadMiddle(Activity activity, LinearLayout container) {
+
+        }
+
+        public void loadBottom(Activity activity, LinearLayout container) {
+
+        }
+    }
 }
