@@ -81,7 +81,6 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
     }
 
     private void data(Context context, boolean collapse) {
-        // todo update icon via connection status
         String SETTINGS_PACKAGE = "com.android.settings";
         String SETTINGS_CLASS_DATA_USAGE_SETTINGS = "com.android.settings.Settings$DataUsageSummaryActivity";
 
