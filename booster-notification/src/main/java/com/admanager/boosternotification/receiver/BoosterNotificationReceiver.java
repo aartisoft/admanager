@@ -56,45 +56,45 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
 
         switch (action) {
             case ACTION_BOOST:
-                boost(context, collapse);
+                boost(context);
                 break;
             case ACTION_CPU:
-                cpu(collapse);
+                cpu();
                 break;
             case ACTION_BATTERY:
-                battery(context, collapse);
+                battery(context);
                 break;
             case ACTION_DATA:
-                data(context, collapse);
+                data(context);
                 break;
             case ACTION_FLASHLIGHT:
-                flashlight(context, collapse);
+                flashlight(context);
                 break;
             case ACTION_WIFI:
-                wifi(context, collapse);
+                wifi(context);
                 break;
         }
 
         BoosterNotificationApp.checkAndDisplay(context);
     }
 
-    private void boost(Context context, boolean collapse) {
+    private void boost(Context context) {
         Intent ramBoostIntent = new Intent(context, RamBoostActivity.class);
         ramBoostIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(ramBoostIntent);
     }
 
-    private void cpu(boolean collapse) {
+    private void cpu() {
 
     }
 
-    private void battery(Context context, boolean collapse) {
+    private void battery(Context context) {
         Intent ramBoostIntent = new Intent(context, BatteryBoostActivity.class);
         ramBoostIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(ramBoostIntent);
     }
 
-    private void data(Context context, boolean collapse) {
+    private void data(Context context) {
         String SETTINGS_PACKAGE = "com.android.settings";
         String SETTINGS_CLASS_DATA_USAGE_SETTINGS = "com.android.settings.Settings$DataUsageSummaryActivity";
 
@@ -109,7 +109,7 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
         }
     }
 
-    private void flashlight(Context context, boolean collapse) {
+    private void flashlight(Context context) {
         try {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                 CameraManager camManager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
@@ -139,7 +139,7 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
         }
     }
 
-    private void wifi(Context context, boolean collapse) {
+    private void wifi(Context context) {
         WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         boolean wifiEnabled = wifiManager.isWifiEnabled();
         wifiManager.setWifiEnabled(!wifiEnabled);
