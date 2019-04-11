@@ -42,7 +42,12 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
             return;
         }
 
+        // close status bar
         boolean collapse = intent.getBooleanExtra(PARAM_COLLAPSE, false);
+        if (collapse) {
+            Intent it = new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS);
+            context.sendBroadcast(it);
+        }
 
         switch (action) {
             case ACTION_BOOST:
