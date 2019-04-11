@@ -143,7 +143,7 @@ public class BoosterNotificationApp extends BaseHelper {
         contentView.setOnClickPendingIntent(R.id.p1, getPendingIntent(context, BoosterNotificationReceiver.ACTION_BOOST, true));
         contentView.setOnClickPendingIntent(R.id.p2, getPendingIntent(context, BoosterNotificationReceiver.ACTION_CPU, true));
         contentView.setOnClickPendingIntent(R.id.p3, getPendingIntent(context, BoosterNotificationReceiver.ACTION_BATTERY, true));
-        contentView.setOnClickPendingIntent(R.id.p4, getPendingIntent(context, BoosterNotificationReceiver.ACTION_DATA, false));
+        contentView.setOnClickPendingIntent(R.id.p4, getPendingIntent(context, BoosterNotificationReceiver.ACTION_DATA, true));
         contentView.setOnClickPendingIntent(R.id.p5, getPendingIntent(context, BoosterNotificationReceiver.ACTION_FLASHLIGHT, false));
         contentView.setOnClickPendingIntent(R.id.p6, getPendingIntent(context, BoosterNotificationReceiver.ACTION_WIFI, false));
 
