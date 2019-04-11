@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.0-rc4] - 2019-04-11
+### Changed
+- Bug fix
 
 ## [1.2.0-rc3] - 2019-04-11
 ### Changed

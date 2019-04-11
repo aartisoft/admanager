@@ -366,10 +366,6 @@ public class BoosterNotificationApp extends BaseHelper {
 
         }
 
-        public void loadMiddle(Activity activity, LinearLayout container) {
-
-        }
-
         public void loadBottom(Activity activity, LinearLayout container) {
 
         }
