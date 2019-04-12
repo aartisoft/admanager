@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.1] - 2019-04-12
+### Changed
+- Android 8 bug fix
+
 ## [1.2.0-rc5] - 2019-04-11
 ### Changed
 - Popup Ad opens play store only if clicked yes button.
