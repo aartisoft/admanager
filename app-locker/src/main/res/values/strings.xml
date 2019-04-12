@@ -45,4 +45,8 @@
     <string name="enable_accessibility_service_guide">Find %1$s in Services\nClick switch to enable %2$s</string>
     <string name="off">Off</string>
 
+    <string name="applock_title">Secured</string>
+    <string name="applock_content">No one can use without your password</string>
+    <string name="applock_ticker">No one can use without your password</string>
+
 </resources>

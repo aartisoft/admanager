@@ -100,9 +100,9 @@ public class ApplicationListAdapter extends RecyclerView.Adapter<ApplicationList
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    if (!AppLockInitializer.isPermissionsGranted(activity)) {
+                    //                    if (!AppLockInitializer.isPermissionsGranted(activity)) {
                         AppLockInitializer.initAndForcePermissionDialog(activity);
-                    }
+                    //                    }
                     switchView.performClick();
                 }
             });

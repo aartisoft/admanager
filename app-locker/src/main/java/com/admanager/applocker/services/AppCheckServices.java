@@ -3,6 +3,9 @@ package com.admanager.applocker.services;
 import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.app.usage.UsageStats;
@@ -12,14 +15,18 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.NotificationCompat;
 import android.text.TextUtils;
 import android.util.Log;
 
+import com.admanager.applocker.R;
 import com.admanager.applocker.activities.PasswordActivity;
 import com.admanager.applocker.prefrence.Prefs;
 import com.admanager.applocker.utils.AppLockInitializer;
@@ -35,6 +42,7 @@ import java.util.concurrent.TimeUnit;
 public class AppCheckServices extends Service {
 
     public static final String TAG = "AppCheckServices";
+    public static final int NOTIF_ID = 25478;
     private static Map<String, Long> recentlyUnlockedMap = new ConcurrentHashMap<>();
     private static Map<String, Long> recentlyAskedMap = new ConcurrentHashMap<>();
     long TIMEOUT = 0;
@@ -178,10 +186,38 @@ public class AppCheckServices extends Service {
         }
     }
 
+    public boolean checkNoNeedToService() {
+        if (prefs == null) {
+            prefs = Prefs.with(getApplicationContext());
+        }
+        packageNamesNeedLock = prefs.getLocked();
+        boolean killService = false;
+
+        if (packageNamesNeedLock == null || packageNamesNeedLock.isEmpty()) {
+            // no need to check anything
+            killService = true;
+        }
+
+        if (!AppLockInitializer.isPermissionsGranted(getApplicationContext())) {
+            // no need to check anything
+            killService = true;
+        }
+
+        return killService;
+    }
+
     @Override
     public void onCreate() {
         super.onCreate();
         prefs = Prefs.with(getApplicationContext());
+
+        startForeground();
+        if (checkNoNeedToService()) {
+            mReceiver = null;
+            stopSelf();
+            return;
+        }
+
         packageNamesNeedLock = prefs.getLocked();
         timer = new Timer("AppCheckServices");
         timer.scheduleAtFixedRate(updateTask, 500L, 500L);
@@ -190,6 +226,32 @@ public class AppCheckServices extends Service {
         IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
         filter.addAction(Intent.ACTION_SCREEN_ON);
         registerReceiver(mReceiver, filter);
+    }
+
+    private void startForeground() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
+            return;
+        }
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel mChannel = new NotificationChannel("app_lock", "Protect your apps.", NotificationManager.IMPORTANCE_HIGH);
+            notificationManager.createNotificationChannel(mChannel);
+        }
+        PackageManager pm = getPackageManager();
+        Intent splash = pm.getLaunchIntentForPackage(getPackageName());
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "app_lock")
+                .setContentTitle(getString(R.string.applock_title))
+                .setContentText(getString(R.string.applock_content))
+                .setTicker(getString(R.string.applock_ticker))
+                .setSmallIcon(R.drawable.nonpermitted_icon)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.permitted_icon));
+
+        mBuilder.setContentIntent(PendingIntent.getActivity(this, 0, splash, PendingIntent.FLAG_UPDATE_CURRENT));
+
+        Notification n = mBuilder.build();
+        startForeground(NOTIF_ID, n);
     }
 
     @Override
@@ -282,9 +344,14 @@ public class AppCheckServices extends Service {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        timer.cancel();
-        timer = null;
-        unregisterReceiver(mReceiver);
+        if (timer != null) {
+            timer.cancel();
+            timer = null;
+        }
+
+        if (mReceiver != null) {
+            unregisterReceiver(mReceiver);
+        }
     }
 
 }

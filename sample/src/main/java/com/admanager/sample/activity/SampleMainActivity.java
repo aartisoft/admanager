@@ -11,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.admanager.applocker.AppLockerApp;
 import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
@@ -78,6 +79,8 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
             ShareUtils.shareApp(this, "Lets check interesting app", true);
         } else if (id == R.id.isConnected) {
             toast(item.getTitle(), AdmUtils.isConnected(this));
+        } else if (id == R.id.nav_applock) {
+            AppLockerApp.showActivity(this);
         } else if (id == R.id.isConnectedMobile) {
             toast(item.getTitle(), AdmUtils.isConnectedMobile(this));
         } else if (id == R.id.isConnectedWifi) {
