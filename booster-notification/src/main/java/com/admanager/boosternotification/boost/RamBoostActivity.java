@@ -49,7 +49,7 @@ public class RamBoostActivity extends AppCompatActivity {
         txtStatus.setBackground(Utils.createOvalDrawable(color));
         btnClose = findViewById(R.id.btnClose);
 
-        txtResult.setText("Clearing...");
+        txtResult.setText(R.string.rba_clearing);
         btnClose.setBackground(Utils.createRoundedStrokeDrawable(color));
         btnClose.setTextColor(color);
 
@@ -70,8 +70,8 @@ public class RamBoostActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                txtResult.setText(String.format("%s MB Cleaned", boostedMB));
-                txtResult2.setText(String.format("%s / %s", usedRam, totalRam));
+                txtResult.setText(getString(R.string.rba_cleared, boostedMB));
+                txtResult2.setText(getString(R.string.rba_result, usedRam, totalRam));
                 txtStatus.setText("\u2713");
                 findViewById(R.id.btnClose).setVisibility(View.VISIBLE);
             }

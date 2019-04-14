@@ -48,7 +48,7 @@ public class BatteryBoostActivity extends AppCompatActivity {
         txtStatus.setBackground(Utils.createOvalDrawable(color));
         btnClose = findViewById(R.id.btnClose);
 
-        txtResult.setText("Scanning...");
+        txtResult.setText(R.string.bba_scanning);
         btnClose.setBackground(Utils.createRoundedStrokeDrawable(color));
         btnClose.setTextColor(color);
 
@@ -60,8 +60,8 @@ public class BatteryBoostActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                txtResult.setText(String.format("Battery Life Optimized"));
-                txtResult2.setText(String.format("%s Apps Scanned", scannedApps));
+                txtResult.setText(R.string.bba_optimized);
+                txtResult2.setText(getResources().getString(R.string.bba_result, scannedApps));
                 txtStatus.setText("\u2713");
                 findViewById(R.id.btnClose).setVisibility(View.VISIBLE);
             }
