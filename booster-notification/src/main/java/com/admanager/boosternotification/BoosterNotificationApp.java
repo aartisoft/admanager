@@ -38,7 +38,7 @@ import java.lang.ref.WeakReference;
 
 public class BoosterNotificationApp extends BaseHelper {
     private static final String TAG = "BoosterNotificationApp";
-    private static final int ID = 999;
+    private static final int ID = 52188;
     private static final String PREF_FILE_NAME = "notif_helper_prefs";
     private static final String EASY_ACCESS = "easy_access";
     private static com.admanager.boosternotification.BoosterNotificationApp INSTANCE;
@@ -363,10 +363,6 @@ public class BoosterNotificationApp extends BaseHelper {
 
     public static class Ads {
         public void loadTop(Activity activity, LinearLayout container) {
-
-        }
-
-        public void loadMiddle(Activity activity, LinearLayout container) {
 
         }
 

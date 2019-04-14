@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/rounded_white_bg"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:clickable="false" />
+
+    <TextView
+        android:id="@+id/applicationName"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_weight="1"
+        android:gravity="left|center"
+        android:textColor="@color/appLockColorTextForWhiteBg"
+        android:textSize="16sp" />
+
+    <ToggleButton
+        android:id="@+id/switchView"
+        android:layout_width="29dp"
+        android:layout_height="39dp"
+        android:background="@drawable/toggle_button_lock"
+        android:clickable="false"
+        android:enabled="false"
+        android:textOff=""
+        android:textOn="" />
+
+</LinearLayout>

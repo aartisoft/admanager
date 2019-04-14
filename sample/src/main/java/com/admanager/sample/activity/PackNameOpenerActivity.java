@@ -3,6 +3,7 @@ package com.admanager.sample.activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.admanager.admob.AdmobAdapter;
@@ -38,7 +39,7 @@ public class PackNameOpenerActivity extends AppCompatActivity implements View.On
                 .listener(new AdManager.AAdapterListener() {
                     @Override
                     public void finished(int order, Class<? extends Adapter> clz, boolean displayed, boolean showOneBarrier) {
-                        if (showOneBarrier) {
+                        if (showOneBarrier && !TextUtils.isEmpty(packageName)) {
                             PackNameRedirectingActivity.redirectTo(PackNameOpenerActivity.this, packageName);
                         }
                     }
@@ -51,12 +52,21 @@ public class PackNameOpenerActivity extends AppCompatActivity implements View.On
         int id = v.getId();
 
         if (id == R.id.btn_gmail) {
-            packageName = "com.google.android.gm";
+            showAds("com.google.android.gm");
         } else if (id == R.id.btn_whatsapp) {
-            packageName = "com.whatsapp";
+            showAds("com.whatsapp");
+        } else {
+            showAds();
         }
+    }
 
-        //display ads
+    public void showAds(String packName) {
+        packageName = packName;
+        adManager.showOne();
+    }
+
+    public void showAds() {
+        packageName = null;
         adManager.showOne();
     }
 

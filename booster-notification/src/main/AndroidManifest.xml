@@ -24,8 +24,12 @@
         android:protectionLevel="normal" />
 
     <application>
-        <activity android:name=".boost.RamBoostActivity" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".boost.BatteryBoostActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".boost.RamBoostActivity"
+            android:theme="@style/NoActionBar" />
+        <activity
+            android:name=".boost.BatteryBoostActivity"
+            android:theme="@style/NoActionBar" />
 
         <receiver android:name=".BootReceiver">
             <intent-filter>

@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.admanager.boosternotification.BoosterNotificationApp;
@@ -24,8 +23,6 @@ public class ConnectionStatusReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.e(TAG, "onReceive:" + intent.getAction());
-
         BoosterNotificationApp.checkAndDisplay(context);
     }
 
@@ -43,7 +40,6 @@ public class ConnectionStatusReceiver extends BroadcastReceiver {
         int wifiState = wifiManager.getWifiState();
         boolean wifiEnabled = wifiManager.isWifiEnabled();
 
-        Log.e(TAG, "updateUI:" + wifiState);
         switch (wifiState) {
             case WifiManager.WIFI_STATE_DISABLED:
                 updateImage(contentView, imageId, R.drawable.wifi_passive, 100);

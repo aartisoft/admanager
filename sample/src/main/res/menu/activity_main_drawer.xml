@@ -34,6 +34,14 @@
             app:showAsAction="always" />
 
     </group>
+    <group
+        android:id="@+id/second2"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_applock"
+            android:title="App Lock" />
+
+    </group>
     <item android:title="Communicate">
         <menu>
             <item

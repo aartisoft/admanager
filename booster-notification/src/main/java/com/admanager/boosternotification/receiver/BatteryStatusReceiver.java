@@ -4,7 +4,6 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.BatteryManager;
-import android.util.Log;
 import android.widget.RemoteViews;
 
 import com.admanager.boosternotification.BoosterNotificationApp;
@@ -20,7 +19,6 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.e(TAG, "onReceive:" + intent.getAction());
         level = intent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
 
         BoosterNotificationApp.checkAndDisplay(context);

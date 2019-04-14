@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="appLockColorPrimary">#7393FD</color>
+    <color name="appLockColorPrimaryDark">#5F83FC</color>
+    <color name="appLockColorAccent">#22d3b1</color>
+
+    <color name="appLockColorTextForWhiteBg">#6677AD</color>
+    <color name="appLockColorText">#FFFFFF</color>
+
+    <color name="textColorPrimary">#333333</color>
+    <color name="textColorGary">#bbbbbb</color>
+    <color name="textColorGaryDark">#cccccc</color>
+    <color name="textColorGaryLight">#b6baca</color>
+</resources>

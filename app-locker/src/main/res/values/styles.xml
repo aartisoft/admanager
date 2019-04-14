@@ -1,0 +1,55 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppLockerTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/appLockColorPrimary</item>
+        <item name="colorPrimaryDark">@color/appLockColorPrimaryDark</item>
+        <item name="colorAccent">@color/appLockColorAccent</item>
+        <item name="android:textColor">@color/appLockColorText</item>
+    </style>
+
+    <style name="AppLockerTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="AppLockerThemeCustom" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/appLockColorPrimary</item>
+        <item name="colorPrimaryDark">@color/appLockColorPrimaryDark</item>
+        <item name="colorAccent">@color/appLockColorText</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppLockerTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorPrimary">@color/appLockColorPrimary</item>
+        <item name="colorPrimaryDark">@color/appLockColorPrimaryDark</item>
+    </style>
+
+    <style name="AppLockerTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:textColor">@color/appLockColorPrimary</item>
+    </style>
+
+    <style name="PassPinButton">
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:background">@drawable/pin_bg</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="AppLockerTheme.Translucent">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+</resources>

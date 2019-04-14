@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="24dp"
+        android:text="@string/perm_title"
+        android:textSize="32sp" />
+
+
+    <ImageView
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_margin="18dp"
+        android:src="@drawable/nonpermitted_icon" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="36dp"
+        android:text="@string/perm_text" />
+
+    <LinearLayout
+        android:id="@+id/perm_usage_access_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/rounded_white_bg"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ToggleButton
+            android:id="@+id/perm_usage_access_switch"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/toggle_button_secure"
+            android:enabled="false"
+            android:textOff=""
+            android:textOn="" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/perm_usage_access_text"
+            android:textColor="@color/appLockColorTextForWhiteBg" />
+
+        <ImageView
+            android:id="@+id/perm_usage_access_arrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/arrow_icon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/password_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/rounded_white_bg"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="12dp">
+
+        <ToggleButton
+            android:id="@+id/password_switch"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/toggle_button_secure"
+            android:enabled="false"
+            android:textOff=""
+            android:textOn="" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="1"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/password_text"
+            android:textColor="@color/appLockColorTextForWhiteBg" />
+
+        <ImageView
+            android:id="@+id/password_arrow"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/arrow_icon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/native_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+</LinearLayout>

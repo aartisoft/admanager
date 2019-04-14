@@ -55,6 +55,7 @@ dependencies {
     implementation project(path: ':popup-ad')
     implementation project(path: ':periodic-notification')
     implementation project(path: ':booster-notification')
+    compile project(path: ':app-locker')
 
 /* IRONSOURCE RELATED ADDITIONAL ADAPTERS
     implementation project(path: ':adapter-ironsource')
