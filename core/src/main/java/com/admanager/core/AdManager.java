@@ -79,7 +79,7 @@ public class AdManager {
         RemoteConfigHelper.init(activity);
         this.context = activity;
         String tag = activity.getClass().getSimpleName();
-        this.TAG = "AdManager_" + (globalCounter++) + "_" + tag;
+        this.TAG = "ADM_" + (globalCounter++) + "_" + tag;
         this.TAG = this.TAG.substring(0, Math.min(23, this.TAG.length()));
 
         context.getApplication().registerActivityLifecycleCallbacks(LIFECYCLE_CALLBACKS);

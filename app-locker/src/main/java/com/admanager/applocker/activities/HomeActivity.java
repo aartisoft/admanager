@@ -29,6 +29,10 @@ public class HomeActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
         ads = AppLockerApp.getInstance().getAds();
         ads.loadBottom(this, (LinearLayout) findViewById(R.id.bottom_container));
         ads.loadTop(this, (LinearLayout) findViewById(R.id.top_container));
@@ -75,7 +79,10 @@ public class HomeActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.action_password) {
+        if (id == android.R.id.home) {
+            onBackPressed();
+            return true;
+        } else if (id == R.id.action_password) {
             boolean passwordSet = Prefs.with(this).isPasswordSet();
             PasswordActivity.startPasswordSet(this, !passwordSet);
             return true;

@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.2] - 2019-04-15
+### Changed
+- AppLock: back button added 
+- Proguard enhancements 
+- Logging TAG change to "ADM"
+
 ## [1.2.1] - 2019-04-12
 ### Changed
 - Android 8 bug fix

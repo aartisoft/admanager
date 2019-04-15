@@ -35,7 +35,7 @@ public abstract class Adapter {
 
     public Adapter withTimeout(@IntRange(from = 0, to = 120_000) int timeout) {
         if (timeout > 0 && timeout < 3000) {
-            Log.w("AdManager", getAdapterName() + ": You should pass timeout in milliseconds. AdManager recommend timeout longer than 3000 ms.");
+            Log.w("ADM", getAdapterName() + ": You should pass timeout in milliseconds. AdManager recommend timeout longer than 3000 ms.");
         }
         this.timeout = timeout;
         return this;

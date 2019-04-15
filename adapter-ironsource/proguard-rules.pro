@@ -31,3 +31,5 @@
 -dontwarn com.ironsource.adapters.**
 -dontwarn com.moat.**
 -keep class com.moat.** { public protected private *; }
+
+-ignorewarnings
