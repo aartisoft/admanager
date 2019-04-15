@@ -34,6 +34,7 @@ public class AdmTutorialConfiguration {
     private int buttonTextSize;
     private int buttonTextColor;
     private int buttonBg;
+    boolean moveAdToTop;
     private LinearLayout.LayoutParams buttonLayoutParams;
     private int buttonBgColor;
     private int dotsColor;
@@ -45,6 +46,11 @@ public class AdmTutorialConfiguration {
 
     public AdmTutorialConfiguration textColor(@ColorRes int textColor) {
         this.textColor = textColor;
+        return this;
+    }
+
+    public AdmTutorialConfiguration moveAdToTop() {
+        this.moveAdToTop = true;
         return this;
     }
 
