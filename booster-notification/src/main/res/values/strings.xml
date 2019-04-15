@@ -8,4 +8,14 @@
     <string name="p4">Data</string>
     <string name="p5">Torch</string>
     <string name="p6">Wi-fi</string>
+
+    <!-- BatteryBoostActivity -->
+    <string name="bba_scanning">Scanning...</string>
+    <string name="bba_optimized">Battery Life Optimized</string>
+    <string name="bba_result">%d Apps Scanned</string>
+
+    <!-- RamBoostActivity -->
+    <string name="rba_clearing">Clearing...</string>
+    <string name="rba_cleared">%d MB Cleaned</string>
+    <string name="rba_result">%s / %s</string>
 </resources>
