@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.5] - 2019-04-17
+### Changed
+- Tutorial activity: Added space between banners and center native   
+- Ironsource Adapter: enhanced proguard 
+
 ## [1.2.4] - 2019-04-17
 ### Changed
 - Ironsource Adapter: version upgraded 

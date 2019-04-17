@@ -52,6 +52,8 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
     private LayoutInflater layoutInflater;
     private WormDotsIndicator waWormDotsIndicator;
     private AdmTutorialConfiguration configuration;
+    private boolean topAdEmpty = false;
+    private boolean bottomAdEmpty = false;
 
     @Override
     protected final void onCreate(@Nullable Bundle savedInstanceState) {
@@ -146,15 +148,25 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         adplaceholderContainer.setVisibility(top ? View.GONE : View.VISIBLE);
         adplaceholderTopContainer.setVisibility(!top ? View.GONE : View.VISIBLE);
         loadAd(top ? adplaceholderTop : adplaceholder);
+
+        // add space between banner and native
+        int padding = (int) AdmUtils.dpToPx(getApplicationContext(), 12f);
+        if (top && !topAdEmpty) {
+            adplaceholderTop.setPadding(adplaceholderTop.getPaddingLeft(), padding, adplaceholderTop.getPaddingRight(), adplaceholderTop.getPaddingBottom());
+        }
+        if (!top && !bottomAdEmpty) {
+            adplaceholder.setPadding(adplaceholder.getPaddingLeft(), adplaceholder.getPaddingTop(), adplaceholder.getPaddingRight(), padding);
+        }
     }
+
     protected abstract void loadAd(LinearLayout container);
 
     protected void loadTopAd(LinearLayout container) {
-
+        topAdEmpty = true;
     }
 
     protected void loadBottomAd(LinearLayout container) {
-
+        bottomAdEmpty = true;
     }
 
     protected abstract AdManagerBuilder createAdManagerBuilder();
