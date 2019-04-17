@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.4] - 2019-04-17
+### Changed
+- Ironsource Adapter: version upgraded 
+
 ## [1.2.3] - 2019-04-15
 ### Added
 - Tutorial: Configuration for Center Ad to move top of the page
