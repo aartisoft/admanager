@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.7-rc1] - 2019-04-18
+### Changed
+- App Lock startForeground crash fix attempt 
+
 ## [1.2.6] - 2019-04-17
 ### Changed
 - Tutorial activity: bug fix
