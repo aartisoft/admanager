@@ -191,36 +191,32 @@ public class AppCheckServices extends Service {
             prefs = Prefs.with(getApplicationContext());
         }
         packageNamesNeedLock = prefs.getLocked();
-        boolean killService = false;
 
         if (packageNamesNeedLock == null || packageNamesNeedLock.isEmpty()) {
             // no need to check anything
-            killService = true;
+            return true;
         }
 
         if (!AppLockInitializer.isPermissionsGranted(getApplicationContext())) {
             // no need to check anything
-            killService = true;
+            return true;
         }
 
-        return killService;
+        return false;
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
+        startForeground();
+
         prefs = Prefs.with(getApplicationContext());
 
-        startForeground();
-        if (checkNoNeedToService()) {
-            mReceiver = null;
-            stopSelf();
-            return;
+        if (!checkNoNeedToService()) {
+            packageNamesNeedLock = prefs.getLocked();
+            timer = new Timer("AppCheckServices");
+            timer.scheduleAtFixedRate(updateTask, 500L, 500L);
         }
-
-        packageNamesNeedLock = prefs.getLocked();
-        timer = new Timer("AppCheckServices");
-        timer.scheduleAtFixedRate(updateTask, 500L, 500L);
 
         // register screen state listener.
         IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
