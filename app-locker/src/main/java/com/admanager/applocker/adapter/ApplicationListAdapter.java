@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateInterpolator;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
@@ -63,7 +62,6 @@ public class ApplicationListAdapter extends RecyclerView.Adapter<ApplicationList
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        private Set<String> locked;
         private TextView applicationName;
         private ImageView icon;
         private ToggleButton switchView;
@@ -73,10 +71,11 @@ public class ApplicationListAdapter extends RecyclerView.Adapter<ApplicationList
             applicationName = v.findViewById(R.id.applicationName);
             icon = v.findViewById(R.id.icon);
             switchView = v.findViewById(R.id.switchView);
-            locked = Prefs.with(v.getContext()).getLocked();
         }
 
         public void onBind(int position) {
+            final Set<String> locked = Prefs.with(itemView.getContext()).getLocked();
+
             final AppInfo appInfo = installedApps.get(position);
             applicationName.setText(appInfo.getName());
             icon.setImageDrawable(appInfo.getIcon());
@@ -85,25 +84,23 @@ public class ApplicationListAdapter extends RecyclerView.Adapter<ApplicationList
             boolean isLocked = checkLockedItem(packageName, locked);
             switchView.setChecked(isLocked);
 
-            switchView.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                    Prefs prefs = Prefs.with(itemView.getContext());
-                    if (isChecked) {
-                        prefs.addLocked(packageName);
-                    } else {
-                        prefs.removeLocked(packageName);
-                    }
-                    ApplicationListAdapter.animate(switchView);
-                }
-            });
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //                    if (!AppLockInitializer.isPermissionsGranted(activity)) {
-                        AppLockInitializer.initAndForcePermissionDialog(activity);
-                    //                    }
-                    switchView.performClick();
+                    AppLockInitializer.initAndForcePermissionDialog(activity);
+
+                    boolean selected = !switchView.isChecked();
+                    switchView.setChecked(selected);
+
+                    Prefs prefs = Prefs.with(itemView.getContext());
+                    if (selected) {
+                        prefs.addLocked(packageName);
+                        locked.add(packageName);
+                    } else {
+                        prefs.removeLocked(packageName);
+                        locked.remove(packageName);
+                    }
+                    ApplicationListAdapter.animate(switchView);
                 }
             });
         }

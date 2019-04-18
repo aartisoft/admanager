@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.7] - 2019-04-18
+### Changed
+- App Lock: bug fix self unlocked apps 
+
 ## [1.2.7-rc1] - 2019-04-18
 ### Changed
 - App Lock startForeground crash fix attempt 
