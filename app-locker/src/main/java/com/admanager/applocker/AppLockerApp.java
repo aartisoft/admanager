@@ -3,6 +3,9 @@ package com.admanager.applocker;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
+import android.os.Build;
+import android.support.design.widget.NavigationView;
+import android.view.MenuItem;
 import android.widget.LinearLayout;
 
 import com.admanager.applocker.activities.SplashActivity;
@@ -29,7 +32,27 @@ public class AppLockerApp {
     }
 
     public static void showActivity(Activity activity) {
+        if (!isDeviceSuitable()) {
+            return;
+        }
         activity.startActivity(new Intent(activity, SplashActivity.class));
+    }
+
+    public static boolean isDeviceSuitable() {
+        return Build.VERSION.SDK_INT < Build.VERSION_CODES.O;
+    }
+
+    public static void configureMenu(NavigationView navigationView, int menuId) {
+        if (navigationView == null) {
+            return;
+        }
+
+        MenuItem item = navigationView.getMenu().findItem(menuId);
+        if (item == null) {
+            throw new IllegalStateException("Given menuId couldn't found!");
+        }
+
+        item.setVisible(isDeviceSuitable());
     }
 
     public Ads getAds() {

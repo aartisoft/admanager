@@ -48,6 +48,11 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
         navView.setNavigationItemSelectedListener(this);
 
         /*
+         * Hides app lock menu if device not suitable for this feature
+         * */
+        AppLockerApp.configureMenu(navView, R.id.nav_applock);
+
+        /*
          * show firebase popup Ad
          * */
         new AdmPopupAd.Builder(this)
