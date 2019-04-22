@@ -15,15 +15,15 @@ import java.lang.ref.WeakReference;
 public class PeriodicNotificationApp {
     private static final String TAG = "PeriodicNotif";
     private static PeriodicNotificationApp INSTANCE;
-    private int iconBig;
+    private int iconLarge;
     private int iconSmall;
     private String channelId;
     private String channelName;
     private PeriodicNotificationKeys keys;
     private Intent intent;
 
-    private PeriodicNotificationApp(PeriodicNotificationKeys keys, int iconBig, int iconSmall, Intent intent, String channelId, String channelName) {
-        this.iconBig = iconBig;
+    private PeriodicNotificationApp(PeriodicNotificationKeys keys, int iconLarge, int iconSmall, Intent intent, String channelId, String channelName) {
+        this.iconLarge = iconLarge;
         this.iconSmall = iconSmall;
         this.intent = intent;
         this.keys = keys;
@@ -43,8 +43,8 @@ public class PeriodicNotificationApp {
         return INSTANCE;
     }
 
-    int getIconBig() {
-        return iconBig;
+    int getIconLarge() {
+        return iconLarge;
     }
 
     int getIconSmall() {
@@ -70,7 +70,7 @@ public class PeriodicNotificationApp {
     public static class Builder {
 
         private final WeakReference<Application> application;
-        private int iconBig;
+        private int iconLarge;
         private int iconSmall;
         private String channelId = "remind_me";
         private String channelName = "Keeps you updated.";
@@ -119,13 +119,21 @@ public class PeriodicNotificationApp {
             return this;
         }
 
-        public Builder iconBig(@DrawableRes int bigIcon) {
-            this.iconBig = bigIcon;
+        /**
+         * Use {@link #iconLarge(int) }
+         */
+        @Deprecated
+        public Builder iconBig(@DrawableRes int iconLarge) {
+            return iconLarge(iconLarge);
+        }
+
+        public Builder iconLarge(@DrawableRes int iconLarge) {
+            this.iconLarge = iconLarge;
             return this;
         }
 
-        public Builder iconSmall(@DrawableRes int smallIcon) {
-            this.iconSmall = smallIcon;
+        public Builder iconSmall(@DrawableRes int iconSmall) {
+            this.iconSmall = iconSmall;
             return this;
         }
 
@@ -151,7 +159,7 @@ public class PeriodicNotificationApp {
             }
             keys.setDefaultValues(context);
 
-            PeriodicNotificationApp.init(new PeriodicNotificationApp(keys, iconBig, iconSmall, intent, channelId, channelName));
+            PeriodicNotificationApp.init(new PeriodicNotificationApp(keys, iconLarge, iconSmall, intent, channelId, channelName));
         }
 
         private void setDefaultIntent(Context context) {
@@ -162,12 +170,12 @@ public class PeriodicNotificationApp {
         }
 
         private void setDefaultIcons(Context context) {
-            if (this.iconBig == 0 || this.iconSmall == 0) {
+            if (this.iconLarge == 0 || this.iconSmall == 0) {
                 try {
                     ApplicationInfo info = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
                     int icon = info.icon;
-                    if (this.iconBig == 0) {
-                        this.iconBig = icon;
+                    if (this.iconLarge == 0) {
+                        this.iconLarge = icon;
                     }
                     if (this.iconSmall == 0) {
                         this.iconSmall = icon;
@@ -176,8 +184,8 @@ public class PeriodicNotificationApp {
                     e.printStackTrace();
                 }
             }
-            if (this.iconBig == 0) {
-                this.iconBig = android.R.drawable.ic_popup_reminder;
+            if (this.iconLarge == 0) {
+                this.iconLarge = android.R.drawable.ic_popup_reminder;
             }
             if (this.iconSmall == 0) {
                 this.iconSmall = android.R.drawable.sym_action_chat;

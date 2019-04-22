@@ -46,18 +46,18 @@ public class BoosterNotificationApp extends BaseHelper {
     private static ConnectionStatusReceiver connectionStatusReceiver;
     private String channelId;
     private String channelName;
-    private int iconBig;
+    private int iconLarge;
     private Ads ads;
     private int iconSmall;
     private Intent intent;
     private Class<? extends Activity> startIn;
 
-    private BoosterNotificationApp(Application application, Ads ads, Class<? extends Activity> startIn, String channelId, String channelName, int iconBig, int iconSmall, Intent intent) {
+    private BoosterNotificationApp(Application application, Ads ads, Class<? extends Activity> startIn, String channelId, String channelName, int iconLarge, int iconSmall, Intent intent) {
         super(application);
         this.ads = ads;
         this.channelId = channelId;
         this.channelName = channelName;
-        this.iconBig = iconBig;
+        this.iconLarge = iconLarge;
         this.iconSmall = iconSmall;
         this.intent = intent;
         this.startIn = startIn;
@@ -68,10 +68,6 @@ public class BoosterNotificationApp extends BaseHelper {
             throw new IllegalStateException("You should initialize BoosterNotificationApp!");
         }
         return INSTANCE;
-    }
-
-    public Ads getAds() {
-        return ads;
     }
 
     private static com.admanager.boosternotification.BoosterNotificationApp init(com.admanager.boosternotification.BoosterNotificationApp BoosterNotificationApp) {
@@ -88,7 +84,7 @@ public class BoosterNotificationApp extends BaseHelper {
 
         if (isChecked) {
             com.admanager.boosternotification.BoosterNotificationApp i = com.admanager.boosternotification.BoosterNotificationApp.getInstance();
-            show(context, i.channelId, i.channelName, i.iconBig, i.iconSmall, i.intent);
+            show(context, i.channelId, i.channelName, i.iconLarge, i.iconSmall, i.intent);
         } else {
             hide(context);
         }
@@ -207,6 +203,10 @@ public class BoosterNotificationApp extends BaseHelper {
         return sharedPreferences.getBoolean(EASY_ACCESS, true);
     }
 
+    public Ads getAds() {
+        return ads;
+    }
+
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
         if (AdmUtils.isActivityEquals(activity, startIn)) {
@@ -219,7 +219,7 @@ public class BoosterNotificationApp extends BaseHelper {
         private final WeakReference<Context> context;
         private String channelId = "easy_access";
         private String channelName = "Easy Access";
-        private int iconBig;
+        private int iconLarge;
         private int iconSmall;
         private Intent intent;
         private Class<? extends Activity> startIn;
@@ -266,8 +266,16 @@ public class BoosterNotificationApp extends BaseHelper {
             return this;
         }
 
-        public BoosterNotificationApp.Builder iconBig(@DrawableRes int bigIcon) {
-            this.iconBig = bigIcon;
+        /**
+         * Use {@link #iconLarge(int) }
+         */
+        @Deprecated
+        public BoosterNotificationApp.Builder iconBig(@DrawableRes int iconLarge) {
+            return iconLarge(iconLarge);
+        }
+
+        public BoosterNotificationApp.Builder iconLarge(@DrawableRes int iconLarge) {
+            this.iconLarge = iconLarge;
             return this;
         }
 
@@ -304,7 +312,7 @@ public class BoosterNotificationApp extends BaseHelper {
             setDefaultStartIn(context);
 
             Application app = (Application) context.getApplicationContext();
-            BoosterNotificationApp.init(new BoosterNotificationApp(app, ads, startIn, channelId, channelName, iconBig, iconSmall, intent));
+            BoosterNotificationApp.init(new BoosterNotificationApp(app, ads, startIn, channelId, channelName, iconLarge, iconSmall, intent));
             BoosterNotificationApp.checkAndDisplay(context);
 
             batteryStatusReceiver = new BatteryStatusReceiver();
@@ -337,12 +345,12 @@ public class BoosterNotificationApp extends BaseHelper {
         }
 
         private void setDefaultIcons(Context context) {
-            if (this.iconBig == 0 || this.iconSmall == 0) {
+            if (this.iconLarge == 0 || this.iconSmall == 0) {
                 try {
                     ApplicationInfo info = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
                     int icon = info.icon;
-                    if (this.iconBig == 0) {
-                        this.iconBig = icon;
+                    if (this.iconLarge == 0) {
+                        this.iconLarge = icon;
                     }
                     if (this.iconSmall == 0) {
                         this.iconSmall = icon;
@@ -351,8 +359,8 @@ public class BoosterNotificationApp extends BaseHelper {
                     e.printStackTrace();
                 }
             }
-            if (this.iconBig == 0) {
-                this.iconBig = android.R.drawable.ic_popup_reminder;
+            if (this.iconLarge == 0) {
+                this.iconLarge = android.R.drawable.ic_popup_reminder;
             }
             if (this.iconSmall == 0) {
                 this.iconSmall = android.R.drawable.sym_action_chat;

@@ -40,18 +40,18 @@ public class AdmStaticNotification extends BaseHelper {
     private String text;
     private String channelId;
     private String channelName;
-    private int iconBig;
+    private int iconLarge;
     private int iconSmall;
     private Intent intent;
     private Class<? extends Activity> startIn;
 
-    private AdmStaticNotification(Application application, Class<? extends Activity> startIn, String title, String text, String channelId, String channelName, int iconBig, int iconSmall, Intent intent) {
+    private AdmStaticNotification(Application application, Class<? extends Activity> startIn, String title, String text, String channelId, String channelName, int iconLarge, int iconSmall, Intent intent) {
         super(application);
         this.title = title;
         this.text = text;
         this.channelId = channelId;
         this.channelName = channelName;
-        this.iconBig = iconBig;
+        this.iconLarge = iconLarge;
         this.iconSmall = iconSmall;
         this.intent = intent;
         this.startIn = startIn;
@@ -78,7 +78,7 @@ public class AdmStaticNotification extends BaseHelper {
 
         if (isChecked) {
             AdmStaticNotification i = AdmStaticNotification.getInstance();
-            show(context, i.title, i.text, i.channelId, i.channelName, i.iconBig, i.iconSmall, i.intent);
+            show(context, i.title, i.text, i.channelId, i.channelName, i.iconLarge, i.iconSmall, i.intent);
         } else {
             hide(context);
         }
@@ -177,7 +177,7 @@ public class AdmStaticNotification extends BaseHelper {
         private String text;
         private String channelId = "easy_access";
         private String channelName = "Easy Access";
-        private int iconBig;
+        private int iconLarge;
         private int iconSmall;
         private Intent intent;
         private Class<? extends Activity> startIn;
@@ -224,13 +224,21 @@ public class AdmStaticNotification extends BaseHelper {
             return this;
         }
 
-        public Builder iconBig(@DrawableRes int bigIcon) {
-            this.iconBig = bigIcon;
+        /**
+         * Use {@link #iconLarge(int) }
+         */
+        @Deprecated
+        public Builder iconBig(@DrawableRes int iconLarge) {
+            return iconLarge(iconLarge);
+        }
+
+        public Builder iconLarge(@DrawableRes int iconLarge) {
+            this.iconLarge = iconLarge;
             return this;
         }
 
-        public Builder iconSmall(@DrawableRes int smallIcon) {
-            this.iconSmall = smallIcon;
+        public Builder iconSmall(@DrawableRes int iconSmall) {
+            this.iconSmall = iconSmall;
             return this;
         }
 
@@ -258,7 +266,7 @@ public class AdmStaticNotification extends BaseHelper {
             setDefaultIntent(context);
             setDefaultStartIn(context);
             Application app = (Application) context.getApplicationContext();
-            AdmStaticNotification.init(new AdmStaticNotification(app, startIn, title, text, channelId, channelName, iconBig, iconSmall, intent));
+            AdmStaticNotification.init(new AdmStaticNotification(app, startIn, title, text, channelId, channelName, iconLarge, iconSmall, intent));
             AdmStaticNotification.checkAndDisplay(context);
         }
 
@@ -282,12 +290,12 @@ public class AdmStaticNotification extends BaseHelper {
         }
 
         private void setDefaultIcons(Context context) {
-            if (this.iconBig == 0 || this.iconSmall == 0) {
+            if (this.iconLarge == 0 || this.iconSmall == 0) {
                 try {
                     ApplicationInfo info = context.getPackageManager().getApplicationInfo(context.getPackageName(), PackageManager.GET_META_DATA);
                     int icon = info.icon;
-                    if (this.iconBig == 0) {
-                        this.iconBig = icon;
+                    if (this.iconLarge == 0) {
+                        this.iconLarge = icon;
                     }
                     if (this.iconSmall == 0) {
                         this.iconSmall = icon;
@@ -296,8 +304,8 @@ public class AdmStaticNotification extends BaseHelper {
                     e.printStackTrace();
                 }
             }
-            if (this.iconBig == 0) {
-                this.iconBig = android.R.drawable.ic_popup_reminder;
+            if (this.iconLarge == 0) {
+                this.iconLarge = android.R.drawable.ic_popup_reminder;
             }
             if (this.iconSmall == 0) {
                 this.iconSmall = android.R.drawable.sym_action_chat;
