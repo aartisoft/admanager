@@ -95,10 +95,14 @@ public class ApplicationListAdapter extends RecyclerView.Adapter<ApplicationList
                     Prefs prefs = Prefs.with(itemView.getContext());
                     if (selected) {
                         prefs.addLocked(packageName);
-                        locked.add(packageName);
+                        if (locked != null) {
+                            locked.add(packageName);
+                        }
                     } else {
                         prefs.removeLocked(packageName);
-                        locked.remove(packageName);
+                        if (locked != null) {
+                            locked.remove(packageName);
+                        }
                     }
                     ApplicationListAdapter.animate(switchView);
                 }

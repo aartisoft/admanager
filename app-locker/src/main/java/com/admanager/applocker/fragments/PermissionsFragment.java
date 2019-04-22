@@ -1,5 +1,6 @@
 package com.admanager.applocker.fragments;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
@@ -52,6 +53,17 @@ public class PermissionsFragment extends DialogFragment implements View.OnClickL
         password_arrow.setVisibility(isPasswordSet ? View.GONE : View.VISIBLE);
 
         return v;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Dialog dialog = getDialog();
+        if (dialog != null && dialog.getWindow() != null) {
+            int width = ViewGroup.LayoutParams.MATCH_PARENT;
+            int height = ViewGroup.LayoutParams.MATCH_PARENT;
+            dialog.getWindow().setLayout(width, height);
+        }
     }
 
     @Override

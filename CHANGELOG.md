@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.9] - 2019-04-22
+### Changed
+- App Lock: bug fix
+
 ## [1.2.8] - 2019-04-22
 ### Added
 - App Lock: added `AppLockerApp.configureMenu(NavigationView navView, int menuId)` method in order to hide AppLocker menu if device not suitable for this feature.
