@@ -47,17 +47,21 @@ public class BoosterNotificationApp extends BaseHelper {
     private String channelId;
     private String channelName;
     private int iconLarge;
+    private int appLauncherIcon;
+    private boolean removeAppLauncherIconBg;
     private Ads ads;
     private int iconSmall;
     private Intent intent;
     private Class<? extends Activity> startIn;
 
-    private BoosterNotificationApp(Application application, Ads ads, Class<? extends Activity> startIn, String channelId, String channelName, int iconLarge, int iconSmall, Intent intent) {
+    private BoosterNotificationApp(Application application, Ads ads, Class<? extends Activity> startIn, String channelId, String channelName, int iconLarge, int iconSmall, int appLauncherIcon, boolean removeAppLauncherIconBg, Intent intent) {
         super(application);
         this.ads = ads;
         this.channelId = channelId;
         this.channelName = channelName;
         this.iconLarge = iconLarge;
+        this.appLauncherIcon = appLauncherIcon;
+        this.removeAppLauncherIconBg = removeAppLauncherIconBg;
         this.iconSmall = iconSmall;
         this.intent = intent;
         this.startIn = startIn;
@@ -84,7 +88,7 @@ public class BoosterNotificationApp extends BaseHelper {
 
         if (isChecked) {
             com.admanager.boosternotification.BoosterNotificationApp i = com.admanager.boosternotification.BoosterNotificationApp.getInstance();
-            show(context, i.channelId, i.channelName, i.iconLarge, i.iconSmall, i.intent);
+            show(context, i.channelId, i.channelName, i.iconLarge, i.iconSmall, i.intent, i.appLauncherIcon, i.removeAppLauncherIconBg);
         } else {
             hide(context);
         }
@@ -134,7 +138,7 @@ public class BoosterNotificationApp extends BaseHelper {
         });
     }
 
-    private static void show(Context context, String channelID, String channelName, int largeIcon, int smallIcon, Intent intent) {
+    private static void show(Context context, String channelID, String channelName, int largeIcon, int smallIcon, Intent intent, int appLauncherIcon, boolean removeAppLauncherIconBg) {
         NotificationManager nm = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -168,6 +172,15 @@ public class BoosterNotificationApp extends BaseHelper {
         if (connectionStatusReceiver != null) {
             connectionStatusReceiver.updateWifiUI(context, contentView, R.id.p6, R.id.i6, R.id.t6);
             connectionStatusReceiver.updateDataUI(context, contentView, R.id.p4, R.id.i4, R.id.t4);
+        }
+
+        if (appLauncherIcon != 0) {
+            contentView.setImageViewResource(R.id.i2, appLauncherIcon);
+
+            if (removeAppLauncherIconBg) {
+                contentView.setInt(R.id.i2, "setBackgroundResource", 0);
+                contentView.setViewPadding(R.id.i2, 0, 0, 0, 0);
+            }
         }
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelID)
@@ -224,9 +237,21 @@ public class BoosterNotificationApp extends BaseHelper {
         private Intent intent;
         private Class<? extends Activity> startIn;
         private Ads ads;
+        private int appLauncherIcon;
+        private boolean removeAppLauncherIconBg;
 
         public Builder(@NonNull Application context) {
             this.context = new WeakReference<>(context.getApplicationContext());
+        }
+
+        public BoosterNotificationApp.Builder appLauncherIcon(@DrawableRes int appLauncherIcon) {
+            return appLauncherIcon(appLauncherIcon, false);
+        }
+
+        public BoosterNotificationApp.Builder appLauncherIcon(@DrawableRes int appLauncherIcon, boolean removeDefaultBg) {
+            this.appLauncherIcon = appLauncherIcon;
+            this.removeAppLauncherIconBg = removeDefaultBg;
+            return this;
         }
 
         public Builder ads(Ads ads) {
@@ -312,7 +337,7 @@ public class BoosterNotificationApp extends BaseHelper {
             setDefaultStartIn(context);
 
             Application app = (Application) context.getApplicationContext();
-            BoosterNotificationApp.init(new BoosterNotificationApp(app, ads, startIn, channelId, channelName, iconLarge, iconSmall, intent));
+            BoosterNotificationApp.init(new BoosterNotificationApp(app, ads, startIn, channelId, channelName, iconLarge, iconSmall, appLauncherIcon, removeAppLauncherIconBg, intent));
             BoosterNotificationApp.checkAndDisplay(context);
 
             batteryStatusReceiver = new BatteryStatusReceiver();

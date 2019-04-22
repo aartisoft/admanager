@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.8] - 2019-04-22
+### Added
+- App Lock: added `AppLockerApp.configureMenu(NavigationView navView, int menuId)` method in order to hide AppLocker menu if device not suitable for this feature.
+- App Lock: added `AppLockerApp.isDeviceSuitable()` method to check is the device suitable for this feature.
+- Booster Notification: added `appLauncherIcon(int)` method for custom icon
+
+### Changed
+- `iconBig(int)` methods are deprecated. Use `iconLarge(int)` instead.
+
+### Removed
+- `allowBackup` parameter from Manifest files
+
 ## [1.2.7] - 2019-04-18
 ### Changed
 - App Lock: bug fix self unlocked apps 

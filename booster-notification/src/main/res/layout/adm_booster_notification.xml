@@ -124,12 +124,15 @@
         android:background="@drawable/booster_selectable_bg"
         android:clickable="true"
         android:gravity="center"
+        android:padding="4dp"
         android:orientation="vertical">
 
         <ImageView
             android:id="@+id/i2"
             style="@style/booster_image"
-            android:src="@drawable/applauncher" />
+            android:background="@drawable/app_launcher_bg"
+            android:padding="10dp"
+            android:src="@drawable/app_launcher_icon" />
 
         <TextView
             android:id="@+id/t2"
