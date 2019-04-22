@@ -85,8 +85,8 @@ public class ReminderService extends JobIntentService {
             mBuilder = mBuilder.setSmallIcon(app.getIconSmall());
         }
 
-        if (app.getIconBig() != 0) {
-            mBuilder = mBuilder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), app.getIconBig()));
+        if (app.getIconLarge() != 0) {
+            mBuilder = mBuilder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(), app.getIconLarge()));
         }
 
         if (app.getIntent() != null) {
