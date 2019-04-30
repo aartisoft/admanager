@@ -90,11 +90,11 @@
             android:layout_centerVertical="true"
             android:layout_gravity="right"
             android:layout_marginTop="20dp"
-            android:background="@android:color/transparent"
+            android:background="@color/colorAction"
             android:gravity="center"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
-            android:textColor="@color/colorAction"
+            android:textColor="@color/colorNativeBg"
             android:textSize="14sp" />
     </RelativeLayout>
 </LinearLayout>

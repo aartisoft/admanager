@@ -78,11 +78,11 @@
             android:layout_height="50dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:background="@android:color/transparent"
+            android:background="@color/colorAction"
             android:gravity="center"
             android:paddingLeft="3dp"
             android:paddingRight="3dp"
-            android:textColor="@color/colorAction"
+            android:textColor="@color/colorNativeBg"
             android:textSize="12sp" />
     </RelativeLayout>
 </LinearLayout>
