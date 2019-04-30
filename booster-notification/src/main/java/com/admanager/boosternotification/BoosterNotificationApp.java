@@ -154,8 +154,6 @@ public class BoosterNotificationApp extends BaseHelper {
         contentView.setOnClickPendingIntent(R.id.p5, getPendingIntent(context, BoosterNotificationReceiver.ACTION_FLASHLIGHT, false));
         contentView.setOnClickPendingIntent(R.id.p6, getPendingIntent(context, BoosterNotificationReceiver.ACTION_WIFI, false));
 
-        contentView.setTextViewText(R.id.t2, context.getApplicationInfo().loadLabel(context.getPackageManager()));
-
         final boolean hasCameraFlash = context.getPackageManager().hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH);
         if (hasCameraFlash) {
             contentView.setViewVisibility(R.id.p5, View.VISIBLE);
