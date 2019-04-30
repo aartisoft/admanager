@@ -54,8 +54,7 @@
                 android:id="@+id/rate_icon"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_margin="12dp"
-                android:contentDescription="@string/app_name" />
+                android:layout_margin="12dp" />
 
 
             <Button
