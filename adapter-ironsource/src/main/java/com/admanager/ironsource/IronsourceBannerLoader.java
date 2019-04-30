@@ -17,13 +17,12 @@ import com.ironsource.mediationsdk.sdk.BannerListener;
  * Created by Gust on 20.11.2018.
  */
 public class IronsourceBannerLoader extends BannerLoader<IronsourceBannerLoader> {
-    private static final String TAG = "IronsourceBannerLoader";
     private String placement;
     private String appKey;
     private IronSourceBannerLayout banner;
 
     public IronsourceBannerLoader(Activity activity, LinearLayout adContainer, String enableKey) {
-        super(activity, adContainer, enableKey);
+        super(activity, "Ironsrc", adContainer, enableKey);
     }
 
     public void withId(@Size(min = 5, max = 10) String appKey, @Size(min = 2, max = 20) String placement) {
@@ -49,6 +48,7 @@ public class IronsourceBannerLoader extends BannerLoader<IronsourceBannerLoader>
         banner.setBannerListener(new BannerListener() {
             @Override
             public void onBannerAdLoaded() {
+                logv("onBannerAdLoaded");
                 initContainer(banner);
             }
 
@@ -59,22 +59,22 @@ public class IronsourceBannerLoader extends BannerLoader<IronsourceBannerLoader>
 
             @Override
             public void onBannerAdClicked() {
-
+                logv("onBannerAdClicked");
             }
 
             @Override
             public void onBannerAdScreenPresented() {
-
+                logv("onBannerAdScreenPresented");
             }
 
             @Override
             public void onBannerAdScreenDismissed() {
-
+                logv("onBannerAdScreenDismissed");
             }
 
             @Override
             public void onBannerAdLeftApplication() {
-
+                logv("onBannerAdLeftApplication");
             }
         });
 

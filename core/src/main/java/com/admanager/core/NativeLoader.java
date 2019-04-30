@@ -14,11 +14,12 @@ import android.widget.LinearLayout;
 import com.admanager.config.RemoteConfigHelper;
 
 public abstract class NativeLoader<L extends NativeLoader> {
-    public static final String TAG = "NativeLoader";
+    private final String adapterName;
     public static final int DEFAULT_BORDER_SIZE = 2;
     public static final int DEFAULT_BORDER_COLOR = R.color.colorPrimary;
     private final LinearLayout container;
     private final LinearLayout adContainer;
+    private String TAG;
     private Activity activity;
     private final Application.ActivityLifecycleCallbacks LIFECYCLE_CALLBACKS = new Application.ActivityLifecycleCallbacks() {
         @Override
@@ -66,15 +67,19 @@ public abstract class NativeLoader<L extends NativeLoader> {
     private Integer bottomSizeDp;
     private Integer bottomColor;
 
-    public NativeLoader(Activity activity, LinearLayout adContainer, String enableKey) {
+    public NativeLoader(Activity activity, String adapterName, LinearLayout adContainer, String enableKey) {
         RemoteConfigHelper.init(activity);
         adContainer.setOrientation(LinearLayout.VERTICAL);
         this.activity = activity;
+        this.adapterName = adapterName;
         this.enableKey = enableKey;
         this.container = adContainer;
         this.adContainer = new LinearLayout(getActivity());
         this.adContainer.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         this.adContainer.setOrientation(LinearLayout.VERTICAL);
+
+        this.TAG = "ADM_NativeLoader";
+        this.TAG = this.TAG.substring(0, Math.min(23, this.TAG.length()));
 
         if (!isEnabled()) {
             hideLayout();
@@ -97,15 +102,28 @@ public abstract class NativeLoader<L extends NativeLoader> {
     }
 
     protected final boolean isEnabled() {
-        return (RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey)) || isTestMode();
+        boolean adsEnabled = RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey);
+        boolean testMode = isTestMode();
+        if (!(adsEnabled || testMode)) {
+            Log.d(TAG, getAdapterName() + ": not enabled");
+        }
+        return adsEnabled || testMode;
     }
 
     protected void error(String error) {
-        Log.e(TAG, getClass().getSimpleName() + ": " + error);
+        Log.e(TAG, getAdapterName() + ": " + error);
         hideLayout();
         if (listener != null) {
             listener.error(error);
         }
+    }
+
+    protected void logv(String s) {
+        Log.v(TAG, getAdapterName() + ": " + s);
+    }
+
+    private String getAdapterName() {
+        return adapterName;
     }
 
     private void hideLayout() {
@@ -150,6 +168,8 @@ public abstract class NativeLoader<L extends NativeLoader> {
             if (listener != null) {
                 listener.loaded();
             }
+
+            Log.d(TAG, getAdapterName() + ": loaded");
         }
     }
 

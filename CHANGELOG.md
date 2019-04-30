@@ -1,6 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.10] - 2019-04-30
+### Changed
+- Test Ids became public 
+- Facebook native button color now green 
+- Booster Notif: Removed app label 
+- Removed unnecessary app_name resources
+- BannerLoader/NativeLoader enhanced logging
+
+
 ## [1.2.9] - 2019-04-22
 ### Changed
 - App Lock: bug fix

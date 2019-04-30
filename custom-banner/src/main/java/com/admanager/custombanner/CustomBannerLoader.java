@@ -3,7 +3,6 @@ package com.admanager.custombanner;
 import android.app.Activity;
 import android.support.annotation.Size;
 import android.text.TextUtils;
-import android.util.Log;
 import android.widget.LinearLayout;
 
 import com.admanager.config.RemoteConfigHelper;
@@ -16,15 +15,14 @@ import com.admanager.custombanner.view.CustomBanner;
  */
 public class CustomBannerLoader extends BannerLoader<CustomBannerLoader> {
 
-    private static final String TAG = "CustomBannerLoader";
-    private static final String CUSTOM_BANNER_TEST_TARGET_URL = "https://play.google.com/store/apps/details?id=com.whatsapp";
-    private static final String CUSTOM_BANNER_TEST_IMAGE_URL = "https://image.oaking.tk/raw/47q05krqsp.gif";
+    public static final String CUSTOM_BANNER_TEST_TARGET_URL = "https://play.google.com/store/apps/details?id=com.whatsapp";
+    public static final String CUSTOM_BANNER_TEST_IMAGE_URL = "https://image.oaking.tk/raw/47q05krqsp.gif";
 
     private String targetUrl;
     private String imageUrl;
 
     public CustomBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
-        super(activity, adContainer, rcEnableKey);
+        super(activity, "Custom", adContainer, rcEnableKey);
     }
 
     public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcTargetUrlKey, @Size(min = Consts.RC_KEY_SIZE) String rcImageUrlKey) {
@@ -63,18 +61,17 @@ public class CustomBannerLoader extends BannerLoader<CustomBannerLoader> {
         customBanner.setAdListener(new CustomBanner.AdListener() {
             @Override
             public void onClick(String url) {
-                Log.d(TAG, "onClick: " + url);
+                logv("onClick: " + url);
             }
 
             @Override
             public void onLoaded(String imageUrl) {
-                Log.d(TAG, "onLoaded: " + imageUrl);
+                logv("onLoaded: " + imageUrl);
             }
 
             @Override
             public void onError(String error) {
                 error("onError: " + error);
-
             }
         });
         customBanner.load();

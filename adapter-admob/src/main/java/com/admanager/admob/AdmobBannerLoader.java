@@ -16,14 +16,13 @@ import com.google.android.gms.ads.AdView;
 
 public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
 
-    private static final String TAG = "AdmobBannerLoader";
     public static final String ADMOB_BANNER_TEST_ID = "ca-app-pub-3940256099942544/6300978111";
 
     private String adUnitId;
     private AdSize size = AdSize.SMART_BANNER;
 
     public AdmobBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
-        super(activity, adContainer, rcEnableKey);
+        super(activity, "Admob", adContainer, rcEnableKey);
     }
 
     public AdmobBannerLoader size(AdSize size) {
@@ -73,6 +72,7 @@ public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
 
             @Override
             public void onAdLoaded() {
+                logv("onAdLoaded");
                 initContainer(mAdView);
             }
         });

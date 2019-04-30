@@ -14,11 +14,12 @@ import android.widget.LinearLayout;
 import com.admanager.config.RemoteConfigHelper;
 
 public abstract class BannerLoader<L extends BannerLoader> {
-    public static final String TAG = "BannerLoader";
+    private final String adapterName;
     public static final int DEFAULT_BORDER_SIZE = 2;
     public static final int DEFAULT_BORDER_COLOR = R.color.colorPrimary;
     private final LinearLayout container;
     private final LinearLayout adContainer;
+    public String TAG;
     private Activity activity;
     private final Application.ActivityLifecycleCallbacks LIFECYCLE_CALLBACKS = new Application.ActivityLifecycleCallbacks() {
         @Override
@@ -66,17 +67,22 @@ public abstract class BannerLoader<L extends BannerLoader> {
     private Integer bottomColor;
     private String enableKey;
 
-    public BannerLoader(Activity activity, LinearLayout adContainer, String enableKey) {
+    public BannerLoader(Activity activity, String adapterName, LinearLayout adContainer, String enableKey) {
         RemoteConfigHelper.init(activity);
         adContainer.setOrientation(LinearLayout.VERTICAL);
         this.activity = activity;
+        this.adapterName = adapterName;
         this.enableKey = enableKey;
         this.container = adContainer;
         this.adContainer = new LinearLayout(getActivity());
         this.adContainer.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
         this.adContainer.setOrientation(LinearLayout.VERTICAL);
 
+        this.TAG = "ADM_BannerLoader";
+        this.TAG = this.TAG.substring(0, Math.min(23, this.TAG.length()));
+
         if (!isEnabled()) {
+            Log.i(TAG, getAdapterName() + ": not enabled");
             hideLayout();
         }
 
@@ -88,12 +94,25 @@ public abstract class BannerLoader<L extends BannerLoader> {
     }
 
     protected final boolean isEnabled() {
-        return (RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey)) || isTestMode();
+        boolean adsEnabled = RemoteConfigHelper.areAdsEnabled() && RemoteConfigHelper.getConfigs().getBoolean(enableKey);
+        boolean testMode = isTestMode();
+        if (!(adsEnabled || testMode)) {
+            Log.d(TAG, getAdapterName() + ": not enabled");
+        }
+        return adsEnabled || testMode;
     }
 
     protected void error(String error) {
-        Log.e(TAG, getClass().getSimpleName() + ": " + error);
+        Log.e(TAG, getAdapterName() + ": " + error);
         hideLayout();
+    }
+
+    protected void logv(String s) {
+        Log.v(TAG, getAdapterName() + ": " + s);
+    }
+
+    private String getAdapterName() {
+        return adapterName;
     }
 
     private void hideLayout() {
@@ -135,8 +154,9 @@ public abstract class BannerLoader<L extends BannerLoader> {
             if (view.getParent() != null)
                 ((ViewGroup) view.getParent()).removeView(view);
             adContainer.addView(view);
-        }
 
+            Log.d(TAG, getAdapterName() + ": loaded");
+        }
     }
 
     private void addBorderView(Integer sizeDp, Integer color) {

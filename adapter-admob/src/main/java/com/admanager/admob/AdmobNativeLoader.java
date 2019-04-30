@@ -18,7 +18,6 @@ import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 
 public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
 
-    private static final String TAG = "AdmobNativeLoader";
     public static final String ADMOB_NATIVE_TEST_ID = "ca-app-pub-3940256099942544/2247696110";
 
     private String adUnitId;
@@ -27,7 +26,7 @@ public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
     private UnifiedNativeAdView unifiedNativeAdView;
 
     public AdmobNativeLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
-        super(activity, adContainer, rcEnableKey);
+        super(activity, "Admob", adContainer, rcEnableKey);
     }
 
     public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
@@ -85,6 +84,7 @@ public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
                 .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                     @Override
                     public void onUnifiedNativeAdLoaded(UnifiedNativeAd unifiedNativeAd) {
+                        logv("onUnifiedNativeAdLoaded");
                         AdmobAdHelper.populateUnifiedNativeAdView(unifiedNativeAd, unifiedNativeAdView);
                         initContainer(unifiedNativeAdView);
                     }

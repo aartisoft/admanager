@@ -1,10 +1,8 @@
 package com.admanager.inmobi;
 
-
 import android.app.Activity;
 import android.support.annotation.Size;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
@@ -17,8 +15,6 @@ import com.inmobi.ads.listeners.BannerAdEventListener;
 import com.inmobi.sdk.InMobiSdk;
 
 public class InmobiBannerLoader extends BannerLoader<InmobiBannerLoader> {
-
-    private static final String TAG = "InmobiBannerLoader";
     public static final long INMOBI_BANNER_TEST_ID = 1547483178070L;
     public static final String INMOBI_ACCOUNT_TEST_ID = "0ebbbd7c75be47feb316d4dde2017b89";
 
@@ -27,7 +23,7 @@ public class InmobiBannerLoader extends BannerLoader<InmobiBannerLoader> {
     private InMobiBanner inMobiBanner;
 
     public InmobiBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
-        super(activity, adContainer, rcEnableKey);
+        super(activity, "Inmobi", adContainer, rcEnableKey);
     }
 
     public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAccountIdKey, @Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
@@ -70,7 +66,7 @@ public class InmobiBannerLoader extends BannerLoader<InmobiBannerLoader> {
         inMobiBanner.setListener(new BannerAdEventListener() {
             @Override
             public void onAdLoadSucceeded(InMobiBanner inMobiBanner) {
-                Log.d(TAG, "onAdLoadSucceeded");
+                logv("onAdLoadSucceeded");
                 initContainer(inMobiBanner);
             }
 

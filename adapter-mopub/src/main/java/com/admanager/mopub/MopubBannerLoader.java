@@ -1,10 +1,8 @@
 package com.admanager.mopub;
 
-
 import android.app.Activity;
 import android.support.annotation.Size;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 
@@ -24,14 +22,13 @@ import java.util.List;
 
 public class MopubBannerLoader extends BannerLoader<MopubBannerLoader> {
 
-    private static final String TAG = "MopubBannerLoader";
     public static final String MOPUB_BANNER_TEST_ID = "b195f8dd8ded45fe847ad89ed1d016da";
 
     private String adUnitId;
     private MoPubView moPubView;
 
     public MopubBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
-        super(activity, adContainer, rcEnableKey);
+        super(activity, "Mopub", adContainer, rcEnableKey);
     }
 
     public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
@@ -93,7 +90,7 @@ public class MopubBannerLoader extends BannerLoader<MopubBannerLoader> {
 
             @Override
             public void onBannerLoaded(MoPubView banner) {
-                Log.d(TAG, "onBannerLoaded");
+                logv("onBannerLoaded");
                 moPubView.setVisibility(View.VISIBLE);
                 initContainer(banner);
             }

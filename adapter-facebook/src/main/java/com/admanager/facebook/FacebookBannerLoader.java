@@ -19,14 +19,13 @@ import com.facebook.ads.AdView;
  * Created by Gust on 20.11.2018.
  */
 public class FacebookBannerLoader extends BannerLoader<FacebookBannerLoader> {
-    private static final String TAG = "MyFacebookHelper";
     public static final String FACEBOOK_BANNER_TEST_ID = "YOUR_PLACEMENT_ID";
     private String adUnitId;
     private AdView adView;
     private AdSize size = AdSize.BANNER_HEIGHT_50;
 
     public FacebookBannerLoader(Activity activity, LinearLayout adContainer, String enableKey) {
-        super(activity, adContainer, enableKey);
+        super(activity, "Face", adContainer, enableKey);
     }
 
     public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
@@ -68,16 +67,18 @@ public class FacebookBannerLoader extends BannerLoader<FacebookBannerLoader> {
 
             @Override
             public void onAdLoaded(Ad ad) {
+                logv("onAdLoaded");
                 initContainer(adView);
             }
 
             @Override
             public void onAdClicked(Ad ad) {
+                logv("onAdClicked");
             }
 
             @Override
             public void onLoggingImpression(Ad ad) {
-
+                logv("onLoggingImpression");
             }
         });
         adView.loadAd();

@@ -19,7 +19,6 @@ import com.facebook.ads.NativeAdListener;
  * Created by Gust on 20.11.2018.
  */
 public class FacebookNativeLoader extends NativeLoader<FacebookNativeLoader> {
-    private static final String TAG = "FacebookNativeLoader";
     public static final String FACEBOOK_BANNER_TEST_ID = "YOUR_PLACEMENT_ID";
     private String adUnitId;
     private NativeAd nativeAd;
@@ -29,7 +28,7 @@ public class FacebookNativeLoader extends NativeLoader<FacebookNativeLoader> {
     private LinearLayout linearLayout;
 
     public FacebookNativeLoader(Activity activity, LinearLayout adContainer, String enableKey) {
-        super(activity, adContainer, enableKey);
+        super(activity, "Face", adContainer, enableKey);
     }
 
     public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
@@ -82,7 +81,7 @@ public class FacebookNativeLoader extends NativeLoader<FacebookNativeLoader> {
         nativeAd.setAdListener(new NativeAdListener() {
             @Override
             public void onMediaDownloaded(Ad ad) {
-
+                logv("onMediaDownloaded");
             }
 
             @Override
@@ -92,6 +91,7 @@ public class FacebookNativeLoader extends NativeLoader<FacebookNativeLoader> {
 
             @Override
             public void onAdLoaded(Ad ad) {
+                logv("onAdLoaded");
                 // Race condition, load() called again before last ad was displayed
                 if (nativeAd == null || nativeAd != ad) {
                     error("load() called again before last ad was displayed");
@@ -104,12 +104,12 @@ public class FacebookNativeLoader extends NativeLoader<FacebookNativeLoader> {
 
             @Override
             public void onAdClicked(Ad ad) {
-
+                logv("onAdClicked");
             }
 
             @Override
             public void onLoggingImpression(Ad ad) {
-
+                logv("onLoggingImpression");
             }
         });
         nativeAd.loadAd();
