@@ -19,7 +19,7 @@ import com.google.android.gms.ads.formats.UnifiedNativeAdView;
 public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
 
     private static final String TAG = "AdmobNativeLoader";
-    private static final String ADMOB_NATIVE_TEST_ID = "ca-app-pub-3940256099942544/2247696110";
+    public static final String ADMOB_NATIVE_TEST_ID = "ca-app-pub-3940256099942544/2247696110";
 
     private String adUnitId;
     @LayoutRes

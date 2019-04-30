@@ -20,7 +20,7 @@ import com.facebook.ads.AdView;
  */
 public class FacebookBannerLoader extends BannerLoader<FacebookBannerLoader> {
     private static final String TAG = "MyFacebookHelper";
-    private static final String FACEBOOK_BANNER_TEST_ID = "YOUR_PLACEMENT_ID";
+    public static final String FACEBOOK_BANNER_TEST_ID = "YOUR_PLACEMENT_ID";
     private String adUnitId;
     private AdView adView;
     private AdSize size = AdSize.BANNER_HEIGHT_50;

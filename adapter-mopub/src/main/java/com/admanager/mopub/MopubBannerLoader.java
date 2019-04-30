@@ -25,7 +25,7 @@ import java.util.List;
 public class MopubBannerLoader extends BannerLoader<MopubBannerLoader> {
 
     private static final String TAG = "MopubBannerLoader";
-    private static final String MOPUB_BANNER_TEST_ID = "b195f8dd8ded45fe847ad89ed1d016da";
+    public static final String MOPUB_BANNER_TEST_ID = "b195f8dd8ded45fe847ad89ed1d016da";
 
     private String adUnitId;
     private MoPubView moPubView;

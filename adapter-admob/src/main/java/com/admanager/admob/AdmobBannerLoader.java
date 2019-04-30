@@ -17,7 +17,7 @@ import com.google.android.gms.ads.AdView;
 public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
 
     private static final String TAG = "AdmobBannerLoader";
-    private static final String ADMOB_BANNER_TEST_ID = "ca-app-pub-3940256099942544/6300978111";
+    public static final String ADMOB_BANNER_TEST_ID = "ca-app-pub-3940256099942544/6300978111";
 
     private String adUnitId;
     private AdSize size = AdSize.SMART_BANNER;

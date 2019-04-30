@@ -19,8 +19,8 @@ import com.inmobi.sdk.InMobiSdk;
 public class InmobiBannerLoader extends BannerLoader<InmobiBannerLoader> {
 
     private static final String TAG = "InmobiBannerLoader";
-    private static final long INMOBI_BANNER_TEST_ID = 1547483178070L;
-    private static final String INMOBI_ACCOUNT_TEST_ID = "0ebbbd7c75be47feb316d4dde2017b89";
+    public static final long INMOBI_BANNER_TEST_ID = 1547483178070L;
+    public static final String INMOBI_ACCOUNT_TEST_ID = "0ebbbd7c75be47feb316d4dde2017b89";
 
     private long adUnitId;
     private String accountId;

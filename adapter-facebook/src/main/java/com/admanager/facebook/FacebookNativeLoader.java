@@ -20,7 +20,7 @@ import com.facebook.ads.NativeAdListener;
  */
 public class FacebookNativeLoader extends NativeLoader<FacebookNativeLoader> {
     private static final String TAG = "FacebookNativeLoader";
-    private static final String FACEBOOK_BANNER_TEST_ID = "YOUR_PLACEMENT_ID";
+    public static final String FACEBOOK_BANNER_TEST_ID = "YOUR_PLACEMENT_ID";
     private String adUnitId;
     private NativeAd nativeAd;
 

@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.admanager.admob.AdmobNativeLoader;
 import com.admanager.admob.R;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdLoader;
@@ -22,7 +23,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolder<T>> extends ABaseAdapter<T, VH, AdmAdapterConfiguration<BaseAdapterWithAdmobNative.NativeType>> {
     private static final String TAG = "AdmobBaseAdapter";
-    private static final String ADMOB_NATIVE_TEST_ID = "ca-app-pub-3940256099942544/2247696110";
     private AdLoader mAdLoader;
     private CopyOnWriteArrayList<UnifiedNativeAd> mAppInstallAd = new CopyOnWriteArrayList<>();
 
@@ -41,7 +41,7 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
                 return;
             }
             if (isTestMode()) {
-                nativeAdUnitId = ADMOB_NATIVE_TEST_ID;
+                nativeAdUnitId = AdmobNativeLoader.ADMOB_NATIVE_TEST_ID;
             }
             mAdLoader = new AdLoader.Builder(activity, nativeAdUnitId)
                     .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
