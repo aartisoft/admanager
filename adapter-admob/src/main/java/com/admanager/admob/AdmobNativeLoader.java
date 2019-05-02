@@ -52,6 +52,9 @@ public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
             case NATIVE_BANNER:
                 this.layoutId = R.layout.ad_native_unified_sm;
                 break;
+            case NATIVE_BANNER_XS:
+                this.layoutId = R.layout.ad_native_unified_xs;
+                break;
             case NATIVE_XL:
                 this.layoutId = R.layout.ad_native_unified_xl;
                 break;
@@ -101,6 +104,6 @@ public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
     }
 
     public enum NativeType {
-        NATIVE_BANNER, NATIVE_LARGE, NATIVE_XL
+        NATIVE_BANNER, NATIVE_BANNER_XS, NATIVE_LARGE, NATIVE_XL
     }
 }

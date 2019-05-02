@@ -61,7 +61,13 @@ public class AdmobAdHelper {
 
         if (adView.getIconView() != null) {
             if (nativeAd.getIcon() == null) {
-                adView.getIconView().setVisibility(View.GONE);
+                if (nativeAd.getImages() == null || nativeAd.getImages().get(0) == null || nativeAd.getImages().get(0) == null) {
+                    adView.getIconView().setVisibility(View.GONE);
+                } else {
+                    ((ImageView) adView.getIconView()).setImageDrawable(
+                            nativeAd.getImages().get(0).getDrawable());
+                    adView.getIconView().setVisibility(View.VISIBLE);
+                }
             } else {
                 ((ImageView) adView.getIconView()).setImageDrawable(
                         nativeAd.getIcon().getDrawable());

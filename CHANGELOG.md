@@ -1,10 +1,15 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.11] - 2019-05-02
+### Changed
+- Admob Native: `NATIVE_BANNER` is a bit higher then before. If you still want to use a small one, use the `NATIVE_BANNER_XS` parameter.
+- Admob Native Banner: Enhanced design
+
 ## [1.2.10] - 2019-04-30
 ### Changed
-- Test Ids became public 
-- Facebook native button color now green 
+- Test Ids became public
+- Facebook native button color now green
 - Booster Notif: Removed app label 
 - Removed unnecessary app_name resources
 - BannerLoader/NativeLoader enhanced logging
