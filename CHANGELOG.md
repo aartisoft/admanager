@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.12] - 2019-05-22
+### Changed
+- Ironsource Interstitial: added default 5 secs timeout
+
 ## [1.2.11] - 2019-05-02
 ### Changed
 - Admob Native: `NATIVE_BANNER` is a bit higher then before. If you still want to use a small one, use the `NATIVE_BANNER_XS` parameter.

@@ -64,6 +64,7 @@ public class IronsourceAdapter extends Adapter {
 
     public IronsourceAdapter(@Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
         super("Ironsource", rcEnableKey);
+        withTimeout(5_000);
     }
 
     public IronsourceAdapter withId(@Size(min = 5, max = 10) String appKey, @Size(min = 2, max = 20) String placement) {
