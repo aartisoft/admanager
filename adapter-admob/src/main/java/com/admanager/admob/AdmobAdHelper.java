@@ -61,7 +61,7 @@ public class AdmobAdHelper {
 
         if (adView.getIconView() != null) {
             if (nativeAd.getIcon() == null) {
-                if (nativeAd.getImages() == null || nativeAd.getImages().get(0) == null || nativeAd.getImages().get(0) == null) {
+                if (nativeAd.getImages() == null || nativeAd.getImages().size() == 0 || nativeAd.getImages().get(0) == null) {
                     adView.getIconView().setVisibility(View.GONE);
                 } else {
                     ((ImageView) adView.getIconView()).setImageDrawable(

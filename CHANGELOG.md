@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.2.13] - 2019-06-11
+### Changed
+- Admob Native Loader: bugfix
+
 ## [1.2.12] - 2019-05-22
 ### Changed
 - Ironsource Interstitial: added default 5 secs timeout
