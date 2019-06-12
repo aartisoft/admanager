@@ -79,10 +79,10 @@
             android:label="@string/ex_sample_main"
             android:theme="@style/AppTheme.NoActionBar" />
 
+        <!-- IMPORTANT TO ADD BELOW CODE  -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="@string/admob_app_id"
-            tools:replace="android:value" />
+            android:value="@string/admob_app_id" />
 
 
         <!--additional adapters -->

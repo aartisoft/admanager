@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 2019-06-12
+### Changed
+- Admob SDK and Facebook SDK versions upgraded
+- You need to add `<meta-data android:name="com.google.android.gms.ads.APPLICATION_ID" android:value="@string/admob_app_id" />` to AndroidManifest.xml now.
+
 ## [1.2.13] - 2019-06-11
 ### Changed
 - Admob Native Loader: bugfix

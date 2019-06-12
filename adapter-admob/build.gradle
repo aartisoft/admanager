@@ -33,7 +33,7 @@ dependencies {
 
     api project(path: ':core')
 
-    api 'com.google.android.gms:play-services-ads:16.0.0'
+    api 'com.google.android.gms:play-services-ads:17.2.1'
 
 }
 

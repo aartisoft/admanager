@@ -52,7 +52,7 @@ public abstract class BaseAdapterWithFaceNative<T, VH extends BindableViewHolder
 
                 @Override
                 public void onAdError(AdError adError) {
-                    Log.e(TAG, "App Install Ad Failed to load: " + adError.getErrorMessage());
+                    Log.e(TAG, "Native Ad Failed to load: " + adError.getErrorMessage());
                     BaseAdapterWithFaceNative.super.show_native = false;
                     refreshRowWrappers();
                 }
