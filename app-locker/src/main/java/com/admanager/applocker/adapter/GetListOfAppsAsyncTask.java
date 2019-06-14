@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class GetListOfAppsAsyncTask extends AsyncTask<String, Void, List<AppInfo>> {
 
-    AllAppFragment container;
+    private AllAppFragment container;
 
     public GetListOfAppsAsyncTask(AllAppFragment fragment) {
         container = fragment;
@@ -27,7 +27,10 @@ public class GetListOfAppsAsyncTask extends AsyncTask<String, Void, List<AppInfo
      *
      * @return ArrayList of installed applications or null
      */
-    public static List<AppInfo> getListOfInstalledApp(Context context) {
+    private static List<AppInfo> getListOfInstalledApp(Context context) {
+        if (context == null) {
+            return new ArrayList<>();
+        }
         PackageManager packageManager = context.getPackageManager();
         List<AppInfo> installedApps = new ArrayList<>();
         List<PackageInfo> apps = packageManager.getInstalledPackages(PackageManager.GET_META_DATA);
@@ -53,7 +56,7 @@ public class GetListOfAppsAsyncTask extends AsyncTask<String, Void, List<AppInfo
 
             return installedApps;
         }
-        return null;
+        return new ArrayList<>();
     }
 
     @Override
@@ -62,6 +65,9 @@ public class GetListOfAppsAsyncTask extends AsyncTask<String, Void, List<AppInfo
         String requiredAppsType = strings[0];
 
         List<AppInfo> list = getListOfInstalledApp(container.getActivity());
+        if (list == null) {
+            return new ArrayList<>();
+        }
 
         List<AppInfo> lockedFilteredAppList = new ArrayList<>();
         List<AppInfo> unlockedFilteredAppList = new ArrayList<>();
