@@ -24,7 +24,6 @@ import com.admanager.recyclerview.AdmAdapterConfiguration;
 import com.admanager.recyclerview.BaseAdapter;
 import com.admanager.recyclerview.BaseAdapterWithAdmobNative;
 import com.admanager.recyclerview.BindableViewHolder;
-import com.admanager.wastickers.GlideApp;
 import com.admanager.wastickers.R;
 import com.admanager.wastickers.WhitelistCheck;
 import com.admanager.wastickers.model.PackageModel;
@@ -34,6 +33,8 @@ import com.admanager.wastickers.utils.PermissionChecker;
 import com.admanager.wastickers.utils.Utils;
 import com.admanager.wastickers.utils.WAStickerHelper;
 import com.admanager.wastickers.utils.WorkCounter;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.io.File;
@@ -116,12 +117,12 @@ public class StickerCategoryAdapter extends BaseAdapterWithAdmobNative<PackageMo
 
             @Override
             public void bindTo(final Activity activity, final StickerPackContainer model, int position) {
-
-                GlideApp.with(itemView.getContext())
+                Glide.with(itemView.getContext())
                         .load(model.url)
-                        .override(Utils.DEFAULT_IMG_SIZE, Utils.DEFAULT_IMG_SIZE)
-                        .placeholder(Utils.getRandomColoredDrawable())
-                        .fitCenter()
+                        .apply(new RequestOptions()
+                                .placeholder(Utils.getRandomColoredDrawable())
+                                .fitCenter()
+                                .override(Utils.DEFAULT_IMG_SIZE, Utils.DEFAULT_IMG_SIZE))
                         .into(image);
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override

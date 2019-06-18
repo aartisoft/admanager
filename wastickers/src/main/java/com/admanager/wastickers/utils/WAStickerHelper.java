@@ -10,10 +10,10 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.admanager.wastickers.GlideApp;
-import com.admanager.wastickers.GlideRequest;
 import com.admanager.wastickers.model.Sticker;
 import com.admanager.wastickers.model.StickerPack;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.RequestBuilder;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
@@ -38,11 +38,9 @@ public class WAStickerHelper {
     }
 
     public static void downloadStickerImage(Context context, String url, final DownloadListener listener) {
-        GlideRequest<File> request = GlideApp.with(context).asFile()
-                .load(url)
-                .centerCrop();
-
-        request = request.listener(new RequestListener<File>() {
+        RequestBuilder<File> load = Glide.with(context).asFile()
+                .load(url);
+        load = load.listener(new RequestListener<File>() {
             @Override
             public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<File> target, boolean isFirstResource) {
                 listener.downloaded(null);
@@ -55,7 +53,7 @@ public class WAStickerHelper {
                 return false;
             }
         });
-        request.submit();
+        load.submit();
     }
 
     public static File getFilesFolder(Context context, String identifier, boolean tryIcon, String name) {

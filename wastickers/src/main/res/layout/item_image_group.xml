@@ -18,7 +18,7 @@
             android:id="@+id/name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="#333333"
+            android:textColor="@color/wasticker_primary_text"
             android:layout_weight="1"
             android:text="Category"
             android:textSize="18sp" />

@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.3.3] - 2019-06-18
+### Changed
+- WAStickers: minor changes
+
 ## [1.3.2] - 2019-06-18
 ### Added
 - WAStickers: new sticker library added
