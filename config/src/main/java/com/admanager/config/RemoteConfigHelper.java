@@ -31,10 +31,10 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
 
     private RemoteConfigHelper(Map<String, Object> defaultMap, boolean idDeveloperModeEnabled) {
         mRemoteConfig = FirebaseRemoteConfig.getInstance();
-        mRemoteConfig.activateFetched();
+        mRemoteConfig.activate();
         mRemoteConfig.setDefaults(defaultMap);
-        mRemoteConfig.setConfigSettings(new FirebaseRemoteConfigSettings.Builder().setDeveloperModeEnabled(idDeveloperModeEnabled).build());
-        mRemoteConfig.fetch(mRemoteConfig.getInfo().getConfigSettings().isDeveloperModeEnabled() ? 0 : 10800).addOnCompleteListener(this);
+        mRemoteConfig.setConfigSettingsAsync(new FirebaseRemoteConfigSettings.Builder().setMinimumFetchIntervalInSeconds(idDeveloperModeEnabled ? 0 : 10800).build());
+        mRemoteConfig.fetch(idDeveloperModeEnabled ? 0 : 10800).addOnCompleteListener(this);
         testMode = idDeveloperModeEnabled;
     }
 
@@ -104,10 +104,13 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
     @Override
     public void onComplete(@NonNull Task<Void> task) {
         if (task.isSuccessful()) {
-            mRemoteConfig.activateFetched();
-            Log.i(TAG, "remote configs fetched");
-
-            initPeriodicNotifIfExist();
+            mRemoteConfig.activate().addOnCompleteListener(new OnCompleteListener<Boolean>() {
+                @Override
+                public void onComplete(@NonNull Task<Boolean> task) {
+                    Log.i(TAG, "remote configs fetched");
+                    initPeriodicNotifIfExist();
+                }
+            });
         }
     }
 
