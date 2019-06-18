@@ -18,9 +18,10 @@
             android:id="@+id/name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textColor="#333333"
             android:layout_weight="1"
             android:text="Category"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textSize="18sp" />
 
 
         <Button
