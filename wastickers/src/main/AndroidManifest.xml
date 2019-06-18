@@ -20,7 +20,7 @@
 
         <provider
             android:name=".StickerContentProvider"
-            android:authorities="${contentProviderAuthority}"
+            android:authorities="${applicationId}.wasticker.StickerContentProvider"
             android:enabled="true"
             android:exported="true"
             android:readPermission="com.whatsapp.sticker.READ" />
