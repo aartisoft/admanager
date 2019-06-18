@@ -17,6 +17,7 @@ import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
 import com.admanager.popupad.AdmPopupAd;
 import com.admanager.sample.R;
+import com.admanager.wastickers.activities.WAStickersActivity;
 
 /**
  * Created by Gust on 20.11.2018.
@@ -80,6 +81,8 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
             new AdmPopupAd.Builder(this)
                     .build()
                     .show();
+        } else if (id == R.id.nav_wastickers) {
+            WAStickersActivity.start(this);
         } else if (id == R.id.nav_share) {
             ShareUtils.shareApp(this, "Lets check interesting app", true);
         } else if (id == R.id.isConnected) {

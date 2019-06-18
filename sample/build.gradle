@@ -10,6 +10,9 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
+        manifestPlaceholders = [
+                contentProviderAuthority       : applicationId + ".wasticker.StickerContentProvider"
+        ]
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -56,6 +59,7 @@ dependencies {
     implementation project(path: ':periodic-notification')
     implementation project(path: ':booster-notification')
     implementation project(path: ':app-locker')
+    implementation project(path: ':wastickers')
 
 /* IRONSOURCE RELATED ADDITIONAL ADAPTERS
     implementation project(path: ':adapter-ironsource')

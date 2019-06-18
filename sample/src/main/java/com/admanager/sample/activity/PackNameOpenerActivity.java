@@ -31,7 +31,6 @@ public class PackNameOpenerActivity extends AppCompatActivity implements View.On
         findViewById(R.id.btn_whatsapp).setOnClickListener(this);
         findViewById(R.id.btn_gmail).setOnClickListener(this);
 
-
         adManager = new AdManagerBuilder(this)
                 .add(new DummyAdapter())
                 .add(new AdmobAdapter(RCUtils.MAIN_ADMOB_ENABLED).withRemoteConfigId(RCUtils.MAIN_ADMOB_ID))

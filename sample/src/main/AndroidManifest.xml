@@ -78,6 +78,9 @@
             android:name=".activity.SampleMainActivity"
             android:label="@string/ex_sample_main"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SampleWAStickersActivity"
+            android:label="@string/ex_sample_wastickers" />
 
         <!-- IMPORTANT TO ADD BELOW CODE  -->
         <meta-data

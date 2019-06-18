@@ -1,6 +1,18 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.3.2.RC1] - 2019-06-18
+### Added
+- WAStickers: new sticker library added
+
+### Changed
+- Remote Config: sdk version updated
+
+
+## [1.3.1] - 2019-06-14
+### Changed
+- AppLocker: bugfix
+
 ## [1.3.0] - 2019-06-12
 ### Changed
 - Admob SDK and Facebook SDK versions upgraded

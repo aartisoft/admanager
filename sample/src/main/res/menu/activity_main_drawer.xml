@@ -38,6 +38,9 @@
         android:id="@+id/second2"
         android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_wastickers"
+            android:title="@string/wastickers" />
+        <item
             android:id="@+id/nav_applock"
             android:title="App Lock" />
 

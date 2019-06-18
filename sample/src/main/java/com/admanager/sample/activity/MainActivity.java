@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         clickMap.put(R.id.ex_recycler_view_custom_design, RecyclerViewCustomDesignActivity.class);
         clickMap.put(R.id.ex_recycler_view_custom, RecyclerViewCustomActivity.class);
         clickMap.put(R.id.ex_sample_main, SampleMainActivity.class);
+        clickMap.put(R.id.ex_sample_wastickers, SampleWAStickersActivity.class);
         clickMap.put(R.id.ex_pack_name_opener, PackNameOpenerActivity.class);
 
         for (Integer i : clickMap.keySet()) {

@@ -83,6 +83,10 @@
                 style="@style/main_button"
                 android:text="@string/ex_pack_name_opener" />
 
+            <Button
+                android:id="@+id/ex_sample_wastickers"
+                style="@style/main_button"
+                android:text="@string/ex_sample_wastickers" />
 
         </LinearLayout>
 
