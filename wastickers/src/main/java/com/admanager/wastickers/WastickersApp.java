@@ -19,7 +19,6 @@ import com.admanager.wastickers.utils.PermissionChecker;
 import com.admanager.wastickers.utils.Utils;
 import com.admanager.wastickers.utils.WAStickerHelper;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
 import java.io.File;
 import java.io.IOException;
@@ -69,10 +68,9 @@ public class WastickersApp {
                 final ImageView imageView = new ImageView(activity);
                 Glide.with(imageView.getContext())
                         .load(model.url)
-                        .apply(new RequestOptions()
-                                .placeholder(Utils.getRandomColoredDrawable())
-                                .fitCenter()
-                                .override(512, 512))
+                        .placeholder(Utils.getRandomColoredDrawable())
+                        .fitCenter()
+                        .override(512, 512)
                         .into(imageView);
                 new AlertDialog.Builder(activity)
                         .setTitle(model.packageName)

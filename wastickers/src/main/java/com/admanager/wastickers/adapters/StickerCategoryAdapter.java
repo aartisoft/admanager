@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
@@ -34,8 +33,6 @@ import com.admanager.wastickers.utils.Utils;
 import com.admanager.wastickers.utils.WAStickerHelper;
 import com.admanager.wastickers.utils.WorkCounter;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.io.File;
 import java.io.IOException;
@@ -119,10 +116,9 @@ public class StickerCategoryAdapter extends BaseAdapterWithAdmobNative<PackageMo
             public void bindTo(final Activity activity, final StickerPackContainer model, int position) {
                 Glide.with(itemView.getContext())
                         .load(model.url)
-                        .apply(new RequestOptions()
-                                .placeholder(Utils.getRandomColoredDrawable())
-                                .fitCenter()
-                                .override(Utils.DEFAULT_IMG_SIZE, Utils.DEFAULT_IMG_SIZE))
+                        .placeholder(Utils.getRandomColoredDrawable())
+                        .fitCenter()
+                        .override(Utils.DEFAULT_IMG_SIZE, Utils.DEFAULT_IMG_SIZE)
                         .into(image);
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -214,8 +210,6 @@ public class StickerCategoryAdapter extends BaseAdapterWithAdmobNative<PackageMo
 
             loading.show();
 
-            logAnalytics();
-
             new Thread() {
                 @Override
                 public void run() {
@@ -237,19 +231,6 @@ public class StickerCategoryAdapter extends BaseAdapterWithAdmobNative<PackageMo
                     });
                 }
             }.start();
-        }
-
-        private void logAnalytics() {
-            try {
-                FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(activity);
-                Bundle bundle = new Bundle();
-                bundle.putString(FirebaseAnalytics.Param.ITEM_ID, model.id);
-                bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, model.name);
-                bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
-                mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
-            } catch (Throwable e) {
-                e.printStackTrace();
-            }
         }
 
         private void download(final Activity activity, final PackageModel model) {
