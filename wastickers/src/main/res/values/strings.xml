@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">Wastickers</string>
-    <string name="wastickers">WAStickers</string>
-
-
+    <string name="app_name">Stickers</string>
+    <string name="wastickers">Stickers</string>
 </resources>
