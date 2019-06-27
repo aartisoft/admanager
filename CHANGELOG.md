@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.3.6] - 2019-06-27
+### Changed
+- bugfix
+
 ## [1.3.5] - 2019-06-21
 ### Changed
 - WAStickers: added back arrow to toolbar
