@@ -26,8 +26,8 @@
 
         <Button
             android:id="@+id/add_to_wa"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:layout_marginLeft="8dp"
             android:background="@drawable/ic_whatsapp"
             android:visibility="gone"
@@ -35,9 +35,9 @@
 
         <Button
             android:id="@+id/download"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:layout_marginLeft="18dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="30dp"
             android:background="@drawable/ic_download"
             android:visibility="gone"
             tools:visibility="visible" />
