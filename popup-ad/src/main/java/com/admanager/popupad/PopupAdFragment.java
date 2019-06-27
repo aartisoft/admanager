@@ -143,9 +143,17 @@ public class PopupAdFragment extends DialogFragment implements View.OnClickListe
         int id = v.getId();
         if (id == yes.getId()) {
             AdmUtils.openLink(getContext(), adSpecs.getUrl());
-            dismiss();
+            try {
+                dismiss();
+            } catch (Exception ignore) {
+                //rare situtation
+            }
         } else if (id == no.getId()) {
-            dismiss();
+            try {
+                dismiss();
+            } catch (Exception ignore) {
+                //rare situtation
+            }
         } else if (id == mute.getId()) {
             if (muted) {
                 unmute();

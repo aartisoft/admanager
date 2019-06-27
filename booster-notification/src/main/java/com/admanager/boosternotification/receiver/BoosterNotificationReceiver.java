@@ -15,6 +15,7 @@ import android.util.Log;
 import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.boosternotification.boost.BatteryBoostActivity;
 import com.admanager.boosternotification.boost.RamBoostActivity;
+import com.admanager.core.AdmUtils;
 
 public class BoosterNotificationReceiver extends BroadcastReceiver {
     public static final String TAG = "Booster";
@@ -45,6 +46,10 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
 
         final String action = intent.getAction();
         if (action == null) {
+            return;
+        }
+
+        if (AdmUtils.isContextInvalid(context)) {
             return;
         }
 
@@ -145,8 +150,10 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
 
     private void wifi(Context context) {
         WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-        boolean wifiEnabled = wifiManager.isWifiEnabled();
-        wifiManager.setWifiEnabled(!wifiEnabled);
+        if (wifiManager == null) {
+            return;
+        }
+        wifiManager.setWifiEnabled(!wifiManager.isWifiEnabled());
     }
 
 

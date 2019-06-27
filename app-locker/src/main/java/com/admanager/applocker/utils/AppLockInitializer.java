@@ -68,7 +68,11 @@ public class AppLockInitializer {
         }
 
         Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-        activity.startActivityForResult(intent, REQ_CODE_USAGE_STATS_PERM);
+        try {
+            activity.startActivityForResult(intent, REQ_CODE_USAGE_STATS_PERM);
+        } catch (Exception e) {
+            //  not exported from uid 1000
+        }
 
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
