@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.3.7] - 2019-06-28
+### Changed
+- AdmobNative: NATIVE_XL button size increased, amd added padding
+
 ## [1.3.6] - 2019-06-27
 ### Changed
 - bugfix
