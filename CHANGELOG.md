@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.3.8] - 2019-07-04
+### Changed
+- Tutorial: default tutorial button and bg color set as native Bg color
+
 ## [1.3.7] - 2019-06-28
 ### Changed
 - AdmobNative: NATIVE_XL button size increased, amd added padding
