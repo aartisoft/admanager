@@ -26,7 +26,7 @@ public class BatteryStatusReceiver extends BroadcastReceiver {
 
     public void updateUI(RemoteViews contentView, int containerId, int imageId, int textId) {
         if (level == -1) return;
-        contentView.setTextViewText(textId, String.format("%s %%", level));
+        contentView.setTextViewText(textId, String.format("%d %s", level, "%"));
         if (level < 20) {
             contentView.setImageViewResource(imageId, R.drawable.battery_poor);
         } else {

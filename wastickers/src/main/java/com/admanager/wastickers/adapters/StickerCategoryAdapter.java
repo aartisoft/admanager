@@ -24,6 +24,7 @@ import com.admanager.recyclerview.BaseAdapter;
 import com.admanager.recyclerview.BaseAdapterWithAdmobNative;
 import com.admanager.recyclerview.BindableViewHolder;
 import com.admanager.wastickers.R;
+import com.admanager.wastickers.WastickersApp;
 import com.admanager.wastickers.WhitelistCheck;
 import com.admanager.wastickers.model.PackageModel;
 import com.admanager.wastickers.model.StickerModel;
@@ -42,15 +43,17 @@ import java.util.List;
 public class StickerCategoryAdapter extends BaseAdapterWithAdmobNative<PackageModel, StickerCategoryAdapter.StickerPackViewHolder> {
     public static final String TAG = "GifCategoryAdapter";
     private final PermissionChecker permissionChecker;
+    private final WastickersApp configs;
     private StickerClickListener stickerClickListener;
 
-    public StickerCategoryAdapter(Activity activity, @NonNull PermissionChecker permissionChecker, String remoteConfigEnableKey, String remoteConfigIdKey) {
+    public StickerCategoryAdapter(Activity activity, @NonNull PermissionChecker permissionChecker, String remoteConfigEnableKey, String remoteConfigIdKey, WastickersApp configs) {
         super(activity, R.layout.item_image_group, null, showNative(remoteConfigEnableKey), nativeId(remoteConfigIdKey));
         this.permissionChecker = permissionChecker;
+        this.configs = configs;
     }
 
-    public StickerCategoryAdapter(Activity activity, PermissionChecker permissionChecker) {
-        this(activity, permissionChecker, "", "");
+    public StickerCategoryAdapter(Activity activity, PermissionChecker permissionChecker, WastickersApp configs) {
+        this(activity, permissionChecker, "", "", configs);
     }
 
     private static boolean showNative(String remoteConfigEnableKey) {
@@ -69,7 +72,16 @@ public class StickerCategoryAdapter extends BaseAdapterWithAdmobNative<PackageMo
 
     @Override
     public StickerPackViewHolder createViewHolder(View view) {
-        return new StickerPackViewHolder(view);
+        StickerPackViewHolder vh = new StickerPackViewHolder(view);
+        if (configs != null) {
+            if (configs.iconDownload != 0) {
+                vh.download.setBackgroundResource(configs.iconDownload);
+            }
+            if (configs.iconWA != 0) {
+                vh.add_to_wa.setBackgroundResource(configs.iconWA);
+            }
+        }
+        return vh;
     }
 
     public void setOnStickerClickListener(StickerClickListener listener) {

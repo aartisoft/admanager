@@ -146,7 +146,7 @@ public class PopupAdFragment extends DialogFragment implements View.OnClickListe
             try {
                 dismiss();
             } catch (Exception ignore) {
-                //rare situtation
+                //rare situation
             }
         } else if (id == no.getId()) {
             try {

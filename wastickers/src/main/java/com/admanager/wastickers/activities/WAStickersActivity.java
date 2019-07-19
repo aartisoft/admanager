@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 
 import com.admanager.wastickers.R;
 import com.admanager.wastickers.WastickersApp;
@@ -34,7 +35,21 @@ public class WAStickersActivity extends AppCompatActivity {
         permissionChecker = new PermissionChecker(this);
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
 
-        WastickersApp.loadAndBindTo(this, permissionChecker, recyclerView);
+        WastickersApp instance = WastickersApp.getInstance();
+        if (instance != null) {
+            if (instance.ads != null) {
+                instance.ads.loadTop(this, (LinearLayout) findViewById(R.id.top));
+                instance.ads.loadBottom(this, (LinearLayout) findViewById(R.id.bottom));
+            }
+            if (instance.title != null) {
+                setTitle(instance.title);
+            }
+            if (instance.bgColor != 0) {
+                recyclerView.setBackgroundColor(instance.bgColor);
+            }
+        }
+
+        WastickersApp.loadAndBindTo(this, permissionChecker, recyclerView, instance);
     }
 
     @Override

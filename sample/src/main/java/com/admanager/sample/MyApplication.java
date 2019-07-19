@@ -6,6 +6,7 @@ import com.admanager.applocker.AppLockerApp;
 import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.config.RemoteConfigApp;
 import com.admanager.periodicnotification.PeriodicNotificationApp;
+import com.admanager.wastickers.WastickersApp;
 
 public class MyApplication extends MultiDexApplication {
 
@@ -26,6 +27,9 @@ public class MyApplication extends MultiDexApplication {
                 .build();
 
         new AppLockerApp.Builder(this)
+                .build();
+
+        new WastickersApp.Builder(this)
                 .build();
     }
 
