@@ -99,13 +99,6 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         onPageSelected(0);
     }
 
-    @Override
-    public void onBackPressed() {
-        View view = new View(this);
-        view.setId(R.id.btn_next);
-        onClick(view);
-    }
-
     private void hideStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
