@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="popupadBg">#fafafa</color>
-    <color name="popupadTitle">#3C3C3C</color>
-    <color name="popupadBody">#696969</color>
-    <color name="popupadPositiveButton">#FF4F9A</color>
-    <color name="popupadNegativeButton">#8B8B8B</color>
-    <color name="popupadAdBg">#FFEDC9</color>
-</resources>

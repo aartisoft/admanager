@@ -41,13 +41,13 @@ buildscript {
 
 // In your app projects build.gradle file:
 dependencies {
-    implementation 'com.github.fgustovo.admanager:adapter-admob:1.2.12'
-    implementation 'com.github.fgustovo.admanager:adapter-unity:1.2.12'
-    implementation 'com.github.fgustovo.admanager:adapter-applovin:1.2.12'
-    implementation 'com.github.fgustovo.admanager:adapter-facebook:1.2.12'
-    implementation 'com.github.fgustovo.admanager:custom-banner:1.2.12'
-    implementation 'com.github.fgustovo.admanager:periodic-notification:1.2.12'
-    implementation 'com.github.fgustovo.admanager:popup-ad:1.2.12'
+    implementation 'com.github.fgustovo.admanager:adapter-admob:1.6.0'
+    implementation 'com.github.fgustovo.admanager:adapter-unity:1.6.0'
+    implementation 'com.github.fgustovo.admanager:adapter-applovin:1.6.0'
+    implementation 'com.github.fgustovo.admanager:adapter-facebook:1.6.0'
+    implementation 'com.github.fgustovo.admanager:custom-banner:1.6.0'
+    implementation 'com.github.fgustovo.admanager:periodic-notification:1.6.0'
+    implementation 'com.github.fgustovo.admanager:popup-promo:1.6.0'
 }
 ```
 

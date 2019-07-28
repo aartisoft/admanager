@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.6.0] - 2019-07-28
+### Changed
+- PopupAd: renamed as PopupPromo, and also dependency name "popup-ad" renamed as "popup-promo"
+
 ## [1.5.0] - 2019-07-24
 ### Changed
 - Tutorial: now back button closes the app

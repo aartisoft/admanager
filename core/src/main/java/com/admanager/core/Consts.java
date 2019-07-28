@@ -13,7 +13,7 @@ public class Consts {
         public static final String DEFAULT_CONTENT_KEY = "notif_content";
     }
 
-    public static class PopupAd {
+    public static class PopupPromo {
         public static final String DEFAULT_ENABLE_KEY = "userad_enable";
         public static final String DEFAULT_MESSAGE_KEY = "userad_message";
         public static final String DEFAULT_NO_KEY = "userad_no";

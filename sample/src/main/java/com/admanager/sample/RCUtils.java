@@ -101,15 +101,15 @@ public class RCUtils {
             defaults.put(Consts.PeriodicNotification.DEFAULT_TICKER_KEY, "");
             defaults.put(Consts.PeriodicNotification.DEFAULT_CONTENT_KEY, "");
 
-            defaults.put(Consts.PopupAd.DEFAULT_ENABLE_KEY, true);
-            defaults.put(Consts.PopupAd.DEFAULT_MESSAGE_KEY, "You can find whatever you want.");
-            defaults.put(Consts.PopupAd.DEFAULT_NO_KEY, "Not now");
-            defaults.put(Consts.PopupAd.DEFAULT_TITLE_KEY, "Do you want to see best app ever?");
-            defaults.put(Consts.PopupAd.DEFAULT_URL_KEY, "https://www.google.com");
-            defaults.put(Consts.PopupAd.DEFAULT_YES_KEY, "Great!");
-            defaults.put(Consts.PopupAd.DEFAULT_LOGO_URL_KEY, "https://lh3.googleusercontent.com/ICVLzXLgYXK1qpaq30txfWaJsA9DT_hOtWp5oesic8a_CJhQMtKue-G7-DnhyGxsPYM=s180-rw");
-            defaults.put(Consts.PopupAd.DEFAULT_VIDEO_URL_KEY, "https://www.50dirham.com/storage/file/ads/toy_blast.mp4"); //
-            defaults.put(Consts.PopupAd.DEFAULT_IMAGE_URL_KEY, ""); // http://oi48.tinypic.com/25exzle.jpg
+            defaults.put(Consts.PopupPromo.DEFAULT_ENABLE_KEY, true);
+            defaults.put(Consts.PopupPromo.DEFAULT_MESSAGE_KEY, "You can find whatever you want.");
+            defaults.put(Consts.PopupPromo.DEFAULT_NO_KEY, "Not now");
+            defaults.put(Consts.PopupPromo.DEFAULT_TITLE_KEY, "Do you want to see best app ever?");
+            defaults.put(Consts.PopupPromo.DEFAULT_URL_KEY, "https://www.google.com");
+            defaults.put(Consts.PopupPromo.DEFAULT_YES_KEY, "Great!");
+//            defaults.put(Consts.PopupPromo.DEFAULT_LOGO_URL_KEY, "https://lh3.googleusercontent.com/ICVLzXLgYXK1qpaq30txfWaJsA9DT_hOtWp5oesic8a_CJhQMtKue-G7-DnhyGxsPYM=s180-rw");
+//            defaults.put(Consts.PopupPromo.DEFAULT_VIDEO_URL_KEY, "https://www.50dirham.com/storage/file/ads/toy_blast.mp4"); //
+//            defaults.put(Consts.PopupPromo.DEFAULT_IMAGE_URL_KEY, ""); // http://oi48.tinypic.com/25exzle.jpg
 
             defaults.put(OPENER_DELAY, 2000);
         }

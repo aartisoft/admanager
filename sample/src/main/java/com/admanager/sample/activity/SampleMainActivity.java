@@ -15,7 +15,7 @@ import com.admanager.applocker.AppLockerApp;
 import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
-import com.admanager.popupad.AdmPopupAd;
+import com.admanager.popuppromo.AdmPopupPromo;
 import com.admanager.sample.R;
 import com.admanager.wastickers.activities.WAStickersActivity;
 
@@ -56,7 +56,7 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
         /*
          * show firebase popup Ad
          * */
-        new AdmPopupAd.Builder(this)
+        new AdmPopupPromo.Builder(this)
                 .build()
                 .show();
     }
@@ -78,7 +78,7 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.nav_dialogad) {
-            new AdmPopupAd.Builder(this)
+            new AdmPopupPromo.Builder(this)
                     .build()
                     .show();
         } else if (id == R.id.nav_wastickers) {

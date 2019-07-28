@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="popuppromoBg">#fafafa</color>
+    <color name="popuppromoTitle">#3C3C3C</color>
+    <color name="popuppromoBody">#696969</color>
+    <color name="popuppromoPositiveButton">#1d7119</color>
+    <color name="popuppromoNegativeButton">#8B8B8B</color>
+    <color name="popuppromoAdBg">#FADEA7</color>
+</resources>

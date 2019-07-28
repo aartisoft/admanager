@@ -1,1 +1,1 @@
-include ':config', ':adapter-facebook', ':adapter-admob', ':core', ':custom-banner', ':adapter-unity', ':adapter-applovin', ':adapter-ironsource', ':adapter-inmobi', ':adapter-mopub', ':sample', ':popup-ad', ':periodic-notification', ':booster-notification', ':app-locker', ':wastickers'
+include ':config', ':adapter-facebook', ':adapter-admob', ':core', ':custom-banner', ':adapter-unity', ':adapter-applovin', ':adapter-ironsource', ':adapter-inmobi', ':adapter-mopub', ':sample', ':popup-promo', ':periodic-notification', ':booster-notification', ':app-locker', ':wastickers'
