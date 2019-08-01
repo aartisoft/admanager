@@ -56,9 +56,9 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>, CONF extends Ad
 
         int gridSize = configuration.getGridSize();
 
-        if (gridSize > 1) {
+        if (gridSize > 1 && !configuration.isNativeInGrid()) {
             DEFAULT_NO_OF_DATA_BETWEEN_ADS = gridSize * configuration.getDensityForGrid();
-        } else if (gridSize == 1) {
+        } else if (gridSize == 1 || configuration.isNativeInGrid()) {
             DEFAULT_NO_OF_DATA_BETWEEN_ADS = configuration.getDensity();
         } else {
             DEFAULT_NO_OF_DATA_BETWEEN_ADS = 0;
@@ -244,6 +244,8 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>, CONF extends Ad
                 } else if (!show_native) {
                     return 1;
                 } else if (getItemViewType(position) == RowWrapper.Type.LIST.ordinal()) {
+                    return 1;
+                } else if (configuration.isNativeInGrid() && getItemViewType(position) == RowWrapper.Type.NATIVE_AD.ordinal()) {
                     return 1;
                 }
                 return configuration.getGridSize();

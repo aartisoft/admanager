@@ -10,6 +10,7 @@ public class AdmAdapterConfiguration<NATIVE_TYPE> {
     private int density = 3;
     private int customNativeLayout;
     private boolean densityChanged;
+    private boolean nativeInGrid;
     private NATIVE_TYPE type;
 
     public AdmAdapterConfiguration() {
@@ -27,6 +28,11 @@ public class AdmAdapterConfiguration<NATIVE_TYPE> {
 
     public AdmAdapterConfiguration<NATIVE_TYPE> customNativeLayout(@LayoutRes int customNativeLayout) {
         this.customNativeLayout = customNativeLayout;
+        return this;
+    }
+
+    public AdmAdapterConfiguration<NATIVE_TYPE> nativeInGrid() {
+        this.nativeInGrid = true;
         return this;
     }
 
@@ -50,6 +56,10 @@ public class AdmAdapterConfiguration<NATIVE_TYPE> {
 
     int getCustomNativeLayout() {
         return customNativeLayout;
+    }
+
+    boolean isNativeInGrid() {
+        return nativeInGrid;
     }
 
     int getDensityForGrid() {

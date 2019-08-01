@@ -157,6 +157,7 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
             case CUSTOM:
                 return onCreateCustomNativeViewHolder(view);
             case NATIVE_LARGE:
+            case NATIVE_XLARGE:
             case NATIVE_BANNER:
             case NATIVE_BANNER_XS:
             default:
@@ -171,6 +172,8 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
                 return configuration.getCustomNativeLayout();
             case NATIVE_LARGE:
                 return R.layout.ad_native_unified;
+            case NATIVE_XLARGE:
+                return R.layout.ad_native_unified_xl;
             case NATIVE_BANNER_XS:
                 return R.layout.ad_native_unified_xs;
             case NATIVE_BANNER:
@@ -181,6 +184,6 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
 
 
     public enum NativeType {
-        NATIVE_BANNER, NATIVE_BANNER_XS, NATIVE_LARGE, CUSTOM
+        NATIVE_BANNER, NATIVE_BANNER_XS, NATIVE_LARGE, NATIVE_XLARGE, CUSTOM
     }
 }
