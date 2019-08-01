@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.6.1] - 2019-08-01
+### Changed
+- List Native: you can display native ads inside a grid cell now
+
 ## [1.6.0] - 2019-07-28
 ### Changed
 - PopupAd: renamed as PopupPromo, and also dependency name "popup-ad" renamed as "popup-promo"
