@@ -31,6 +31,7 @@ public abstract class Adapter {
     public Adapter(String adapterName, String enableKey) {
         this.enableKey = enableKey;
         this.adapterName = adapterName;
+        withTimeout(15_000);
     }
 
     public Adapter withTimeout(@IntRange(from = 0, to = 120_000) int timeout) {

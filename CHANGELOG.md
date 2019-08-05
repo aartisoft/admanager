@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.6.2] - 2019-08-05
+### Changed
+- Timeout: 15 sec is default timeout for all adaptors
+
 ## [1.6.1] - 2019-08-01
 ### Changed
 - List Native: you can display native ads inside a grid cell now
