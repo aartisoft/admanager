@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.6.3] - 2019-08-31
+### Added
+- Wasticker: Search feature
+
 ## [1.6.2] - 2019-08-05
 ### Changed
 - Timeout: 15 sec is default timeout for all adaptors

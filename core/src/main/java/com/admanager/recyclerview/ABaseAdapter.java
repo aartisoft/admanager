@@ -164,7 +164,8 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>, CONF extends Ad
         return data;
     }
 
-    public final void setData(List<T> data) {
+    @CallSuper
+    public void setData(List<T> data) {
         this.data = data;
         this.rowWrappers = getRowWrappers();
         notifyDataSetChanged();

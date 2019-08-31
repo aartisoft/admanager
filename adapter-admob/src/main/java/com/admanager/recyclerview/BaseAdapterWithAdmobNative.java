@@ -43,6 +43,7 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
             if (isTestMode()) {
                 nativeAdUnitId = AdmobNativeLoader.ADMOB_NATIVE_TEST_ID;
             }
+
             mAdLoader = new AdLoader.Builder(activity, nativeAdUnitId)
                     .forUnifiedNativeAd(new UnifiedNativeAd.OnUnifiedNativeAdLoadedListener() {
                         @Override
@@ -62,12 +63,8 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
                     }).build();
         }
 
-        AdRequest.Builder builder = new AdRequest.Builder();
-        if (testDevice() != null) {
-            builder = builder.addTestDevice(testDevice());
-        }
-        mAdLoader.loadAds(builder.build(), 3);
-
+        AdRequest request = new AdRequest.Builder().build();
+        mAdLoader.loadAds(request, 3);
     }
 
     @Override
@@ -80,10 +77,6 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
     @Override
     protected final AdmAdapterConfiguration<NativeType> createDefaultConfiguration() {
         return new AdmAdapterConfiguration<>();
-    }
-
-    protected String testDevice() {
-        return null;
     }
 
     @Override

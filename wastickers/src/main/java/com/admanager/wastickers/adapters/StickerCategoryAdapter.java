@@ -10,6 +10,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,7 @@ import com.bumptech.glide.Glide;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class StickerCategoryAdapter extends BaseAdapterWithAdmobNative<PackageModel, StickerCategoryAdapter.StickerPackViewHolder> {
@@ -45,6 +47,7 @@ public class StickerCategoryAdapter extends BaseAdapterWithAdmobNative<PackageMo
     private final PermissionChecker permissionChecker;
     private final WastickersApp configs;
     private StickerClickListener stickerClickListener;
+    private List<PackageModel> originalList;
 
     public StickerCategoryAdapter(Activity activity, @NonNull PermissionChecker permissionChecker, String remoteConfigEnableKey, String remoteConfigIdKey, WastickersApp configs) {
         super(activity, R.layout.item_image_group, null, showNative(remoteConfigEnableKey), nativeId(remoteConfigIdKey));
@@ -86,6 +89,35 @@ public class StickerCategoryAdapter extends BaseAdapterWithAdmobNative<PackageMo
 
     public void setOnStickerClickListener(StickerClickListener listener) {
         stickerClickListener = listener;
+    }
+
+    @Override
+    public void setData(List<PackageModel> data) {
+        super.setData(data);
+        if (data == null) {
+            data = new ArrayList<>();
+        }
+        if (this.originalList == null) { // fill only the first time
+            this.originalList = new ArrayList<>(data);
+        }
+    }
+
+    public void filter(String query) {
+        if (this.originalList == null) {
+            return;
+        }
+        if (TextUtils.isEmpty(query)) {
+            setData(this.originalList);
+            return;
+        }
+        ArrayList<PackageModel> list = new ArrayList<>();
+        for (Iterator<PackageModel> it = this.originalList.iterator(); it.hasNext(); ) {
+            PackageModel next = it.next();
+            if (next.contains(query)) {
+                list.add(next);
+            }
+        }
+        setData(list);
     }
 
     public interface StickerClickListener {
