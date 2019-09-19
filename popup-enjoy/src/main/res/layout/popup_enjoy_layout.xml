@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:background="@color/popupenjoyBg">
 
 
@@ -17,8 +17,7 @@
         android:text="Enjoying our app?"
         android:textColor="@color/popupenjoyTitle"
         android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textStyle="bold" />
 
 
     <ImageView
@@ -31,17 +30,13 @@
         android:paddingRight="24dp"
         android:paddingBottom="12dp"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@id/container"
-        app:layout_constraintTop_toBottomOf="@id/title"
         tools:src="@tools:sample/backgrounds/scenic" />
 
     <LinearLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/footer"
-        app:layout_constraintTop_toBottomOf="@id/image_view" />
+        android:orientation="vertical" />
 
     <LinearLayout
         android:id="@+id/footer"
@@ -49,8 +44,7 @@
         android:layout_height="wrap_content"
         android:gravity="right"
         android:orientation="horizontal"
-        android:padding="12dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:padding="12dp">
 
         <Button
             android:id="@+id/no"
@@ -76,6 +70,6 @@
             android:textColor="@color/popupenjoyBg"
             android:textSize="18sp" />
     </LinearLayout>
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
 
 
