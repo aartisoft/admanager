@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.7.0] - 2019-09-19
+### Added
+- Enjoy: Enjoy dialog
+
 ## [1.6.3] - 2019-08-31
 ### Added
 - Wasticker: Search feature

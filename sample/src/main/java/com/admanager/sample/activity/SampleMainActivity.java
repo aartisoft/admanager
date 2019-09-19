@@ -1,5 +1,6 @@
 package com.admanager.sample.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,14 +10,21 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.admanager.admob.AdmobAdapter;
+import com.admanager.admob.AdmobNativeLoader;
 import com.admanager.applocker.AppLockerApp;
 import com.admanager.boosternotification.BoosterNotificationApp;
+import com.admanager.core.AdManager;
+import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
+import com.admanager.popupenjoy.AdmPopupEnjoy;
 import com.admanager.popuppromo.AdmPopupPromo;
 import com.admanager.sample.R;
+import com.admanager.sample.RCUtils;
 import com.admanager.wastickers.activities.WAStickersActivity;
 
 /**
@@ -59,6 +67,26 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
         new AdmPopupPromo.Builder(this)
                 .build()
                 .show();
+
+        /*
+         * show enjoy
+         * */
+        new AdmPopupEnjoy.Builder(this, new AdmPopupEnjoy.Ads() {
+            @Override
+            public AdManager createAdManager(Activity activity) {
+                return new AdManagerBuilder(activity)
+                        .add(new AdmobAdapter(RCUtils.MAIN_ADMOB_ENABLED).withRemoteConfigId(RCUtils.MAIN_ADMOB_ID))
+                        .build();
+            }
+
+            @Override
+            public void loadBottom(Activity activity, LinearLayout container) {
+                new AdmobNativeLoader(activity, container, RCUtils.NATIVE_ADMOB_ENABLED).loadWithRemoteConfigId(RCUtils.NATIVE_ADMOB_ID);
+            }
+        }).build()
+                .show();
+
+
     }
 
     private void toast(CharSequence title, boolean text) {

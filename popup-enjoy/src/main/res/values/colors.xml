@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="popupenjoyBg">#fafafa</color>
+    <color name="popupenjoyTitle">#3C3C3C</color>
+    <color name="popupenjoyBody">#696969</color>
+    <color name="popupenjoyPositiveButton">#1d7119</color>
+    <color name="popupenjoyNegativeButton">#8B8B8B</color>
+    <color name="popupenjoyAdBg">#FADEA7</color>
+</resources>

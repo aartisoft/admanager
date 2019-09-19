@@ -53,6 +53,7 @@ dependencies {
     implementation project(path: ':adapter-unity')
     implementation project(path: ':custom-banner')
     implementation project(path: ':popup-promo')
+    implementation project(path: ':popup-enjoy')
     implementation project(path: ':periodic-notification')
     implementation project(path: ':booster-notification')
     implementation project(path: ':app-locker')

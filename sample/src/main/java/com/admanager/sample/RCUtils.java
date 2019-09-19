@@ -111,6 +111,12 @@ public class RCUtils {
 //            defaults.put(Consts.PopupPromo.DEFAULT_VIDEO_URL_KEY, "https://www.50dirham.com/storage/file/ads/toy_blast.mp4"); //
 //            defaults.put(Consts.PopupPromo.DEFAULT_IMAGE_URL_KEY, ""); // http://oi48.tinypic.com/25exzle.jpg
 
+            defaults.put(Consts.PopupEnjoy.DEFAULT_ENABLE_KEY, true);
+            defaults.put(Consts.PopupEnjoy.DEFAULT_NO_KEY, "");
+            defaults.put(Consts.PopupEnjoy.DEFAULT_YES_KEY, "");
+            defaults.put(Consts.PopupEnjoy.DEFAULT_TITLE_KEY, "");
+            defaults.put(Consts.PopupEnjoy.DEFAULT_IMAGE_URL_KEY, "");
+
             defaults.put(OPENER_DELAY, 2000);
         }
         return defaults;

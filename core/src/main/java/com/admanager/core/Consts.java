@@ -25,4 +25,12 @@ public class Consts {
         public static final String DEFAULT_LOGO_URL_KEY = "userad_logo_url";
     }
 
+    public static class PopupEnjoy {
+        public static final String DEFAULT_ENABLE_KEY = "enjoy_enable";
+        public static final String DEFAULT_TITLE_KEY = "enjoy_title";
+        public static final String DEFAULT_YES_KEY = "enjoy_yes";
+        public static final String DEFAULT_NO_KEY = "enjoy_no";
+        public static final String DEFAULT_IMAGE_URL_KEY = "enjoy_image_url";
+    }
+
 }
