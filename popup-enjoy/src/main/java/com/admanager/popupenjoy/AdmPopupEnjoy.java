@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
 
-import com.admanager.core.AdManager;
+import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.AdmUtils;
 
 import java.io.Serializable;
@@ -18,21 +18,26 @@ public class AdmPopupEnjoy {
     private final EnjoySpecKeys keys;
     private final Ads ads;
     private final AppCompatActivity activity;
+    private final Listener listener;
 
-    private AdmPopupEnjoy(AppCompatActivity activity, EnjoySpecKeys keys, Ads ads) {
+    private AdmPopupEnjoy(AppCompatActivity activity, EnjoySpecKeys keys, Ads ads, Listener listener) {
         this.activity = activity;
         this.keys = keys;
         this.ads = ads;
+        this.listener = listener;
     }
 
     public void show() {
         final EnjoySpecs enjoySpecs = new EnjoySpecs(this.keys);
         if (!enjoySpecs.isEnable() || AdmUtils.isContextInvalid(activity)) {
+            if (listener != null) {
+                listener.completed(false);
+            }
             return;
         }
 
-        PopupEnjoyFragment fragment = PopupEnjoyFragment.createInstance(enjoySpecs, ads);
-        String tag = "popup_enjoy";
+        final PopupEnjoyFragment fragment = PopupEnjoyFragment.createInstance(enjoySpecs, ads, listener);
+        final String tag = "popup_enjoy";
         try {
             // for dismissing " Can not perform this action after onSaveInstanceState" error
             Fragment f = activity.getSupportFragmentManager().findFragmentByTag(tag);
@@ -42,23 +47,51 @@ public class AdmPopupEnjoy {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        try {
-            // for dismissing " Can not perform this action after onSaveInstanceState" error
-            fragment.show(activity.getSupportFragmentManager(), tag);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+
+                try {
+                    Thread.sleep(500L);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+                // for dismissing " Can not perform this action after onSaveInstanceState" error
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            fragment.show(activity.getSupportFragmentManager(), tag);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            if (listener != null) {
+                                listener.completed(false);
+                            }
+                        }
+
+                    }
+                });
+            }
+        }).start();
+
     }
 
     public interface Ads extends Serializable {
-        AdManager createAdManager(Activity activity);
+        AdManagerBuilder createAdManagerBuilder(Activity activity);
 
         void loadBottom(Activity activity, LinearLayout container);
+    }
+
+    public interface Listener {
+        void completed(boolean displayed);
     }
 
     public static class Builder {
 
         private final WeakReference<AppCompatActivity> activityWeakReference;
+        private Listener listener;
         private EnjoySpecKeys keys;
         private Ads ads;
 
@@ -67,6 +100,10 @@ public class AdmPopupEnjoy {
             this.ads = ads;
         }
 
+        public Builder listener(@NonNull Listener listener) {
+            this.listener = listener;
+            return this;
+        }
         public Builder withRemoteConfigKeys(@NonNull EnjoySpecKeys keys) {
             keys.validate();
             this.keys = keys;
@@ -82,7 +119,7 @@ public class AdmPopupEnjoy {
                 keys = new EnjoySpecKeys();
             }
             keys.setDefaultValues(act);
-            return new AdmPopupEnjoy(act, keys, ads);
+            return new AdmPopupEnjoy(act, keys, ads, listener);
         }
 
 

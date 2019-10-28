@@ -42,11 +42,13 @@ public class PopupPromoFragment extends DialogFragment implements View.OnClickLi
     private PromoSpecs promoSpecs;
 
     private boolean muted = true;
+    private AdmPopupPromo.Listener listener;
 
-    public static PopupPromoFragment createInstance(PromoSpecs promoSpecs) {
+    public static PopupPromoFragment createInstance(PromoSpecs promoSpecs, AdmPopupPromo.Listener listener) {
         PopupPromoFragment fragment = new PopupPromoFragment();
         fragment.setCancelable(false);
         fragment.promoSpecs = promoSpecs;
+        fragment.listener = listener;
         return fragment;
     }
 
@@ -145,12 +147,18 @@ public class PopupPromoFragment extends DialogFragment implements View.OnClickLi
             AdmUtils.openLink(getContext(), promoSpecs.getUrl());
             try {
                 dismiss();
+                if (listener != null) {
+                    listener.completed(true);
+                }
             } catch (Exception ignore) {
                 //rare situation
             }
         } else if (id == no.getId()) {
             try {
                 dismiss();
+                if (listener != null) {
+                    listener.completed(false);
+                }
             } catch (Exception ignore) {
                 //rare situtation
             }

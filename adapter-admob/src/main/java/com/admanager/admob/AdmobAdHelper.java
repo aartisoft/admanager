@@ -20,6 +20,10 @@ public class AdmobAdHelper {
 
     private static final String TAG = "MyAdmobHelper";
 
+    public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey) {
+        showNsecInters(N, context, remoteConfigEnableKey, remoteConfigIdKey, null);
+    }
+
     public static void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView adView) {
         // Set the media view. Media content will be automatically populated in the media view once
         // adView.setNativeAd() is called.
@@ -117,13 +121,16 @@ public class AdmobAdHelper {
         adView.setNativeAd(nativeAd);
     }
 
-    public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey) {
+    public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey, final Listener listener) {
         RemoteConfigHelper.init(context);
         boolean enable = RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey) && RemoteConfigHelper.areAdsEnabled();
         if (RemoteConfigHelper.isTestMode()) {
             enable = true;
         }
         if (!enable) {
+            if (listener != null) {
+                listener.completed(false);
+            }
             return;
         }
         new Handler().postDelayed(new Runnable() {
@@ -143,9 +150,27 @@ public class AdmobAdHelper {
                             ad.show();
                         }
                     }
+
+                    @Override
+                    public void onAdClosed() {
+                        if (listener != null) {
+                            listener.completed(true);
+                        }
+                    }
+
+                    @Override
+                    public void onAdFailedToLoad(int i) {
+                        if (listener != null) {
+                            listener.completed(false);
+                        }
+                    }
                 });
                 ad.loadAd(new AdRequest.Builder().build());
             }
         }, N);
+    }
+
+    public interface Listener {
+        void completed(boolean displayed);
     }
 }

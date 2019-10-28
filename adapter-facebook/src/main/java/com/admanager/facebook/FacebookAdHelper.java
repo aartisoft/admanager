@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.admanager.config.RemoteConfigHelper;
 import com.facebook.ads.AbstractAdListener;
 import com.facebook.ads.Ad;
+import com.facebook.ads.AdError;
 import com.facebook.ads.AdIconView;
 import com.facebook.ads.AdOptionsView;
 import com.facebook.ads.InterstitialAd;
@@ -30,14 +31,20 @@ public class FacebookAdHelper {
      * BANNER AD LOADER
      * */
 
-
     public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey) {
+        showNsecInters(N, context, remoteConfigEnableKey, remoteConfigIdKey, null);
+    }
+
+    public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey, final Listener listener) {
         RemoteConfigHelper.init(context);
         boolean enable = RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey) && RemoteConfigHelper.areAdsEnabled();
         if (RemoteConfigHelper.isTestMode()) {
             enable = true;
         }
         if (!enable) {
+            if (listener != null) {
+                listener.completed(false);
+            }
             return;
         }
         new Handler().postDelayed(new Runnable() {
@@ -54,12 +61,31 @@ public class FacebookAdHelper {
                         super.onAdLoaded(ad2);
                         if (ad.isAdLoaded()) {
                             ad.show();
+
+                        }
+                    }
+
+                    @Override
+                    public void onError(Ad ad, AdError error) {
+                        if (listener != null) {
+                            listener.completed(false);
+                        }
+                    }
+
+                    @Override
+                    public void onInterstitialDismissed(Ad ad) {
+                        if (listener != null) {
+                            listener.completed(true);
                         }
                     }
                 });
                 ad.loadAd();
             }
         }, N);
+    }
+
+    public interface Listener {
+        void completed(boolean displayed);
     }
 
     public static void attachNativeToContainer(LinearLayout adView, LinearLayout container) {

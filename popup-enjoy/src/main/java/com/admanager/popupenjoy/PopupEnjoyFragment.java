@@ -17,6 +17,8 @@ import android.widget.TextView;
 import com.admanager.core.AdManager;
 import com.bumptech.glide.Glide;
 
+import java.util.List;
+
 public class PopupEnjoyFragment extends DialogFragment implements View.OnClickListener {
     private static final String AD_SPECS = "enjoySpecs";
     private static final String TAG = "PopupEnjoyFragment";
@@ -27,12 +29,14 @@ public class PopupEnjoyFragment extends DialogFragment implements View.OnClickLi
     private EnjoySpecs enjoySpecs;
     private AdManager adManager;
     private AdmPopupEnjoy.Ads ads;
+    private AdmPopupEnjoy.Listener listener;
 
-    public static PopupEnjoyFragment createInstance(EnjoySpecs enjoySpecs, AdmPopupEnjoy.Ads ads) {
+    public static PopupEnjoyFragment createInstance(EnjoySpecs enjoySpecs, AdmPopupEnjoy.Ads ads, AdmPopupEnjoy.Listener listener) {
         PopupEnjoyFragment fragment = new PopupEnjoyFragment();
         fragment.setCancelable(false);
         fragment.enjoySpecs = enjoySpecs;
         fragment.ads = ads;
+        fragment.listener = listener;
         return fragment;
     }
 
@@ -51,7 +55,21 @@ public class PopupEnjoyFragment extends DialogFragment implements View.OnClickLi
         View view = inflater.inflate(R.layout.popup_enjoy_layout, parent, false);
         getDialog().setCanceledOnTouchOutside(false);
         if (ads != null) {
-            adManager = ads.createAdManager(getActivity());
+            adManager = ads.createAdManagerBuilder(getActivity())
+                    .listener(new AdManager.Listener() {
+                        @Override
+                        public void finishedAll() {
+                            if (listener != null) {
+                                listener.completed(false);
+                            }
+                        }
+
+                        @Override
+                        public void initializedAll(List<Boolean> loaded) {
+
+                        }
+                    })
+                    .build();
             ads.loadBottom(getActivity(), (LinearLayout) view.findViewById(R.id.container));
         }
 

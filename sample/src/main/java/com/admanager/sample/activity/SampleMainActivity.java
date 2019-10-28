@@ -13,11 +13,11 @@ import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.admanager.admob.AdmobAdHelper;
 import com.admanager.admob.AdmobAdapter;
 import com.admanager.admob.AdmobNativeLoader;
 import com.admanager.applocker.AppLockerApp;
 import com.admanager.boosternotification.BoosterNotificationApp;
-import com.admanager.core.AdManager;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
@@ -61,30 +61,44 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
          * */
         AppLockerApp.configureMenu(navView, R.id.nav_applock);
 
-        /*
-         * show firebase popup Ad
-         * */
-        new AdmPopupPromo.Builder(this)
-                .build()
-                .show();
+//        Homepage açılması -> 3sec inters -> enjoy pop up -> inters ->  firebase pop up
 
-        /*
-         * show enjoy
-         * */
-        new AdmPopupEnjoy.Builder(this, new AdmPopupEnjoy.Ads() {
+        /** STEP 1 - SHOW 3 SECS */
+        AdmobAdHelper.showNsecInters(3000, this, RCUtils.MAIN_3SEC_ADMOB_ENABLED, RCUtils.MAIN_3SEC_ADMOB_ID, new AdmobAdHelper.Listener() {
             @Override
-            public AdManager createAdManager(Activity activity) {
-                return new AdManagerBuilder(activity)
-                        .add(new AdmobAdapter(RCUtils.MAIN_ADMOB_ENABLED).withRemoteConfigId(RCUtils.MAIN_ADMOB_ID))
-                        .build();
-            }
+            public void completed(boolean displayed) {
+                /** STEP 2 - SHOW ENJOY */
 
-            @Override
-            public void loadBottom(Activity activity, LinearLayout container) {
-                new AdmobNativeLoader(activity, container, RCUtils.NATIVE_ADMOB_ENABLED).loadWithRemoteConfigId(RCUtils.NATIVE_ADMOB_ID);
+                AdmPopupEnjoy.Ads enjoyAds = new AdmPopupEnjoy.Ads() {
+                    @Override
+                    public AdManagerBuilder createAdManagerBuilder(Activity activity) {
+                        return new AdManagerBuilder(activity)
+                                .add(new AdmobAdapter(RCUtils.MAIN_ADMOB_ENABLED).withRemoteConfigId(RCUtils.MAIN_ADMOB_ID));
+                    }
+
+                    @Override
+                    public void loadBottom(Activity activity, LinearLayout container) {
+                        new AdmobNativeLoader(activity, container, RCUtils.NATIVE_ADMOB_ENABLED).loadWithRemoteConfigId(RCUtils.NATIVE_ADMOB_ID);
+                    }
+                };
+
+                AdmPopupEnjoy.Listener enjoyListener = new AdmPopupEnjoy.Listener() {
+                    @Override
+                    public void completed(boolean displayed) {
+                        /** STEP 3 - SHOW FIREBASE POPUP */
+                        new AdmPopupPromo.Builder(SampleMainActivity.this)
+                                .build()
+                                .show();
+
+                    }
+                };
+
+                new AdmPopupEnjoy.Builder(SampleMainActivity.this, enjoyAds)
+                        .listener(enjoyListener)
+                        .build().show();
+
             }
-        }).build()
-                .show();
+        });
 
 
     }
