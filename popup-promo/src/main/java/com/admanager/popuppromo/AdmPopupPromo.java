@@ -105,13 +105,12 @@ public class AdmPopupPromo {
 
         public AdmPopupPromo build() {
             AppCompatActivity act = this.activityWeakReference.get();
-            if (AdmUtils.isContextInvalid(act)) {
-                return null;
-            }
             if (keys == null) {
                 keys = new PromoSpecKeys();
             }
-            keys.setDefaultValues(act);
+            if (!AdmUtils.isContextInvalid(act)) {
+                keys.setDefaultValues(act);
+            }
             return new AdmPopupPromo(act, keys, listener);
         }
 

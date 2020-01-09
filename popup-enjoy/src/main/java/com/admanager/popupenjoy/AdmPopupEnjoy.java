@@ -112,13 +112,12 @@ public class AdmPopupEnjoy {
 
         public AdmPopupEnjoy build() {
             AppCompatActivity act = this.activityWeakReference.get();
-            if (AdmUtils.isContextInvalid(act)) {
-                return null;
-            }
             if (keys == null) {
                 keys = new EnjoySpecKeys();
             }
-            keys.setDefaultValues(act);
+            if (!AdmUtils.isContextInvalid(act)) {
+                keys.setDefaultValues(act);
+            }
             return new AdmPopupEnjoy(act, keys, ads, listener);
         }
 
