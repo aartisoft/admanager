@@ -12,6 +12,7 @@ import android.support.annotation.IntRange;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.StringRes;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -29,15 +30,17 @@ public class AdmTutorialConfiguration {
     int pageLayout = R.layout.adm_tutorial_page;
     int buttonTextNext = R.string.adm_tutorial_next;
     int buttonTextLast = R.string.adm_tutorial_goto_app;
+    boolean moveAdToTop;
     private int textColor;
     private int textSize;
     private int buttonTextSize;
     private int buttonTextColor;
     private int buttonBg;
-    boolean moveAdToTop;
     private LinearLayout.LayoutParams buttonLayoutParams;
     private int buttonBgColor;
     private int dotsColor;
+    private boolean reverseDrawingOrder;
+    private ViewPager.PageTransformer transformer;
     private int[] bgColor;
     private int[] bg;
 
@@ -91,6 +94,16 @@ public class AdmTutorialConfiguration {
 
     public AdmTutorialConfiguration buttonBgColor(@ColorRes int buttonBgColor) {
         this.buttonBgColor = buttonBgColor;
+        return this;
+    }
+
+    public AdmTutorialConfiguration transformerReverseDrawingOrder(boolean reverseDrawingOrder) {
+        this.reverseDrawingOrder = reverseDrawingOrder;
+        return this;
+    }
+
+    public AdmTutorialConfiguration transformer(ViewPager.PageTransformer transformer) {
+        this.transformer = transformer;
         return this;
     }
 
@@ -209,5 +222,12 @@ public class AdmTutorialConfiguration {
                 dots.setStrokeDotsIndicatorColor(ContextCompat.getColor(dots.getContext(), dotsColor));
             }
         }
+    }
+
+    void applyViewPagerTransformer(ViewPager viewPager) {
+        if (transformer == null) {
+            return;
+        }
+        viewPager.setPageTransformer(reverseDrawingOrder, transformer);
     }
 }

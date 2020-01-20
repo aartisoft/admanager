@@ -90,6 +90,8 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         MyViewPagerAdapter myViewPagerAdapter = new MyViewPagerAdapter();
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(this);
+        configuration.applyViewPagerTransformer(viewPager);
+
         waWormDotsIndicator.setViewPager(viewPager);
         configuration.applyDotsLayoutStyle(waWormDotsIndicator);
 
