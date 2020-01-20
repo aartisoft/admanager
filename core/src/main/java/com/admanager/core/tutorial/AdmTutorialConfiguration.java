@@ -97,12 +97,8 @@ public class AdmTutorialConfiguration {
         return this;
     }
 
-    public AdmTutorialConfiguration transformerReverseDrawingOrder(boolean reverseDrawingOrder) {
+    public AdmTutorialConfiguration setPageTransformer(boolean reverseDrawingOrder, ViewPager.PageTransformer transformer) {
         this.reverseDrawingOrder = reverseDrawingOrder;
-        return this;
-    }
-
-    public AdmTutorialConfiguration transformer(ViewPager.PageTransformer transformer) {
         this.transformer = transformer;
         return this;
     }
