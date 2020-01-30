@@ -76,6 +76,7 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         btnNext.setOnClickListener(this);
         configuration.applyRootLayoutStyle(root, 0);
         configuration.applyButtonStyle(btnNext, 0);
+        configuration.applyViewPagerPadding(viewPager);
 
         // Let developer to define pages
         addTutorialPages();
@@ -154,7 +155,12 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
     protected abstract AdManagerBuilder createAdManagerBuilder();
 
     protected final void addPage(@StringRes int desc, @DrawableRes int image) {
+        addPage(0, desc, image);
+    }
+
+    protected final void addPage(@StringRes int title, @StringRes int desc, @DrawableRes int image) {
         View view = layoutInflater.inflate(configuration.pageLayout, null);
+        TextView tvTitle = view.findViewById(R.id.title);
         TextView tvDesc = view.findViewById(R.id.desc);
         ImageView iv = view.findViewById(R.id.image);
 
@@ -165,9 +171,15 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
             throw new IllegalStateException("Define an ImageView with id 'image' into the page layout");
         }
 
-        configuration.applyPageLayoutStyle(tvDesc);
+        configuration.applyPageLayoutStyle(tvDesc, tvTitle);
         if (desc != 0) {
             tvDesc.setText(desc);
+        }
+        if (title != 0) {
+            tvTitle.setText(title);
+            tvTitle.setVisibility(View.VISIBLE);
+        } else {
+            tvTitle.setVisibility(View.GONE);
         }
         if (image != 0) {
             iv.setImageDrawable(ContextCompat.getDrawable(this, image));

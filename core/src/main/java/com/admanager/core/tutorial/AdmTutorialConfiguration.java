@@ -33,6 +33,8 @@ public class AdmTutorialConfiguration {
     boolean moveAdToTop;
     private int textColor;
     private int textSize;
+    private int titleColor;
+    private int titleSize;
     private int buttonTextSize;
     private int buttonTextColor;
     private int buttonBg;
@@ -43,6 +45,7 @@ public class AdmTutorialConfiguration {
     private ViewPager.PageTransformer transformer;
     private int[] bgColor;
     private int[] bg;
+    private int[] viewPagerPadding;
 
     public AdmTutorialConfiguration(Context context) {
     }
@@ -59,6 +62,35 @@ public class AdmTutorialConfiguration {
 
     public AdmTutorialConfiguration textSize(@IntRange(from = 8, to = 99) int textSize) {
         this.textSize = textSize;
+        return this;
+    }
+
+    public AdmTutorialConfiguration titleColor(@ColorRes int titleColor) {
+        this.titleColor = titleColor;
+        return this;
+    }
+
+    public AdmTutorialConfiguration titleSize(@IntRange(from = 8, to = 99) int titleSize) {
+        this.titleSize = titleSize;
+        return this;
+    }
+
+    public AdmTutorialConfiguration viewPagerPadding(@IntRange(from = 0, to = 24) int left,
+                                                     @IntRange(from = 0, to = 24) int top,
+                                                     @IntRange(from = 0, to = 24) int right,
+                                                     @IntRange(from = 0, to = 24) int bottom) {
+        this.viewPagerPadding = new int[]{left, top, right, bottom};
+        return this;
+    }
+
+    public AdmTutorialConfiguration viewPagerPadding(@IntRange(from = 0, to = 24) int leftRight,
+                                                     @IntRange(from = 0, to = 24) int topBottom) {
+        this.viewPagerPadding = new int[]{leftRight, topBottom, leftRight, topBottom};
+        return this;
+    }
+
+    public AdmTutorialConfiguration viewPagerPadding(@IntRange(from = 0, to = 24) int all) {
+        this.viewPagerPadding = new int[]{all, all, all, all};
         return this;
     }
 
@@ -143,13 +175,21 @@ public class AdmTutorialConfiguration {
         return this;
     }
 
-    void applyPageLayoutStyle(TextView desc) {
+    void applyPageLayoutStyle(TextView desc, TextView title) {
         if (desc != null) {
             if (textColor != 0) {
                 desc.setTextColor(ContextCompat.getColor(desc.getContext(), textColor));
             }
             if (textSize != 0) {
                 desc.setTextSize(textSize);
+            }
+        }
+        if (title != null) {
+            if (titleColor != 0) {
+                title.setTextColor(ContextCompat.getColor(title.getContext(), titleColor));
+            }
+            if (titleSize != 0) {
+                title.setTextSize(titleSize);
             }
         }
     }
@@ -225,5 +265,11 @@ public class AdmTutorialConfiguration {
             return;
         }
         viewPager.setPageTransformer(reverseDrawingOrder, transformer);
+    }
+
+    void applyViewPagerPadding(ViewPager viewPager) {
+        if (viewPager != null && viewPagerPadding != null && viewPagerPadding.length == 4) {
+            viewPager.setPadding(viewPagerPadding[0], viewPagerPadding[1], viewPagerPadding[2], viewPagerPadding[3]);
+        }
     }
 }
