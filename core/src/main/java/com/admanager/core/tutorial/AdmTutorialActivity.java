@@ -175,12 +175,15 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         if (desc != 0) {
             tvDesc.setText(desc);
         }
-        if (title != 0) {
-            tvTitle.setText(title);
-            tvTitle.setVisibility(View.VISIBLE);
-        } else {
-            tvTitle.setVisibility(View.GONE);
+        if (tvTitle != null) {
+            if (title != 0) {
+                tvTitle.setText(title);
+                tvTitle.setVisibility(View.VISIBLE);
+            } else {
+                tvTitle.setVisibility(View.GONE);
+            }
         }
+
         if (image != 0) {
             iv.setImageDrawable(ContextCompat.getDrawable(this, image));
         }
