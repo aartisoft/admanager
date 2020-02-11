@@ -18,12 +18,18 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
 
     private String appId;
     private String zoneId;
+    private String tag;
     private int layoutId = R.layout.custom_layout_native_250;
     private AdMostViewBinder binder;
     private AdMostView NATIVE;
 
     public AdMostNativeLoader(Activity activity, LinearLayout adContainer, @Size(min = com.admanager.core.Consts.RC_KEY_SIZE) String rcEnableKey) {
         super(activity, "AdMost", adContainer, rcEnableKey);
+    }
+
+    public AdMostNativeLoader tag(@Size(min = 1, max = 30) String tag) {
+        this.tag = tag;
+        return this;
     }
 
     public AdMostNativeLoader size(@NonNull NativeType type) {
@@ -129,7 +135,12 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
             }
 
         }, binder);
-        NATIVE.load();
+
+        if (this.tag == null) {
+            NATIVE.load();
+        } else {
+            NATIVE.load(this.tag);
+        }
     }
 
     @Override

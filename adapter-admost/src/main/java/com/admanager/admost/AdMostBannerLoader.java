@@ -19,11 +19,17 @@ public class AdMostBannerLoader extends BannerLoader<AdMostBannerLoader> {
 
     private String appId;
     private String zoneId;
+    private String tag;
     private int size = AdMostManager.AD_BANNER;
     private AdMostView BANNER;
 
     public AdMostBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
         super(activity, "AdMost", adContainer, rcEnableKey);
+    }
+
+    public AdMostBannerLoader tag(@Size(min = 1, max = 30) String tag) {
+        this.tag = tag;
+        return this;
     }
 
     public AdMostBannerLoader size(@IntRange(from = 0, to = 1000) int size) {
@@ -89,7 +95,12 @@ public class AdMostBannerLoader extends BannerLoader<AdMostBannerLoader> {
             }
 
         }, null);
-        BANNER.load();
+
+        if (this.tag == null) {
+            BANNER.load();
+        } else {
+            BANNER.load(this.tag);
+        }
     }
 
     @Override

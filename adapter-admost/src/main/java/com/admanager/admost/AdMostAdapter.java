@@ -49,6 +49,7 @@ public class AdMostAdapter extends Adapter {
     };
     private String appId;
     private String zoneId;
+    private String tag;
     private AdMostInterstitial ad;
     private boolean anyIdMethodCalled;
 
@@ -117,6 +118,12 @@ public class AdMostAdapter extends Adapter {
         return this;
     }
 
+    public AdMostAdapter tag(@Size(min = 1, max = 30) String tag) {
+        this.tag = tag;
+        return this;
+    }
+
+
     @Override
     protected void init() {
         if (!anyIdMethodCalled) {
@@ -152,7 +159,11 @@ public class AdMostAdapter extends Adapter {
     @Override
     protected void show() {
         if (ad != null && ad.isLoaded()) {
-            ad.show();
+            if (this.tag == null) {
+                ad.show();
+            } else {
+                ad.show(this.tag);
+            }
         } else {
             closed();
             loge("NOT LOADED");
