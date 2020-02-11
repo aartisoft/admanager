@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">بوصلة</string>
+    <string name="compass_no_sensor">الجهاز لا يدعم المستشعر!</string>
+</resources>

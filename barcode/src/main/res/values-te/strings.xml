@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">బార్కోడ్</string>
+
+    <string name="grant_permission">అనుమతి మంజూరు</string>
+    <string name="permission_camera">బార్‌కోడ్‌ను స్కాన్ చేయడానికి ఈ అనువర్తనానికి కెమెరా అనుమతి అవసరం</string>
+    <string name="low_storage_error">పరికర నిల్వ తక్కువగా ఉన్నందున ఫేస్ డిటెక్టర్ డిపెండెన్సీలను డౌన్‌లోడ్ చేయడం సాధ్యం కాదు</string>
+    <string name="grant">GRANT</string>
+    <string name="cancel">రద్దు చేయండి</string>
+    <string name="copied_to_clipboard">క్లిప్‌బోర్డ్‌కు కాపీ చేయబడింది</string>
+
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">திசைகாட்டி</string>
+    <string name="compass_no_sensor">சாதனம் சென்சார் ஆதரிக்கவில்லை!</string>
+</resources>

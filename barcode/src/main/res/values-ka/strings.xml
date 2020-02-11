@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">შტრიხ-კოდი</string>
+
+    <string name="grant_permission">გრანტის ნებართვა</string>
+    <string name="permission_camera">ამ აპიკას სჭირდება კამერის ნებართვა შტრიხ-კოდირების სკანირებისთვის</string>
+    <string name="low_storage_error">სახის დეტექტორის დამოკიდებულებების ჩამოტვირთვა შეუძლებელია მოწყობილობის დაბალი შენახვის გამო</string>
+    <string name="grant">საგრანტო</string>
+    <string name="cancel">კანკალი</string>
+    <string name="copied_to_clipboard">გადაწერა ბუფერში</string>
+
+</resources>

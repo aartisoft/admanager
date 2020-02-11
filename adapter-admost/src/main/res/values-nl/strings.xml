@@ -1,0 +1,6 @@
+<resources>
+    <string name="admost_gdpr_text">We personaliseren uw advertentie-ervaring met behulp van deze applicatie en zijn partners. Door uw toestemming te geven voor deze verbeterde advertentie-ervaring, krijgt u meer relevante advertenties voor u te zien. deze Applicatie en haar partners kunnen apparaat-ID\'s, locatiegegevens en andere demografische en interessegegevens over u verzamelen en verwerken om op u afgestemde advertentie-ervaring te bieden. Lees meer op de webpagina van het beleid: http://resources.admost.com/privacy-policy Door hiermee akkoord te gaan, bevestigt u dat u ouder bent dan 16 en een gepersonaliseerde advertentie-ervaring wenst.</string>
+    <string name="admost_gdpr_yes">JA, IK BEN HET ERMEE EENS</string>
+    <string name="admost_gdpr_no">NEE, DANK U</string>
+    <string name="admost_gdpr_title">Personaliseer uw advertentie-ervaring</string>
+</resources>

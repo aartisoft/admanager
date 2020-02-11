@@ -1,0 +1,6 @@
+<resources>
+    <string name="admost_gdpr_text">我们使用此应用程序及其合作伙伴来个性化您的广告体验。同意这种改善的广告体验，您会看到更多与您相关的广告。本应用程序及其合作伙伴可能会收集和处理有关您的设备标识符，位置数据以及其他人口统计数据和兴趣数据，以提供适合您的广告体验。通过访问政策网页了解更多信息：http://resources.admost.com/privacy-policy同意即表示您确认自己已年满16岁，并希望获得个性化的广告体验。</string>
+    <string name="admost_gdpr_yes">是的我同意</string>
+    <string name="admost_gdpr_no">不，谢谢</string>
+    <string name="admost_gdpr_title">个性化您的广告体验</string>
+</resources>

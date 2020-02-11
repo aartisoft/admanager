@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">La bàn</string>
+    <string name="compass_no_sensor">Thiết bị không hỗ trợ cảm biến!</string>
+</resources>

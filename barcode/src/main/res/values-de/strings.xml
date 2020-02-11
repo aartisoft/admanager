@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">Barcode</string>
+
+    <string name="grant_permission">Erteilen Sie die Erlaubnis</string>
+    <string name="permission_camera">Diese App benötigt eine Kameraberechtigung zum Scannen von Barcodes</string>
+    <string name="low_storage_error">Gesichtserkennungsabhängigkeiten können aufgrund des geringen Gerätespeichers nicht heruntergeladen werden</string>
+    <string name="grant">GEWÄHREN</string>
+    <string name="cancel">STORNIEREN</string>
+    <string name="copied_to_clipboard">In die Zwischenablage kopiert</string>
+
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">कम्पास</string>
+    <string name="compass_no_sensor">उपकरणले सेन्सर समर्थन गर्दैन!</string>
+</resources>

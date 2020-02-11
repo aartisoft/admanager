@@ -17,7 +17,9 @@ import com.admanager.admob.AdmobAdHelper;
 import com.admanager.admob.AdmobAdapter;
 import com.admanager.admob.AdmobNativeLoader;
 import com.admanager.applocker.AppLockerApp;
+import com.admanager.barcode.activities.BarcodeReaderActivity;
 import com.admanager.boosternotification.BoosterNotificationApp;
+import com.admanager.compass.activities.CompassActivity;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
@@ -125,6 +127,10 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
                     .show();
         } else if (id == R.id.nav_wastickers) {
             WAStickersActivity.start(this);
+        } else if (id == R.id.nav_barcode_reader) {
+            BarcodeReaderActivity.start(this);
+        } else if (id == R.id.nav_compass) {
+            CompassActivity.start(this);
         } else if (id == R.id.nav_share) {
             ShareUtils.shareApp(this, "Lets check interesting app", true);
         } else if (id == R.id.isConnected) {

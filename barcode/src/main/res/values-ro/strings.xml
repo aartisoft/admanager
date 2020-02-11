@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">coduri de bare</string>
+
+    <string name="grant_permission">Permisie garantata</string>
+    <string name="permission_camera">Această aplicație are nevoie de permisiunea camerei pentru a scana codul de bare</string>
+    <string name="low_storage_error">Dependențele detectorului de față nu pot fi descărcate din cauza stocării scăzute a dispozitivului</string>
+    <string name="grant">ACORDA</string>
+    <string name="cancel">ANULARE</string>
+    <string name="copied_to_clipboard">Copiat în clipboard</string>
+
+</resources>

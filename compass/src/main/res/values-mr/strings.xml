@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">कंपास</string>
+    <string name="compass_no_sensor">डिव्हाइस सेन्सरला समर्थन देत नाही!</string>
+</resources>

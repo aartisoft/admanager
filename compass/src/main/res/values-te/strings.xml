@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">కంపాస్</string>
+    <string name="compass_no_sensor">పరికరం సెన్సార్‌కు మద్దతు ఇవ్వదు!</string>
+</resources>

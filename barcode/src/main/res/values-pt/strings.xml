@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">Código de barras</string>
+
+    <string name="grant_permission">Conceder permissão</string>
+    <string name="permission_camera">Este aplicativo precisa de permissão da câmera para digitalizar código de barras</string>
+    <string name="low_storage_error">As dependências do detector de rosto não podem ser baixadas devido ao baixo armazenamento do dispositivo</string>
+    <string name="grant">CONCEDER</string>
+    <string name="cancel">CANCELAR</string>
+    <string name="copied_to_clipboard">Copiado para a área de transferência</string>
+
+</resources>

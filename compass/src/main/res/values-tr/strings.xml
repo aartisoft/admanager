@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">Pusula</string>
+    <string name="compass_no_sensor">Cihaz sensörü desteklemiyor!</string>
+</resources>

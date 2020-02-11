@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">罗盘</string>
+    <string name="compass_no_sensor">设备不支持传感器！</string>
+</resources>

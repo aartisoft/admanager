@@ -1,0 +1,6 @@
+<resources>
+    <string name="admost_gdpr_text">Chúng tôi cá nhân hóa trải nghiệm quảng cáo của bạn bằng Ứng dụng này và các đối tác của nó. Bằng cách đồng ý với trải nghiệm quảng cáo được cải thiện này, bạn sẽ thấy nhiều quảng cáo phù hợp hơn cho mình. Ứng dụng này và các đối tác của mình có thể thu thập và xử lý số nhận dạng thiết bị, dữ liệu vị trí và dữ liệu nhân khẩu học và sở thích khác về bạn để cung cấp trải nghiệm quảng cáo phù hợp với bạn. Tìm hiểu thêm bằng cách truy cập trang web chính sách: http://resource.adest.com/privacy-policy Bằng cách đồng ý, bạn xác nhận rằng bạn trên 16 tuổi và muốn trải nghiệm quảng cáo được cá nhân hóa.</string>
+    <string name="admost_gdpr_yes">VÂNG TÔI ĐỒNG Ý</string>
+    <string name="admost_gdpr_no">KHÔNG CÁM ƠN</string>
+    <string name="admost_gdpr_title">Cá nhân hóa trải nghiệm quảng cáo của bạn</string>
+</resources>

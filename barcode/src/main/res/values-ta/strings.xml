@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">பார்கோடு</string>
+
+    <string name="grant_permission">அனுமதி வழங்குதல்</string>
+    <string name="permission_camera">பார்கோடு ஸ்கேன் செய்ய இந்த பயன்பாட்டிற்கு கேமரா அனுமதி தேவை</string>
+    <string name="low_storage_error">சாதன சேமிப்பிடம் குறைவாக இருப்பதால் ஃபேஸ் டிடெக்டர் சார்புகளை பதிவிறக்கம் செய்ய முடியாது</string>
+    <string name="grant">GRANT ஆனது</string>
+    <string name="cancel">CANCEL</string>
+    <string name="copied_to_clipboard">கிளிப்போர்டுக்கு நகலெடுக்கப்பட்டது</string>
+
+</resources>

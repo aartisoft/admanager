@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">Штрих-код</string>
+
+    <string name="grant_permission">Предоставить разрешение</string>
+    <string name="permission_camera">Это приложение требует разрешения камеры для сканирования штрих-кода</string>
+    <string name="low_storage_error">Зависимости детектора лиц не могут быть загружены из-за нехватки памяти устройства</string>
+    <string name="grant">ГРАНТ</string>
+    <string name="cancel">ОТМЕНА</string>
+    <string name="copied_to_clipboard">Скопировано в буфер обмена</string>
+
+</resources>

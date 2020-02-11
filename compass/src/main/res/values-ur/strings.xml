@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">کمپاس</string>
+    <string name="compass_no_sensor">آلہ سینسر کی حمایت نہیں کرتا!</string>
+</resources>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">バーコード</string>
+
+    <string name="grant_permission">許可を与える</string>
+    <string name="permission_camera">このアプリはバーコードをスキャンするためにカメラの許可が必要です</string>
+    <string name="low_storage_error">デバイスストレージが少ないため、顔検出器の依存関係をダウンロードできません</string>
+    <string name="grant">付与</string>
+    <string name="cancel">キャンセル</string>
+    <string name="copied_to_clipboard">クリップボードにコピーしました</string>
+
+</resources>

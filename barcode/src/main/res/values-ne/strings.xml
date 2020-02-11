@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">बारकोड</string>
+
+    <string name="grant_permission">अनुदान अनुमति</string>
+    <string name="permission_camera">यस अनुप्रयोगलाई बारकोड स्क्यान गर्न क्यामेरा अनुमति चाहिन्छ</string>
+    <string name="low_storage_error">अनुहार डिटेक्टर निर्भरताहरू कम उपकरण भण्डारणको कारण डाउनलोड गर्न सकिदैन</string>
+    <string name="grant">अनुदान</string>
+    <string name="cancel">रद्द गर्नुहोस्</string>
+    <string name="copied_to_clipboard">क्लिपबोर्डमा प्रतिलिपि गरियो</string>
+
+</resources>

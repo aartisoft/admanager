@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">بارکوڈ</string>
+
+    <string name="grant_permission">گرانٹ اجازت</string>
+    <string name="permission_camera">اس ایپ کو بار کوڈ اسکین کرنے کے لئے کیمرے کی اجازت درکار ہے</string>
+    <string name="low_storage_error">ڈیوائس اسٹوریج کی وجہ سے چہرے کا پتہ لگانے والا انحصار ڈاؤن لوڈ نہیں کیا جاسکتا</string>
+    <string name="grant">عطا</string>
+    <string name="cancel">کینسل</string>
+    <string name="copied_to_clipboard">کلپ بورڈ میں کاپی</string>
+
+</resources>

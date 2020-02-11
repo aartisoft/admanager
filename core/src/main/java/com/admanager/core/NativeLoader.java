@@ -14,9 +14,9 @@ import android.widget.LinearLayout;
 import com.admanager.config.RemoteConfigHelper;
 
 public abstract class NativeLoader<L extends NativeLoader> {
-    private final String adapterName;
     public static final int DEFAULT_BORDER_SIZE = 2;
     public static final int DEFAULT_BORDER_COLOR = R.color.colorPrimary;
+    private final String adapterName;
     private final LinearLayout container;
     private final LinearLayout adContainer;
     private String TAG;
@@ -34,12 +34,12 @@ public abstract class NativeLoader<L extends NativeLoader> {
 
         @Override
         public void onActivityResumed(Activity activity) {
-
+            onResume();
         }
 
         @Override
         public void onActivityPaused(Activity activity) {
-
+            onPause();
         }
 
         @Override
@@ -149,6 +149,12 @@ public abstract class NativeLoader<L extends NativeLoader> {
 
     }
 
+    public void onResume() {
+    }
+
+    public void onPause() {
+    }
+
     protected void initContainer() {
         initContainer(null);
     }
@@ -162,8 +168,9 @@ public abstract class NativeLoader<L extends NativeLoader> {
         addBorderView(bottomSizeDp, bottomColor);
 
         if (view != null) {
-            if (view.getParent() != null)
+            if (view.getParent() != null) {
                 ((ViewGroup) view.getParent()).removeView(view);
+            }
             adContainer.addView(view);
             if (listener != null) {
                 listener.loaded();

@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">Mã vạch</string>
+
+    <string name="grant_permission">Cấp phép</string>
+    <string name="permission_camera">Ứng dụng này cần sự cho phép của máy ảnh để quét mã vạch</string>
+    <string name="low_storage_error">Không thể tải xuống phụ thuộc máy dò khuôn mặt do lưu trữ thiết bị thấp</string>
+    <string name="grant">BAN CHO</string>
+    <string name="cancel">HỦY BỎ</string>
+    <string name="copied_to_clipboard">Sao chép vào clipboard</string>
+
+</resources>

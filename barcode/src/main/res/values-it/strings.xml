@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">Codice a barre</string>
+
+    <string name="grant_permission">Concedere l\'autorizzazione</string>
+    <string name="permission_camera">Questa app richiede l\'autorizzazione della fotocamera per scansionare il codice a barre</string>
+    <string name="low_storage_error">Le dipendenze del rilevatore di volti non possono essere scaricate a causa della memoria insufficiente del dispositivo</string>
+    <string name="grant">CONCEDERE</string>
+    <string name="cancel">ANNULLA</string>
+    <string name="copied_to_clipboard">Copiato negli appunti</string>
+
+</resources>

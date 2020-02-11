@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">Busolă</string>
+    <string name="compass_no_sensor">Aparatul nu suportă senzorul!</string>
+</resources>

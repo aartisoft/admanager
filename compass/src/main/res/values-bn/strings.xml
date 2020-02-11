@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">কম্পাস</string>
+    <string name="compass_no_sensor">ডিভাইসটি সেন্সর সমর্থন করে না!</string>
+</resources>

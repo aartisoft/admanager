@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">나침반</string>
+    <string name="compass_no_sensor">장치가 센서를 지원하지 않습니다!</string>
+</resources>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">Πυξίδα</string>
+    <string name="compass_no_sensor">Η συσκευή δεν υποστηρίζει τον αισθητήρα!</string>
+</resources>

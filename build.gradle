@@ -37,6 +37,9 @@ allprojects {
         maven {
             url "https://s3.amazonaws.com/moat-sdk-builds"
         }
+        maven {
+            url 'http://repo.admost.com:8081/artifactory/admost'
+        }
     }
 }
 

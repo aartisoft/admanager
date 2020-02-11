@@ -1,0 +1,6 @@
+<resources>
+    <string name="admost_gdpr_text">We personalize your advertising experience using this Application and its partners. By giving your consent to this improved ad experience, you\'ll see more relevant ads for you. this Application and its partners may collect and process device identifiers, location data, and other demographic and interest data about you to provide advertising experience tailored to you. Learn more by visiting policy webpage: http://resources.admost.com/privacy-policy \n\nBy agreeing, you are confirming that you are over age 16 and would like a personalized ad experience.</string>
+    <string name="admost_gdpr_yes">YES, I AGREE</string>
+    <string name="admost_gdpr_no">NO, THANK YOU</string>
+    <string name="admost_gdpr_title">Personalize your ad experience</string>
+</resources>

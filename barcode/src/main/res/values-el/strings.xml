@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">Barcode</string>
+
+    <string name="grant_permission">Άδεια χορήγησης</string>
+    <string name="permission_camera">Αυτή η εφαρμογή χρειάζεται άδεια κάμερας για σάρωση γραμμωτού κώδικα</string>
+    <string name="low_storage_error">Οι εξαρτήσεις του ανιχνευτή προσώπου δεν είναι εφικτές λόγω της χαμηλής αποθήκευσης της συσκευής</string>
+    <string name="grant">ΧΟΡΗΓΗΣΗ</string>
+    <string name="cancel">ΜΑΤΑΙΩΣΗ</string>
+    <string name="copied_to_clipboard">Αντιγράφηκε στο πρόχειρο</string>
+
+</resources>

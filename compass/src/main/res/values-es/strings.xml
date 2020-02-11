@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">Brújula</string>
+    <string name="compass_no_sensor">¡El dispositivo no es compatible con el sensor!</string>
+</resources>

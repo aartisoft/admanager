@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">Bússola</string>
+    <string name="compass_no_sensor">O dispositivo não suporta o sensor!</string>
+</resources>

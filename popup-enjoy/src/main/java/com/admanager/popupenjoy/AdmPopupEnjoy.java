@@ -1,6 +1,7 @@
 package com.admanager.popupenjoy;
 
 import android.app.Activity;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -47,35 +48,19 @@ public class AdmPopupEnjoy {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        new Thread(new Runnable() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 try {
-                    Thread.sleep(500L);
-                } catch (InterruptedException e) {
+                    fragment.show(activity.getSupportFragmentManager(), tag);
+                } catch (Exception e) {
                     e.printStackTrace();
-                }
-
-                // for dismissing " Can not perform this action after onSaveInstanceState" error
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            fragment.show(activity.getSupportFragmentManager(), tag);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            if (listener != null) {
-                                listener.completed(false);
-                            }
-                        }
-
+                    if (listener != null) {
+                        listener.completed(false);
                     }
-                });
+                }
             }
-        }).start();
-
+        }, 500);
     }
 
     public interface Ads extends Serializable {
@@ -104,6 +89,7 @@ public class AdmPopupEnjoy {
             this.listener = listener;
             return this;
         }
+
         public Builder withRemoteConfigKeys(@NonNull EnjoySpecKeys keys) {
             keys.validate();
             this.keys = keys;

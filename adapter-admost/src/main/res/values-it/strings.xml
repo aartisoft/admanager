@@ -1,0 +1,6 @@
+<resources>
+    <string name="admost_gdpr_text">Personalizziamo la tua esperienza pubblicitaria utilizzando questa Applicazione e i suoi partner. Dando il tuo consenso a questa migliore esperienza pubblicitaria, vedrai annunci più pertinenti per te. questa Applicazione e i suoi partner possono raccogliere ed elaborare identificatori del dispositivo, dati sulla posizione e altri dati demografici e di interesse su di te per fornire un\'esperienza pubblicitaria su misura per te. Per ulteriori informazioni, visitare la pagina Web relativa alle politiche: http://resources.admost.com/privacy-policy Accettando, confermi di avere più di 16 anni e desideri un\'esperienza pubblicitaria personalizzata.</string>
+    <string name="admost_gdpr_yes">SI, SONO D\'ACCORDO</string>
+    <string name="admost_gdpr_no">NO GRAZIE</string>
+    <string name="admost_gdpr_title">Personalizza la tua esperienza pubblicitaria</string>
+</resources>

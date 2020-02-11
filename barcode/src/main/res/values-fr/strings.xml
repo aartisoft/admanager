@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">code à barre</string>
+
+    <string name="grant_permission">Donner la permission</string>
+    <string name="permission_camera">Cette application nécessite l\'autorisation de l\'appareil photo pour numériser le code-barres</string>
+    <string name="low_storage_error">Les dépendances du détecteur de visage ne peuvent pas être téléchargées en raison du faible stockage de l\'appareil</string>
+    <string name="grant">SUBVENTION</string>
+    <string name="cancel">ANNULER</string>
+    <string name="copied_to_clipboard">Copié dans le presse-papier</string>
+
+</resources>

@@ -14,9 +14,9 @@ import android.widget.LinearLayout;
 import com.admanager.config.RemoteConfigHelper;
 
 public abstract class BannerLoader<L extends BannerLoader> {
-    private final String adapterName;
     public static final int DEFAULT_BORDER_SIZE = 2;
     public static final int DEFAULT_BORDER_COLOR = R.color.colorPrimary;
+    private final String adapterName;
     private final LinearLayout container;
     private final LinearLayout adContainer;
     public String TAG;
@@ -32,20 +32,18 @@ public abstract class BannerLoader<L extends BannerLoader> {
 
         }
 
-
         @Override
         public void onActivityResumed(Activity activity) {
-
+            onResume();
         }
 
         @Override
         public void onActivityPaused(Activity activity) {
-
+            onPause();
         }
 
         @Override
         public void onActivityStopped(Activity activity) {
-
         }
 
         @Override
@@ -138,6 +136,12 @@ public abstract class BannerLoader<L extends BannerLoader> {
 
     }
 
+    public void onResume() {
+    }
+
+    public void onPause() {
+    }
+
     protected void initContainer() {
         initContainer(null);
     }
@@ -151,8 +155,9 @@ public abstract class BannerLoader<L extends BannerLoader> {
         addBorderView(bottomSizeDp, bottomColor);
 
         if (view != null) {
-            if (view.getParent() != null)
+            if (view.getParent() != null) {
                 ((ViewGroup) view.getParent()).removeView(view);
+            }
             adContainer.addView(view);
 
             Log.d(TAG, getAdapterName() + ": loaded");
@@ -221,7 +226,6 @@ public abstract class BannerLoader<L extends BannerLoader> {
         return withBorderTop(sizeDp, colorRes);
     }
 
-
     public L withBorder() {
         withBorderTop(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);
         return withBorderBottom(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);
@@ -230,7 +234,6 @@ public abstract class BannerLoader<L extends BannerLoader> {
     public boolean hasBorder() {
         return topColor != null || bottomColor != null;
     }
-
 
     public L withBorderTop() {
         return withBorderTop(DEFAULT_BORDER_SIZE, DEFAULT_BORDER_COLOR);

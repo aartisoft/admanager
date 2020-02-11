@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">قطب نما</string>
+    <string name="compass_no_sensor">دستگاه از سنسور پشتیبانی نمی کند!</string>
+</resources>

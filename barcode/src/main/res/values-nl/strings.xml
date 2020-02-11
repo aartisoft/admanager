@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">Barcode</string>
+
+    <string name="grant_permission">Toestemming geven</string>
+    <string name="permission_camera">Deze app heeft camera-toestemming nodig om de barcode te scannen</string>
+    <string name="low_storage_error">Afhankelijkheden van gezichtsdetectoren kunnen niet worden gedownload vanwege onvoldoende opslag van apparaten</string>
+    <string name="grant">VERLENEN</string>
+    <string name="cancel">ANNULEREN</string>
+    <string name="copied_to_clipboard">Gekopieerd naar het klembord</string>
+
+</resources>

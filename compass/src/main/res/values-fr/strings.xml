@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">Boussole</string>
+    <string name="compass_no_sensor">L\'appareil ne prend pas en charge le capteur!</string>
+</resources>

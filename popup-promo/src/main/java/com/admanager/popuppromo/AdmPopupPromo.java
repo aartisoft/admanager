@@ -1,5 +1,6 @@
 package com.admanager.popuppromo;
 
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
@@ -49,32 +50,19 @@ public class AdmPopupPromo {
             e.printStackTrace();
         }
 
-        new Thread(new Runnable() {
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 try {
-                    Thread.sleep(500L);
-                } catch (InterruptedException e) {
+                    fragment.show(activity.getSupportFragmentManager(), tag);
+                } catch (Exception e) {
                     e.printStackTrace();
-                }
-
-                // for dismissing " Can not perform this action after onSaveInstanceState" error
-                activity.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        try {
-                            fragment.show(activity.getSupportFragmentManager(), tag);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            if (listener != null) {
-                                listener.completed(false);
-                            }
-                        }
+                    if (listener != null) {
+                        listener.completed(false);
                     }
-                });
+                }
             }
-        }).start();
+        }, 500);
 
     }
 

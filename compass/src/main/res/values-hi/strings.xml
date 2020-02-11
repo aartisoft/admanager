@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">दिशा सूचक यंत्र</string>
+    <string name="compass_no_sensor">डिवाइस सेंसर का समर्थन नहीं करता है!</string>
+</resources>

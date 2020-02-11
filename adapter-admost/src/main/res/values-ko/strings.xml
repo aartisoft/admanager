@@ -1,0 +1,6 @@
+<resources>
+    <string name="admost_gdpr_text">우리는이 응용 프로그램 및 파트너를 사용하여 귀하의 광고 경험을 개인화합니다. 이 향상된 광고 환경에 동의하면보다 관련성 높은 광고가 표시됩니다. 이 응용 프로그램 및 파트너는 사용자에 맞는 광고 경험을 제공하기 위해 장치 식별자, 위치 데이터 및 기타 인구 통계 및 관심 정보를 수집하고 처리 할 수 있습니다. 정책 웹 페이지 (http://resources.admost.com/privacy-policy)를 방문하여 자세히 알아보십시오. 동의하면 16 세 이상이며 개인화 된 광고 경험을 원한다는 것을 확인하는 것입니다.</string>
+    <string name="admost_gdpr_yes">그래, 난 동의</string>
+    <string name="admost_gdpr_no">아니요 괜찮습니다</string>
+    <string name="admost_gdpr_title">광고 경험을 개인화하십시오</string>
+</resources>

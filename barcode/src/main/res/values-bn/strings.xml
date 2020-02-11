@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">বারকোড</string>
+
+    <string name="grant_permission">অনুদান অনুমতি</string>
+    <string name="permission_camera">এই অ্যাপ্লিকেশনটির বারকোড স্ক্যান করতে ক্যামেরার অনুমতি প্রয়োজন</string>
+    <string name="low_storage_error">কম ডিভাইস স্টোরেজের কারণে ফেস ডিটেক্টর নির্ভরতা ডাউনলোড করা যায় না</string>
+    <string name="grant">প্রদান</string>
+    <string name="cancel">বাতিল</string>
+    <string name="copied_to_clipboard">ক্লিপবোর্ডে অনুলিপি করা হয়েছে</string>
+
+</resources>

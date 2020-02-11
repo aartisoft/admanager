@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">条码</string>
+
+    <string name="grant_permission">授予权限</string>
+    <string name="permission_camera">此应用需要相机许可才能扫描条形码</string>
+    <string name="low_storage_error">由于设备存储空间不足，无法下载人脸检测器依赖性</string>
+    <string name="grant">格兰特</string>
+    <string name="cancel">取消</string>
+    <string name="copied_to_clipboard">复制到剪贴板</string>
+
+</resources>

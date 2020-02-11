@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">Kode batang</string>
+
+    <string name="grant_permission">Memberikan ijin</string>
+    <string name="permission_camera">Aplikasi ini membutuhkan izin kamera untuk memindai kode batang</string>
+    <string name="low_storage_error">Ketergantungan detektor wajah tidak dapat diunduh karena penyimpanan perangkat yang rendah</string>
+    <string name="grant">HIBAH</string>
+    <string name="cancel">MEMBATALKAN</string>
+    <string name="copied_to_clipboard">Disalin ke papan klip</string>
+
+</resources>

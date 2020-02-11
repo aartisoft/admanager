@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">بارکد</string>
+
+    <string name="grant_permission">مجوز کمک مالی</string>
+    <string name="permission_camera">برای اسکن بارکد این برنامه به مجوز دوربین نیاز دارد</string>
+    <string name="low_storage_error">به دلیل کم بودن فضای ذخیره دستگاه ، وابستگی های ردیاب صورت قابل بارگیری نیستند</string>
+    <string name="grant">اعطا کردن</string>
+    <string name="cancel">کنسرو</string>
+    <string name="copied_to_clipboard">در کلیپ بورد کپی شد</string>
+
+</resources>

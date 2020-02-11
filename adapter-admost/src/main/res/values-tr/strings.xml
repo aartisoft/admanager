@@ -1,0 +1,6 @@
+<resources>
+    <string name="admost_gdpr_text">Bu Uygulamayı ve ortaklarını kullanarak reklamcılık deneyiminizi kişiselleştiriyoruz. Bu geliştirilmiş reklam deneyimine onay verdiğinizde, sizin için daha alakalı reklamlar görürsünüz. Bu Uygulama ve ortakları, size özel reklam deneyimi sağlamak için cihaz tanımlayıcılarını, konum verilerini ve sizinle ilgili diğer demografik ve ilgi verilerini toplayabilir ve işleyebilir. Politika web sayfasını ziyaret ederek daha fazla bilgi edinin: http://resources.admost.com/privacy-policy Kabul ederek, 16 yaşından büyük olduğunuzu ve kişiselleştirilmiş bir reklam deneyimi istediğinizi onaylıyorsunuz.</string>
+    <string name="admost_gdpr_yes">EVET KATILIYORUM</string>
+    <string name="admost_gdpr_no">HAYIR TEŞEKKÜRLER</string>
+    <string name="admost_gdpr_title">Reklam deneyiminizi kişiselleştirin</string>
+</resources>

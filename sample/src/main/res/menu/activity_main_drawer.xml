@@ -44,6 +44,14 @@
             android:id="@+id/nav_applock"
             android:title="App Lock" />
 
+        <item
+            android:id="@+id/nav_compass"
+            android:title="Compass" />
+
+        <item
+            android:id="@+id/nav_barcode_reader"
+            android:title="Barcode Reader" />
+
     </group>
     <item android:title="Communicate">
         <menu>

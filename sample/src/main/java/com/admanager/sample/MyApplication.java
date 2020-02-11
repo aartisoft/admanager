@@ -31,6 +31,12 @@ public class MyApplication extends MultiDexApplication {
 
         new WastickersApp.Builder(this)
                 .build();
+
+     /*   new BarcodeReaderApp.Builder(this)
+                .build();
+
+        new CompassApp.Builder(this)
+                .build();*/
     }
 
 }

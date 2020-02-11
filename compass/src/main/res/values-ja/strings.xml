@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">方位磁針</string>
+    <string name="compass_no_sensor">デバイスはセンサーをサポートしていません！</string>
+</resources>

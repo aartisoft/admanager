@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">바코드</string>
+
+    <string name="grant_permission">권한 부여</string>
+    <string name="permission_camera">이 앱은 바코드를 스캔하기 위해 카메라 권한이 필요합니다</string>
+    <string name="low_storage_error">낮은 장치 스토리지로 인해 안면 감지기 종속성을 다운로드 할 수 없습니다</string>
+    <string name="grant">부여</string>
+    <string name="cancel">취소</string>
+    <string name="copied_to_clipboard">클립 보드에 복사</string>
+
+</resources>

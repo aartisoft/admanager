@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">Barcode</string>
+
+    <string name="grant_permission">Kebenaran Hibah</string>
+    <string name="permission_camera">Aplikasi ini memerlukan kebenaran kamera untuk mengimbas kod bar</string>
+    <string name="low_storage_error">Dependensi pengesan muka tidak dapat dimuat turun kerana penyimpanan peranti yang rendah</string>
+    <string name="grant">GERANAN</string>
+    <string name="cancel">CANCEL</string>
+    <string name="copied_to_clipboard">Disalin ke papan keratan</string>
+
+</resources>

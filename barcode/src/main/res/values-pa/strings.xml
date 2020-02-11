@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">ਬਾਰਕੋਡ</string>
+
+    <string name="grant_permission">ਅਨੁਦਾਨ ਦੀ ਇਜ਼ਾਜ਼ਤ</string>
+    <string name="permission_camera">ਇਸ ਐਪ ਨੂੰ ਬਾਰਕੋਡ ਸਕੈਨ ਕਰਨ ਲਈ ਕੈਮਰੇ ਦੀ ਅਨੁਮਤੀ ਦੀ ਲੋੜ ਹੈ</string>
+    <string name="low_storage_error">ਡਿਵਾਈਸ ਸਟੋਰੇਜ ਦੇ ਕਾਰਨ ਫੇਸ ਡਿਟੈਕਟਰ ਨਿਰਭਰਤਾ ਨੂੰ ਡਾedਨਲੋਡ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ</string>
+    <string name="grant">ਗ੍ਰਾਂਟ</string>
+    <string name="cancel">ਰੱਦ</string>
+    <string name="copied_to_clipboard">ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਕਾਪੀ ਕੀਤਾ ਗਿਆ</string>
+
+</resources>

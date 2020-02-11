@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">Компас</string>
+    <string name="compass_no_sensor">Устройство не поддерживает датчик!</string>
+</resources>

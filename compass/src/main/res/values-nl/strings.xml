@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">Kompas</string>
+    <string name="compass_no_sensor">Het apparaat ondersteunt de sensor niet!</string>
+</resources>

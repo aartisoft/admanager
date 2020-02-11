@@ -1,6 +1,13 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.8.0] - 2020-02-11
+### Added
+- AdMost: Interstitial, Banner & Native Ads 
+- AdMost: You can show User Consent Dialog by calling AdMostConsent.showGDPRDialog(activity);
+- Compass  
+- Barcode Reader  
+
 ## [1.7.1] - 2019-09-19
 ### Changelog
 - Enjoy: Enjoy dialog

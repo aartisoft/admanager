@@ -1,0 +1,6 @@
+<resources>
+    <string name="admost_gdpr_text">Kami mempersonalisasikan pengalaman beriklan Anda menggunakan Aplikasi ini dan mitranya. Dengan memberikan persetujuan Anda untuk pengalaman iklan yang ditingkatkan ini, Anda akan melihat iklan yang lebih relevan untuk Anda. Aplikasi ini dan mitranya dapat mengumpulkan dan memproses pengidentifikasi perangkat, data lokasi, dan data demografis dan minat lainnya tentang Anda untuk memberikan pengalaman beriklan yang disesuaikan untuk Anda. Pelajari lebih lanjut dengan mengunjungi halaman web kebijakan: http://resources.admost.com/privacy-policy Dengan menyetujui, Anda mengonfirmasi bahwa Anda berusia di atas 16 tahun dan ingin pengalaman iklan yang dipersonalisasi.</string>
+    <string name="admost_gdpr_yes">YA SAYA SETUJU</string>
+    <string name="admost_gdpr_no">TIDAK TERIMA KASIH</string>
+    <string name="admost_gdpr_title">Personalisasi pengalaman iklan Anda</string>
+</resources>

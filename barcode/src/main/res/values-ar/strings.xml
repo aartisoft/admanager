@@ -1,0 +1,11 @@
+<resources>
+    <string name="barcode">الرمز الشريطي</string>
+
+    <string name="grant_permission">يعطي الأذن</string>
+    <string name="permission_camera">يحتاج هذا التطبيق إلى إذن كاميرا لمسح الباركود</string>
+    <string name="low_storage_error">لا يمكن تنزيل تبعيات كاشف الوجه نظرًا لانخفاض تخزين الجهاز</string>
+    <string name="grant">منحة</string>
+    <string name="cancel">إلغاء</string>
+    <string name="copied_to_clipboard">نسخ إلى الحافظة</string>
+
+</resources>

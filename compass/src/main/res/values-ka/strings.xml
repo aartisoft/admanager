@@ -1,0 +1,4 @@
+<resources>
+    <string name="compass">Კომპასი</string>
+    <string name="compass_no_sensor">მოწყობილობა ხელს არ უწყობს სენსორს!</string>
+</resources>
