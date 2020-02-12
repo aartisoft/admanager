@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">App Locker</string>
+    <string name="app_lock_app_name">App Locker</string>
+
+    <string name="action_password">Mudança de senha</string>
+    <string name="draw_pattern">Padrão de desenho</string>
+    <string name="enter_password">Digite a senha</string>
+    <string name="rate_us">Nos avalie</string>
+
+    <string name="locker_invalid_password">Senha incorreta</string>
+    <string name="click_to_show">Clique para mostrar BlurLockView</string>
+    <string name="answer">Digite sua resposta aqui</string>
+    <string name="title_activity_home">Casa</string>
+
+    <string name="navigation_drawer_open">Gaveta de navegação aberta</string>
+    <string name="navigation_drawer_close">Fechar gaveta de navegação</string>
+
+
+    <string name="perm_overlay_text">permitir desenhar outros aplicativos</string>
+    <string name="perm_usage_access_text">Você deve permitir o acesso de uso para o recurso AppLock.</string>
+    <string name="perm_text">Bloqueie seus aplicativos, ninguém pode usar sem a sua senha! Você precisa dar algumas permissões para políticas de segurança.</string>
+    <string name="perm_title">Permissões</string>
+    <string name="password_text">Definir senha para segurança</string>
+
+    <string name="recovery_text_init">Isso será necessário para recuperar a senha, se você esquecer a senha</string>
+    <string name="recovery_button_init">confirme</string>
+
+    <string name="recovery_text_recover">Selecione sua pergunta de segurança e dê a resposta correta para recuperar</string>
+    <string name="recovery_button_recover">Recuperar</string>
+    <string name="recovery_title">pergunta secreta</string>
+    <string name="forget_password">Esqueceu a senha</string>
+    <string name="password_retry">Repetir</string>
+    <string name="nav_home">Casa</string>
+    <string name="nav_password">Senha</string>
+    <string name="password_pattern_draw">Draw Pattern</string>
+    <string name="password_pattern_redraw">Re-Draw Pattern</string>
+    <string name="enter_pin">Entrar no pino</string>
+    <string name="enter_pin_re">Digite o PIN novamente</string>
+    <string name="pass_type_title">Selecione Bloquear modelo</string>
+    <string name="pass_type_text">Você precisa selecionar como bloquear aplicativos</string>
+    <string name="pass_type_pattern">Padrão de Bloqueio</string>
+    <string name="pass_type_pin">Bloqueio de PIN</string>
+    <string name="app_list_is_loading">A lista de aplicativos está sendo carregada</string>
+
+    <string name="enable_accessibility_service_guide">Encontre %1$s em Serviços Clique em switch para ativar %2$s</string>
+    <string name="off">Fora</string>
+
+    <string name="applock_title">Protegido</string>
+    <string name="applock_content">Ninguém pode usar sem sua senha</string>
+    <string name="applock_ticker">Ninguém pode usar sem sua senha</string>
+
+</resources>

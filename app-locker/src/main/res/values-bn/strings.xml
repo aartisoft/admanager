@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">অ্যাপ লকার</string>
+    <string name="app_lock_app_name">অ্যাপ লকার</string>
+
+    <string name="action_password">পাসওয়ার্ড পরিবর্তন</string>
+    <string name="draw_pattern">প্যাটার্ন আঁকুন</string>
+    <string name="enter_password">পাসওয়ার্ড লিখুন</string>
+    <string name="rate_us">আমাদের ব্যাপারে আপনার মতামত দিন</string>
+
+    <string name="locker_invalid_password">ভুল গোপন নম্বর</string>
+    <string name="click_to_show">ব্লারলকভিউ দেখাতে ক্লিক করুন</string>
+    <string name="answer">আপনার উত্তর এখানে লিখুন</string>
+    <string name="title_activity_home">বাড়ি</string>
+
+    <string name="navigation_drawer_open">নেভিগেশন ড্রয়ার খুলুন</string>
+    <string name="navigation_drawer_close">নেভিগেশন ড্রয়ারটি বন্ধ করুন</string>
+
+
+    <string name="perm_overlay_text">অন্যান্য অ্যাপ্লিকেশন আঁকার অনুমতি</string>
+    <string name="perm_usage_access_text">অ্যাপলক বৈশিষ্ট্যটির জন্য আপনাকে অবশ্যই ব্যবহারের অ্যাক্সেসের অনুমতি দিতে হবে।</string>
+    <string name="perm_text">আপনার অ্যাপ্লিকেশন লক করুন, আপনার পাসওয়ার্ড ছাড়া কেউ ব্যবহার করতে পারবেন না! সুরক্ষা নীতিগুলির জন্য আপনাকে কিছু অনুমতি দেওয়া দরকার।</string>
+    <string name="perm_title">অনুমতিসমূহ</string>
+    <string name="password_text">সুরক্ষার জন্য পাসওয়ার্ড সেট করুন</string>
+
+    <string name="recovery_text_init">পাসওয়ার্ডটি পুনরুদ্ধার করতে এটির প্রয়োজন হবে, যদি আপনি পাসওয়ার্ড ভুলে যান</string>
+    <string name="recovery_button_init">নিশ্চিত করুন</string>
+
+    <string name="recovery_text_recover">আপনার সুরক্ষা প্রশ্ন নির্বাচন করুন এবং পুনরুদ্ধারের সঠিক উত্তর দিন</string>
+    <string name="recovery_button_recover">উদ্ধার করুন</string>
+    <string name="recovery_title">গোপন প্রশ্ন</string>
+    <string name="forget_password">পাসওয়ার্ড ভুলে গেছেন</string>
+    <string name="password_retry">পুনরায় চেষ্টা করা</string>
+    <string name="nav_home">বাড়ি</string>
+    <string name="nav_password">পাসওয়ার্ড</string>
+    <string name="password_pattern_draw">প্যাটার্ন আঁকুন</string>
+    <string name="password_pattern_redraw">পুনরায় আঁকুন প্যাটার্ন</string>
+    <string name="enter_pin">পিন প্রবেশ করান</string>
+    <string name="enter_pin_re">আবার পিন প্রবেশ করান</string>
+    <string name="pass_type_title">লক মডেল নির্বাচন করুন</string>
+    <string name="pass_type_text">অ্যাপ্লিকেশনগুলিকে কীভাবে লক করা যায় তা নির্বাচন করতে হবে</string>
+    <string name="pass_type_pattern">প্যাটার্ন লক</string>
+    <string name="pass_type_pin">পিন লক</string>
+    <string name="app_list_is_loading">অ্যাপ্লিকেশন তালিকা লোড হচ্ছে</string>
+
+    <string name="enable_accessibility_service_guide">পরিষেবাগুলিতে %1$s সন্ধান করুন %2$s সক্ষম করতে স্যুইচ ক্লিক করুন</string>
+    <string name="off">বন্ধ</string>
+
+    <string name="applock_title">সুরক্ষিত</string>
+    <string name="applock_content">আপনার পাসওয়ার্ড ছাড়া কেউ ব্যবহার করতে পারবেন না</string>
+    <string name="applock_ticker">আপনার পাসওয়ার্ড ছাড়া কেউ ব্যবহার করতে পারবেন না</string>
+
+</resources>

@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">ਐਪ ਲਾਕਰ</string>
+    <string name="app_lock_app_name">ਐਪ ਲਾਕਰ</string>
+
+    <string name="action_password">ਪਾਸਵਰਡ ਬਦਲੋ</string>
+    <string name="draw_pattern">ਪੈਟਰਨ ਡਰਾਅ ਕਰੋ</string>
+    <string name="enter_password">ਪਾਸਵਰਡ ਦਰਜ ਕਰੋ</string>
+    <string name="rate_us">ਸਾਨੂੰ ਦਰਜਾ ਦਿਓ</string>
+
+    <string name="locker_invalid_password">ਗਲਤ ਗੁਪਤ - ਕੋਡ</string>
+    <string name="click_to_show">ਬਲਰ-ਲਾਕਵਿ show ਨੂੰ ਦਿਖਾਉਣ ਲਈ ਕਲਿਕ ਕਰੋ</string>
+    <string name="answer">ਆਪਣਾ ਜਵਾਬ ਇੱਥੇ ਦਿਓ</string>
+    <string name="title_activity_home">ਘਰ</string>
+
+    <string name="navigation_drawer_open">ਨੈਵੀਗੇਸ਼ਨ ਦਰਾਜ਼ ਖੋਲ੍ਹੋ</string>
+    <string name="navigation_drawer_close">ਨੇਵੀਗੇਸ਼ਨ ਦਰਾਜ਼ ਨੂੰ ਬੰਦ ਕਰੋ</string>
+
+
+    <string name="perm_overlay_text">ਹੋਰ ਐਪਸ ਨੂੰ ਡਰਾਇੰਗ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ</string>
+    <string name="perm_usage_access_text">ਤੁਹਾਨੂੰ ਐਪਲੌਕ ਵਿਸ਼ੇਸ਼ਤਾ ਲਈ ਵਰਤੋਂ ਪਹੁੰਚ ਦੀ ਆਗਿਆ ਦੇਣੀ ਚਾਹੀਦੀ ਹੈ.</string>
+    <string name="perm_text">ਆਪਣੇ ਐਪਸ ਨੂੰ ਲਾਕ ਕਰੋ, ਕੋਈ ਵੀ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਤੋਂ ਬਿਨਾਂ ਨਹੀਂ ਵਰਤ ਸਕਦਾ! ਤੁਹਾਨੂੰ ਸੁਰੱਖਿਆ ਨੀਤੀਆਂ ਲਈ ਕੁਝ ਅਨੁਮਤੀ ਦੇਣ ਦੀ ਜ਼ਰੂਰਤ ਹੈ.</string>
+    <string name="perm_title">ਅਧਿਕਾਰ</string>
+    <string name="password_text">ਸੁਰੱਖਿਆ ਲਈ ਪਾਸਵਰਡ ਸੈੱਟ ਕਰੋ</string>
+
+    <string name="recovery_text_init">ਇਸ ਲਈ ਪਾਸਵਰਡ ਮੁੜ ਪ੍ਰਾਪਤ ਕਰਨਾ ਪਏਗਾ, ਜੇ ਤੁਸੀਂ ਪਾਸਵਰਡ ਭੁੱਲ ਜਾਂਦੇ ਹੋ</string>
+    <string name="recovery_button_init">ਪੁਸ਼ਟੀ ਕਰੋ</string>
+
+    <string name="recovery_text_recover">ਆਪਣੇ ਸੁਰੱਖਿਆ ਸਵਾਲ ਦੀ ਚੋਣ ਕਰੋ ਅਤੇ ਠੀਕ ਹੋਣ ਲਈ ਸਹੀ ਜਵਾਬ ਦਿਓ</string>
+    <string name="recovery_button_recover">ਮੁੜ ਪ੍ਰਾਪਤ ਕਰੋ</string>
+    <string name="recovery_title">ਗੁਪਤ ਸਵਾਲ</string>
+    <string name="forget_password">ਪਾਸਵਰਡ ਭੁੱਲ ਜਾਓ</string>
+    <string name="password_retry">ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
+    <string name="nav_home">ਘਰ</string>
+    <string name="nav_password">ਪਾਸਵਰਡ</string>
+    <string name="password_pattern_draw">ਪੈਟਰਨ ਡਰਾਅ ਕਰੋ</string>
+    <string name="password_pattern_redraw">ਪੈਟਰਨ ਦੁਬਾਰਾ ਖਿੱਚੋ</string>
+    <string name="enter_pin">ਪਿੰਨ ਦਰਜ ਕਰੋ</string>
+    <string name="enter_pin_re">ਦੁਬਾਰਾ ਪਿੰਨ ਦਰਜ ਕਰੋ</string>
+    <string name="pass_type_title">ਲਾੱਕ ਮਾਡਲ ਚੁਣੋ</string>
+    <string name="pass_type_text">ਤੁਹਾਨੂੰ ਐਪਸ ਨੂੰ ਕਿਵੇਂ ਲਾਕ ਕਰਨਾ ਹੈ ਦੀ ਚੋਣ ਕਰਨ ਦੀ ਜ਼ਰੂਰਤ ਹੈ</string>
+    <string name="pass_type_pattern">ਪੈਟਰਨ ਲਾਕ</string>
+    <string name="pass_type_pin">ਪਿੰਨ ਲਾੱਕ</string>
+    <string name="app_list_is_loading">ਐਪ ਸੂਚੀ ਲੋਡ ਹੋ ਰਹੀ ਹੈ</string>
+
+    <string name="enable_accessibility_service_guide">ਸੇਵਾਵਾਂ ਵਿਚ %1$s ਲੱਭੋ %2$s ਨੂੰ ਸਮਰੱਥ ਕਰਨ ਲਈ ਸਵਿਚ ਕਲਿੱਕ ਕਰੋ</string>
+    <string name="off">ਬੰਦ</string>
+
+    <string name="applock_title">ਸੁਰੱਖਿਅਤ</string>
+    <string name="applock_content">ਕੋਈ ਵੀ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਤੋਂ ਬਿਨਾਂ ਨਹੀਂ ਵਰਤ ਸਕਦਾ</string>
+    <string name="applock_ticker">ਕੋਈ ਵੀ ਤੁਹਾਡੇ ਪਾਸਵਰਡ ਤੋਂ ਬਿਨਾਂ ਨਹੀਂ ਵਰਤ ਸਕਦਾ</string>
+
+</resources>

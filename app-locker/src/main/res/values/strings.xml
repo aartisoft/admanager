@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">AppLocker</string>
-    <string name="app_lock_app_name">AppLocker</string>
+    <string name="app_name">App Locker</string>
+    <string name="app_lock_app_name">App Locker</string>
 
     <string name="action_password">Password Change</string>
     <string name="draw_pattern">Draw pattern</string>
@@ -10,7 +10,7 @@
     <string name="locker_invalid_password">Wrong password</string>
     <string name="click_to_show">Click to show BlurLockView</string>
     <string name="answer">Enter your answer here</string>
-    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_home">Home</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

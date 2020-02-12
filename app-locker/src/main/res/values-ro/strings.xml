@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Locker pentru aplicații</string>
+    <string name="app_lock_app_name">Locker pentru aplicații</string>
+
+    <string name="action_password">Schimbare parolă</string>
+    <string name="draw_pattern">Model de desen</string>
+    <string name="enter_password">Introdu parola</string>
+    <string name="rate_us">Ne evalua</string>
+
+    <string name="locker_invalid_password">Parola gresita</string>
+    <string name="click_to_show">Faceți clic pentru a afișa BlurLockView</string>
+    <string name="answer">Introduceți răspunsul aici</string>
+    <string name="title_activity_home">Acasă</string>
+
+    <string name="navigation_drawer_open">Deschide sertarul de navigare</string>
+    <string name="navigation_drawer_close">Închide sertarul de navigare</string>
+
+
+    <string name="perm_overlay_text">permiteți desenarea altor aplicații</string>
+    <string name="perm_usage_access_text">Trebuie să autorizați Accesul Utilizării pentru funcția AppLock.</string>
+    <string name="perm_text">Blochează-ți aplicațiile, nimeni nu le poate folosi fără parola! Trebuie să dați câteva permisiuni pentru politicile de securitate.</string>
+    <string name="perm_title">Permisiuni</string>
+    <string name="password_text">Setați parola pentru securitate</string>
+
+    <string name="recovery_text_init">Acest lucru va fi necesar pentru a recupera parola, în caz că uitați parola</string>
+    <string name="recovery_button_init">A confirma</string>
+
+    <string name="recovery_text_recover">Selectați întrebarea de securitate și dați răspunsul corect pentru recuperare</string>
+    <string name="recovery_button_recover">Recupera</string>
+    <string name="recovery_title">Intrebare secreta</string>
+    <string name="forget_password">Parola uitata</string>
+    <string name="password_retry">Reîncercați</string>
+    <string name="nav_home">Acasă</string>
+    <string name="nav_password">Parola</string>
+    <string name="password_pattern_draw">Model de desen</string>
+    <string name="password_pattern_redraw">Re-desenați modelul</string>
+    <string name="enter_pin">Introdu PIN</string>
+    <string name="enter_pin_re">Introduceți din nou PIN</string>
+    <string name="pass_type_title">Selectați Blocare model</string>
+    <string name="pass_type_text">Trebuie să selectați cum să blocați aplicațiile</string>
+    <string name="pass_type_pattern">Blocarea modelului</string>
+    <string name="pass_type_pin">Pin de blocare</string>
+    <string name="app_list_is_loading">Lista de aplicații se încarcă</string>
+
+    <string name="enable_accessibility_service_guide">Găsiți %1$s în Servicii Faceți clic pe butonul pentru a activa %2$s</string>
+    <string name="off">de pe</string>
+
+    <string name="applock_title">securizat</string>
+    <string name="applock_content">Nimeni nu poate folosi fără parola</string>
+    <string name="applock_ticker">Nimeni nu poate folosi fără parola</string>
+
+</resources>

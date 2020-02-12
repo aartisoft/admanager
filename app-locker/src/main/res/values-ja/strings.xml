@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">アプリロッカー</string>
+    <string name="app_lock_app_name">アプリロッカー</string>
+
+    <string name="action_password">パスワードの変更</string>
+    <string name="draw_pattern">パターンを描く</string>
+    <string name="enter_password">パスワードを入力する</string>
+    <string name="rate_us">私たちを評価してください</string>
+
+    <string name="locker_invalid_password">間違ったパスワード</string>
+    <string name="click_to_show">クリックしてBlurLockViewを表示</string>
+    <string name="answer">ここに答えを入力してください</string>
+    <string name="title_activity_home">ホーム</string>
+
+    <string name="navigation_drawer_open">ナビゲーションドロワーを開く</string>
+    <string name="navigation_drawer_close">ナビゲーションドロワーを閉じる</string>
+
+
+    <string name="perm_overlay_text">他のアプリの描画を許可する</string>
+    <string name="perm_usage_access_text">AppLock機能の使用アクセスを許可する必要があります。</string>
+    <string name="perm_text">アプリをロックしてください。パスワードなしでは誰も使用できません。セキュリティポリシーにいくつかの許可を与える必要があります。</string>
+    <string name="perm_title">許可</string>
+    <string name="password_text">セキュリティ用のパスワードを設定</string>
+
+    <string name="recovery_text_init">これは、パスワードを忘れた場合にパスワードを回復するために必要になります</string>
+    <string name="recovery_button_init">確認</string>
+
+    <string name="recovery_text_recover">セキュリティ保護用の質問を選択し、正しい答えを入力して回復します</string>
+    <string name="recovery_button_recover">回復します</string>
+    <string name="recovery_title">秘密の質問</string>
+    <string name="forget_password">パスワードを忘れた</string>
+    <string name="password_retry">リトライ</string>
+    <string name="nav_home">ホーム</string>
+    <string name="nav_password">パスワード</string>
+    <string name="password_pattern_draw">パターンを描く</string>
+    <string name="password_pattern_redraw">パターンを再描画</string>
+    <string name="enter_pin">PINを入力してください</string>
+    <string name="enter_pin_re">PINをもう一度入力してください</string>
+    <string name="pass_type_title">ロックモデルを選択</string>
+    <string name="pass_type_text">アプリをロックする方法を選択する必要があります</string>
+    <string name="pass_type_pattern">パターンロック</string>
+    <string name="pass_type_pin">ピンロック</string>
+    <string name="app_list_is_loading">アプリリストを読み込んでいます</string>
+
+    <string name="enable_accessibility_service_guide">[サービス]スイッチで%1$sを見つけて%2$sを有効にします</string>
+    <string name="off">オフ</string>
+
+    <string name="applock_title">安全な</string>
+    <string name="applock_content">パスワードなしでは誰も使用できません</string>
+    <string name="applock_ticker">パスワードなしでは誰も使用できません</string>
+
+</resources>

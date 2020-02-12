@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">अनुप्रयोग लकर</string>
+    <string name="app_lock_app_name">अनुप्रयोग लकर</string>
+
+    <string name="action_password">पासवर्ड परिवर्तन</string>
+    <string name="draw_pattern">ढाँचा कोर्नुहोस्</string>
+    <string name="enter_password">पासवर्ड प्रविष्ट गर्नुहोस्</string>
+    <string name="rate_us">हामीलाई मूल्या .्कन गर्नुहोस्</string>
+
+    <string name="locker_invalid_password">गलत पासवर्ड</string>
+    <string name="click_to_show">ब्लरलोकभ्यू देखाउन क्लिक गर्नुहोस्</string>
+    <string name="answer">तपाईंको उत्तर यहाँ प्रविष्ट गर्नुहोस्</string>
+    <string name="title_activity_home">घर</string>
+
+    <string name="navigation_drawer_open">नेभिगेसन ड्रयर खोल्नुहोस्</string>
+    <string name="navigation_drawer_close">नेभिगेसन ड्रयर बन्द गर्नुहोस्</string>
+
+
+    <string name="perm_overlay_text">अन्य अनुप्रयोग ड्रइ। अनुमति</string>
+    <string name="perm_usage_access_text">तपाईंले AppLock सुविधाको लागि उपयोग पहुँच अनुमति दिनुपर्नेछ।</string>
+    <string name="perm_text">तपाइँको अनुप्रयोगहरू लक गर्नुहोस्, तपाइँको पासवर्ड बिना कोही पनि प्रयोग गर्न सक्दैन! तपाईंले सुरक्षा नीतिहरूको लागि केहि अनुमतिहरू दिन आवश्यक पर्दछ।</string>
+    <string name="perm_title">अनुमतिहरू</string>
+    <string name="password_text">सुरक्षाको लागि पासवर्ड सेट गर्नुहोस्</string>
+
+    <string name="recovery_text_init">पासवर्ड पुन: प्राप्ति गर्न यो आवश्यक पर्दछ, यदि केसमा तपाईंले पासवर्ड बिर्सनुभयो भने</string>
+    <string name="recovery_button_init">पुष्टि गर्नुहोस्</string>
+
+    <string name="recovery_text_recover">तपाईको सुरक्षा प्रश्न छान्नुहोस् र ठीक उत्तर दिनुहोला</string>
+    <string name="recovery_button_recover">पुन: प्राप्ति</string>
+    <string name="recovery_title">गोप्य प्रश्न</string>
+    <string name="forget_password">पासवर्ड बिर्सनुहोस्</string>
+    <string name="password_retry">पुनःप्रयास गर्नुहोस्</string>
+    <string name="nav_home">घर</string>
+    <string name="nav_password">पासवर्ड</string>
+    <string name="password_pattern_draw">ढाँचा कोर्नुहोस्</string>
+    <string name="password_pattern_redraw">ढाँचा पुनः चित्रण</string>
+    <string name="enter_pin">पिन प्रविष्ट गर्नुहोस्</string>
+    <string name="enter_pin_re">फेरी पिन प्रविष्ट गर्नुहोस्</string>
+    <string name="pass_type_title">लक मोड चयन गर्नुहोस्</string>
+    <string name="pass_type_text">तपाईंले अनुप्रयोगहरू कसरी लक गर्ने भनेर चयन गर्न आवश्यक छ</string>
+    <string name="pass_type_pattern">ढाँचा लक</string>
+    <string name="pass_type_pin">पिन लक</string>
+    <string name="app_list_is_loading">अनुप्रयोग सूची लोड हुँदैछ</string>
+
+    <string name="enable_accessibility_service_guide">सेवाहरू मा %1$s फेला पार्नुहोस् %2$s सक्षम गर्न स्विच क्लिक गर्नुहोस्</string>
+    <string name="off">बन्द</string>
+
+    <string name="applock_title">सुरक्षित</string>
+    <string name="applock_content">तपाईको पासवर्ड बिना कोही पनि प्रयोग गर्न सक्दैन</string>
+    <string name="applock_ticker">तपाईको पासवर्ड बिना कोही पनि प्रयोग गर्न सक्दैन</string>
+
+</resources>

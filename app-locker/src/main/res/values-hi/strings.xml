@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">ऐप लॉकर</string>
+    <string name="app_lock_app_name">ऐप लॉकर</string>
+
+    <string name="action_password">पासवर्ड परिवर्तन</string>
+    <string name="draw_pattern">पैटर्न ड्रा करें</string>
+    <string name="enter_password">पास वर्ड दर्ज करें</string>
+    <string name="rate_us">हमें रेटिंग दें</string>
+
+    <string name="locker_invalid_password">गलत पासवर्ड</string>
+    <string name="click_to_show">BlurLockView दिखाने के लिए क्लिक करें</string>
+    <string name="answer">यहाँ अपना उत्तर दर्ज करें</string>
+    <string name="title_activity_home">घर</string>
+
+    <string name="navigation_drawer_open">नेविगेशन दराज खोलें</string>
+    <string name="navigation_drawer_close">नेविगेशन ड्रावर बंद करें</string>
+
+
+    <string name="perm_overlay_text">अन्य एप्लिकेशन ड्राइंग की अनुमति दें</string>
+    <string name="perm_usage_access_text">आपको AppLock फीचर के लिए यूसेज एक्सेस की अनुमति देनी होगी।</string>
+    <string name="perm_text">अपने एप्लिकेशन लॉक करें, कोई भी आपके पासवर्ड के बिना उपयोग नहीं कर सकता है! आपको सुरक्षा नीतियों के लिए कुछ अनुमति देने की आवश्यकता है।</string>
+    <string name="perm_title">अनुमतियां</string>
+    <string name="password_text">सुरक्षा के लिए पासवर्ड सेट करें</string>
+
+    <string name="recovery_text_init">यह पासवर्ड पुनर्प्राप्त करने के लिए आवश्यक होगा, यदि आप पासवर्ड भूल जाते हैं</string>
+    <string name="recovery_button_init">पुष्टि करें</string>
+
+    <string name="recovery_text_recover">अपने सुरक्षा प्रश्न का चयन करें और पुनर्प्राप्त करने के लिए सही उत्तर दें</string>
+    <string name="recovery_button_recover">वसूली</string>
+    <string name="recovery_title">गुप्त प्रश्न</string>
+    <string name="forget_password">पासवर्ड भूल गए</string>
+    <string name="password_retry">पुन: प्रयास करें</string>
+    <string name="nav_home">घर</string>
+    <string name="nav_password">कुंजिका</string>
+    <string name="password_pattern_draw">पैटर्न ड्रा करें</string>
+    <string name="password_pattern_redraw">री-ड्रा पैटर्न</string>
+    <string name="enter_pin">पिन दर्ज करें</string>
+    <string name="enter_pin_re">फिर से पिन डालें</string>
+    <string name="pass_type_title">लॉक मॉडल का चयन करें</string>
+    <string name="pass_type_text">आपको एप्लिकेशन लॉक करने का चयन करने की आवश्यकता है</string>
+    <string name="pass_type_pattern">आकृति ताला</string>
+    <string name="pass_type_pin">पिन ताला</string>
+    <string name="app_list_is_loading">ऐप सूची लोड हो रही है</string>
+
+    <string name="enable_accessibility_service_guide">%1$s को सेवाओं में खोजें %2$s को सक्षम करने के लिए स्विच पर क्लिक करें</string>
+    <string name="off">बंद</string>
+
+    <string name="applock_title">सुरक्षित</string>
+    <string name="applock_content">कोई भी आपके पासवर्ड के बिना उपयोग नहीं कर सकता है</string>
+    <string name="applock_ticker">कोई भी आपके पासवर्ड के बिना उपयोग नहीं कर सकता है</string>
+
+</resources>

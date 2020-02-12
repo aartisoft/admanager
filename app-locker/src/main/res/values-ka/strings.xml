@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">App Locker</string>
+    <string name="app_lock_app_name">App Locker</string>
+
+    <string name="action_password">პაროლის შეცვლა</string>
+    <string name="draw_pattern">ხატვის ნიმუში</string>
+    <string name="enter_password">შეიყვანეთ პაროლი</string>
+    <string name="rate_us">Შეგვაფასეთ</string>
+
+    <string name="locker_invalid_password">Არასწორი პაროლი</string>
+    <string name="click_to_show">დააჭირეთ BlurLockView- ს სანახავად</string>
+    <string name="answer">შეიყვანეთ აქ თქვენი პასუხი</string>
+    <string name="title_activity_home">მთავარი</string>
+
+    <string name="navigation_drawer_open">ნავიგაციის უჯრა</string>
+    <string name="navigation_drawer_close">ნავიგაციის უჯრის დახურვა</string>
+
+
+    <string name="perm_overlay_text">ნებადართეთ სხვა პროგრამების შედგენა</string>
+    <string name="perm_usage_access_text">თქვენ უნდა დაუშვათ გამოყენებული წვდომა AppLock ფუნქციისთვის.</string>
+    <string name="perm_text">თქვენი პროგრამები ჩაკეტეთ, თქვენი პაროლის გარეშე ვერავინ შეძლებს! თქვენ უნდა მისცეს გარკვეული ნებართვები უსაფრთხოების პოლიტიკისთვის.</string>
+    <string name="perm_title">ნებართვები</string>
+    <string name="password_text">დააყენეთ პაროლი უსაფრთხოებისთვის</string>
+
+    <string name="recovery_text_init">ამისათვის საჭირო იქნება პაროლის აღდგენა, თუ დაგავიწყდათ პაროლი</string>
+    <string name="recovery_button_init">დაადასტუროს</string>
+
+    <string name="recovery_text_recover">შეარჩიეთ უსაფრთხოების შეკითხვა და გაეცანით სწორ პასუხს გამოსწორებაზე</string>
+    <string name="recovery_button_recover">აღდგენა</string>
+    <string name="recovery_title">Საიდუმლო შეკითხვა</string>
+    <string name="forget_password">Პაროლის დავიწყება</string>
+    <string name="password_retry">ცადე</string>
+    <string name="nav_home">მთავარი</string>
+    <string name="nav_password">პაროლი</string>
+    <string name="password_pattern_draw">დახაზეთ ნიმუში</string>
+    <string name="password_pattern_redraw">ხელახლა დახაზეთ ნიმუში</string>
+    <string name="enter_pin">შეიყვანეთ PIN</string>
+    <string name="enter_pin_re">კვლავ შეიყვანეთ PIN</string>
+    <string name="pass_type_title">აირჩიეთ ჩაკეტვის მოდელი</string>
+    <string name="pass_type_text">თქვენ უნდა აირჩიოთ, თუ როგორ შეგიძლიათ პროგრამების ჩაკეტვა</string>
+    <string name="pass_type_pattern">შაბლონის ჩაკეტვა</string>
+    <string name="pass_type_pin">PIN ჩაკეტვა</string>
+    <string name="app_list_is_loading">აპის ჩამონათვალი იტვირთება</string>
+
+    <string name="enable_accessibility_service_guide">ძებნა %1$s სერვისებში დააწკაპუნეთ ღილაკზე, რომ ჩართოთ %2$s</string>
+    <string name="off">გამორთულია</string>
+
+    <string name="applock_title">უზრუნველყოფილია</string>
+    <string name="applock_content">თქვენი პაროლის გარეშე ვერავინ გამოიყენებს</string>
+    <string name="applock_ticker">თქვენი პაროლის გარეშე ვერავინ გამოიყენებს</string>
+
+</resources>

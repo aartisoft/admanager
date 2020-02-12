@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">App Locker</string>
+    <string name="app_lock_app_name">App Locker</string>
+
+    <string name="action_password">Changement de mot de passe</string>
+    <string name="draw_pattern">Dessiner un motif</string>
+    <string name="enter_password">Entrer le mot de passe</string>
+    <string name="rate_us">Évaluez nous</string>
+
+    <string name="locker_invalid_password">Mauvais mot de passe</string>
+    <string name="click_to_show">Cliquez pour afficher BlurLockView</string>
+    <string name="answer">Entrez votre réponse ici</string>
+    <string name="title_activity_home">Accueil</string>
+
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+
+
+    <string name="perm_overlay_text">permettre de dessiner d\'autres applications</string>
+    <string name="perm_usage_access_text">Vous devez autoriser l\'accès à l\'utilisation pour la fonction AppLock.</string>
+    <string name="perm_text">Verrouillez vos applications, personne ne peut l\'utiliser sans votre mot de passe! Vous devez accorder certaines autorisations pour les politiques de sécurité.</string>
+    <string name="perm_title">Autorisations</string>
+    <string name="password_text">Définir le mot de passe pour la sécurité</string>
+
+    <string name="recovery_text_init">Cela sera nécessaire pour récupérer le mot de passe, si vous oubliez le mot de passe</string>
+    <string name="recovery_button_init">Confirmer</string>
+
+    <string name="recovery_text_recover">Sélectionnez votre question de sécurité et donnez la bonne réponse pour récupérer</string>
+    <string name="recovery_button_recover">Récupérer</string>
+    <string name="recovery_title">Question secrète</string>
+    <string name="forget_password">Mot de passe oublié</string>
+    <string name="password_retry">Retenter</string>
+    <string name="nav_home">Accueil</string>
+    <string name="nav_password">Mot de passe</string>
+    <string name="password_pattern_draw">Dessiner un motif</string>
+    <string name="password_pattern_redraw">Redessiner le motif</string>
+    <string name="enter_pin">Entrez le code PIN</string>
+    <string name="enter_pin_re">Entrez à nouveau le code PIN</string>
+    <string name="pass_type_title">Sélectionnez le modèle de verrouillage</string>
+    <string name="pass_type_text">Vous devez sélectionner comment verrouiller les applications</string>
+    <string name="pass_type_pattern">Serrure à motif</string>
+    <string name="pass_type_pin">Verrouillage PIN</string>
+    <string name="app_list_is_loading">Chargement de la liste des applications</string>
+
+    <string name="enable_accessibility_service_guide">Rechercher %1$s dans les services Cliquez sur le bouton pour activer %2$s</string>
+    <string name="off">De</string>
+
+    <string name="applock_title">Sécurisé</string>
+    <string name="applock_content">Personne ne peut utiliser sans votre mot de passe</string>
+    <string name="applock_ticker">Personne ne peut utiliser sans votre mot de passe</string>
+
+</resources>

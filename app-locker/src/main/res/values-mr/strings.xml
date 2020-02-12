@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">अ‍ॅप लॉकर</string>
+    <string name="app_lock_app_name">अ‍ॅप लॉकर</string>
+
+    <string name="action_password">संकेतशब्द बदल</string>
+    <string name="draw_pattern">पॅटर्न काढा</string>
+    <string name="enter_password">पासवर्ड टाका</string>
+    <string name="rate_us">आम्हाला रेट करा</string>
+
+    <string name="locker_invalid_password">चुकीचा गुप्तशब्द</string>
+    <string name="click_to_show">ब्लर लॉक व्ह्यू दर्शविण्यासाठी क्लिक करा</string>
+    <string name="answer">आपले उत्तर येथे प्रविष्ट करा</string>
+    <string name="title_activity_home">मुख्यपृष्ठ</string>
+
+    <string name="navigation_drawer_open">नेव्हिगेशन ड्रॉवर उघडा</string>
+    <string name="navigation_drawer_close">नेव्हिगेशन ड्रॉवर बंद करा</string>
+
+
+    <string name="perm_overlay_text">इतर अ‍ॅप्स रेखांकन करण्यास परवानगी</string>
+    <string name="perm_usage_access_text">आपणास अ‍ॅपलॉक वैशिष्ट्यासाठी वापर प्रवेश परवानगी देणे आवश्यक आहे.</string>
+    <string name="perm_text">आपले अ‍ॅप्स लॉक करा, आपल्या संकेतशब्दाशिवाय कोणीही वापरू शकत नाही! आपल्याला सुरक्षा धोरणांसाठी काही परवानग्या देण्याची आवश्यकता आहे.</string>
+    <string name="perm_title">परवानग्या</string>
+    <string name="password_text">सुरक्षिततेसाठी संकेतशब्द सेट करा</string>
+
+    <string name="recovery_text_init">संकेतशब्द विसरल्यास हे पुनर्प्राप्त करणे आवश्यक आहे</string>
+    <string name="recovery_button_init">पुष्टी</string>
+
+    <string name="recovery_text_recover">आपला सुरक्षा प्रश्न निवडा आणि पुनर्प्राप्त करण्यासाठी योग्य उत्तर द्या</string>
+    <string name="recovery_button_recover">पुनर्प्राप्त</string>
+    <string name="recovery_title">गुप्त प्रश्न</string>
+    <string name="forget_password">संकेतशब्द विसरलात</string>
+    <string name="password_retry">पुन्हा प्रयत्न करा</string>
+    <string name="nav_home">मुख्यपृष्ठ</string>
+    <string name="nav_password">संकेतशब्द</string>
+    <string name="password_pattern_draw">पॅटर्न काढा</string>
+    <string name="password_pattern_redraw">नमुना पुन्हा काढा</string>
+    <string name="enter_pin">पिन प्रविष्ट करा</string>
+    <string name="enter_pin_re">पुन्हा पिन प्रविष्ट करा</string>
+    <string name="pass_type_title">लॉक मॉडेल निवडा</string>
+    <string name="pass_type_text">अ‍ॅप्स कसे लॉक करायचे ते निवडण्याची आवश्यकता आहे</string>
+    <string name="pass_type_pattern">पॅटर्न लॉक</string>
+    <string name="pass_type_pin">पिन लॉक</string>
+    <string name="app_list_is_loading">अ‍ॅप सूची लोड होत आहे</string>
+
+    <string name="enable_accessibility_service_guide">सेवांमध्ये %1$s शोधा %2$s सक्षम करण्यासाठी स्विच क्लिक करा</string>
+    <string name="off">बंद</string>
+
+    <string name="applock_title">सुरक्षित</string>
+    <string name="applock_content">आपल्या संकेतशब्दाशिवाय कोणीही वापरू शकत नाही</string>
+    <string name="applock_ticker">आपल्या संकेतशब्दाशिवाय कोणीही वापरू शकत नाही</string>
+
+</resources>

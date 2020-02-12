@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Ứng dụng locker</string>
+    <string name="app_lock_app_name">Ứng dụng locker</string>
+
+    <string name="action_password">Thay đổi mật khẩu</string>
+    <string name="draw_pattern">Vẽ mẫu</string>
+    <string name="enter_password">Nhập mật khẩu</string>
+    <string name="rate_us">Đánh giá chúng tôi</string>
+
+    <string name="locker_invalid_password">Sai mật khẩu</string>
+    <string name="click_to_show">Nhấn vào đây để hiển thị BlurLockView</string>
+    <string name="answer">Nhập câu trả lời của bạn vào đây</string>
+    <string name="title_activity_home">Trang Chủ</string>
+
+    <string name="navigation_drawer_open">Mở ngăn kéo điều hướng</string>
+    <string name="navigation_drawer_close">Đóng ngăn điều hướng</string>
+
+
+    <string name="perm_overlay_text">cho phép vẽ các ứng dụng khác</string>
+    <string name="perm_usage_access_text">Bạn phải cho phép Truy cập sử dụng cho tính năng AppLock.</string>
+    <string name="perm_text">Khóa ứng dụng của bạn, không ai có thể sử dụng mà không có mật khẩu của bạn! Bạn cần cung cấp một số quyền cho các chính sách bảo mật.</string>
+    <string name="perm_title">Quyền</string>
+    <string name="password_text">Đặt mật khẩu cho bảo mật</string>
+
+    <string name="recovery_text_init">Điều này sẽ được yêu cầu để khôi phục mật khẩu, nếu trong trường hợp bạn quên mật khẩu</string>
+    <string name="recovery_button_init">Xác nhận</string>
+
+    <string name="recovery_text_recover">Chọn câu hỏi bảo mật của bạn và đưa ra câu trả lời chính xác để phục hồi</string>
+    <string name="recovery_button_recover">Bình phục</string>
+    <string name="recovery_title">Câu hỏi bí mật</string>
+    <string name="forget_password">Quên mật khẩu</string>
+    <string name="password_retry">Thử lại</string>
+    <string name="nav_home">Trang Chủ</string>
+    <string name="nav_password">Mật khẩu</string>
+    <string name="password_pattern_draw">Vẽ mẫu</string>
+    <string name="password_pattern_redraw">Vẽ lại mẫu</string>
+    <string name="enter_pin">Nhập PIN</string>
+    <string name="enter_pin_re">Nhập lại mã PIN</string>
+    <string name="pass_type_title">Chọn kiểu khóa</string>
+    <string name="pass_type_text">Bạn cần chọn cách khóa ứng dụng</string>
+    <string name="pass_type_pattern">Khóa mẫu</string>
+    <string name="pass_type_pin">Khóa PIN</string>
+    <string name="app_list_is_loading">Danh sách ứng dụng đang tải</string>
+
+    <string name="enable_accessibility_service_guide">Tìm %1$s trong Dịch vụ Nhấp vào chuyển đổi để bật %2$s</string>
+    <string name="off">Tắt</string>
+
+    <string name="applock_title">Bảo đảm</string>
+    <string name="applock_content">Không ai có thể sử dụng mà không có mật khẩu của bạn</string>
+    <string name="applock_ticker">Không ai có thể sử dụng mà không có mật khẩu của bạn</string>
+
+</resources>

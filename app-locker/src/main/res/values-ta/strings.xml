@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">பயன்பாட்டு லாக்கர்</string>
+    <string name="app_lock_app_name">பயன்பாட்டு லாக்கர்</string>
+
+    <string name="action_password">கடவுச்சொல் மாற்றம்</string>
+    <string name="draw_pattern">வரைதல் முறை</string>
+    <string name="enter_password">கடவுச்சொல்லை உள்ளிடவும்</string>
+    <string name="rate_us">எங்களை மதிப்பிடு</string>
+
+    <string name="locker_invalid_password">தவறான கடவுச்சொல்</string>
+    <string name="click_to_show">BlurLockView ஐக் காட்ட கிளிக் செய்க</string>
+    <string name="answer">உங்கள் பதிலை இங்கே உள்ளிடவும்</string>
+    <string name="title_activity_home">வீடு</string>
+
+    <string name="navigation_drawer_open">வழிசெலுத்தல் அலமாரியைத் திறக்கவும்</string>
+    <string name="navigation_drawer_close">வழிசெலுத்தல் அலமாரியை மூடு</string>
+
+
+    <string name="perm_overlay_text">பிற பயன்பாடுகளை வரைய அனுமதிக்கவும்</string>
+    <string name="perm_usage_access_text">AppLock அம்சத்திற்கான பயன்பாட்டு அணுகலை நீங்கள் அனுமதிக்க வேண்டும்.</string>
+    <string name="perm_text">உங்கள் பயன்பாடுகளைப் பூட்டுங்கள், உங்கள் கடவுச்சொல் இல்லாமல் யாரும் பயன்படுத்த முடியாது! பாதுகாப்புக் கொள்கைகளுக்கு நீங்கள் சில அனுமதிகளை வழங்க வேண்டும்.</string>
+    <string name="perm_title">அனுமதிகள்</string>
+    <string name="password_text">பாதுகாப்பிற்கான கடவுச்சொல்லை அமைக்கவும்</string>
+
+    <string name="recovery_text_init">நீங்கள் கடவுச்சொல்லை மறந்துவிட்டால், கடவுச்சொல்லை மீட்டெடுக்க இது தேவைப்படும்</string>
+    <string name="recovery_button_init">உறுதிப்படுத்து</string>
+
+    <string name="recovery_text_recover">உங்கள் பாதுகாப்பு கேள்வியைத் தேர்ந்தெடுத்து மீட்க சரியான பதிலைக் கொடுங்கள்</string>
+    <string name="recovery_button_recover">மீட்டெடு</string>
+    <string name="recovery_title">ரகசிய கேள்வி</string>
+    <string name="forget_password">கடவுச்சொல்லை மறந்து</string>
+    <string name="password_retry">மீண்டும் முயற்சி செய்</string>
+    <string name="nav_home">வீடு</string>
+    <string name="nav_password">கடவுச்சொல்</string>
+    <string name="password_pattern_draw">வடிவத்தை வரையவும்</string>
+    <string name="password_pattern_redraw">மறு வரைதல் முறை</string>
+    <string name="enter_pin">பின்னை உள்ளிடவும்</string>
+    <string name="enter_pin_re">மீண்டும் PIN ஐ உள்ளிடவும்</string>
+    <string name="pass_type_title">பூட்டு மாதிரியைத் தேர்ந்தெடுக்கவும்</string>
+    <string name="pass_type_text">பயன்பாடுகளை எவ்வாறு பூட்டுவது என்பதை நீங்கள் தேர்ந்தெடுக்க வேண்டும்</string>
+    <string name="pass_type_pattern">பேட்டர்ன் லாக்</string>
+    <string name="pass_type_pin">பின் பூட்டு</string>
+    <string name="app_list_is_loading">பயன்பாட்டு பட்டியல் ஏற்றுகிறது</string>
+
+    <string name="enable_accessibility_service_guide">சேவைகளில் %1$s ஐக் கண்டறியவும் %2$s ஐ இயக்க சுவிட்சைக் கிளிக் செய்க</string>
+    <string name="off">ஆஃப்</string>
+
+    <string name="applock_title">பாதுகாக்கப்பட்டது</string>
+    <string name="applock_content">உங்கள் கடவுச்சொல் இல்லாமல் யாரும் பயன்படுத்த முடியாது</string>
+    <string name="applock_ticker">உங்கள் கடவுச்சொல் இல்லாமல் யாரும் பயன்படுத்த முடியாது</string>
+
+</resources>

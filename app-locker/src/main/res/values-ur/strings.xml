@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">ایپ لاکر</string>
+    <string name="app_lock_app_name">ایپ لاکر</string>
+
+    <string name="action_password">پاس ورڈ کی تبدیلی</string>
+    <string name="draw_pattern">ڈرا پیٹرن</string>
+    <string name="enter_password">پاس ورڈ درج کریں</string>
+    <string name="rate_us">ہمیں درجہ دیں</string>
+
+    <string name="locker_invalid_password">غلط پاس ورڈ</string>
+    <string name="click_to_show">بلورلاک ویو کو دیکھنے کے لئے کلک کریں</string>
+    <string name="answer">اپنا جواب یہاں درج کریں</string>
+    <string name="title_activity_home">گھر</string>
+
+    <string name="navigation_drawer_open">نیویگیشن دراز کھولیں</string>
+    <string name="navigation_drawer_close">نیویگیشن دراز کو بند کریں</string>
+
+
+    <string name="perm_overlay_text">دوسرے ایپس کو ڈرائنگ کرنے کی اجازت</string>
+    <string name="perm_usage_access_text">آپ کو AppLock خصوصیت کے ل Us استعمال تک رسائی کی اجازت دینی ہوگی۔</string>
+    <string name="perm_text">اپنی ایپس کو لاک کریں ، کوئی بھی آپ کے پاس ورڈ کے بغیر استعمال نہیں کرسکتا! سیکیورٹی کی پالیسیوں کے ل some آپ کو کچھ اجازت دینے کی ضرورت ہے۔</string>
+    <string name="perm_title">اجازت</string>
+    <string name="password_text">سیکیورٹی کے لئے پاس ورڈ مرتب کریں</string>
+
+    <string name="recovery_text_init">اگر آپ پاس ورڈ بھول جاتے ہیں تو ، اس کے لئے پاس ورڈ کی بازیابی کی ضرورت ہوگی</string>
+    <string name="recovery_button_init">تصدیق کریں</string>
+
+    <string name="recovery_text_recover">اپنے حفاظتی سوال کا انتخاب کریں اور بازیافت کے لئے صحیح جواب دیں</string>
+    <string name="recovery_button_recover">بازیافت</string>
+    <string name="recovery_title">خفیہ سوال</string>
+    <string name="forget_password">پاس ورڈ بھول جانا</string>
+    <string name="password_retry">دوبارہ کوشش کریں</string>
+    <string name="nav_home">گھر</string>
+    <string name="nav_password">پاس ورڈ</string>
+    <string name="password_pattern_draw">پیٹرن ڈرا</string>
+    <string name="password_pattern_redraw">پیٹرن کو دوبارہ ڈرا کریں</string>
+    <string name="enter_pin">پن درج کریں</string>
+    <string name="enter_pin_re">دوبارہ PIN درج کریں</string>
+    <string name="pass_type_title">لاک ماڈل منتخب کریں</string>
+    <string name="pass_type_text">آپ کو یہ منتخب کرنے کی ضرورت ہے کہ ایپس کو کیسے لاک کریں</string>
+    <string name="pass_type_pattern">پیٹرن لاک</string>
+    <string name="pass_type_pin">پن لاک</string>
+    <string name="app_list_is_loading">ایپ کی فہرست لوڈ ہو رہی ہے</string>
+
+    <string name="enable_accessibility_service_guide">خدمات میں %1$s تلاش کریں %2$s کو فعال کرنے کے لئے سوئچ پر کلک کریں</string>
+    <string name="off">بند</string>
+
+    <string name="applock_title">محفوظ</string>
+    <string name="applock_content">کوئی بھی آپ کے پاس ورڈ کے بغیر استعمال نہیں کرسکتا ہے</string>
+    <string name="applock_ticker">کوئی بھی آپ کے پاس ورڈ کے بغیر استعمال نہیں کرسکتا ہے</string>
+
+</resources>

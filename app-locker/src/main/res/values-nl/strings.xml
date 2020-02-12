@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">App Locker</string>
+    <string name="app_lock_app_name">App Locker</string>
+
+    <string name="action_password">Wachtwoord verandering</string>
+    <string name="draw_pattern">Teken patroon</string>
+    <string name="enter_password">Voer wachtwoord in</string>
+    <string name="rate_us">Beoordeel ons</string>
+
+    <string name="locker_invalid_password">Verkeerd wachtwoord</string>
+    <string name="click_to_show">Klik om BlurLockView te tonen</string>
+    <string name="answer">Voer hier uw antwoord in</string>
+    <string name="title_activity_home">Huis</string>
+
+    <string name="navigation_drawer_open">Open de navigatielade</string>
+    <string name="navigation_drawer_close">Sluit de navigatielade</string>
+
+
+    <string name="perm_overlay_text">toestaan om andere apps te tekenen</string>
+    <string name="perm_usage_access_text">U moet Gebruikerstoegang voor AppLock-functie toestaan.</string>
+    <string name="perm_text">Vergrendel uw apps, niemand kan gebruiken zonder uw wachtwoord! U moet een aantal machtigingen geven voor beveiligingsbeleid.</string>
+    <string name="perm_title">Rechten</string>
+    <string name="password_text">Stel wachtwoord in voor beveiliging</string>
+
+    <string name="recovery_text_init">Dit is nodig om het wachtwoord te herstellen, als u het wachtwoord bent vergeten</string>
+    <string name="recovery_button_init">Bevestigen</string>
+
+    <string name="recovery_text_recover">Selecteer uw beveiligingsvraag en geef het juiste antwoord om te herstellen</string>
+    <string name="recovery_button_recover">Herstellen</string>
+    <string name="recovery_title">Geheime vraag</string>
+    <string name="forget_password">Wachtwoord vergeten</string>
+    <string name="password_retry">Opnieuw</string>
+    <string name="nav_home">Huis</string>
+    <string name="nav_password">Wachtwoord</string>
+    <string name="password_pattern_draw">Teken patroon</string>
+    <string name="password_pattern_redraw">Patroon opnieuw tekenen</string>
+    <string name="enter_pin">Voer Pin-code in</string>
+    <string name="enter_pin_re">Voer de pincode opnieuw in</string>
+    <string name="pass_type_title">Selecteer Model vergrendelen</string>
+    <string name="pass_type_text">U moet selecteren hoe apps worden vergrendeld</string>
+    <string name="pass_type_pattern">Patroonvergrendeling</string>
+    <string name="pass_type_pin">PIN-vergrendeling</string>
+    <string name="app_list_is_loading">App-lijst wordt geladen</string>
+
+    <string name="enable_accessibility_service_guide">Zoek %1$s in Services Klik op schakelaar om %2$s in te schakelen</string>
+    <string name="off">Uit</string>
+
+    <string name="applock_title">Beveiligd</string>
+    <string name="applock_content">Niemand kan gebruiken zonder uw wachtwoord</string>
+    <string name="applock_ticker">Niemand kan gebruiken zonder uw wachtwoord</string>
+
+</resources>

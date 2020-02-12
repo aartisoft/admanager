@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">App Locker</string>
+    <string name="app_lock_app_name">App Locker</string>
+
+    <string name="action_password">Αλλαγή κωδικού</string>
+    <string name="draw_pattern">Σχέδιο σχεδίασης</string>
+    <string name="enter_password">Εισάγετε τον κωδικό πρόσβασης</string>
+    <string name="rate_us">Βαθμολογήστε μας</string>
+
+    <string name="locker_invalid_password">Λάθος κωδικός</string>
+    <string name="click_to_show">Κάντε κλικ για να εμφανίσετε το BlurLockView</string>
+    <string name="answer">Εισάγετε εδώ την απάντησή σας</string>
+    <string name="title_activity_home">Σπίτι</string>
+
+    <string name="navigation_drawer_open">Άνοιγμα συρταριού πλοήγησης</string>
+    <string name="navigation_drawer_close">Κλείστε το συρτάρι πλοήγησης</string>
+
+
+    <string name="perm_overlay_text">επιτρέπουν την κατάρτιση άλλων εφαρμογών</string>
+    <string name="perm_usage_access_text">Πρέπει να επιτρέψετε τη δυνατότητα χρήσης Access for AppLock.</string>
+    <string name="perm_text">Κλείδωμα των εφαρμογών σας, κανείς δεν μπορεί να χρησιμοποιήσει χωρίς τον κωδικό πρόσβασής σας! Πρέπει να δώσετε κάποιες άδειες για πολιτικές ασφαλείας.</string>
+    <string name="perm_title">Δικαιώματα</string>
+    <string name="password_text">Ορίστε τον κωδικό πρόσβασης για την ασφάλεια</string>
+
+    <string name="recovery_text_init">Αυτό θα χρειαστεί για να ανακτήσετε τον κωδικό πρόσβασης, αν σε περίπτωση που ξεχάσετε τον κωδικό πρόσβασης</string>
+    <string name="recovery_button_init">Επιβεβαιώνω</string>
+
+    <string name="recovery_text_recover">Επιλέξτε την ερώτηση ασφαλείας και δώστε τη σωστή απάντηση για να την ανακτήσετε</string>
+    <string name="recovery_button_recover">Αναρρώνω</string>
+    <string name="recovery_title">μυστική ερώτηση</string>
+    <string name="forget_password">Ξεχάστε τον κωδικό πρόσβασης</string>
+    <string name="password_retry">Προσπαθησε ξανα</string>
+    <string name="nav_home">Σπίτι</string>
+    <string name="nav_password">Κωδικός πρόσβασης</string>
+    <string name="password_pattern_draw">Σχεδίαση μοτίβου</string>
+    <string name="password_pattern_redraw">Σχεδίαση εκ νέου</string>
+    <string name="enter_pin">Εισαγάγετε το PIN</string>
+    <string name="enter_pin_re">Εισαγάγετε ξανά το PIN</string>
+    <string name="pass_type_title">Επιλέξτε Κλείδωμα μοντέλου</string>
+    <string name="pass_type_text">Πρέπει να επιλέξετε τον τρόπο κλειδώματος των εφαρμογών</string>
+    <string name="pass_type_pattern">Κλείδωμα μοτίβου</string>
+    <string name="pass_type_pin">Κλείδωμα PIN</string>
+    <string name="app_list_is_loading">Η λίστα εφαρμογών φορτώνεται</string>
+
+    <string name="enable_accessibility_service_guide">Βρείτε το %1$s στην υπηρεσία Click switch για να ενεργοποιήσετε το %2$s</string>
+    <string name="off">Μακριά από</string>
+
+    <string name="applock_title">Ασφαλής</string>
+    <string name="applock_content">Κανείς δεν μπορεί να χρησιμοποιήσει τον κωδικό σας</string>
+    <string name="applock_ticker">Κανείς δεν μπορεί να χρησιμοποιήσει τον κωδικό σας</string>
+
+</resources>

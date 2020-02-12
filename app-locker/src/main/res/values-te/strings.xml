@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">అనువర్తన లాకర్</string>
+    <string name="app_lock_app_name">అనువర్తన లాకర్</string>
+
+    <string name="action_password">పాస్వర్డ్ మార్పు</string>
+    <string name="draw_pattern">నమూనాను గీయండి</string>
+    <string name="enter_password">రహస్య సంకేతం తెలపండి</string>
+    <string name="rate_us">మాకు రేట్ చేయండి</string>
+
+    <string name="locker_invalid_password">సరియినది కాని రహస్య పదము</string>
+    <string name="click_to_show">బ్లర్ లాక్ వ్యూ చూపించడానికి క్లిక్ చేయండి</string>
+    <string name="answer">మీ జవాబును ఇక్కడ నమోదు చేయండి</string>
+    <string name="title_activity_home">హోమ్</string>
+
+    <string name="navigation_drawer_open">నావిగేషన్ డ్రాయర్‌ను తెరవండి</string>
+    <string name="navigation_drawer_close">నావిగేషన్ డ్రాయర్‌ను మూసివేయండి</string>
+
+
+    <string name="perm_overlay_text">ఇతర అనువర్తనాలను గీయడానికి అనుమతించండి</string>
+    <string name="perm_usage_access_text">మీరు AppLock ఫీచర్ కోసం వినియోగ ప్రాప్యతను అనుమతించాలి.</string>
+    <string name="perm_text">మీ అనువర్తనాలను లాక్ చేయండి, మీ పాస్‌వర్డ్ లేకుండా ఎవరూ ఉపయోగించలేరు! భద్రతా విధానాల కోసం మీరు కొన్ని అనుమతులు ఇవ్వాలి.</string>
+    <string name="perm_title">అనుమతులు</string>
+    <string name="password_text">భద్రత కోసం పాస్‌వర్డ్‌ను సెట్ చేయండి</string>
+
+    <string name="recovery_text_init">మీరు పాస్వర్డ్ను మరచిపోతే పాస్వర్డ్ను తిరిగి పొందటానికి ఇది అవసరం</string>
+    <string name="recovery_button_init">నిర్ధారించండి</string>
+
+    <string name="recovery_text_recover">మీ భద్రతా ప్రశ్నను ఎంచుకోండి మరియు కోలుకోవడానికి సరైన సమాధానం ఇవ్వండి</string>
+    <string name="recovery_button_recover">పునరుద్ధరించు</string>
+    <string name="recovery_title">రహస్య ప్రశ్న</string>
+    <string name="forget_password">పాస్‌వర్డ్‌ను మర్చిపో</string>
+    <string name="password_retry">మళ్ళీ ప్రయత్నించు</string>
+    <string name="nav_home">హోమ్</string>
+    <string name="nav_password">పాస్వర్డ్</string>
+    <string name="password_pattern_draw">సరళిని గీయండి</string>
+    <string name="password_pattern_redraw">రీ-డ్రా సరళి</string>
+    <string name="enter_pin">పిన్ నమోదు చేయండి</string>
+    <string name="enter_pin_re">మళ్ళీ పిన్ నమోదు చేయండి</string>
+    <string name="pass_type_title">లాక్ మోడల్ ఎంచుకోండి</string>
+    <string name="pass_type_text">అనువర్తనాలను ఎలా లాక్ చేయాలో మీరు ఎంచుకోవాలి</string>
+    <string name="pass_type_pattern">సరళి లాక్</string>
+    <string name="pass_type_pin">పిన్ లాక్</string>
+    <string name="app_list_is_loading">అనువర్తన జాబితా లోడ్ అవుతోంది</string>
+
+    <string name="enable_accessibility_service_guide">సేవల్లో %1$s ను కనుగొనండి %2$s ను ప్రారంభించడానికి స్విచ్ క్లిక్ చేయండి</string>
+    <string name="off">ఆఫ్</string>
+
+    <string name="applock_title">సురక్షితం</string>
+    <string name="applock_content">మీ పాస్‌వర్డ్ లేకుండా ఎవరూ ఉపయోగించలేరు</string>
+    <string name="applock_ticker">మీ పాస్‌వర్డ్ లేకుండా ఎవరూ ఉపయోగించలేరు</string>
+
+</resources>

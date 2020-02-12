@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">Uygulama kilitleyici</string>
+    <string name="app_lock_app_name">Uygulama kilitleyici</string>
+
+    <string name="action_password">Parola değişimi</string>
+    <string name="draw_pattern">Desen çiz</string>
+    <string name="enter_password">Parolanı Gir</string>
+    <string name="rate_us">Bizi değerlendirin</string>
+
+    <string name="locker_invalid_password">Yanlış şifre</string>
+    <string name="click_to_show">BlurLockView\'ü göstermek için tıklayın</string>
+    <string name="answer">Cevabınızı buraya girin</string>
+    <string name="title_activity_home">Ev</string>
+
+    <string name="navigation_drawer_open">Gezinme çekmecesini aç</string>
+    <string name="navigation_drawer_close">Gezinme çekmecesini kapat</string>
+
+
+    <string name="perm_overlay_text">diğer uygulamaların çizilmesine izin ver</string>
+    <string name="perm_usage_access_text">AppLock için Kullanım Erişimi özelliğine izin vermelisiniz.</string>
+    <string name="perm_text">Uygulamalarınızı kilitleyin, hiç kimse şifreniz olmadan kullanamaz! Güvenlik ilkeleri için bazı izinler vermeniz gerekir.</string>
+    <string name="perm_title">İzinler</string>
+    <string name="password_text">Güvenlik için Parola Belirleme</string>
+
+    <string name="recovery_text_init">Şifreyi unutmanız durumunda şifreyi kurtarmak için bu gerekli olacaktır</string>
+    <string name="recovery_button_init">Onaylamak</string>
+
+    <string name="recovery_text_recover">Güvenlik sorunuzu seçin ve kurtarmak için doğru cevabı verin</string>
+    <string name="recovery_button_recover">Kurtarmak</string>
+    <string name="recovery_title">Gizli Soru</string>
+    <string name="forget_password">Şifreyi unut</string>
+    <string name="password_retry">Yeniden Dene</string>
+    <string name="nav_home">Ev</string>
+    <string name="nav_password">Parola</string>
+    <string name="password_pattern_draw">Desen Çiz</string>
+    <string name="password_pattern_redraw">Deseni Yeniden Çiz</string>
+    <string name="enter_pin">PIN girin</string>
+    <string name="enter_pin_re">PIN kodunu tekrar girin</string>
+    <string name="pass_type_title">Kilit Modeli Seçin</string>
+    <string name="pass_type_text">Uygulamaları nasıl kilitleyeceğinizi seçmeniz gerekiyor</string>
+    <string name="pass_type_pattern">Desen Kilidi</string>
+    <string name="pass_type_pin">PIN kilidi</string>
+    <string name="app_list_is_loading">Uygulama listesi yükleniyor</string>
+
+    <string name="enable_accessibility_service_guide">Hizmetlerde %1$s bul %2$s ürününü etkinleştirmek için tıklayın</string>
+    <string name="off">kapalı</string>
+
+    <string name="applock_title">Güvenli</string>
+    <string name="applock_content">Hiç kimse şifreniz olmadan kullanamaz</string>
+    <string name="applock_ticker">Hiç kimse şifreniz olmadan kullanamaz</string>
+
+</resources>

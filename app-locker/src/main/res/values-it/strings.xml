@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">App Locker</string>
+    <string name="app_lock_app_name">App Locker</string>
+
+    <string name="action_password">Cambio di password</string>
+    <string name="draw_pattern">Disegna modello</string>
+    <string name="enter_password">Inserire la password</string>
+    <string name="rate_us">Valutaci</string>
+
+    <string name="locker_invalid_password">Password errata</string>
+    <string name="click_to_show">Fare clic per mostrare BlurLockView</string>
+    <string name="answer">Inserisci qui la tua risposta</string>
+    <string name="title_activity_home">Casa</string>
+
+    <string name="navigation_drawer_open">Apri il cassetto di navigazione</string>
+    <string name="navigation_drawer_close">Chiudi il riquadro di navigazione</string>
+
+
+    <string name="perm_overlay_text">consentire di disegnare altre app</string>
+    <string name="perm_usage_access_text">È necessario consentire l\'accesso all\'utilizzo per AppLock.</string>
+    <string name="perm_text">Blocca le tue app, nessuno può utilizzarlo senza la tua password! È necessario fornire alcune autorizzazioni per le politiche di sicurezza.</string>
+    <string name="perm_title">permessi</string>
+    <string name="password_text">Imposta password per sicurezza</string>
+
+    <string name="recovery_text_init">Questo sarà necessario per recuperare la password, nel caso in cui si dimentichi la password</string>
+    <string name="recovery_button_init">Confermare</string>
+
+    <string name="recovery_text_recover">Seleziona la domanda di sicurezza e dai la risposta corretta per il recupero</string>
+    <string name="recovery_button_recover">Recuperare</string>
+    <string name="recovery_title">Domanda segreta</string>
+    <string name="forget_password">Dimenticare la password</string>
+    <string name="password_retry">Riprova</string>
+    <string name="nav_home">Casa</string>
+    <string name="nav_password">Parola d\'ordine</string>
+    <string name="password_pattern_draw">Disegna modello</string>
+    <string name="password_pattern_redraw">Ripeti disegno</string>
+    <string name="enter_pin">Inserisci il PIN</string>
+    <string name="enter_pin_re">Inserisci di nuovo il PIN</string>
+    <string name="pass_type_title">Seleziona Blocca modello</string>
+    <string name="pass_type_text">Devi selezionare come bloccare le app</string>
+    <string name="pass_type_pattern">Serratura a combinazione</string>
+    <string name="pass_type_pin">Blocco PIN</string>
+    <string name="app_list_is_loading">L\'elenco delle app si sta caricando</string>
+
+    <string name="enable_accessibility_service_guide">Trova %1$s in Servizi Fare clic sul pulsante per abilitare %2$s</string>
+    <string name="off">via</string>
+
+    <string name="applock_title">assicurato</string>
+    <string name="applock_content">Nessuno può usare senza la tua password</string>
+    <string name="applock_ticker">Nessuno può usare senza la tua password</string>
+
+</resources>

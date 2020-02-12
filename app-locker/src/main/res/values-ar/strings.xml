@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">التطبيق خزانة</string>
+    <string name="app_lock_app_name">التطبيق خزانة</string>
+
+    <string name="action_password">تغيير كلمة السر</string>
+    <string name="draw_pattern">رسم نمط</string>
+    <string name="enter_password">أدخل كلمة المرور</string>
+    <string name="rate_us">قيمنا</string>
+
+    <string name="locker_invalid_password">كلمة مرور خاطئة</string>
+    <string name="click_to_show">انقر لإظهار BlurLockView</string>
+    <string name="answer">أدخل إجابتك هنا</string>
+    <string name="title_activity_home">الصفحة الرئيسية</string>
+
+    <string name="navigation_drawer_open">فتح درج التنقل</string>
+    <string name="navigation_drawer_close">أغلق درج التنقل</string>
+
+
+    <string name="perm_overlay_text">تسمح رسم تطبيقات أخرى</string>
+    <string name="perm_usage_access_text">يجب السماح باستخدام Access Access لميزة AppLock.</string>
+    <string name="perm_text">قفل التطبيقات الخاصة بك ، لا يمكن لأحد استخدام بدون كلمة المرور الخاصة بك! تحتاج إلى إعطاء بعض الأذونات لسياسات الأمان.</string>
+    <string name="perm_title">أذونات</string>
+    <string name="password_text">تعيين كلمة المرور للأمن</string>
+
+    <string name="recovery_text_init">ستكون هناك حاجة لاستعادة كلمة المرور ، إذا نسيت كلمة المرور</string>
+    <string name="recovery_button_init">تؤكد</string>
+
+    <string name="recovery_text_recover">حدد سؤال الأمان الخاص بك وإعطاء الإجابة الصحيحة لاسترداد</string>
+    <string name="recovery_button_recover">استعادة</string>
+    <string name="recovery_title">سؤال سري</string>
+    <string name="forget_password">نسيت كلمة المرور</string>
+    <string name="password_retry">إعادة المحاولة</string>
+    <string name="nav_home">الصفحة الرئيسية</string>
+    <string name="nav_password">كلمه السر</string>
+    <string name="password_pattern_draw">رسم نمط</string>
+    <string name="password_pattern_redraw">إعادة رسم نمط</string>
+    <string name="enter_pin">أدخل رقم التعريف الشخصي</string>
+    <string name="enter_pin_re">أدخل رقم التعريف الشخصي مرة أخرى</string>
+    <string name="pass_type_title">حدد قفل النموذج</string>
+    <string name="pass_type_text">تحتاج إلى تحديد كيفية قفل التطبيقات</string>
+    <string name="pass_type_pattern">قفل نمطي</string>
+    <string name="pass_type_pin">قفل PIN</string>
+    <string name="app_list_is_loading">قائمة التطبيقات قيد التحميل</string>
+
+    <string name="enable_accessibility_service_guide">البحث عن %1$s في الخدمات ، انقر فوق التبديل لتمكين %2$s</string>
+    <string name="off">إيقاف</string>
+
+    <string name="applock_title">مضمون</string>
+    <string name="applock_content">لا أحد يستطيع استخدام بدون كلمة المرور الخاصة بك</string>
+    <string name="applock_ticker">لا أحد يستطيع استخدام بدون كلمة المرور الخاصة بك</string>
+
+</resources>

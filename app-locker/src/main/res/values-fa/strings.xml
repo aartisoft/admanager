@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">قفل برنامه</string>
+    <string name="app_lock_app_name">قفل برنامه</string>
+
+    <string name="action_password">تغییر رمز عبور</string>
+    <string name="draw_pattern">الگوی رسم</string>
+    <string name="enter_password">رمز عبور را وارد کنید</string>
+    <string name="rate_us">به ما رای دهید</string>
+
+    <string name="locker_invalid_password">گذرواژه اشتباه</string>
+    <string name="click_to_show">برای نشان دادن BlurLockView کلیک کنید</string>
+    <string name="answer">پاسخ خود را اینجا وارد کنید</string>
+    <string name="title_activity_home">خانه</string>
+
+    <string name="navigation_drawer_open">کشوی ناوبری را باز کنید</string>
+    <string name="navigation_drawer_close">بستن کشو ناوبری</string>
+
+
+    <string name="perm_overlay_text">اجازه طراحی برنامه های دیگر</string>
+    <string name="perm_usage_access_text">شما باید مجوز استفاده از دسترسی را برای ویژگی AppLock مجاز کنید.</string>
+    <string name="perm_text">برنامه های خود را قفل کنید ، هیچ کس نمی تواند بدون رمز عبور از آن استفاده کند! برای سیاستهای امنیتی باید مجوزهایی بدهید.</string>
+    <string name="perm_title">مجوزها</string>
+    <string name="password_text">رمز عبور را برای امنیت تنظیم کنید</string>
+
+    <string name="recovery_text_init">در صورت فراموش کردن رمز عبور ، برای بازیابی رمز عبور لازم خواهد بود</string>
+    <string name="recovery_button_init">تایید</string>
+
+    <string name="recovery_text_recover">سؤال امنیتی خود را انتخاب کرده و برای بازیابی پاسخ صحیح بدهید</string>
+    <string name="recovery_button_recover">بازیابی</string>
+    <string name="recovery_title">سؤال مخفی</string>
+    <string name="forget_password">فراموشی رمز عبور</string>
+    <string name="password_retry">دوباره امتحان کنید</string>
+    <string name="nav_home">خانه</string>
+    <string name="nav_password">کلمه عبور</string>
+    <string name="password_pattern_draw">الگوی ترسیم کنید</string>
+    <string name="password_pattern_redraw">الگوی دوباره رسم کنید</string>
+    <string name="enter_pin">پین را وارد کنید</string>
+    <string name="enter_pin_re">دوباره پین را وارد کنید</string>
+    <string name="pass_type_title">Lock Model را انتخاب کنید</string>
+    <string name="pass_type_text">شما باید نحوه قفل کردن برنامه ها را انتخاب کنید</string>
+    <string name="pass_type_pattern">قفل الگوی</string>
+    <string name="pass_type_pin">قفل پین</string>
+    <string name="app_list_is_loading">لیست برنامه در حال بارگیری است</string>
+
+    <string name="enable_accessibility_service_guide">برای فعال کردن %2$s ، روی سرویس ها %1$s را بیابید</string>
+    <string name="off">خاموش</string>
+
+    <string name="applock_title">امن</string>
+    <string name="applock_content">هیچ کس نمی تواند بدون رمز عبور خود استفاده کند</string>
+    <string name="applock_ticker">هیچ کس نمی تواند بدون رمز عبور خود استفاده کند</string>
+
+</resources>

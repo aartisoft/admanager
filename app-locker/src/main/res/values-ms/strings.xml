@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">App Locker</string>
+    <string name="app_lock_app_name">App Locker</string>
+
+    <string name="action_password">Perubahan Kata Laluan</string>
+    <string name="draw_pattern">Lukis corak</string>
+    <string name="enter_password">Masukkan kata laluan</string>
+    <string name="rate_us">Beri penilaian kami</string>
+
+    <string name="locker_invalid_password">Salah kata laluan</string>
+    <string name="click_to_show">Klik untuk menunjukkan BlurLockView</string>
+    <string name="answer">Masukkan jawapan anda di sini</string>
+    <string name="title_activity_home">Rumah</string>
+
+    <string name="navigation_drawer_open">Buka laci navigasi</string>
+    <string name="navigation_drawer_close">Tutup laci navigasi</string>
+
+
+    <string name="perm_overlay_text">permit melukis aplikasi lain</string>
+    <string name="perm_usage_access_text">Anda mesti membenarkan Akses Penggunaan untuk aplikasi AppLock.</string>
+    <string name="perm_text">Kunci aplikasi anda, tiada siapa yang boleh menggunakan tanpa kata laluan anda! Anda perlu memberikan beberapa kebenaran untuk dasar keselamatan.</string>
+    <string name="perm_title">Kebenaran</string>
+    <string name="password_text">Tetapkan Kata Laluan untuk Keselamatan</string>
+
+    <string name="recovery_text_init">Ini akan diperlukan untuk mendapatkan semula kata laluan, sekiranya anda terlupa kata laluan</string>
+    <string name="recovery_button_init">Sahkan</string>
+
+    <string name="recovery_text_recover">Pilih soalan keselamatan anda dan berikan jawapan yang betul untuk pulih</string>
+    <string name="recovery_button_recover">Pulihkan</string>
+    <string name="recovery_title">Soalan rahsia</string>
+    <string name="forget_password">Lupa kata laluan</string>
+    <string name="password_retry">Cuba semula</string>
+    <string name="nav_home">Rumah</string>
+    <string name="nav_password">Kata laluan</string>
+    <string name="password_pattern_draw">Lukis Corak</string>
+    <string name="password_pattern_redraw">Corak Re-Draw</string>
+    <string name="enter_pin">Masukkan PIN</string>
+    <string name="enter_pin_re">Masukkan PIN lagi</string>
+    <string name="pass_type_title">Pilih Model Kunci</string>
+    <string name="pass_type_text">Anda perlu memilih cara mengunci apl</string>
+    <string name="pass_type_pattern">Kunci Corak</string>
+    <string name="pass_type_pin">Kunci PIN</string>
+    <string name="app_list_is_loading">Senarai apl sedang dimuatkan</string>
+
+    <string name="enable_accessibility_service_guide">Cari %1$s dalam Perkhidmatan Klik suis untuk membolehkan %2$s</string>
+    <string name="off">Off</string>
+
+    <string name="applock_title">Dijamin</string>
+    <string name="applock_content">Tiada siapa yang boleh menggunakan tanpa kata laluan anda</string>
+    <string name="applock_ticker">Tiada siapa yang boleh menggunakan tanpa kata laluan anda</string>
+
+</resources>

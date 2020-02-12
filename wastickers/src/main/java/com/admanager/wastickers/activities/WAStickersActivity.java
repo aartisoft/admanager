@@ -78,9 +78,9 @@ public class WAStickersActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.wasticker_search_menu, menu);
         SearchManager manager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
 
-        searchMenuItem = menu.findItem(R.id.action_search);
+        searchMenuItem = menu.findItem(R.id.sticker_search);
         SearchView search = (SearchView) searchMenuItem.getActionView();
-        search.setQueryHint(getString(R.string.action_search));
+        search.setQueryHint(getString(R.string.sticker_search));
         search.setSearchableInfo(manager.getSearchableInfo(getComponentName()));
 
         search.setOnQueryTextListener(new SearchView.OnQueryTextListener() {

@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">앱 사물함</string>
+    <string name="app_lock_app_name">앱 사물함</string>
+
+    <string name="action_password">비밀번호 변경</string>
+    <string name="draw_pattern">패턴 그리기</string>
+    <string name="enter_password">암호를 입력</string>
+    <string name="rate_us">우리를 평가</string>
+
+    <string name="locker_invalid_password">잘못된 비밀번호</string>
+    <string name="click_to_show">BlurLockView를 표시하려면 클릭</string>
+    <string name="answer">여기에 답을 입력하십시오</string>
+    <string name="title_activity_home">집</string>
+
+    <string name="navigation_drawer_open">탐색 창 열기</string>
+    <string name="navigation_drawer_close">탐색 창 닫기</string>
+
+
+    <string name="perm_overlay_text">다른 앱 그리기 허용</string>
+    <string name="perm_usage_access_text">AppLock 기능에 대한 사용 액세스를 허용해야합니다.</string>
+    <string name="perm_text">앱을 잠그면 아무도 암호없이 사용할 수 없습니다! 보안 정책에 대한 일부 권한을 부여해야합니다.</string>
+    <string name="perm_title">권한</string>
+    <string name="password_text">보안을위한 비밀번호 설정</string>
+
+    <string name="recovery_text_init">비밀번호를 잊어 버린 경우 비밀번호를 복구해야합니다.</string>
+    <string name="recovery_button_init">확인</string>
+
+    <string name="recovery_text_recover">비밀번호 힌트를 선택하고 올바른 답변을 제공하여 복구하십시오.</string>
+    <string name="recovery_button_recover">다시 덮다</string>
+    <string name="recovery_title">비밀 질문</string>
+    <string name="forget_password">비밀번호 분실</string>
+    <string name="password_retry">다시 해 보다</string>
+    <string name="nav_home">집</string>
+    <string name="nav_password">암호</string>
+    <string name="password_pattern_draw">패턴 그리기</string>
+    <string name="password_pattern_redraw">다시 그리기 패턴</string>
+    <string name="enter_pin">PIN을 입력하십시오</string>
+    <string name="enter_pin_re">PIN을 다시 입력하십시오</string>
+    <string name="pass_type_title">모델 잠금을 선택하십시오.</string>
+    <string name="pass_type_text">앱을 잠그는 방법을 선택해야합니다</string>
+    <string name="pass_type_pattern">패턴 잠금</string>
+    <string name="pass_type_pin">핀 잠금</string>
+    <string name="app_list_is_loading">앱 목록이로드 중입니다</string>
+
+    <string name="enable_accessibility_service_guide">서비스에서 %1$s 찾기 %2$s를 사용하려면 스위치를 클릭하십시오.</string>
+    <string name="off">떨어져서</string>
+
+    <string name="applock_title">보안</string>
+    <string name="applock_content">비밀번호 없이는 아무도 사용할 수 없습니다</string>
+    <string name="applock_ticker">비밀번호 없이는 아무도 사용할 수 없습니다</string>
+
+</resources>

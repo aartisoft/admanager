@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">App Locker</string>
+    <string name="app_lock_app_name">App Locker</string>
+
+    <string name="action_password">Смена пароля</string>
+    <string name="draw_pattern">Рисовать шаблон</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="rate_us">Оцените нас</string>
+
+    <string name="locker_invalid_password">Неправильный пароль</string>
+    <string name="click_to_show">Нажмите, чтобы показать BlurLockView</string>
+    <string name="answer">Введите свой ответ здесь</string>
+    <string name="title_activity_home">Дом</string>
+
+    <string name="navigation_drawer_open">Открыть навигационный ящик</string>
+    <string name="navigation_drawer_close">Закрыть навигационный ящик</string>
+
+
+    <string name="perm_overlay_text">разрешить рисование других приложений</string>
+    <string name="perm_usage_access_text">Вы должны разрешить использование доступа для функции AppLock.</string>
+    <string name="perm_text">Заблокируйте свои приложения, никто не может использовать без вашего пароля! Вам нужно дать некоторые разрешения для политик безопасности.</string>
+    <string name="perm_title">права доступа</string>
+    <string name="password_text">Установить пароль для безопасности</string>
+
+    <string name="recovery_text_init">Это потребуется для восстановления пароля, если вы забыли пароль</string>
+    <string name="recovery_button_init">Подтверждение</string>
+
+    <string name="recovery_text_recover">Выберите секретный вопрос и дайте правильный ответ для восстановления</string>
+    <string name="recovery_button_recover">оправляться</string>
+    <string name="recovery_title">секретный вопрос</string>
+    <string name="forget_password">Забыть пароль</string>
+    <string name="password_retry">Retry</string>
+    <string name="nav_home">Дом</string>
+    <string name="nav_password">пароль</string>
+    <string name="password_pattern_draw">Draw Pattern</string>
+    <string name="password_pattern_redraw">Перерисовать шаблон</string>
+    <string name="enter_pin">Введите PIN-код</string>
+    <string name="enter_pin_re">Введите ПИН-код еще раз</string>
+    <string name="pass_type_title">Выберите модель блокировки</string>
+    <string name="pass_type_text">Вам нужно выбрать, как заблокировать приложения</string>
+    <string name="pass_type_pattern">Pattern Lock</string>
+    <string name="pass_type_pin">Блокировка PIN</string>
+    <string name="app_list_is_loading">Загружается список приложений</string>
+
+    <string name="enable_accessibility_service_guide">Найти %1$s в разделе Услуги Нажмите переключатель, чтобы включить %2$s</string>
+    <string name="off">от</string>
+
+    <string name="applock_title">обеспеченный</string>
+    <string name="applock_content">Никто не может использовать без вашего пароля</string>
+    <string name="applock_ticker">Никто не может использовать без вашего пароля</string>
+
+</resources>

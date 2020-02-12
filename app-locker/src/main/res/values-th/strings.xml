@@ -1,0 +1,52 @@
+<resources>
+    <string name="app_name">แอพล็อคเกอร์</string>
+    <string name="app_lock_app_name">แอพล็อคเกอร์</string>
+
+    <string name="action_password">เปลี่ยนรหัสผ่าน</string>
+    <string name="draw_pattern">วาดลวดลาย</string>
+    <string name="enter_password">ใส่รหัสผ่าน</string>
+    <string name="rate_us">ให้คะแนนเรา</string>
+
+    <string name="locker_invalid_password">รหัสผ่านผิด</string>
+    <string name="click_to_show">คลิกเพื่อแสดง BlurLockView</string>
+    <string name="answer">ป้อนคำตอบของคุณที่นี่</string>
+    <string name="title_activity_home">บ้าน</string>
+
+    <string name="navigation_drawer_open">เปิดลิ้นชักการนำทาง</string>
+    <string name="navigation_drawer_close">ปิดแถบเมนูเลื่อนด้านข้าง</string>
+
+
+    <string name="perm_overlay_text">อนุญาตให้วาดแอปอื่น ๆ</string>
+    <string name="perm_usage_access_text">คุณต้องอนุญาตการเข้าถึงการใช้งานสำหรับคุณสมบัติ AppLock</string>
+    <string name="perm_text">ล็อคแอพของคุณไม่มีใครสามารถใช้งานได้หากไม่มีรหัสผ่าน! คุณต้องให้สิทธิ์สำหรับนโยบายความปลอดภัย</string>
+    <string name="perm_title">สิทธิ์</string>
+    <string name="password_text">ตั้งรหัสผ่านเพื่อความปลอดภัย</string>
+
+    <string name="recovery_text_init">จะต้องทำการกู้คืนรหัสผ่านหากในกรณีที่คุณลืมรหัสผ่าน</string>
+    <string name="recovery_button_init">ยืนยัน</string>
+
+    <string name="recovery_text_recover">เลือกคำถามเพื่อความปลอดภัยของคุณและให้คำตอบที่ถูกต้องในการกู้คืน</string>
+    <string name="recovery_button_recover">กู้</string>
+    <string name="recovery_title">คำถามลับ</string>
+    <string name="forget_password">ลืมรหัสผ่าน</string>
+    <string name="password_retry">ลองใหม่</string>
+    <string name="nav_home">บ้าน</string>
+    <string name="nav_password">รหัสผ่าน</string>
+    <string name="password_pattern_draw">วาดรูปแบบ</string>
+    <string name="password_pattern_redraw">วาดรูปแบบซ้ำ</string>
+    <string name="enter_pin">ป้อน PIN</string>
+    <string name="enter_pin_re">ป้อน PIN อีกครั้ง</string>
+    <string name="pass_type_title">เลือก Lock Model</string>
+    <string name="pass_type_text">คุณต้องเลือกวิธีล็อคแอพ</string>
+    <string name="pass_type_pattern">ล็อคแบบ</string>
+    <string name="pass_type_pin">รหัสล็อค</string>
+    <string name="app_list_is_loading">รายการแอปกำลังโหลด</string>
+
+    <string name="enable_accessibility_service_guide">ค้นหา %1$s ในบริการคลิกสวิตช์เพื่อเปิดใช้งาน %2$s</string>
+    <string name="off">ปิด</string>
+
+    <string name="applock_title">ปลอดภัย</string>
+    <string name="applock_content">ไม่มีใครสามารถใช้งานได้หากไม่มีรหัสผ่านของคุณ</string>
+    <string name="applock_ticker">ไม่มีใครสามารถใช้งานได้หากไม่มีรหัสผ่านของคุณ</string>
+
+</resources>
