@@ -57,7 +57,7 @@ public class AdMostAdapter extends Adapter {
         super("AdMost", rcEnableKey);
     }
 
-    private static String logError(int errorCode) {
+    protected static String logError(int errorCode) {
         String message;
         switch (errorCode) {
             case AdMost.AD_ERROR_NO_FILL:
