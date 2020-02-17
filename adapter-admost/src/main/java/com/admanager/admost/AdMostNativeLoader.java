@@ -85,7 +85,7 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
     private void load() {
         if (isTestMode()) {
             this.appId = com.admanager.admost.Consts.TEST_APP_ID;
-            this.zoneId = com.admanager.admost.Consts.TEST_BANNER_ZONE;
+            this.zoneId = com.admanager.admost.Consts.TEST_NATIVE_ZONE;
         }
 
         if (TextUtils.isEmpty(this.appId)) {

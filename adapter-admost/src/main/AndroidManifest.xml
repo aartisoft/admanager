@@ -1,20 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.admanager.admost">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <application>
-
-        <activity
-            android:name="com.google.android.gms.ads.AdActivity"
-            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            tools:replace="android:theme" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+    <application android:networkSecurityConfig="@xml/admost_network_security_config">
 
     </application>
 
