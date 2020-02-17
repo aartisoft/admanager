@@ -74,6 +74,7 @@ public class FacebookBannerLoader extends BannerLoader<FacebookBannerLoader> {
             @Override
             public void onAdClicked(Ad ad) {
                 logv("onAdClicked");
+                clicked();
             }
 
             @Override

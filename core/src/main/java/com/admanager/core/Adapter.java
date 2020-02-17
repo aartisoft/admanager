@@ -75,6 +75,21 @@ public abstract class Adapter {
         });
     }
 
+    protected final void clicked() {
+        clicked(null);
+    }
+
+    protected final void clicked(final String tag) {
+        logv("clicked");
+
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Adapter.this.manager.clicked(order, getAdapterName(), tag);
+            }
+        });
+    }
+
     protected final void error(String error) {
         Log.e(manager.TAG, getAdapterName() + " error :" + error);
         stopTimer();

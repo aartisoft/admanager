@@ -60,6 +60,7 @@ public class IronsourceBannerLoader extends BannerLoader<IronsourceBannerLoader>
             @Override
             public void onBannerAdClicked() {
                 logv("onBannerAdClicked");
+                clicked();
             }
 
             @Override

@@ -75,6 +75,12 @@ public class AdmobBannerLoader extends BannerLoader<AdmobBannerLoader> {
                 logv("onAdLoaded");
                 initContainer(mAdView);
             }
+
+            @Override
+            public void onAdClicked() {
+                logv("onAdClicked");
+                clicked();
+            }
         });
         mAdView.loadAd(adRequest);
     }

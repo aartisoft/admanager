@@ -55,7 +55,7 @@ public abstract class BaseAdapterWithAdmobNative<T, VH extends BindableViewHolde
                     .withAdListener(new AdListener() {
                         @Override
                         public void onAdFailedToLoad(int errorCode) {
-                            Log.e("NativeAdHelper", "Unified Ad Failed to load: " + errorCode);
+                            Log.e("ADM_NativeLoader", "Unified Ad Failed to load: " + errorCode);
                             BaseAdapterWithAdmobNative.super.show_native = false;
                             refreshRowWrappers();
 

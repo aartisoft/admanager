@@ -39,6 +39,7 @@ public class AdMostAdapter extends Adapter {
         @Override
         public void onClicked(String s) {
             // It indicates that the interstitial ad is clicked.
+            clicked(s);
         }
 
         @Override

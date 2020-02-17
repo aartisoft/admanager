@@ -8,6 +8,7 @@ import com.admanager.config.RemoteConfigHelper;
 public class AdManagerBuilder {
     private AdManager adManager;
     private AdManager.Listener listener;
+    private AdManager.ClickListener clickListener;
 
     public AdManagerBuilder(Activity activity) {
         adManager = new AdManager(activity);
@@ -23,11 +24,17 @@ public class AdManagerBuilder {
         return this;
     }
 
+    public AdManagerBuilder clickListener(AdManager.ClickListener clickListener) {
+        this.clickListener = clickListener;
+        return this;
+    }
+
     public AdManager build() {
         return build(RemoteConfigHelper.isTestMode());
     }
+
     public AdManager build(boolean testMode) {
-        return adManager.build(listener, testMode);
+        return adManager.build(listener, this.clickListener, testMode);
     }
 
     public AdManagerBuilder thenStart(Intent intent) {

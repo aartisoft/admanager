@@ -8,6 +8,7 @@ import com.admanager.core.Consts;
 import com.applovin.adview.AppLovinInterstitialAd;
 import com.applovin.adview.AppLovinInterstitialAdDialog;
 import com.applovin.sdk.AppLovinAd;
+import com.applovin.sdk.AppLovinAdClickListener;
 import com.applovin.sdk.AppLovinAdDisplayListener;
 import com.applovin.sdk.AppLovinAdLoadListener;
 import com.applovin.sdk.AppLovinAdSize;
@@ -17,13 +18,13 @@ import com.applovin.sdk.AppLovinSdkSettings;
 import java.util.LinkedList;
 import java.util.Queue;
 
-
 public class ApplovinAdapter extends Adapter {
     private static final Object GLOBAL_INTERSTITIAL_ADS_LOCK = new Object();
     private static Queue<AppLovinAd> GLOBAL_INTERSTITIAL_AD;
     private final AppLovinAdLoadListener LISTENER = new AppLovinAdLoadListener() {
         @Override
         public void adReceived(AppLovinAd appLovinAd) {
+            logv("adReceived");
             enqueueAd(appLovinAd);
             loaded();
         }
@@ -33,20 +34,27 @@ public class ApplovinAdapter extends Adapter {
             error(":" + i);
         }
     };
+    private final AppLovinAdClickListener CLICK_LISTENER = new AppLovinAdClickListener() {
+        @Override
+        public void adClicked(AppLovinAd appLovinAd) {
+            logv("adClicked");
+            clicked();
+        }
+    };
     private final AppLovinAdDisplayListener DISPLAY_LISTENER = new AppLovinAdDisplayListener() {
         @Override
         public void adDisplayed(AppLovinAd appLovinAd) {
-
+            logv("adDisplayed");
         }
 
         @Override
         public void adHidden(AppLovinAd appLovinAd) {
+            logv("adHidden");
             closed();
         }
     };
     private String sdkKey;
     private AppLovinSdk sdk;
-
 
     public ApplovinAdapter(@Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
         super("Applovin", rcEnableKey);
@@ -106,6 +114,7 @@ public class ApplovinAdapter extends Adapter {
                 final AppLovinInterstitialAdDialog interstitialAd = AppLovinInterstitialAd.create(sdk, getActivity());
                 interstitialAd.setAdLoadListener(LISTENER);
                 interstitialAd.setAdDisplayListener(DISPLAY_LISTENER);
+                interstitialAd.setAdClickListener(CLICK_LISTENER);
                 interstitialAd.showAndRender(preloadedAd);
             } else {
                 super.closed();

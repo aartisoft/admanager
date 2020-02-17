@@ -31,26 +31,31 @@ public class FacebookAdapter extends Adapter {
 
         @Override
         public void onAdLoaded(Ad ad) {
+            logv("onAdLoaded");
             loaded();
         }
 
         @Override
         public void onInterstitialDismissed(Ad ad) {
+            logv("onInterstitialDismissed");
             closed();
         }
 
         @Override
         public void onInterstitialDisplayed(Ad ad) {
+            logv("onInterstitialDisplayed");
 
         }
 
         @Override
         public void onAdClicked(Ad ad) {
-
+            logv("onAdClicked");
+            clicked();
         }
 
         @Override
         public void onLoggingImpression(Ad ad) {
+            logv("onLoggingImpression");
 
         }
     };

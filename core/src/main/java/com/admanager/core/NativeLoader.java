@@ -19,6 +19,7 @@ public abstract class NativeLoader<L extends NativeLoader> {
     private final String adapterName;
     private final LinearLayout container;
     private final LinearLayout adContainer;
+    private ClickListener clickListener;
     private String TAG;
     private Activity activity;
     private final Application.ActivityLifecycleCallbacks LIFECYCLE_CALLBACKS = new Application.ActivityLifecycleCallbacks() {
@@ -94,6 +95,11 @@ public abstract class NativeLoader<L extends NativeLoader> {
 
     public L setListener(Listener listener) {
         this.listener = listener;
+        return (L) this;
+    }
+
+    public L withClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
         return (L) this;
     }
 
@@ -180,6 +186,27 @@ public abstract class NativeLoader<L extends NativeLoader> {
         }
     }
 
+    protected void clicked() {
+        clicked(null);
+    }
+
+    protected void clicked(final String subname) {
+        if (clickListener == null) {
+            return;
+        }
+
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                String name = getAdapterName();
+                if (subname != null) {
+                    name = name + "_" + subname;
+                }
+                clickListener.clicked(name);
+            }
+        });
+    }
+
     public L withBorderSize(Integer sizeDp) {
         this.topSizeDp = sizeDp;
         this.bottomSizeDp = sizeDp;
@@ -263,5 +290,9 @@ public abstract class NativeLoader<L extends NativeLoader> {
         void error(String error);
 
         void loaded();
+    }
+
+    public interface ClickListener {
+        void clicked(String adapterName);
     }
 }

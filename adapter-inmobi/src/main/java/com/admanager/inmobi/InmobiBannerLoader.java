@@ -14,6 +14,8 @@ import com.inmobi.ads.InMobiBanner;
 import com.inmobi.ads.listeners.BannerAdEventListener;
 import com.inmobi.sdk.InMobiSdk;
 
+import java.util.Map;
+
 public class InmobiBannerLoader extends BannerLoader<InmobiBannerLoader> {
     public static final long INMOBI_BANNER_TEST_ID = 1547483178070L;
     public static final String INMOBI_ACCOUNT_TEST_ID = "0ebbbd7c75be47feb316d4dde2017b89";
@@ -73,6 +75,12 @@ public class InmobiBannerLoader extends BannerLoader<InmobiBannerLoader> {
             @Override
             public void onAdLoadFailed(InMobiBanner inMobiBanner, InMobiAdRequestStatus inMobiAdRequestStatus) {
                 error("onAdLoadFailed: " + (inMobiAdRequestStatus != null ? inMobiAdRequestStatus.getMessage() : ""));
+            }
+
+            @Override
+            public void onAdClicked(InMobiBanner inMobiBanner, Map<Object, Object> map) {
+                logv("onAdClicked");
+                clicked();
             }
         });
         inMobiBanner.load();

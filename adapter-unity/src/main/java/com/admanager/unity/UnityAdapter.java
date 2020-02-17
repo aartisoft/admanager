@@ -16,16 +16,19 @@ public class UnityAdapter extends Adapter {
 
         @Override
         public void onUnityAdsReady(String placementId) {
+            logv("onUnityAdsReady");
             loaded();
         }
 
         @Override
         public void onUnityAdsStart(String placementId) {
+            logv("onUnityAdsStart");
 
         }
 
         @Override
         public void onUnityAdsFinish(String placementId, UnityAds.FinishState finishState) {
+            logv("onUnityAdsFinish");
             UnityRouter.removeListener(placementId);
             if (finishState == UnityAds.FinishState.ERROR) {
                 error("playback: " + placementId);
@@ -43,10 +46,13 @@ public class UnityAdapter extends Adapter {
 
         @Override
         public void onUnityAdsClick(String placementId) {
+            logv("onUnityAdsClick");
+            clicked();
         }
 
         @Override
         public void onUnityAdsPlacementStateChanged(String placementId, UnityAds.PlacementState placementState, UnityAds.PlacementState placementState1) {
+            logv("onUnityAdsPlacementStateChanged");
 
         }
     };

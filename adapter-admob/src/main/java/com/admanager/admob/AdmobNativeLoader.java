@@ -97,6 +97,12 @@ public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
                     public void onAdFailedToLoad(int errorCode) {
                         error("onAdFailedToLoad: " + errorCode);
                     }
+
+                    @Override
+                    public void onAdClicked() {
+                        logv("onAdClicked");
+                        clicked();
+                    }
                 }).build();
 
         AdRequest.Builder builder = new AdRequest.Builder();

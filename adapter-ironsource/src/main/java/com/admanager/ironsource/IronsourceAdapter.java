@@ -57,7 +57,7 @@ public class IronsourceAdapter extends Adapter {
         @Override
         public void onInterstitialAdClicked() {
             logv("onInterstitialAdClicked");
-
+            clicked();
         }
     };
 

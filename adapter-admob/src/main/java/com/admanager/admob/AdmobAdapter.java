@@ -16,6 +16,7 @@ public class AdmobAdapter extends Adapter {
     private final AdListener ADMOB_AD_LISTENER = new AdListener() {
         @Override
         public void onAdClosed() {
+            logv("onAdClosed");
             closed();
         }
 
@@ -26,7 +27,14 @@ public class AdmobAdapter extends Adapter {
 
         @Override
         public void onAdLoaded() {
+            logv("onAdLoaded");
             loaded();
+        }
+
+        @Override
+        public void onAdClicked() {
+            logv("onAdClicked");
+            clicked();
         }
     };
     private String adUnitId;

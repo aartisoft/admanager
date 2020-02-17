@@ -62,6 +62,7 @@ public class CustomBannerLoader extends BannerLoader<CustomBannerLoader> {
             @Override
             public void onClick(String url) {
                 logv("onClick: " + url);
+                clicked();
             }
 
             @Override

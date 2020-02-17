@@ -105,6 +105,7 @@ public class FacebookNativeLoader extends NativeLoader<FacebookNativeLoader> {
             @Override
             public void onAdClicked(Ad ad) {
                 logv("onAdClicked");
+                clicked();
             }
 
             @Override

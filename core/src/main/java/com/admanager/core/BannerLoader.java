@@ -20,6 +20,7 @@ public abstract class BannerLoader<L extends BannerLoader> {
     private final LinearLayout container;
     private final LinearLayout adContainer;
     public String TAG;
+    private ClickListener clickListener;
     private Activity activity;
     private final Application.ActivityLifecycleCallbacks LIFECYCLE_CALLBACKS = new Application.ActivityLifecycleCallbacks() {
         @Override
@@ -105,6 +106,27 @@ public abstract class BannerLoader<L extends BannerLoader> {
         hideLayout();
     }
 
+    protected void clicked() {
+        clicked(null);
+    }
+
+    protected void clicked(final String subname) {
+        Log.v(TAG, getAdapterName() + ": clicked");
+        if (clickListener == null) {
+            return;
+        }
+        getActivity().runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                String name = getAdapterName();
+                if (subname != null) {
+                    name = name + "_" + subname;
+                }
+                clickListener.clicked(name);
+            }
+        });
+    }
+
     protected void logv(String s) {
         Log.v(TAG, getAdapterName() + ": " + s);
     }
@@ -180,6 +202,11 @@ public abstract class BannerLoader<L extends BannerLoader> {
         return adContainer;
     }
 
+    public L withClickListener(ClickListener clickListener) {
+        this.clickListener = clickListener;
+        return (L) this;
+    }
+
     public L withBorderSize(Integer sizeDp) {
         this.topSizeDp = sizeDp;
         this.bottomSizeDp = sizeDp;
@@ -245,5 +272,9 @@ public abstract class BannerLoader<L extends BannerLoader> {
 
     protected boolean isTestMode() {
         return RemoteConfigHelper.isTestMode();
+    }
+
+    public interface ClickListener {
+        void clicked(String adapterName);
     }
 }

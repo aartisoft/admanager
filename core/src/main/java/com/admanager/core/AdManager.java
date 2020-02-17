@@ -23,6 +23,7 @@ public class AdManager {
     boolean testMode;
     private boolean showable = false;
     private Listener listener;
+    private ClickListener clickListener;
     private Activity context;
     private final Application.ActivityLifecycleCallbacks LIFECYCLE_CALLBACKS = new Application.ActivityLifecycleCallbacks() {
         @Override
@@ -104,9 +105,10 @@ public class AdManager {
         return this;
     }
 
-    AdManager build(Listener listener, boolean testMode) {
+    AdManager build(Listener listener, ClickListener clickListener, boolean testMode) {
         Log.d(TAG, "initializing");
         this.listener = listener;
+        this.clickListener = clickListener;
         this.testMode = testMode;
 
         if (ENABLE_KEYS.size() != LOADED.size() || LOADED.size() != SKIP.size()) {
@@ -279,7 +281,7 @@ public class AdManager {
         if (stepByStep && AdmUtils.allTrue(SKIP)) {
             Log.d(TAG, "Reloading ads");
             destroy();
-            build(listener, testMode);
+            build(listener, clickListener, testMode);
             this.showable = false;
         }
     }
@@ -342,6 +344,19 @@ public class AdManager {
         adapterFinished(order, true, true);
     }
 
+    void clicked(int i, String adapterName, String subname) {
+        if (clickListener == null) {
+            return;
+        }
+        if (subname == null) {
+            subname = "";
+        } else {
+            subname = "_" + subname;
+        }
+        Class<? extends Adapter> clz = ADAPTERS.get(i).getClass();
+        clickListener.clicked(i, clz, adapterName + subname);
+    }
+
     private void adapterFinished(int i, boolean displayed, boolean showOneBarrier) {
         Boolean called = ADAPTER_FINISH_LISTENER_CALLED.get(i);
         if (called) {
@@ -360,6 +375,10 @@ public class AdManager {
         void finishedAll();
 
         void initializedAll(List<Boolean> loaded);
+    }
+
+    public interface ClickListener {
+        void clicked(int order, Class<? extends Adapter> clz, String adapterName);
     }
 
     public interface AdapterListener extends Listener {

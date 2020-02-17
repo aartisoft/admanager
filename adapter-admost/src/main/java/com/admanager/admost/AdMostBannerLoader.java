@@ -91,6 +91,7 @@ public class AdMostBannerLoader extends BannerLoader<AdMostBannerLoader> {
 
             @Override
             public void onClick(String network) {
+                clicked(network);
                 //Ad clicked
             }
 

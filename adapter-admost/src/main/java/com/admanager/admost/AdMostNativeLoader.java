@@ -131,7 +131,8 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
 
             @Override
             public void onClick(String network) {
-                //Ad clicked
+                logv("onClick:" + network);
+                clicked(network);
             }
 
         }, binder);

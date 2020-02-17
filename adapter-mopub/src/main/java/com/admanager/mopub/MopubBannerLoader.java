@@ -94,6 +94,12 @@ public class MopubBannerLoader extends BannerLoader<MopubBannerLoader> {
                 moPubView.setVisibility(View.VISIBLE);
                 initContainer(banner);
             }
+
+            @Override
+            public void onBannerClicked(MoPubView banner) {
+                logv("onBannerClicked");
+                clicked();
+            }
         });
         moPubView.loadAd();
     }

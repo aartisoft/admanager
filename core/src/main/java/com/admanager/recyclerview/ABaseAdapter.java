@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>, CONF extends AdmAdapterConfiguration<?>> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    private static final String TAG = "ABaseAdapter";
+    private static final String TAG = "ADM_ANativeLoader";
 
     private final Activity activity;
     boolean show_native;
