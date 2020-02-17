@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ứng dụng locker</string>
+
     <string name="app_lock_app_name">Ứng dụng locker</string>
 
     <string name="action_password">Thay đổi mật khẩu</string>

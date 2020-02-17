@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ad Manager Core</string>
+    <string name="app_name" translatable="false">Ad Manager Core</string>
     <string name="share_app_chooser">Share with</string>
     <string name="nav_notification">Easy Access</string>
 

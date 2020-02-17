@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Ad Manager Booster Notif</string>
+    <string name="app_name" translatable="false">Ad Manager Booster Notif</string>
     <string name="permdesc_flashlight">For enabling flashlight</string>
     
     <string name="p1">Boost</string>

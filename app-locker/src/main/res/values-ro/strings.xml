@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Locker pentru aplicații</string>
     <string name="app_lock_app_name">Locker pentru aplicații</string>
 
     <string name="action_password">Schimbare parolă</string>

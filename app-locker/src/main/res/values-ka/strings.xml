@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">App Locker</string>
+
     <string name="app_lock_app_name">App Locker</string>
 
     <string name="action_password">პაროლის შეცვლა</string>

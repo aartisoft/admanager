@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">แอพล็อคเกอร์</string>
+
     <string name="app_lock_app_name">แอพล็อคเกอร์</string>
 
     <string name="action_password">เปลี่ยนรหัสผ่าน</string>

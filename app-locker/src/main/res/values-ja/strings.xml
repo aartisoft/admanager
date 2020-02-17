@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">アプリロッカー</string>
+
     <string name="app_lock_app_name">アプリロッカー</string>
 
     <string name="action_password">パスワードの変更</string>

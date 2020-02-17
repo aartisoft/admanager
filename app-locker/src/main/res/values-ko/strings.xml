@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">앱 사물함</string>
     <string name="app_lock_app_name">앱 사물함</string>
 
     <string name="action_password">비밀번호 변경</string>

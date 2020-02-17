@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">قفل برنامه</string>
+
     <string name="app_lock_app_name">قفل برنامه</string>
 
     <string name="action_password">تغییر رمز عبور</string>

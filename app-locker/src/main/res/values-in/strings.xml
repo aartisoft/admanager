@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Pengunci Aplikasi</string>
+
     <string name="app_lock_app_name">Pengunci Aplikasi</string>
 
     <string name="action_password">Perubahan Kata Sandi</string>

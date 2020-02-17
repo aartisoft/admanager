@@ -230,6 +230,12 @@ public class WastickersApp {
         void downloaded(File file);
     }
 
+    public interface Ads {
+        void loadTop(Activity activity, LinearLayout container);
+
+        void loadBottom(Activity activity, LinearLayout container);
+    }
+
     public static class Builder {
 
         private final WeakReference<Context> context;
@@ -281,7 +287,17 @@ public class WastickersApp {
 
         public void build() {
             if (ads == null) {
-                ads = new Ads();
+                ads = new Ads() {
+                    @Override
+                    public void loadTop(Activity activity, LinearLayout container) {
+
+                    }
+
+                    @Override
+                    public void loadBottom(Activity activity, LinearLayout container) {
+
+                    }
+                };
             }
             Context context = this.context.get();
 
@@ -290,15 +306,5 @@ public class WastickersApp {
 
         }
 
-    }
-
-    public static class Ads {
-        public void loadTop(Activity activity, LinearLayout container) {
-
-        }
-
-        public void loadBottom(Activity activity, LinearLayout container) {
-
-        }
     }
 }

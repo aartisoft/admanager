@@ -59,6 +59,12 @@ public class AppLockerApp {
         return ads;
     }
 
+    public interface Ads {
+        void loadTop(Activity activity, LinearLayout container);
+
+        void loadBottom(Activity activity, LinearLayout container);
+    }
+
     public static class Builder {
 
         private Application application;
@@ -75,21 +81,21 @@ public class AppLockerApp {
 
         public void build() {
             if (ads == null) {
-                ads = new Ads();
+                ads = new Ads() {
+                    @Override
+                    public void loadTop(Activity activity, LinearLayout container) {
+
+                    }
+
+                    @Override
+                    public void loadBottom(Activity activity, LinearLayout container) {
+
+                    }
+                };
             }
             AppLockInitializer.init(application);
             AppLockerApp.init(new AppLockerApp(ads));
         }
 
-    }
-
-    public static class Ads {
-        public void loadTop(Activity activity, LinearLayout container) {
-
-        }
-
-        public void loadBottom(Activity activity, LinearLayout container) {
-
-        }
     }
 }

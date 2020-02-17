@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Uygulama kilitleyici</string>
+
     <string name="app_lock_app_name">Uygulama kilitleyici</string>
 
     <string name="action_password">Parola değişimi</string>

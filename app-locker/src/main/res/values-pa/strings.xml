@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">ਐਪ ਲਾਕਰ</string>
     <string name="app_lock_app_name">ਐਪ ਲਾਕਰ</string>
 
     <string name="action_password">ਪਾਸਵਰਡ ਬਦਲੋ</string>
