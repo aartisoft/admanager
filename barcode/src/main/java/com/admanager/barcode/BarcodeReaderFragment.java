@@ -182,7 +182,9 @@ public class BarcodeReaderFragment extends Fragment implements View.OnTouchListe
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-                        mListener.onCameraPermissionDenied();
+                        if (mListener != null) {
+                            mListener.onCameraPermissionDenied();
+                        }
                     }
                 });
                 builder.show();
@@ -205,7 +207,9 @@ public class BarcodeReaderFragment extends Fragment implements View.OnTouchListe
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-                        mListener.onCameraPermissionDenied();
+                        if (mListener != null) {
+                            mListener.onCameraPermissionDenied();
+                        }
                     }
                 });
                 builder.show();
@@ -329,7 +333,9 @@ public class BarcodeReaderFragment extends Fragment implements View.OnTouchListe
                 //Got Permission
                 proceedAfterPermission();
             } else {
-                mListener.onCameraPermissionDenied();
+                if (mListener != null) {
+                    mListener.onCameraPermissionDenied();
+                }
             }
         }
     }
@@ -389,12 +395,16 @@ public class BarcodeReaderFragment extends Fragment implements View.OnTouchListe
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
-                        mListener.onCameraPermissionDenied();
+                        if (mListener != null) {
+                            mListener.onCameraPermissionDenied();
+                        }
                     }
                 });
                 builder.show();
             } else {
-                mListener.onCameraPermissionDenied();
+                if (mListener != null) {
+                    mListener.onCameraPermissionDenied();
+                }
             }
         }
     }
