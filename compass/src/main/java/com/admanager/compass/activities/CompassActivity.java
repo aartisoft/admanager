@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,7 +19,7 @@ import com.admanager.compass.utils.Compass;
 
 public class CompassActivity extends AppCompatActivity implements Compass.CompassChangedListener {
     ImageView needleView;
-    View northContainer;
+    ImageView northContainer;
     TextView maInformation;
     TextView degreeText;
 
@@ -68,10 +67,10 @@ public class CompassActivity extends AppCompatActivity implements Compass.Compas
                 maInformation.setTextColor(instance.textColor);
             }
             if (instance.compassNeedle != 0) {
-                needleView.setBackground(ContextCompat.getDrawable(this, instance.compassNeedle));
+                needleView.setImageResource(instance.compassNeedle);
             }
             if (instance.compassBg != 0) {
-                northContainer.setBackground(ContextCompat.getDrawable(this, instance.compassBg));
+                northContainer.setImageResource(instance.compassBg);
             }
 
         }
