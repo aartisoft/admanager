@@ -13,6 +13,7 @@ import com.admanager.compass.CompassApp;
 import com.admanager.config.RemoteConfigApp;
 import com.admanager.core.Ads;
 import com.admanager.periodicnotification.PeriodicNotificationApp;
+import com.admanager.speedtest.SpeedTestApp;
 import com.admanager.wastickers.WastickersApp;
 
 public class MyApplication extends MultiDexApplication implements Ads {
@@ -47,6 +48,10 @@ public class MyApplication extends MultiDexApplication implements Ads {
                 .build();
 
         new CompassApp.Builder(this)
+                .ads(this)
+                .build();
+
+        new SpeedTestApp.Builder(this)
                 .ads(this)
                 .build();
     }

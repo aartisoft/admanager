@@ -1,0 +1,5 @@
+<resources>
+    <string name="speed_test">Speed Test</string>
+    <string name="speedtest_mbps">Mbps</string>
+    <string name="speedtest_start">Start</string>
+</resources>

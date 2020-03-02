@@ -73,7 +73,7 @@ dependencies {
       implementation 'com.admost.sdk:applovin:9.9.2.a15'
       implementation 'com.admost.sdk:chartboost:7.5.0.a15'
       implementation 'com.admost.sdk:ironsource:6.13.0.1.a15'
-
+    compile project(path: ':speed-test')
 
 
 /* IRONSOURCE ADDITIONAL ADAPTERS
