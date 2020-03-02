@@ -1,14 +1,21 @@
 package com.admanager.sample;
 
+import android.app.Activity;
 import android.support.multidex.MultiDexApplication;
+import android.widget.LinearLayout;
 
+import com.admanager.admob.AdmobBannerLoader;
+import com.admanager.admob.AdmobNativeLoader;
 import com.admanager.applocker.AppLockerApp;
+import com.admanager.barcode.BarcodeReaderApp;
 import com.admanager.boosternotification.BoosterNotificationApp;
+import com.admanager.compass.CompassApp;
 import com.admanager.config.RemoteConfigApp;
+import com.admanager.core.Ads;
 import com.admanager.periodicnotification.PeriodicNotificationApp;
 import com.admanager.wastickers.WastickersApp;
 
-public class MyApplication extends MultiDexApplication {
+public class MyApplication extends MultiDexApplication implements Ads {
 
     @Override
     public void onCreate() {
@@ -24,19 +31,33 @@ public class MyApplication extends MultiDexApplication {
                 .build();
 
         new BoosterNotificationApp.Builder(this)
+                .ads(this)
                 .build();
 
         new AppLockerApp.Builder(this)
+                .ads(this)
                 .build();
 
         new WastickersApp.Builder(this)
+                .ads(this)
                 .build();
 
-     /*   new BarcodeReaderApp.Builder(this)
+        new BarcodeReaderApp.Builder(this)
+                .ads(this)
                 .build();
 
         new CompassApp.Builder(this)
-                .build();*/
+                .ads(this)
+                .build();
     }
 
+    @Override
+    public void loadTop(Activity activity, LinearLayout container) {
+        new AdmobBannerLoader(activity, container, RCUtils.ADMOB_LIBS_BANNER_ENABLED).loadWithRemoteConfigId(RCUtils.ADMOB_LIBS_BANNER_ID);
+    }
+
+    @Override
+    public void loadBottom(Activity activity, LinearLayout container) {
+        new AdmobNativeLoader(activity, container, RCUtils.NATIVE_ADMOB_ENABLED).size(AdmobNativeLoader.NativeType.NATIVE_BANNER).loadWithRemoteConfigId(RCUtils.NATIVE_ADMOB_ID);
+    }
 }

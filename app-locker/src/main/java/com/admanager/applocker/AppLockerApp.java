@@ -6,10 +6,11 @@ import android.content.Intent;
 import android.os.Build;
 import android.support.design.widget.NavigationView;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 
 import com.admanager.applocker.activities.SplashActivity;
 import com.admanager.applocker.utils.AppLockInitializer;
+import com.admanager.core.Ads;
+import com.admanager.core.AdsImp;
 
 public class AppLockerApp {
     private static AppLockerApp INSTANCE;
@@ -59,11 +60,6 @@ public class AppLockerApp {
         return ads;
     }
 
-    public interface Ads {
-        void loadTop(Activity activity, LinearLayout container);
-
-        void loadBottom(Activity activity, LinearLayout container);
-    }
 
     public static class Builder {
 
@@ -81,17 +77,7 @@ public class AppLockerApp {
 
         public void build() {
             if (ads == null) {
-                ads = new Ads() {
-                    @Override
-                    public void loadTop(Activity activity, LinearLayout container) {
-
-                    }
-
-                    @Override
-                    public void loadBottom(Activity activity, LinearLayout container) {
-
-                    }
-                };
+                ads = new AdsImp();
             }
             AppLockInitializer.init(application);
             AppLockerApp.init(new AppLockerApp(ads));

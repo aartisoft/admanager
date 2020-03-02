@@ -25,13 +25,14 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.CompoundButton;
-import android.widget.LinearLayout;
 import android.widget.RemoteViews;
 
 import com.admanager.boosternotification.receiver.BatteryStatusReceiver;
 import com.admanager.boosternotification.receiver.BoosterNotificationReceiver;
 import com.admanager.boosternotification.receiver.ConnectionStatusReceiver;
 import com.admanager.core.AdmUtils;
+import com.admanager.core.Ads;
+import com.admanager.core.AdsImp;
 import com.admanager.core.BaseHelper;
 
 import java.lang.ref.WeakReference;
@@ -230,11 +231,6 @@ public class BoosterNotificationApp extends BaseHelper {
         }
     }
 
-    public interface Ads {
-        void loadTop(Activity activity, LinearLayout container);
-
-        void loadBottom(Activity activity, LinearLayout container);
-    }
 
     public static class Builder {
 
@@ -338,17 +334,7 @@ public class BoosterNotificationApp extends BaseHelper {
 
         public void build() {
             if (ads == null) {
-                ads = new Ads() {
-                    @Override
-                    public void loadTop(Activity activity, LinearLayout container) {
-
-                    }
-
-                    @Override
-                    public void loadBottom(Activity activity, LinearLayout container) {
-
-                    }
-                };
+                ads = new AdsImp();
             }
             Context context = this.context.get();
             setDefaultIcons(context);

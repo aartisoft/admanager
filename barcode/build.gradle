@@ -33,6 +33,7 @@ dependencies {
 
     // others
     api project(path: ':config')
+    compile project(path: ':core')
 }
 
 task sourcesJar(type: Jar) {

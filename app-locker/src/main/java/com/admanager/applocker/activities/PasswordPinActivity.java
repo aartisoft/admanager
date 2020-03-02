@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.admanager.applocker.AppLockerApp;
 import com.admanager.applocker.R;
 import com.admanager.applocker.utils.PasswordType;
+import com.admanager.core.Ads;
 
 public class PasswordPinActivity extends PasswordActivity implements View.OnClickListener {
     Button[] pins;
@@ -25,7 +26,7 @@ public class PasswordPinActivity extends PasswordActivity implements View.OnClic
     String lastPass;
     String currentPass;
     LinearLayout pinPlaceholder;
-    private AppLockerApp.Ads ads;
+    private Ads ads;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

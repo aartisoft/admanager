@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.boosternotification.R;
+import com.admanager.core.Ads;
 import com.airbnb.lottie.LottieAnimationView;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class BatteryBoostActivity extends AppCompatActivity {
     TextView txtStatus;
     private int color = 0xFF30E471;
     private Button btnClose;
-    private BoosterNotificationApp.Ads ads;
+    private Ads ads;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

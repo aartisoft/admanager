@@ -43,6 +43,9 @@ public class RCUtils {
     public static final String ADMOB_BANNER_ENABLED = "admob_banner_enabled";
     public static final String ADMOB_BANNER_ID = "admob_banner_id";
 
+    public static final String ADMOB_LIBS_BANNER_ENABLED = "admob_libs_banner_enabled";
+    public static final String ADMOB_LIBS_BANNER_ID = "admob_libs_banner_id";
+
     public static final String FACEBOOK_BANNER_ENABLED = "facebook_banner_enabled";
     public static final String FACEBOOK_BANNER_ID = "facebook_banner_id";
 
@@ -59,6 +62,8 @@ public class RCUtils {
     public static HashMap<String, Object> getDefaults() {
         if (defaults == null) {
             defaults = new HashMap<>();
+            defaults.put(ADMOB_LIBS_BANNER_ENABLED, true);
+
             defaults.put(S1_ADMOB_ENABLED, true);
             defaults.put(S1_FACEBOOK_ENABLED, true);
 
@@ -88,6 +93,7 @@ public class RCUtils {
             defaults.put(ADMOB_BANNER_ID, "ca-app-pub-3940256099942544/6300978111"); // TODO
             defaults.put(NATIVE_ADMOB_ID, "ca-app-pub-3940256099942544/2247696110"); // TODO
             defaults.put(MAIN_3SEC_ADMOB_ID, "ca-app-pub-3940256099942544/1033173712"); // TODO
+            defaults.put(ADMOB_LIBS_BANNER_ID, "ca-app-pub-3940256099942544/1033173712"); // TODO
 
             defaults.put(S1_FACEBOOK_ID, "YOUR_PLACEMENT_ID"); // TODO
             defaults.put(S2_FACEBOOK_ID, "YOUR_PLACEMENT_ID"); // TODO

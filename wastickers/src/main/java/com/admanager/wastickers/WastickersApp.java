@@ -14,9 +14,10 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.admanager.core.AdmUtils;
+import com.admanager.core.Ads;
+import com.admanager.core.AdsImp;
 import com.admanager.wastickers.adapters.StickerCategoryAdapter;
 import com.admanager.wastickers.api.StickerService;
 import com.admanager.wastickers.model.PackageModel;
@@ -230,11 +231,6 @@ public class WastickersApp {
         void downloaded(File file);
     }
 
-    public interface Ads {
-        void loadTop(Activity activity, LinearLayout container);
-
-        void loadBottom(Activity activity, LinearLayout container);
-    }
 
     public static class Builder {
 
@@ -287,17 +283,7 @@ public class WastickersApp {
 
         public void build() {
             if (ads == null) {
-                ads = new Ads() {
-                    @Override
-                    public void loadTop(Activity activity, LinearLayout container) {
-
-                    }
-
-                    @Override
-                    public void loadBottom(Activity activity, LinearLayout container) {
-
-                    }
-                };
+                ads = new AdsImp();
             }
             Context context = this.context.get();
 

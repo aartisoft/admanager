@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.admanager.applocker.AppLockerApp;
 import com.admanager.applocker.R;
+import com.admanager.core.Ads;
 
 import static com.admanager.applocker.utils.AppLockInitializer.REQ_CODE_PASSWORD;
 import static com.admanager.applocker.utils.AppLockInitializer.REQ_CODE_PASSWORD_TYPE;
@@ -21,7 +22,7 @@ public class PasswordTypeActivity extends AppCompatActivity implements View.OnCl
     private static final String PASSWORD_SET = "password_set";
 
     boolean askRecovery = false;
-    AppLockerApp.Ads ads;
+    Ads ads;
 
     public static void startPasswordSet(Activity activity, boolean askRecovery) {
         Intent i = new Intent(activity, PasswordTypeActivity.class);

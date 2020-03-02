@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.admanager.applocker.AppLockerApp;
 import com.admanager.applocker.R;
 import com.admanager.applocker.prefrence.Prefs;
+import com.admanager.core.Ads;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class PasswordRecoveryActivity extends AppCompatActivity implements Adapt
     Button confirmButton;
     int questionNumber = 0;
     private boolean check;
-    private AppLockerApp.Ads ads;
+    private Ads ads;
 
     public static void startActivity(Context context, boolean check) {
         Intent intent = new Intent(context, PasswordRecoveryActivity.class);

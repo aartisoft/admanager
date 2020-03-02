@@ -1,12 +1,13 @@
 package com.admanager.barcode;
 
-import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.support.annotation.ColorRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.StringRes;
-import android.widget.LinearLayout;
+
+import com.admanager.core.Ads;
+import com.admanager.core.AdsImp;
 
 import java.lang.ref.WeakReference;
 
@@ -29,12 +30,6 @@ public class BarcodeReaderApp {
     private static BarcodeReaderApp init(BarcodeReaderApp barcodeReaderApp) {
         INSTANCE = barcodeReaderApp;
         return INSTANCE;
-    }
-
-    public interface Ads {
-        void loadTop(Activity activity, LinearLayout container);
-
-        void loadBottom(Activity activity, LinearLayout container);
     }
 
     public static class Builder {
@@ -76,17 +71,7 @@ public class BarcodeReaderApp {
 
         public void build() {
             if (ads == null) {
-                ads = new Ads() {
-                    @Override
-                    public void loadTop(Activity activity, LinearLayout container) {
-
-                    }
-
-                    @Override
-                    public void loadBottom(Activity activity, LinearLayout container) {
-
-                    }
-                };
+                ads = new AdsImp();
             }
             Context context = this.context.get();
 

@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.admanager.applocker.AppLockerApp;
 import com.admanager.applocker.R;
 import com.admanager.applocker.utils.PasswordType;
+import com.admanager.core.Ads;
 import com.takwolf.android.lock9.Lock9View;
 
 public class PasswordPatternActivity extends PasswordActivity implements View.OnClickListener, Lock9View.CallBack {
@@ -21,7 +22,7 @@ public class PasswordPatternActivity extends PasswordActivity implements View.On
     TextView textView;
     int trying = 0;
     String enteredPassword;
-    private AppLockerApp.Ads ads;
+    private Ads ads;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

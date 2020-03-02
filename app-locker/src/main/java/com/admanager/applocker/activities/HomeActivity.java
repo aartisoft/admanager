@@ -16,11 +16,12 @@ import com.admanager.applocker.fragments.AllAppFragment;
 import com.admanager.applocker.prefrence.Prefs;
 import com.admanager.applocker.utils.AppLockConstants;
 import com.admanager.applocker.utils.AppLockInitializer;
+import com.admanager.core.Ads;
 
 public class HomeActivity extends AppCompatActivity {
 
     FragmentManager fragmentManager;
-    private AppLockerApp.Ads ads;
+    private Ads ads;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
