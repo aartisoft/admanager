@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -51,7 +52,7 @@ public class WAStickersActivity extends AppCompatActivity {
                 setTitle(instance.title);
             }
             if (instance.bgColor != 0) {
-                recyclerView.setBackgroundColor(instance.bgColor);
+                recyclerView.setBackgroundColor(ContextCompat.getColor(this, instance.bgColor));
             }
         }
 

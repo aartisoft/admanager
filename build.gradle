@@ -40,6 +40,9 @@ allprojects {
         maven {
             url 'http://repo.admost.com:8081/artifactory/admost'
         }
+        maven {
+            url "http://giphy.bintray.com/giphy-sdk"
+        }
     }
 }
 

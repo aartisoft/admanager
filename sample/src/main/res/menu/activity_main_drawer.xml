@@ -52,6 +52,14 @@
             android:id="@+id/nav_barcode_reader"
             android:title="Barcode Reader" />
 
+        <item
+            android:id="@+id/nav_speed_test"
+            android:title="Speed Test" />
+
+        <item
+            android:id="@+id/nav_gps_satellite"
+            android:title="GPS Satellite" />
+
     </group>
     <item android:title="Communicate">
         <menu>

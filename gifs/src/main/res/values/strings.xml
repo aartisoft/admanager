@@ -1,0 +1,5 @@
+<resources>
+    <string name="gifs" translatable="false">Gifs</string>
+    <string name="gifs_share">Share</string>
+    <string name="gifs_download">Download</string>
+</resources>

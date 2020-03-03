@@ -18,4 +18,6 @@ include ':config',
         ':adapter-admost',
         ':compass',
         ':barcode',
-        ':speed-test'
+        ':speed-test',
+        ':gps-satellite',
+        ':gifs'

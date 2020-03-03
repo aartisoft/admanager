@@ -60,11 +60,13 @@ dependencies {
     implementation project(path: ':wastickers')
     implementation project(path: ':compass')
     implementation project(path: ':barcode')
+    implementation project(path: ':gifs')
+    implementation project(path: ':speed-test')
 
 
     /*  Admost ADDITIONAL ADAPTERS
 
-      Use: "AdMostConsent.showGDPRDialog(this);" for consent*/
+      Use: "AdMostConsent.showGDPRDialog(this);" for consent
         implementation project(path: ':adapter-admost')
 
       implementation 'com.google.android.gms:play-services-ads:17.2.1'
@@ -72,8 +74,7 @@ dependencies {
       implementation 'com.admost.sdk:adcolony:4.1.2.a15'
       implementation 'com.admost.sdk:applovin:9.9.2.a15'
       implementation 'com.admost.sdk:chartboost:7.5.0.a15'
-      implementation 'com.admost.sdk:ironsource:6.13.0.1.a15'
-    compile project(path: ':speed-test')
+      implementation 'com.admost.sdk:ironsource:6.13.0.1.a15' */
 
 
 /* IRONSOURCE ADDITIONAL ADAPTERS

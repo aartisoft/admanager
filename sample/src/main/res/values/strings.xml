@@ -24,13 +24,14 @@
 
     <string name="accept">I ACCEPT</string>
 
-    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string> <!--todo-->
-    <string name="unity_game_id">2908042</string> <!--todo-->
-    <string name="unity_placement_id_onresume">onresume</string> <!--todo-->
-    <string name="unity_placement_id_onexit">videoUrl</string> <!--todo-->
-    <string name="mopub_banner">b195f8dd8ded45fe847ad89ed1d016da</string> <!--todo-->
-    <string name="inmobi_banner">1547483178070</string> <!--todo-->
-    <string name="inmobi_account_id">0ebbbd7c75be47feb316d4dde2017b89</string> <!--todo-->
+    <string name="giphy_api_key" translatable="false">AhQBETTMqlwCx56VTohWlz4AiPTLMIpc</string> <!--todo-->
+    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string> <!--todo-->
+    <string name="unity_game_id" translatable="false">2908042</string> <!--todo-->
+    <string name="unity_placement_id_onresume" translatable="false">onresume</string> <!--todo-->
+    <string name="unity_placement_id_onexit" translatable="false">videoUrl</string> <!--todo-->
+    <string name="mopub_banner" translatable="false">b195f8dd8ded45fe847ad89ed1d016da</string> <!--todo-->
+    <string name="inmobi_banner" translatable="false">1547483178070</string> <!--todo-->
+    <string name="inmobi_account_id" translatable="false">0ebbbd7c75be47feb316d4dde2017b89</string> <!--todo-->
 
     <string name="adm_tutorial_next">Sample - Next</string>
     <string name="adm_tutorial_goto_app">Sample - Go to app</string>
