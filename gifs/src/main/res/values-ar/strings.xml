@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="gifs_share">شارك</string>
+    <string name="gifs_download">تحميل</string>
+    <string name="gifs_downloaded">تحميلا</string>
+    <string name="gifs_open">افتح</string>
+
+</resources>

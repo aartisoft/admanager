@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="gifs_share">शेयर</string>
+    <string name="gifs_download">डाउनलोड</string>
+    <string name="gifs_downloaded">डाउनलोड</string>
+    <string name="gifs_open">खुला हुआ</string>
+
+</resources>

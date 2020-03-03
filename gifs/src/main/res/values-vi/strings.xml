@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="gifs_share">Chia sẻ</string>
+    <string name="gifs_download">Tải xuống</string>
+    <string name="gifs_downloaded">Đã tải xuống</string>
+    <string name="gifs_open">Mở</string>
+
+</resources>

@@ -27,6 +27,7 @@ import com.admanager.popupenjoy.AdmPopupEnjoy;
 import com.admanager.popuppromo.AdmPopupPromo;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
+import com.admanager.speedtest.activities.SpeedTestActivity;
 import com.admanager.wastickers.activities.WAStickersActivity;
 
 /**
@@ -129,6 +130,10 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
             WAStickersActivity.start(this);
         } else if (id == R.id.nav_barcode_reader) {
             BarcodeReaderActivity.start(this);
+        } else if (id == R.id.nav_speed_test) {
+            SpeedTestActivity.start(this);
+        } else if (id == R.id.nav_gps_satellite) {
+            SpeedTestActivity.start(this);
         } else if (id == R.id.nav_compass) {
             CompassActivity.start(this);
         } else if (id == R.id.nav_share) {

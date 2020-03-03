@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="gifs_share">Compartir</string>
+    <string name="gifs_download">Descargar</string>
+    <string name="gifs_downloaded">Descargado</string>
+    <string name="gifs_open">Abierto</string>
+
+</resources>

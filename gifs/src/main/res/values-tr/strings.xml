@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="gifs_share">Paylaş</string>
+    <string name="gifs_download">İndir</string>
+    <string name="gifs_downloaded">İndirildi</string>
+    <string name="gifs_open">Aç</string>
+
+</resources>

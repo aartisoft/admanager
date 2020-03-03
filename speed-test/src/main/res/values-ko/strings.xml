@@ -1,0 +1,5 @@
+<resources>
+    <string name="speed_test">속도 테스트</string>
+
+    <string name="speedtest_start">스타트</string>
+</resources>

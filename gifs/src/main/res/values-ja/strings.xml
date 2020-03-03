@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="gifs_share">共有</string>
+    <string name="gifs_download">ダウンロード</string>
+    <string name="gifs_downloaded">ダウンロード済み</string>
+    <string name="gifs_open">開いた</string>
+
+</resources>

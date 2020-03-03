@@ -15,3 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+-keepclassmembernames class com.giphy.sdk.core.models.** { *; }
+-keepclassmembernames class com.giphy.sdk.core.network.response.** { *; }
+-keepattributes *Annotation*
+-dontwarn com.giphy.sdk.core.**

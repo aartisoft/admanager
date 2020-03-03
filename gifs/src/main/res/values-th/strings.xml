@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="gifs_share">หุ้น</string>
+    <string name="gifs_download">ดาวน์โหลด</string>
+    <string name="gifs_downloaded">ดาวน์โหลด</string>
+    <string name="gifs_open">เปิด</string>
+
+</resources>

@@ -27,7 +27,8 @@ public class GifDialog extends Dialog implements View.OnClickListener {
     public static final String LATEST_SHARED = "latest_shared_gif.gif";
     private static final String TAG = "GIF_Dialog";
     private final Media media;
-    ImageView img;
+    private ImageView img;
+    private View root;
 
     public GifDialog(Activity activity, Media media) {
         super(activity);
@@ -44,6 +45,7 @@ public class GifDialog extends Dialog implements View.OnClickListener {
         TextView txt_share = findViewById(R.id.txt_share);
         TextView txt_download = findViewById(R.id.txt_download);
         img = findViewById(R.id.img);
+        root = findViewById(R.id.root);
 
         txt_title.setText(media.getTitle());
 
@@ -51,7 +53,7 @@ public class GifDialog extends Dialog implements View.OnClickListener {
         txt_download.setOnClickListener(this);
 
         Glide.with(getContext())
-                .load(media.getImages().getFixedHeightDownsampled().getGifUrl())
+                .load(media.getImages().getFixedHeight().getGifUrl())
                 .into(img);
     }
 
@@ -63,7 +65,7 @@ public class GifDialog extends Dialog implements View.OnClickListener {
             download();
         }
 
-        dismiss();
+//        dismiss();
     }
 
     private void share() {
@@ -79,28 +81,27 @@ public class GifDialog extends Dialog implements View.OnClickListener {
     }
 
     private void downloadedAlert(File gifFile) {
-        Snackbar snackbar = null;
-        try {
-            snackbar = Snackbar.make(getCurrentFocus(), "Downloaded", Snackbar.LENGTH_SHORT);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-//        Uri selectedUri = Uri.fromFile(gifFile);
+        //        Uri selectedUri = Uri.fromFile(gifFile);
         Uri selectedUri = FileProvider.getUriForFile(getContext(), getContext().getApplicationContext().getPackageName() + ".fileprovider", gifFile);
 
         final Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         intent.setDataAndType(selectedUri, "image/*");
 
-        if (getContext() != null && intent.resolveActivityInfo(getContext().getPackageManager(), 0) != null) {
-            snackbar = snackbar.setAction("Open", new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    getContext().startActivity(intent);
-                }
-            });
+        try {
+            Snackbar snackbar = Snackbar.make(root, getContext().getString(R.string.gifs_downloaded), Snackbar.LENGTH_LONG);
+
+            if (intent.resolveActivityInfo(getContext().getPackageManager(), 0) != null) {
+                snackbar.setAction(getContext().getString(R.string.gifs_open), new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        getContext().startActivity(intent);
+                    }
+                }).show();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        snackbar.show();
 
         Utils.addToGallery(getContext(), gifFile);
     }
@@ -108,8 +109,9 @@ public class GifDialog extends Dialog implements View.OnClickListener {
     private String getFileName(Media media) {
         String fileName = media.getTitle();
         if (fileName == null) {
-            fileName = "gif_" + System.currentTimeMillis() + ".gif";
+            fileName = "gif_" + System.currentTimeMillis();
         }
+        fileName += ".gif";
         return fileName;
     }
 

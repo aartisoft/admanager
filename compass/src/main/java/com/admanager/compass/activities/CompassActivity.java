@@ -25,6 +25,7 @@ public class CompassActivity extends AppCompatActivity implements Compass.Compas
     TextView degreeText;
 
     private Compass compass;
+    private float QIBLA_DEGREE;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, CompassActivity.class);
@@ -73,7 +74,6 @@ public class CompassActivity extends AppCompatActivity implements Compass.Compas
             if (instance.compassBg != 0) {
                 northContainer.setImageResource(instance.compassBg);
             }
-
         }
     }
 
@@ -112,11 +112,11 @@ public class CompassActivity extends AppCompatActivity implements Compass.Compas
     }
 
     private void adjustArrow(float lastAzimuth, float azimuth) {
-        degreeText.setText((int) (azimuth) + "°");
+        degreeText.setText((int) (azimuth - QIBLA_DEGREE) + "°");
 
         //Animations
         Rotate[] rotates = new Rotate[]{
-                new Rotate(needleView, -lastAzimuth, -azimuth),
+                new Rotate(needleView, QIBLA_DEGREE - lastAzimuth, QIBLA_DEGREE - azimuth),
                 new Rotate(northContainer, -lastAzimuth, -azimuth)
         };
 

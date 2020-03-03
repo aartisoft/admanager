@@ -1,5 +1,8 @@
 <resources>
-    <string name="gifs" translatable="false">Gifs</string>
+    <string name="gifs" translatable="false">Gif</string>
     <string name="gifs_share">Share</string>
     <string name="gifs_download">Download</string>
+    <string name="gifs_downloaded">Downloaded</string>
+    <string name="gifs_open">Open</string>
+    <string name="gifs_powered_by_giphy" translatable="false">Powered By GIPHY</string>
 </resources>

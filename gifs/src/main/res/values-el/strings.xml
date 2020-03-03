@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="gifs_share">Μερίδιο</string>
+    <string name="gifs_download">Κατεβάστε</string>
+    <string name="gifs_downloaded">Λήψη</string>
+    <string name="gifs_open">Ανοιξε</string>
+
+</resources>

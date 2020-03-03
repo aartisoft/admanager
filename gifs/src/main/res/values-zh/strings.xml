@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="gifs_share">分享</string>
+    <string name="gifs_download">下载</string>
+    <string name="gifs_downloaded">已下载</string>
+    <string name="gifs_open">打开</string>
+
+</resources>

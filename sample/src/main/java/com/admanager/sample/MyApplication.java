@@ -12,6 +12,7 @@ import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.compass.CompassApp;
 import com.admanager.config.RemoteConfigApp;
 import com.admanager.core.Ads;
+import com.admanager.gifs.GifsApp;
 import com.admanager.periodicnotification.PeriodicNotificationApp;
 import com.admanager.speedtest.SpeedTestApp;
 import com.admanager.wastickers.WastickersApp;
@@ -52,6 +53,10 @@ public class MyApplication extends MultiDexApplication implements Ads {
                 .build();
 
         new SpeedTestApp.Builder(this)
+                .ads(this)
+                .build();
+
+        new GifsApp.Builder(this, getString(R.string.giphy_api_key))
                 .ads(this)
                 .build();
     }

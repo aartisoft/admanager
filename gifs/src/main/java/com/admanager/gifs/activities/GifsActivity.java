@@ -10,11 +10,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.admanager.core.AdmUtils;
+import com.admanager.core.Consts;
 import com.admanager.gifs.GifsApp;
 import com.admanager.gifs.R;
 import com.admanager.gifs.adapters.CategoryAdapter;
@@ -63,6 +65,7 @@ public class GifsActivity extends AppCompatActivity implements GifsAdapter.Selec
         rvCategory = findViewById(R.id.rvCategory);
         rvGifs = findViewById(R.id.rvGifs);
         root = findViewById(R.id.root);
+        setTitle(getString(R.string.gifs_powered_by_giphy));
 
         GifsApp instance = GifsApp.getInstance();
         if (instance != null) {
@@ -72,13 +75,11 @@ public class GifsActivity extends AppCompatActivity implements GifsAdapter.Selec
                 instance.ads.loadTop(this, (LinearLayout) findViewById(R.id.top));
                 instance.ads.loadBottom(this, (LinearLayout) findViewById(R.id.bottom));
             }
-            if (instance.title != null) {
-                setTitle(instance.title);
-            }
             if (instance.bgColor != 0) {
                 root.setBackgroundColor(ContextCompat.getColor(this, instance.bgColor));
             }
         } else {
+            Log.e(Consts.TAG, "init Gif module in Application class");
             finish();
             return;
         }

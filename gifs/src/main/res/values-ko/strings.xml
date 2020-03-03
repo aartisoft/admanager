@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="gifs_share">공유</string>
+    <string name="gifs_download">다운로드</string>
+    <string name="gifs_downloaded">다운로드</string>
+    <string name="gifs_open">열다</string>
+
+</resources>

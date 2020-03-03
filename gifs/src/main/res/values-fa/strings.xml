@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="gifs_share">اشتراک گذاری</string>
+    <string name="gifs_download">دانلود</string>
+    <string name="gifs_downloaded">بارگیری شد</string>
+    <string name="gifs_open">باز کن</string>
+
+</resources>
