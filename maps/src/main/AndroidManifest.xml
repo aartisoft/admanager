@@ -14,8 +14,6 @@
             android:name=".activities.MapsActivity"
             android:label="@string/maps"
             android:theme="@style/MapsAppTheme" />
-
-
     </application>
 
 </manifest>
