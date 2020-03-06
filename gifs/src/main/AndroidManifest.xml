@@ -16,7 +16,7 @@
         <activity
             android:name=".activities.GifsActivity"
             android:label="@string/gifs"
-            android:theme="@style/WastickersAppTheme" />
+            android:theme="@style/GifsAppTheme" />
 
         <provider
             android:name=".utils.GenericFileProvider"
