@@ -33,7 +33,7 @@ dependencies {
 
     // others
     api project(path: ':config')
-    api project(path: ':adapter-admob')
+    api project(path: ':core')
 
 }
 

@@ -20,14 +20,18 @@ public class CompassApp {
     public int textColor;
     public int compassNeedle;
     public int compassBg;
+    public boolean qibla;
+    public int kabeIcon;
 
-    CompassApp(Application app, Ads ads, String title, int bgColor, int compassNeedle, int compassBg, int textColor) {
+    CompassApp(Application app, Ads ads, String title, int bgColor, int compassNeedle, int compassBg, int textColor, boolean qibla, int kabeIcon) {
         this.title = title;
         this.ads = ads;
         this.bgColor = bgColor;
         this.textColor = textColor;
         this.compassNeedle = compassNeedle;
+        this.kabeIcon = kabeIcon;
         this.compassBg = compassBg;
+        this.qibla = qibla;
     }
 
     public static CompassApp getInstance() {
@@ -48,6 +52,8 @@ public class CompassApp {
         private int textColor;
         private int compassNeedle;
         private int compassBg;
+        private int kabeIcon;
+        private boolean qibla;
 
         public Builder(@NonNull Application context) {
             this.context = new WeakReference<>(context.getApplicationContext());
@@ -66,6 +72,16 @@ public class CompassApp {
             return this;
         }
 
+        public CompassApp.Builder showQibla() {
+            this.qibla = true;
+            return this;
+        }
+
+        public CompassApp.Builder showQibla(@DrawableRes int kabeIcon) {
+            this.qibla = true;
+            this.kabeIcon = kabeIcon;
+            return this;
+        }
         public CompassApp.Builder title(@StringRes int title) {
             Context c = context.get();
             if (c != null) {
@@ -103,7 +119,7 @@ public class CompassApp {
             Context context = this.context.get();
 
             Application app = (Application) context.getApplicationContext();
-            CompassApp.init(new CompassApp(app, ads, title, bgColor, compassNeedle, compassBg, textColor));
+            CompassApp.init(new CompassApp(app, ads, title, bgColor, compassNeedle, compassBg, textColor, qibla, kabeIcon));
 
         }
 

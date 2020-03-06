@@ -38,7 +38,7 @@ dependencies {
 
     // others
     api project(path: ':config')
-    api project(path: ':adapter-admob')
+    api project(path: ':core')
 
     api 'com.giphy.sdk:core:1.0.2'
 

@@ -8,6 +8,7 @@
         android:hardwareAccelerated="true"
         android:largeHeap="true"
         android:supportsRtl="true"
+        android:networkSecurityConfig="@xml/ipapi_network_security_config"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".activities.CompassActivity"

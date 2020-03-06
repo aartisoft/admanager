@@ -16,16 +16,27 @@ import android.widget.TextView;
 
 import com.admanager.compass.CompassApp;
 import com.admanager.compass.R;
+import com.admanager.compass.ipapi.IPApi;
+import com.admanager.compass.ipapi.IpModel;
 import com.admanager.compass.utils.Compass;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class CompassActivity extends AppCompatActivity implements Compass.CompassChangedListener {
     ImageView needleView;
     ImageView northContainer;
+    ImageView kabe;
     TextView maInformation;
     TextView degreeText;
+    private Retrofit retrofit;
 
     private Compass compass;
     private float QIBLA_DEGREE;
+    private String additionalText = "";
 
     public static void start(Context context) {
         Intent intent = new Intent(context, CompassActivity.class);
@@ -38,13 +49,16 @@ public class CompassActivity extends AppCompatActivity implements Compass.Compas
         setContentView(R.layout.activity_compass);
 
         needleView = findViewById(R.id.compass_needle);
+        kabe = findViewById(R.id.kabe);
         northContainer = findViewById(R.id.compass_bg);
         maInformation = findViewById(R.id.maInformation);
         degreeText = findViewById(R.id.degreeText);
 
         compass = new Compass(this);
         compass.setListener(this);
-        request();
+        if (compass != null) {
+            compass.request();
+        }
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -74,6 +88,38 @@ public class CompassActivity extends AppCompatActivity implements Compass.Compas
             if (instance.compassBg != 0) {
                 northContainer.setImageResource(instance.compassBg);
             }
+            if (instance.kabeIcon != 0) {
+                kabe.setImageResource(instance.kabeIcon);
+            }
+
+            if (instance.qibla) {
+                if (retrofit == null) {
+                    retrofit = new Retrofit.Builder()
+                            .baseUrl("http://ip-api.com/")
+                            .addConverterFactory(GsonConverterFactory.create())
+                            .build();
+                }
+                retrofit.create(IPApi.class).ip().enqueue(new Callback<IpModel>() {
+                    @Override
+                    public void onResponse(Call<IpModel> call, Response<IpModel> response) {
+                        if (response.body() != null && response.code() == 200) {
+                            QIBLA_DEGREE = calculateQibla(response.body().lat, response.body().lon);
+                            additionalText = response.body().city;
+                            kabe.setVisibility(View.VISIBLE);
+                        }
+                        if (compass != null) {
+                            compass.request();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<IpModel> call, Throwable t) {
+                        if (compass != null) {
+                            compass.request();
+                        }
+                    }
+                });
+            }
         }
     }
 
@@ -92,15 +138,18 @@ public class CompassActivity extends AppCompatActivity implements Compass.Compas
         if (compass != null) {
             compass.start();
         }
-
-        request();
-    }
-
-    private void request() {
-
         if (compass != null) {
             compass.request();
         }
+    }
+
+    public float calculateQibla(double latitude, double longitude) {
+        double phiK = 21.4 * Math.PI / 180.0;
+        double lambdaK = 39.8 * Math.PI / 180.0;
+        double phi = latitude * Math.PI / 180.0;
+        double lambda = longitude * Math.PI / 180.0;
+        double psi = 180.0 / Math.PI * Math.atan2(Math.sin(lambdaK - lambda), Math.cos(phi) * Math.tan(phiK) - Math.sin(phi) * Math.cos(lambdaK - lambda));
+        return Math.round(psi);
     }
 
     @Override
@@ -112,6 +161,7 @@ public class CompassActivity extends AppCompatActivity implements Compass.Compas
     }
 
     private void adjustArrow(float lastAzimuth, float azimuth) {
+
         degreeText.setText((int) (azimuth - QIBLA_DEGREE) + "°");
 
         //Animations
@@ -132,13 +182,12 @@ public class CompassActivity extends AppCompatActivity implements Compass.Compas
 
     @Override
     public void onChanged(float oldAzimuth, float newAzimuth, boolean noSensor) {
-        System.out.println("degree:" + oldAzimuth + "->" + newAzimuth);
         adjustArrow(oldAzimuth, newAzimuth);
 
         if (noSensor) {
-            maInformation.setText(R.string.compass_no_sensor);
+            maInformation.setText(additionalText + " " + getString(R.string.compass_no_sensor));
         } else {
-            maInformation.setText("");
+            maInformation.setText(additionalText);
         }
     }
 
