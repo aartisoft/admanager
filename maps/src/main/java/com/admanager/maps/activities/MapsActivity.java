@@ -15,6 +15,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.admanager.core.Consts;
@@ -48,6 +49,11 @@ public class MapsActivity extends AppCompatActivity implements View.OnKeyListene
         if (instance == null) {
             Log.e(Consts.TAG, "init Maps module in Application class");
             finish();
+        } else {
+            if (instance.ads != null) {
+                instance.ads.loadTop(this, (LinearLayout) findViewById(R.id.top));
+                instance.ads.loadBottom(this, (LinearLayout) findViewById(R.id.bottom));
+            }
         }
 
         webViewConfiguration();
