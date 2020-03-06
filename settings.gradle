@@ -20,4 +20,5 @@ include ':config',
         ':barcode',
         ':speed-test',
         ':gps-satellite',
-        ':gifs'
+        ':gifs',
+        ':maps'

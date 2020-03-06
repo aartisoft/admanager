@@ -13,6 +13,7 @@ import com.admanager.compass.CompassApp;
 import com.admanager.config.RemoteConfigApp;
 import com.admanager.core.Ads;
 import com.admanager.gifs.GifsApp;
+import com.admanager.maps.MapsApp;
 import com.admanager.periodicnotification.PeriodicNotificationApp;
 import com.admanager.speedtest.SpeedTestApp;
 import com.admanager.wastickers.WastickersApp;
@@ -25,11 +26,9 @@ public class MyApplication extends MultiDexApplication implements Ads {
 
         //        new AdmStaticNotification.Builder(this, R.string.easy_access_title, R.string.easy_access_text)
         //                .build();
-
-        new PeriodicNotificationApp.Builder(this)
-                .build();
-
         new RemoteConfigApp.Builder(RCUtils.getDefaults())
+                .build();
+        new PeriodicNotificationApp.Builder(this)
                 .build();
 
         new BoosterNotificationApp.Builder(this)
@@ -58,6 +57,9 @@ public class MyApplication extends MultiDexApplication implements Ads {
 
         new GifsApp.Builder(this, getString(R.string.giphy_api_key))
                 .ads(this)
+                .build();
+
+        new MapsApp.Builder(this)
                 .build();
     }
 

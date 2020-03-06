@@ -23,6 +23,7 @@ import com.admanager.compass.activities.CompassActivity;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
+import com.admanager.maps.activities.MapsActivity;
 import com.admanager.popupenjoy.AdmPopupEnjoy;
 import com.admanager.popuppromo.AdmPopupPromo;
 import com.admanager.sample.R;
@@ -152,6 +153,8 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
             toast(item.getTitle(), AdmUtils.pxToDp(this, 50));
         } else if (id == R.id.capitalize) {
             toast(item.getTitle(), AdmUtils.capitalize("CaPiTAlizEd"));
+        } else if (id == R.id.maps) {
+            MapsActivity.start(this);
         }
         return false;
     }

@@ -62,6 +62,7 @@ dependencies {
     implementation project(path: ':barcode')
     implementation project(path: ':gifs')
     implementation project(path: ':speed-test')
+    implementation project(path: ':maps')
 
 
     /*  Admost ADDITIONAL ADAPTERS

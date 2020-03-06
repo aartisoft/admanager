@@ -23,6 +23,7 @@
         <item
             android:id="@+id/capitalize"
             android:title="CaPiTAlizEd" />
+
     </group>
     <group
         android:id="@+id/second"
@@ -59,6 +60,9 @@
         <item
             android:id="@+id/nav_gps_satellite"
             android:title="GPS Satellite" />
+        <item
+            android:id="@+id/maps"
+            android:title="Maps" />
 
     </group>
     <item android:title="Communicate">
