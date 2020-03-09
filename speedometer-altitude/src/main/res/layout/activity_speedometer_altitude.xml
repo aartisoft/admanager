@@ -31,71 +31,80 @@
             tools:itemCount="1"
             tools:listitem="@layout/item_speed" />
 
-        <com.github.anastr.speedviewlib.ImageSpeedometer
-            android:id="@+id/speedoMeter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            app:sv_image="@drawable/speed4"
-            app:sv_indicator="NeedleIndicator"
-            app:sv_indicatorColor="@color/speedometer_colorIndicator"
-            app:sv_markColor="@color/speedometer_colorWhite"
-            app:sv_speedTextColor="@color/speedometer_colorWhite"
-            app:sv_unitTextColor="@color/speedometer_colorWhite"
-            app:sv_withTremble="false" />
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="end"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="8dp">
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:gravity="center">
 
-            <FrameLayout
-                android:layout_width="130dp"
-                android:layout_height="130dp"
+            <com.github.anastr.speedviewlib.ImageSpeedometer
+                android:id="@+id/speedoMeter"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="16dp">
+                app:sv_image="@drawable/speed4"
+                app:sv_indicator="NeedleIndicator"
+                app:sv_indicatorColor="@color/speedometer_colorIndicator"
+                app:sv_markColor="@color/speedometer_colorWhite"
+                app:sv_speedTextColor="@color/speedometer_colorWhite"
+                app:sv_unitTextColor="@color/speedometer_colorWhite"
+                app:sv_withTremble="false" />
 
-                <ImageView
-                    android:id="@+id/altimeterBG"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:src="@drawable/bg_altimeter" />
-
-                <ImageView
-                    android:id="@+id/altimeterIndicator"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:src="@drawable/indicator_altimeter" />
-
-            </FrameLayout>
-
-            <FrameLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
-                <TextView
-                    android:id="@+id/txtAltitude"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
+                <FrameLayout
                     android:padding="8dp"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp"
-                    tools:text="175m" />
+                    android:layout_width="110dp"
+                    android:layout_height="110dp">
 
-                <ProgressBar
-                    android:id="@+id/altitudeProgress"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_gravity="center" />
-            </FrameLayout>
+                    <ImageView
+                        android:id="@+id/altimeterBG"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        tools:src="@drawable/bg_altimeter" />
 
+                    <ImageView
+                        android:id="@+id/altimeterIndicator"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        tools:src="@drawable/indicator_altimeter" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtAltitude"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="17sp"
+                        tools:text="175m" />
+
+                    <ProgressBar
+                        android:id="@+id/altitudeProgress"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center" />
+                </FrameLayout>
+
+            </LinearLayout>
         </LinearLayout>
+
 
     </LinearLayout>
 

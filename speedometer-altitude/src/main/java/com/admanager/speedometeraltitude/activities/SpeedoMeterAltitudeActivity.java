@@ -46,6 +46,7 @@ public class SpeedoMeterAltitudeActivity extends AppCompatActivity implements Lo
     private ProgressBar altitudeProgress;
     private SpeedLimitAdapter adapter;
     private RecyclerView recyclerSpeedLimit;
+    private SpeedoMeterAltitudeApp instance;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, SpeedoMeterAltitudeActivity.class);
@@ -75,7 +76,7 @@ public class SpeedoMeterAltitudeActivity extends AppCompatActivity implements Lo
     }
 
     private void buildSpeedo() {
-        SpeedoMeterAltitudeApp instance = SpeedoMeterAltitudeApp.getInstance();
+        instance = SpeedoMeterAltitudeApp.getInstance();
         if (instance != null) {
             if (instance.ads != null) {
                 instance.ads.loadTop(this, (LinearLayout) findViewById(R.id.top));
@@ -86,12 +87,25 @@ public class SpeedoMeterAltitudeActivity extends AppCompatActivity implements Lo
             }
             if (instance.altimeterImage != 0) {
                 altimeterBG.setBackgroundResource(instance.altimeterImage);
+            } else {
+                altimeterBG.setBackgroundResource(R.drawable.bg_altimeter);
             }
             if (instance.altimeterIndicator != 0) {
                 altimeterIndicator.setBackgroundResource(instance.altimeterIndicator);
+            } else {
+                altimeterIndicator.setBackgroundResource(R.drawable.indicator_altimeter);
             }
-            if (instance.speedoImage != 0) {
-                speedoMeter.setImageSpeedometer(instance.speedoImage);
+            if (instance.speedoImageWalk != 0) {
+                speedoMeter.setImageSpeedometer(instance.speedoImageWalk);
+            }
+            if (instance.speedoImageBike != 0) {
+                speedoMeter.setImageSpeedometer(instance.speedoImageBike);
+            }
+            if (instance.speedoImageMotorcycle != 0) {
+                speedoMeter.setImageSpeedometer(instance.speedoImageMotorcycle);
+            }
+            if (instance.speedoImageCar != 0) {
+                speedoMeter.setImageSpeedometer(instance.speedoImageCar);
             }
             if (instance.speedoIndicatorType != null) {
                 speedoMeter.setIndicator(instance.speedoIndicatorType);
@@ -221,5 +235,43 @@ public class SpeedoMeterAltitudeActivity extends AppCompatActivity implements Lo
 
     private void loadSpeedLimits(int id) {
         adapter.setSelected(id);
+        switch (id) {
+            case 0: {
+                speedoMeter.setMaxSpeed(26);
+                if (instance.speedoImageWalk != 0)
+                    speedoMeter.setImageSpeedometer(instance.speedoImageWalk);
+                else
+                    speedoMeter.setImageSpeedometer(R.drawable.speed1);
+
+                break;
+            }
+            case 1: {
+                speedoMeter.setMaxSpeed(65);
+                if (instance.speedoImageBike != 0)
+                    speedoMeter.setImageSpeedometer(instance.speedoImageBike);
+                else
+                    speedoMeter.setImageSpeedometer(R.drawable.speed2);
+
+                break;
+            }
+            case 2: {
+                speedoMeter.setMaxSpeed(130);
+                if (instance.speedoImageMotorcycle != 0)
+                    speedoMeter.setImageSpeedometer(instance.speedoImageMotorcycle);
+                else
+                    speedoMeter.setImageSpeedometer(R.drawable.speed3);
+
+                break;
+            }
+            case 3: {
+                speedoMeter.setMaxSpeed(260);
+                if (instance.speedoImageCar != 0)
+                    speedoMeter.setImageSpeedometer(instance.speedoImageCar);
+                else
+                    speedoMeter.setImageSpeedometer(R.drawable.speed4);
+
+                break;
+            }
+        }
     }
 }

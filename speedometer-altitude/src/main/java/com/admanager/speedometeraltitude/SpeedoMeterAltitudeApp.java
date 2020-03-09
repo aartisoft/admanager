@@ -16,7 +16,7 @@ public class SpeedoMeterAltitudeApp {
     private static SpeedoMeterAltitudeApp INSTANCE;
     public Ads ads;
     public int bgColor;
-    public int speedoImage;
+    public int speedoImageWalk, speedoImageBike, speedoImageMotorcycle, speedoImageCar;
     public int altimeterImage;
     public int altimeterIndicator;
     public Indicator.Indicators speedoIndicatorType;
@@ -25,10 +25,13 @@ public class SpeedoMeterAltitudeApp {
     public int speedoTextColor;
     public int unitTextColor;
 
-    public SpeedoMeterAltitudeApp(Application app, Ads ads, int bgColor, int speedoImage, int altimeterImage, int altimeterIndicator, Indicator.Indicators speedoIndicatorType, int speedoMarkColor, int speedoSpeedTextColor, int speedoTextColor, int unitTextColor) {
+    public SpeedoMeterAltitudeApp(Application app, Ads ads, int bgColor, int speedoImageWalk, int speedoImageBike, int speedoImageMotorcycle, int speedoImageCar, int altimeterImage, int altimeterIndicator, Indicator.Indicators speedoIndicatorType, int speedoMarkColor, int speedoSpeedTextColor, int speedoTextColor, int unitTextColor) {
         this.ads = ads;
         this.bgColor = bgColor;
-        this.speedoImage = speedoImage;
+        this.speedoImageWalk = speedoImageWalk;
+        this.speedoImageBike = speedoImageBike;
+        this.speedoImageMotorcycle = speedoImageMotorcycle;
+        this.speedoImageCar = speedoImageCar;
         this.altimeterImage = altimeterImage;
         this.altimeterIndicator = altimeterIndicator;
         this.speedoIndicatorType = speedoIndicatorType;
@@ -52,7 +55,7 @@ public class SpeedoMeterAltitudeApp {
         private final WeakReference<Context> context;
         private Ads ads;
         private int bgColor;
-        private int speedoImage;
+        private int speedoImageWalk, speedoImageBike, speedoImageMotorcycle, speedoImageCar;
         private int altimeterImage;
         private int altimeterIndicator;
         private Indicator.Indicators speedoIndicatorType;
@@ -100,8 +103,23 @@ public class SpeedoMeterAltitudeApp {
             return this;
         }
 
-        public Builder speedoImage(@DrawableRes int speedoImage) {
-            this.speedoImage = speedoImage;
+        public Builder speedoImageWalk(@DrawableRes int speedoImageWalk) {
+            this.speedoImageWalk = speedoImageWalk;
+            return this;
+        }
+
+        public Builder speedoImageBike(@DrawableRes int speedoImageBike) {
+            this.speedoImageBike = speedoImageBike;
+            return this;
+        }
+
+        public Builder speedoImageMotorcycle(@DrawableRes int speedoImageMotorcycle) {
+            this.speedoImageMotorcycle = speedoImageMotorcycle;
+            return this;
+        }
+
+        public Builder speedoImageCar(@DrawableRes int speedoImageCar) {
+            this.speedoImageCar = speedoImageCar;
             return this;
         }
 
@@ -127,7 +145,7 @@ public class SpeedoMeterAltitudeApp {
                     app,
                     ads,
                     bgColor,
-                    speedoImage,
+                    speedoImageWalk, speedoImageBike, speedoImageMotorcycle, speedoImageCar,
                     altimeterImage,
                     altimeterIndicator,
                     speedoIndicatorType,
