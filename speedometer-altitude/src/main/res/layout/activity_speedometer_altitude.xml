@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
@@ -18,10 +18,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
         android:layout_gravity="center"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerSpeedLimit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_speed" />
 
         <com.github.anastr.speedviewlib.ImageSpeedometer
             android:id="@+id/speedoMeter"
@@ -82,9 +90,9 @@
 
                 <ProgressBar
                     android:id="@+id/altitudeProgress"
-                    android:layout_gravity="center"
                     android:layout_width="20dp"
-                    android:layout_height="20dp" />
+                    android:layout_height="20dp"
+                    android:layout_gravity="center" />
             </FrameLayout>
 
         </LinearLayout>

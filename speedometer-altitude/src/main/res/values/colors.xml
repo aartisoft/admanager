@@ -2,4 +2,5 @@
 <resources>
     <color name="speedometer_colorIndicator">#FFC400</color>
     <color name="speedometer_colorWhite">#FFFFFF</color>
+    <color name="speedometer_colorSilver">#C0C0C0</color>
 </resources>

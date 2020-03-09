@@ -11,6 +11,8 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,11 +25,15 @@ import android.widget.Toast;
 import com.admanager.core.Consts;
 import com.admanager.speedometeraltitude.R;
 import com.admanager.speedometeraltitude.SpeedoMeterAltitudeApp;
+import com.admanager.speedometeraltitude.adapter.SpeedLimitAdapter;
+import com.admanager.speedometeraltitude.model.SpeedLimit;
 import com.admanager.speedometeraltitude.utils.GPSUtils;
 import com.admanager.speedometeraltitude.utils.PermissionChecker;
 import com.github.anastr.speedviewlib.ImageSpeedometer;
 
-public class SpeedoMeterAltitudeActivity extends AppCompatActivity implements LocationListener, GpsStatus.Listener {
+import java.util.Arrays;
+
+public class SpeedoMeterAltitudeActivity extends AppCompatActivity implements LocationListener, GpsStatus.Listener, SpeedLimitAdapter.SelectedListener {
     private static final int SPEEDO_REQUEST_CODE = 9999;
     private PermissionChecker permissionChecker;
     private ImageSpeedometer speedoMeter;
@@ -38,6 +44,8 @@ public class SpeedoMeterAltitudeActivity extends AppCompatActivity implements Lo
     private float speed;
     private double altitude;
     private ProgressBar altitudeProgress;
+    private SpeedLimitAdapter adapter;
+    private RecyclerView recyclerSpeedLimit;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, SpeedoMeterAltitudeActivity.class);
@@ -56,6 +64,11 @@ public class SpeedoMeterAltitudeActivity extends AppCompatActivity implements Lo
 
         permissionChecker = new PermissionChecker(this);
         setTitle(getString(R.string.speedometer));
+        adapter = new SpeedLimitAdapter(this, this);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerSpeedLimit.setLayoutManager(layoutManager);
+        recyclerSpeedLimit.setAdapter(adapter);
+        adapter.setData(Arrays.asList(SpeedLimit.values()));
 
         buildSpeedo();
 
@@ -108,6 +121,7 @@ public class SpeedoMeterAltitudeActivity extends AppCompatActivity implements Lo
         root = findViewById(R.id.root);
         altimeterBG = findViewById(R.id.altimeterBG);
         altitudeProgress = findViewById(R.id.altitudeProgress);
+        recyclerSpeedLimit = findViewById(R.id.recyclerSpeedLimit);
     }
 
     @Override
@@ -198,5 +212,14 @@ public class SpeedoMeterAltitudeActivity extends AppCompatActivity implements Lo
     @Override
     public void onGpsStatusChanged(int event) {
         speedoMeter.speedTo(speed);
+    }
+
+    @Override
+    public void selectedItem(SpeedLimit speedLimit) {
+        loadSpeedLimits(speedLimit.getId());
+    }
+
+    private void loadSpeedLimits(int id) {
+        adapter.setSelected(id);
     }
 }
