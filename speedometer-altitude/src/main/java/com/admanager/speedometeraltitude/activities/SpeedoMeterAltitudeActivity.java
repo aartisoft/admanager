@@ -166,9 +166,13 @@ public class SpeedoMeterAltitudeActivity extends AppCompatActivity implements Lo
     private void locationUpdates() {
         try {
             locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
-            locationManager.addGpsStatusListener(this);
+            if (locationManager != null) {
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, this);
+                locationManager.addGpsStatusListener(this);
+            } else {
+                throw new NullPointerException("Don't try on emulator because of network provider, or you have issue about Location Manager");
+            }
         } catch (SecurityException e) {
             e.printStackTrace();
         }

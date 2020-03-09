@@ -1,5 +1,5 @@
 <resources>
-    <string name="speedometer" translatable="false"><![CDATA[Speedometer & Altitude]]></string>
+    <string name="speedometer"><![CDATA[Speedometer & Altitude]]></string>
     <string name="loc_error_msg" translatable="false">Location settings are inadequate, and cannot be fixed here. Fix in Settings.</string>
     <string name="gps_on" translatable="false">GPS On!</string>
     <string name="walk">WALK</string>

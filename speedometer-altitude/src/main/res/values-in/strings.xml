@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">Speedometer &amp; Ketinggia</string>
+
+
+    <string name="walk">BERJALAN</string>
+    <string name="bicycle">SEPEDA</string>
+    <string name="motocycle">SEPEDA MOTOR</string>
+    <string name="car">MOBIL</string>
+</resources>

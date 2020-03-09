@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">عداد السرعة والارتفاع</string>
+
+
+    <string name="walk">سير</string>
+    <string name="bicycle">دراجة</string>
+    <string name="motocycle">دراجة نارية</string>
+    <string name="car">سيارة</string>
+</resources>

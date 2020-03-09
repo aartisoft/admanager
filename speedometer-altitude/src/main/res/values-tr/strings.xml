@@ -1,0 +1,7 @@
+<resources>
+    <string name="speedometer">Hızölçer ve Rakım</string>
+    <string name="walk">YÜRÜYÜŞ</string>
+    <string name="bicycle">BİSİKLET</string>
+    <string name="motocycle">MOTOSİKLET</string>
+    <string name="car">OTOMOBİL</string>
+</resources>

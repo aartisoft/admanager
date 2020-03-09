@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">속도계 및 고도</string>
+
+
+    <string name="walk">산책</string>
+    <string name="bicycle">자전거</string>
+    <string name="motocycle">오토바이</string>
+    <string name="car">차</string>
+</resources>

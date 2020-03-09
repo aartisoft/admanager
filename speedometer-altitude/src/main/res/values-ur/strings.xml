@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">اسپیڈومیٹر اور اونچائی</string>
+
+
+    <string name="walk">واک</string>
+    <string name="bicycle">بائیسکل</string>
+    <string name="motocycle">موٹر سائیکل</string>
+    <string name="car">گاڑی</string>
+</resources>

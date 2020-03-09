@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">Спидометр и высота</string>
+
+
+    <string name="walk">ХОДИТЬ</string>
+    <string name="bicycle">ВЕЛОСИПЕДЫ</string>
+    <string name="motocycle">МОТОЦИКЛ</string>
+    <string name="car">МАШИНА</string>
+</resources>

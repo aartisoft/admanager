@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">Speedometer &amp; Altitude</string>
+
+
+    <string name="walk">JALAN</string>
+    <string name="bicycle">BICYCLE</string>
+    <string name="motocycle">MOTORCYCLE</string>
+    <string name="car">CAR</string>
+</resources>

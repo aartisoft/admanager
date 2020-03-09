@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">Đồng hồ tốc độ và độ cao</string>
+
+
+    <string name="walk">ĐI BỘ</string>
+    <string name="bicycle">XE ĐẠP</string>
+    <string name="motocycle">XE MÁY</string>
+    <string name="car">XE HƠI</string>
+</resources>

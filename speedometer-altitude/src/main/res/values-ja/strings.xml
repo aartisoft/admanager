@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">スピードメーターと高度</string>
+
+
+    <string name="walk">歩く</string>
+    <string name="bicycle">自転車</string>
+    <string name="motocycle">オートバイ</string>
+    <string name="car">車</string>
+</resources>

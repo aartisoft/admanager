@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">ਸਪੀਡੋਮੀਟਰ ਅਤੇ ਉਚਾਈ</string>
+
+
+    <string name="walk">ਵਾਕ</string>
+    <string name="bicycle">ਸਾਈਕਲ</string>
+    <string name="motocycle">ਮੋਟਰਸਾਈਕਲ</string>
+    <string name="car">ਕਾਰ</string>
+</resources>

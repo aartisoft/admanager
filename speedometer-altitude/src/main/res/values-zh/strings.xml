@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">车速表和高度</string>
+
+
+    <string name="walk">步行</string>
+    <string name="bicycle">自行车</string>
+    <string name="motocycle">摩托车</string>
+    <string name="car">汽车</string>
+</resources>

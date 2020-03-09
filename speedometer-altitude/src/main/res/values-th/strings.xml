@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">มาตรวัดความเร็วและระดับความสูง</string>
+
+
+    <string name="walk">เดิน</string>
+    <string name="bicycle">BICYCLE</string>
+    <string name="motocycle">รถจักรยานยนต์</string>
+    <string name="car">รถยนต์</string>
+</resources>

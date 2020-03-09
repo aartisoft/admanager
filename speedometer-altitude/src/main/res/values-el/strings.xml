@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">Ταχύμετρο και Υψόμετρο</string>
+
+
+    <string name="walk">ΠΕΡΠΑΤΗΣΤΕ</string>
+    <string name="bicycle">ΠΟΔΗΛΑΤΟ</string>
+    <string name="motocycle">ΜΟΤΟΣΥΚΛΕΤΑ</string>
+    <string name="car">ΑΥΤΟΚΙΝΗΤΟ</string>
+</resources>

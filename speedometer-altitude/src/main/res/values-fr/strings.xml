@@ -1,0 +1,9 @@
+<resources>
+    <string name="speedometer">Compteur de vitesse et altitude</string>
+
+
+    <string name="walk">MARCHER</string>
+    <string name="bicycle">VÉLO</string>
+    <string name="motocycle">MOTO</string>
+    <string name="car">VOITURE</string>
+</resources>
