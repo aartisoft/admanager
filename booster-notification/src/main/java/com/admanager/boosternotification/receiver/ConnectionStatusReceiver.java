@@ -23,7 +23,11 @@ public class ConnectionStatusReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        BoosterNotificationApp.checkAndDisplay(context);
+        try {
+            BoosterNotificationApp.checkAndDisplay(context);
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
     }
 
     public void updateDataUI(Context context, RemoteViews contentView, int containerId, int imageId, int textId) {
