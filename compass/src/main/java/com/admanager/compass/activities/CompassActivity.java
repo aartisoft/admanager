@@ -78,6 +78,9 @@ public class CompassActivity extends AppCompatActivity implements Compass.Compas
             if (instance.bgColor != 0) {
                 findViewById(R.id.root).setBackgroundColor(ContextCompat.getColor(this, instance.bgColor));
             }
+            if (instance.bgDrawable != 0) {
+                findViewById(R.id.root).setBackgroundResource(instance.bgDrawable);
+            }
             if (instance.textColor != 0) {
                 degreeText.setTextColor(ContextCompat.getColor(this, instance.textColor));
                 maInformation.setTextColor(ContextCompat.getColor(this, instance.textColor));

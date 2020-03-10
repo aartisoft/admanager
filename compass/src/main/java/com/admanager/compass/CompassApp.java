@@ -17,16 +17,18 @@ public class CompassApp {
     public String title;
     public Ads ads;
     public int bgColor;
+    public int bgDrawable;
     public int textColor;
     public int compassNeedle;
     public int compassBg;
     public boolean qibla;
     public int kabeIcon;
 
-    CompassApp(Application app, Ads ads, String title, int bgColor, int compassNeedle, int compassBg, int textColor, boolean qibla, int kabeIcon) {
+    CompassApp(Application app, Ads ads, String title, int bgColor, int bgDrawable, int compassNeedle, int compassBg, int textColor, boolean qibla, int kabeIcon) {
         this.title = title;
         this.ads = ads;
         this.bgColor = bgColor;
+        this.bgDrawable = bgDrawable;
         this.textColor = textColor;
         this.compassNeedle = compassNeedle;
         this.kabeIcon = kabeIcon;
@@ -49,6 +51,7 @@ public class CompassApp {
         private String title;
         private Ads ads;
         private int bgColor;
+        private int bgDrawable;
         private int textColor;
         private int compassNeedle;
         private int compassBg;
@@ -82,6 +85,7 @@ public class CompassApp {
             this.kabeIcon = kabeIcon;
             return this;
         }
+
         public CompassApp.Builder title(@StringRes int title) {
             Context c = context.get();
             if (c != null) {
@@ -107,6 +111,11 @@ public class CompassApp {
             return this;
         }
 
+        public CompassApp.Builder bgDrawable(@DrawableRes int bgDrawable) {
+            this.bgDrawable = bgDrawable;
+            return this;
+        }
+
         public CompassApp.Builder textColor(@ColorRes int textColor) {
             this.textColor = textColor;
             return this;
@@ -119,7 +128,7 @@ public class CompassApp {
             Context context = this.context.get();
 
             Application app = (Application) context.getApplicationContext();
-            CompassApp.init(new CompassApp(app, ads, title, bgColor, compassNeedle, compassBg, textColor, qibla, kabeIcon));
+            CompassApp.init(new CompassApp(app, ads, title, bgColor, bgDrawable, compassNeedle, compassBg, textColor, qibla, kabeIcon));
 
         }
 
