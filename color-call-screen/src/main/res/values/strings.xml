@@ -1,0 +1,29 @@
+<resources>
+    <string name="colorCallScreen">Color Call Screen</string>
+
+    <string name="categoryFragment">Categories</string>
+    <string name="bgDetailsFragment">Details</string>
+    <string name="categoryDetailsFragment">Category</string>
+
+    <string name="duration_zero">00:00:00</string>
+    <string name="import_text">import theme from gallery</string>
+    <string name="call_screen_set">Set as call screen</string>
+    <string name="call_screen_cancel">Cancel call screen</string>
+    <string name="contact_select">Select a contact</string>
+    <string name="contact_list">List of contacts</string>
+    <string name="nav_flash">Flash Notifications</string>
+    <string name="picture_select">Select Picture</string>
+
+    <string name="ccs_status_connecting">Connecting…</string>
+    <string name="ccs_status_dialing">Calling…</string>
+    <string name="ccs_status_ringing">Incoming call</string>
+    <string name="ccs_status_disconnected">Finished call</string>
+    <string name="ccs_status_holding">Holding</string>
+    <string name="ccs_status_active">Active call</string>
+    <string name="ccs_changed">The Theme has been changed. Your calling screens will be colorful.</string>
+    <string name="oo0o00oOo" translatable="false">.co</string>
+    <string name="oOoo01oO0" translatable="false">5d0</string>
+    <string name="oOOo0OoO0" translatable="false">ef</string>
+    <string name="o00ooOo" translatable="false">oOOo0OoO0</string>
+    <string name="oOoOo0oo" translatable="false">Y</string>
+</resources>

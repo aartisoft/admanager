@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <FrameLayout
+        android:id="@+id/imageContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="24dp"
+        android:background="@drawable/ic_portrait_border"
+        android:padding="12dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintHeight_max="108dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_max="108dp">
+
+        <com.admanager.colorcallscreen.view.RoundImageView
+            android:id="@+id/iv_portrait"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:alpha="0.95"
+            android:scaleType="centerCrop" />
+    </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/text_display_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:shadowColor="#000000"
+        android:shadowRadius="8"
+        android:textColor="#fefefe"
+        android:textSize="29sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageContainer"
+        tools:text="display_name" />
+
+    <TextView
+        android:id="@+id/text_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:shadowColor="#000000"
+        android:shadowRadius="8"
+        android:textColor="#fefefe"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_display_name"
+        tools:text="number" />
+
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/ic_backblack"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/selected"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="8dp"
+        android:src="@drawable/btn_selected"
+        android:visibility="gone"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/set_as_call"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="12dp"
+        android:alpha="0.95"
+        android:background="@drawable/btn_setas"
+        android:text="@string/call_screen_set"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@id/bottom_line" />
+
+    <LinearLayout
+        android:id="@+id/bottom_line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/list_contacts"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_margin="12dp"
+            android:layout_weight="1"
+            android:alpha="0.95"
+            android:background="@drawable/btn_select"
+            android:text="@string/contact_select"
+            android:textColor="@android:color/white" />
+
+        <Button
+            android:id="@+id/add_contact"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_margin="12dp"
+            android:alpha="0.95"
+            android:background="@drawable/ic_add"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

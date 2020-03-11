@@ -1,0 +1,70 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = 'com.github.fgustovo.admanager'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    api 'com.android.support:appcompat-v7:28.0.0'
+    api 'com.android.support:support-compat:28.0.0'
+
+    // retrofit for qibla
+    api 'com.squareup.retrofit2:retrofit:2.4.0'
+    api 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+    api 'com.squareup.retrofit2:converter-gson:2.4.0'
+    api 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
+    // RxJava2 Dependencies
+    api 'io.reactivex.rxjava2:rxjava:2.2.8'
+    api 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    // lifecycle
+    api "android.arch.navigation:navigation-fragment:1.0.0"
+    api "android.arch.navigation:navigation-ui:1.0.0"
+
+    //glide
+    api 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+
+    // utils
+    api "com.airbnb.android:lottie:2.7.0"
+
+    // others
+    api project(path: ':config')
+    api project(path: ':core')
+}
+
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+artifacts {
+    archives sourcesJar
+}

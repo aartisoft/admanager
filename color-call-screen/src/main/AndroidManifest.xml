@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.admanager.colorcallscreen">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:hardwareAccelerated="true"
+        android:largeHeap="true"
+        android:supportsRtl="true"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity
+            android:name=".activities.ColorCallScreenActivity"
+            android:label="@string/colorCallScreen"
+            android:theme="@style/ColorCallScreenAppTheme" />
+
+        <activity
+            android:name=".activities.CCSInCallActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleInstance"
+            android:showOnLockScreen="true"
+            android:taskAffinity="com.phonecoloringscreensapps.newstylishphonecolors"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL" />
+                <data android:scheme="tel" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.DIAL" />
+            </intent-filter>
+        </activity>
+
+        <service android:name=".service.PhoneStateService" />
+
+        <service
+            android:name=".service.CallService"
+            android:permission="android.permission.BIND_INCALL_SERVICE">
+            <meta-data
+                android:name="android.telecom.IN_CALL_SERVICE_UI"
+                android:value="true" />
+
+            <intent-filter>
+                <action android:name="android.telecom.InCallService" />
+            </intent-filter>
+        </service>
+
+    </application>
+
+</manifest>
