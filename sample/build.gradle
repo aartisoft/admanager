@@ -63,6 +63,7 @@ dependencies {
     implementation project(path: ':gifs')
     implementation project(path: ':speed-test')
     implementation project(path: ':maps')
+    implementation project(path: ':color-call-screen')
 
 
     /*  Admost ADDITIONAL ADAPTERS

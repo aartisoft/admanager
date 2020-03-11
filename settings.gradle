@@ -21,4 +21,5 @@ include ':config',
         ':speed-test',
         ':gps-satellite',
         ':gifs',
-        ':maps'
+        ':maps',
+        ':color-call-screen'
