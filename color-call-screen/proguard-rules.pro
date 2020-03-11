@@ -82,4 +82,4 @@
 
 
 
--keepnames com.admanager.colorcallscreen.fragment.*
+-keepnames class com.admanager.colorcallscreen.fragment.*
