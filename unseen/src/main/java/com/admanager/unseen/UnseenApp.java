@@ -18,22 +18,12 @@ public class UnseenApp {
     public Ads ads;
     public int bgColor;
     public int bgDrawable;
-    public int textColor;
-    public int compassNeedle;
-    public int compassBg;
-    public boolean qibla;
-    public int kabeIcon;
 
-    UnseenApp(Application app, Ads ads, String title, int bgColor, int bgDrawable, int compassNeedle, int compassBg, int textColor, boolean qibla, int kabeIcon) {
+    UnseenApp(Application app, Ads ads, String title, int bgColor, int bgDrawable) {
         this.title = title;
         this.ads = ads;
         this.bgColor = bgColor;
         this.bgDrawable = bgDrawable;
-        this.textColor = textColor;
-        this.compassNeedle = compassNeedle;
-        this.kabeIcon = kabeIcon;
-        this.compassBg = compassBg;
-        this.qibla = qibla;
 
     }
 
@@ -53,11 +43,6 @@ public class UnseenApp {
         private Ads ads;
         private int bgColor;
         private int bgDrawable;
-        private int textColor;
-        private int compassNeedle;
-        private int compassBg;
-        private int kabeIcon;
-        private boolean qibla;
 
         public Builder(@NonNull Application context) {
             this.context = new WeakReference<>(context.getApplicationContext());
@@ -76,34 +61,11 @@ public class UnseenApp {
             return this;
         }
 
-        public UnseenApp.Builder showQibla() {
-            this.qibla = true;
-            return this;
-        }
-
-        public UnseenApp.Builder showQibla(@DrawableRes int kabeIcon) {
-            this.qibla = true;
-            this.kabeIcon = kabeIcon;
-            return this;
-        }
-
         public UnseenApp.Builder title(@StringRes int title) {
             Context c = context.get();
             if (c != null) {
                 this.title = c.getString(title);
             }
-            return this;
-        }
-
-        public UnseenApp.Builder compassNeedle(@DrawableRes int compassNeedle) {
-            Context c = context.get();
-            if (c != null) this.compassNeedle = compassNeedle;
-            return this;
-        }
-
-        public UnseenApp.Builder compassBg(@DrawableRes int compassBg) {
-            Context c = context.get();
-            if (c != null) this.compassBg = compassBg;
             return this;
         }
 
@@ -117,11 +79,6 @@ public class UnseenApp {
             return this;
         }
 
-        public UnseenApp.Builder textColor(@ColorRes int textColor) {
-            this.textColor = textColor;
-            return this;
-        }
-
         public void build() {
             if (ads == null) {
                 ads = new AdsImp();
@@ -129,7 +86,7 @@ public class UnseenApp {
             Context context = this.context.get();
 
             Application app = (Application) context.getApplicationContext();
-            UnseenApp.init(new UnseenApp(app, ads, title, bgColor, bgDrawable, compassNeedle, compassBg, textColor, qibla, kabeIcon));
+            UnseenApp.init(new UnseenApp(app, ads, title, bgColor, bgDrawable));
 
         }
 

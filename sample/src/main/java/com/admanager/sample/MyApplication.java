@@ -16,6 +16,7 @@ import com.admanager.gifs.GifsApp;
 import com.admanager.maps.MapsApp;
 import com.admanager.periodicnotification.PeriodicNotificationApp;
 import com.admanager.speedtest.SpeedTestApp;
+import com.admanager.unseen.UnseenApp;
 import com.admanager.wastickers.WastickersApp;
 
 public class MyApplication extends MultiDexApplication implements Ads {
@@ -60,6 +61,9 @@ public class MyApplication extends MultiDexApplication implements Ads {
                 .build();
 
         new MapsApp.Builder(this)
+                .build();
+
+        new UnseenApp.Builder(this)
                 .build();
     }
 
