@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">Kategori</string>
+    <string name="bgDetailsFragment">Butiran</string>
+    <string name="categoryDetailsFragment">Kategori</string>
+
+
+    <string name="import_text">tema import dari galeri</string>
+    <string name="call_screen_set">Tetapkan sebagai skrin panggilan</string>
+    <string name="call_screen_cancel">Batalkan skrin panggilan</string>
+    <string name="contact_select">Pilih kenalan</string>
+    <string name="contact_list">Senarai kenalan</string>
+    <string name="nav_flash">Pemberitahuan Flash</string>
+    <string name="picture_select">Pilih gambar</string>
+
+    <string name="ccs_status_connecting">Menyambung ...</string>
+    <string name="ccs_status_dialing">Memanggil ...</string>
+    <string name="ccs_status_ringing">Panggilan masuk</string>
+    <string name="ccs_status_disconnected">Panggilan selesai</string>
+    <string name="ccs_status_holding">Memegang</string>
+    <string name="ccs_status_active">Panggilan aktif</string>
+    <string name="ccs_changed">Tema telah ditukar. Skrin panggilan anda akan berwarna-warni.</string>
+
+
+</resources>

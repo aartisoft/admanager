@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">Pesan Penyamara</string>
+
+    <string name="delete_dialog_title">Hapus Pesa</string>
+    <string name="delete_dialog_message">Apakah kamu yaki</string>
+    <string name="delete_dialog_ok">Iya</string>
+    <string name="delete_dialog_no">tidak</string>
+
+
+    <string name="unseen_perm_req_text_1">Kami akan menampilkan notifikasi Anda di aplikasi.</string>
+    <string name="unseen_perm_req_text_2">Silakan centang kotak "%s" dan kemudian tekan tombol "kembali" untuk melanjutkan.</string>
+    <string name="unseen_perm_req">Berikan izin dan mulai</string>
+
+
+    <string name="action_scroll_bottom">Gulir ke Bawah</string>
+    <string name="action_delete">Hapus semua</string>
+    <string name="unseen_no_data_title">Belum ada pesan yang diterima.</string>
+    <string name="unseen_no_data_text">Pesan Anda akan ditampilkan di sini.</string>
+
+</resources>

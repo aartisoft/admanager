@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">категории</string>
+    <string name="bgDetailsFragment">Детали</string>
+    <string name="categoryDetailsFragment">категория</string>
+
+
+    <string name="import_text">импортировать тему из галереи</string>
+    <string name="call_screen_set">Установить как экран вызова</string>
+    <string name="call_screen_cancel">Отменить экран вызова</string>
+    <string name="contact_select">Выберите контакт</string>
+    <string name="contact_list">Список контактов</string>
+    <string name="nav_flash">Flash-уведомления</string>
+    <string name="picture_select">Выберите изображение</string>
+
+    <string name="ccs_status_connecting">Подключение ...</string>
+    <string name="ccs_status_dialing">Вызов ...</string>
+    <string name="ccs_status_ringing">Входящий звонок</string>
+    <string name="ccs_status_disconnected">Законченный звонок</string>
+    <string name="ccs_status_holding">Держа</string>
+    <string name="ccs_status_active">Активный звонок</string>
+    <string name="ccs_changed">Тема была изменена. Ваши экраны вызова будут красочными.</string>
+
+
+</resources>

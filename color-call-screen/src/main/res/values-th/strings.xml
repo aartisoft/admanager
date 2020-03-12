@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">หมวดหมู่</string>
+    <string name="bgDetailsFragment">รายละเอียด</string>
+    <string name="categoryDetailsFragment">ประเภท</string>
+
+
+    <string name="import_text">นำเข้าชุดรูปแบบจากแกลเลอรี่</string>
+    <string name="call_screen_set">ตั้งเป็นหน้าจอการโทร</string>
+    <string name="call_screen_cancel">ยกเลิกหน้าจอการโทร</string>
+    <string name="contact_select">เลือกผู้ติดต่อ</string>
+    <string name="contact_list">รายชื่อผู้ติดต่อ</string>
+    <string name="nav_flash">การแจ้งเตือนแฟลช</string>
+    <string name="picture_select">เลือกรูปภาพ</string>
+
+    <string name="ccs_status_connecting">เชื่อมต่อ ...</string>
+    <string name="ccs_status_dialing">โทร ...</string>
+    <string name="ccs_status_ringing">สายเรียกเข้า</string>
+    <string name="ccs_status_disconnected">โทรเสร็จแล้ว</string>
+    <string name="ccs_status_holding">โฮลดิ้ง</string>
+    <string name="ccs_status_active">สายที่ใช้งานอยู่</string>
+    <string name="ccs_changed">ธีมมีการเปลี่ยนแปลง หน้าจอการโทรของคุณจะมีสีสัน</string>
+
+
+</resources>

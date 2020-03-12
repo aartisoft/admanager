@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">Μηνύματα ανώνυμης περιήγησης</string>
+
+    <string name="delete_dialog_title">Κατάργηση μηνυμάτων</string>
+    <string name="delete_dialog_message">Είσαι σίγουρος?</string>
+    <string name="delete_dialog_ok">Ναί</string>
+    <string name="delete_dialog_no">όχι</string>
+
+
+    <string name="unseen_perm_req_text_1">Θα εμφανιστούν οι ειδοποιήσεις σας στην εφαρμογή.</string>
+    <string name="unseen_perm_req_text_2">Ελέγξτε το πλαίσιο "%s" και, στη συνέχεια, πατήστε το κουμπί "πίσω" για να συνεχίσετε.</string>
+    <string name="unseen_perm_req">Αδειοδότηση και έναρξη</string>
+
+
+    <string name="action_scroll_bottom">Μεταβείτε στην επιλογή Κάτω</string>
+    <string name="action_delete">Διαγραφή όλων</string>
+    <string name="unseen_no_data_title">Δεν έχει ληφθεί ακόμα μήνυμα.</string>
+    <string name="unseen_no_data_text">Τα μηνύματά σας θα εμφανιστούν εδώ.</string>
+
+</resources>

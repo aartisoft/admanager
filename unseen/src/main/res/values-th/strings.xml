@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">ข้อความที่ไม่ระบุตัวตน</string>
+
+    <string name="delete_dialog_title">ลบข้อความ</string>
+    <string name="delete_dialog_message">คุณแน่ใจไหม?</string>
+    <string name="delete_dialog_ok">ใช่</string>
+    <string name="delete_dialog_no">ไม่</string>
+
+
+    <string name="unseen_perm_req_text_1">เราจะแสดงการแจ้งเตือนของคุณในแอป</string>
+    <string name="unseen_perm_req_text_2">โปรดทำเครื่องหมายที่ช่อง "%s" จากนั้นกดปุ่ม "ย้อนกลับ" เพื่อดำเนินการต่อ</string>
+    <string name="unseen_perm_req">ให้สิทธิ์และเริ่มต้น</string>
+
+
+    <string name="action_scroll_bottom">เลื่อนไปที่ด้านล่าง</string>
+    <string name="action_delete">ลบทั้งหมด</string>
+    <string name="unseen_no_data_title">ยังไม่ได้รับข้อความ</string>
+    <string name="unseen_no_data_text">ข้อความของคุณจะปรากฏที่นี่</string>
+
+</resources>

@@ -22,4 +22,6 @@ include ':config',
         ':gps-satellite',
         ':gifs',
         ':maps',
-        ':color-call-screen'
+        ':speedometer-altitude',
+        ':color-call-screen',
+        ':unseen'

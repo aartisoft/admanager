@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">اقسام</string>
+    <string name="bgDetailsFragment">تفصیلات</string>
+    <string name="categoryDetailsFragment">قسم</string>
+
+
+    <string name="import_text">گیلری سے مرکزی خیال ، موضوع درآمد</string>
+    <string name="call_screen_set">کال اسکرین کے طور پر سیٹ کریں</string>
+    <string name="call_screen_cancel">کال اسکرین منسوخ کریں</string>
+    <string name="contact_select">ایک رابطہ منتخب کریں</string>
+    <string name="contact_list">رابطوں کی فہرست</string>
+    <string name="nav_flash">فلیش اطلاعات</string>
+    <string name="picture_select">تصویر منتخب کریں</string>
+
+    <string name="ccs_status_connecting">مربوط ہو رہا ہے…</string>
+    <string name="ccs_status_dialing">کالنگ…</string>
+    <string name="ccs_status_ringing">آنے والی کال</string>
+    <string name="ccs_status_disconnected">کال ختم ہوگئی</string>
+    <string name="ccs_status_holding">انعقاد</string>
+    <string name="ccs_status_active">فعال کال</string>
+    <string name="ccs_changed">تھیم تبدیل کر دیا گیا ہے۔ آپ کی کالنگ اسکرینیں رنگین ہوں گی۔</string>
+
+
+</resources>

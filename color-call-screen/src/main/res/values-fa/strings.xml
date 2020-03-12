@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">دسته بندی ها</string>
+    <string name="bgDetailsFragment">جزئیات</string>
+    <string name="categoryDetailsFragment">دسته بندی</string>
+
+
+    <string name="import_text">موضوع واردات از گالری</string>
+    <string name="call_screen_set">به عنوان صفحه تماس تنظیم شود</string>
+    <string name="call_screen_cancel">صفحه تماس را لغو کنید</string>
+    <string name="contact_select">مخاطبی را انتخاب کنید</string>
+    <string name="contact_list">لیست مخاطبین</string>
+    <string name="nav_flash">اعلان های Flash</string>
+    <string name="picture_select">تصویر را انتخاب کنید</string>
+
+    <string name="ccs_status_connecting">برقراری ارتباط…</string>
+    <string name="ccs_status_dialing">صدا زدن…</string>
+    <string name="ccs_status_ringing">تماس ورودی</string>
+    <string name="ccs_status_disconnected">تماس تمام شد</string>
+    <string name="ccs_status_holding">نگه داشتن</string>
+    <string name="ccs_status_active">تماس فعال</string>
+    <string name="ccs_changed">موضوع تغییر کرده است صفحه های تماس شما رنگارنگ خواهد بود.</string>
+
+
+</resources>

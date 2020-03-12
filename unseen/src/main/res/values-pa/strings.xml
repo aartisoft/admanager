@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">ਗੁਪਤ ਸੰਦੇਸ਼</string>
+
+    <string name="delete_dialog_title">ਸੁਨੇਹੇ ਹਟਾਓ</string>
+    <string name="delete_dialog_message">ਤੁਹਾਨੂੰ ਪੂਰਾ ਵਿਸ਼ਵਾਸ ਹੈ?</string>
+    <string name="delete_dialog_ok">ਹਾਂ</string>
+    <string name="delete_dialog_no">ਨਹੀਂ</string>
+
+
+    <string name="unseen_perm_req_text_1">ਅਸੀਂ ਐਪ ਵਿੱਚ ਤੁਹਾਡੀਆਂ ਸੂਚਨਾਵਾਂ ਪ੍ਰਦਰਸ਼ਤ ਕਰਾਂਗੇ.</string>
+    <string name="unseen_perm_req_text_2">ਕਿਰਪਾ ਕਰਕੇ "%s" ਬਾਕਸ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਫਿਰ ਜਾਰੀ ਰੱਖਣ ਲਈ "ਬੈਕ ਬਟਨ" ਨੂੰ ਦਬਾਓ.</string>
+    <string name="unseen_perm_req">ਆਗਿਆ ਦਿਓ ਅਤੇ ਸ਼ੁਰੂ ਕਰੋ</string>
+
+
+    <string name="action_scroll_bottom">ਹੇਠਾਂ ਸਕ੍ਰੌਲ ਕਰੋ</string>
+    <string name="action_delete">ਸਭ ਨੂੰ ਮਿਟਾਓ</string>
+    <string name="unseen_no_data_title">ਅਜੇ ਤੱਕ ਕੋਈ ਸੁਨੇਹਾ ਨਹੀਂ ਮਿਲਿਆ.</string>
+    <string name="unseen_no_data_text">ਤੁਹਾਡੇ ਸੁਨੇਹੇ ਇੱਥੇ ਪ੍ਰਦਰਸ਼ਿਤ ਹੋਣਗੇ.</string>
+
+</resources>

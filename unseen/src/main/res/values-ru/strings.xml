@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">Сообщения инкогнито</string>
+
+    <string name="delete_dialog_title">Удалить сообщения</string>
+    <string name="delete_dialog_message">Вы уверены?</string>
+    <string name="delete_dialog_ok">да</string>
+    <string name="delete_dialog_no">нет</string>
+
+
+    <string name="unseen_perm_req_text_1">Мы будем отображать ваши уведомления в приложении.</string>
+    <string name="unseen_perm_req_text_2">Пожалуйста, установите флажок «%s», а затем нажмите «Назад», чтобы продолжить.</string>
+    <string name="unseen_perm_req">Предоставить разрешение и начать</string>
+
+
+    <string name="action_scroll_bottom">Прокрутить до низа</string>
+    <string name="action_delete">Удалить все</string>
+    <string name="unseen_no_data_title">Пока не получено ни одного сообщения.</string>
+    <string name="unseen_no_data_text">Ваши сообщения будут отображаться здесь.</string>
+
+</resources>

@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">Κατηγορίες</string>
+    <string name="bgDetailsFragment">Λεπτομέριες</string>
+    <string name="categoryDetailsFragment">Κατηγορία</string>
+
+
+    <string name="import_text">εισαγωγή θέμα από τη συλλογή</string>
+    <string name="call_screen_set">Ορίστε ως οθόνη κλήσεων</string>
+    <string name="call_screen_cancel">Ακύρωση οθόνης κλήσης</string>
+    <string name="contact_select">Επιλέξτε μια επαφή</string>
+    <string name="contact_list">Λίστα επαφών</string>
+    <string name="nav_flash">Ειδοποιήσεις Flash</string>
+    <string name="picture_select">Επιλέξτε Εικόνα</string>
+
+    <string name="ccs_status_connecting">Συνδετικός…</string>
+    <string name="ccs_status_dialing">Κλήση…</string>
+    <string name="ccs_status_ringing">Εισερχόμενη κλήση</string>
+    <string name="ccs_status_disconnected">Τελική κλήση</string>
+    <string name="ccs_status_holding">Κράτημα</string>
+    <string name="ccs_status_active">Ενεργή κλήση</string>
+    <string name="ccs_changed">Το Θέμα έχει αλλάξει. Οι οθόνες κλήσης σας θα είναι πολύχρωμες.</string>
+
+
+</resources>

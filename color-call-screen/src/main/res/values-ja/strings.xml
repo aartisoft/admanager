@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">カテゴリー</string>
+    <string name="bgDetailsFragment">詳細</string>
+    <string name="categoryDetailsFragment">カテゴリー</string>
+
+
+    <string name="import_text">ギャラリーからテーマをインポート</string>
+    <string name="call_screen_set">通話画面として設定</string>
+    <string name="call_screen_cancel">通話画面をキャンセル</string>
+    <string name="contact_select">連絡先を選択</string>
+    <string name="contact_list">連絡先リスト</string>
+    <string name="nav_flash">フラッシュ通知</string>
+    <string name="picture_select">写真を選択</string>
+
+    <string name="ccs_status_connecting">接続しています…</string>
+    <string name="ccs_status_dialing">呼び出し中…</string>
+    <string name="ccs_status_ringing">電話の着信</string>
+    <string name="ccs_status_disconnected">通話終了</string>
+    <string name="ccs_status_holding">ホールディング</string>
+    <string name="ccs_status_active">アクティブコール</string>
+    <string name="ccs_changed">テーマが変更されました。呼び出し画面はカラフルになります。</string>
+
+
+</resources>

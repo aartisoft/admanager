@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">Mensagens anônimas</string>
+
+    <string name="delete_dialog_title">Remover Mensagens</string>
+    <string name="delete_dialog_message">Você tem certeza?</string>
+    <string name="delete_dialog_ok">sim</string>
+    <string name="delete_dialog_no">não</string>
+
+
+    <string name="unseen_perm_req_text_1">Vamos exibir suas notificações no aplicativo.</string>
+    <string name="unseen_perm_req_text_2">Marque a caixa "%s" e pressione o botão "Voltar" para continuar.</string>
+    <string name="unseen_perm_req">Conceder permissão e iniciar</string>
+
+
+    <string name="action_scroll_bottom">Role para baixo</string>
+    <string name="action_delete">Excluir tudo</string>
+    <string name="unseen_no_data_title">Nenhuma mensagem recebida ainda.</string>
+    <string name="unseen_no_data_text">Suas mensagens serão exibidas aqui.</string>
+
+</resources>

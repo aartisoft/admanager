@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">رسائل التصفح المتخفي</string>
+
+    <string name="delete_dialog_title">إزالة الرسائل</string>
+    <string name="delete_dialog_message">هل أنت واثق؟</string>
+    <string name="delete_dialog_ok">نعم</string>
+    <string name="delete_dialog_no">لا</string>
+
+
+    <string name="unseen_perm_req_text_1">سنعرض الإخطارات الخاصة بك في التطبيق.</string>
+    <string name="unseen_perm_req_text_2">يرجى تحديد مربع "%s" ثم الضغط على زر "رجوع" للمتابعة.</string>
+    <string name="unseen_perm_req">منح الإذن والبدء</string>
+
+
+    <string name="action_scroll_bottom">قم بالتمرير إلى الأسفل</string>
+    <string name="action_delete">حذف الكل</string>
+    <string name="unseen_no_data_title">لم ترد أي رسالة حتى الآن.</string>
+    <string name="unseen_no_data_text">سيتم عرض رسائلك هنا.</string>
+
+</resources>

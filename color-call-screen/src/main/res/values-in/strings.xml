@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">Kategori</string>
+    <string name="bgDetailsFragment">Detail</string>
+    <string name="categoryDetailsFragment">Kategori</string>
+
+
+    <string name="import_text">impor tema dari galeri</string>
+    <string name="call_screen_set">Atur sebagai layar panggilan</string>
+    <string name="call_screen_cancel">Batalkan layar panggilan</string>
+    <string name="contact_select">Pilih kontak</string>
+    <string name="contact_list">Daftar kontak</string>
+    <string name="nav_flash">Pemberitahuan Flash</string>
+    <string name="picture_select">Pilih Gambar</string>
+
+    <string name="ccs_status_connecting">Menghubungkan ...</string>
+    <string name="ccs_status_dialing">Panggilan…</string>
+    <string name="ccs_status_ringing">Panggilan masuk</string>
+    <string name="ccs_status_disconnected">Panggilan selesai</string>
+    <string name="ccs_status_holding">Memegang</string>
+    <string name="ccs_status_active">Panggilan aktif</string>
+    <string name="ccs_changed">Tema telah diubah. Layar panggilan Anda akan berwarna-warni.</string>
+
+
+</resources>

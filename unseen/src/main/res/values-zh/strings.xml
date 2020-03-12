@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">隐身消息</string>
+
+    <string name="delete_dialog_title">删除讯息</string>
+    <string name="delete_dialog_message">你确定吗？</string>
+    <string name="delete_dialog_ok">是</string>
+    <string name="delete_dialog_no">没有</string>
+
+
+    <string name="unseen_perm_req_text_1">我们将在应用程序中显示您的通知。</string>
+    <string name="unseen_perm_req_text_2">请选中“ %s”框，然后点击“后退按钮”以继续。</string>
+    <string name="unseen_perm_req">授予权限并开始</string>
+
+
+    <string name="action_scroll_bottom">滚动到底部</string>
+    <string name="action_delete">删除所有</string>
+    <string name="unseen_no_data_title">尚未收到消息。</string>
+    <string name="unseen_no_data_text">您的消息将显示在这里。</string>
+
+</resources>

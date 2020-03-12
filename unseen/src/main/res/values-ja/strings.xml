@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">シークレットメッセージ</string>
+
+    <string name="delete_dialog_title">メッセージを削除する</string>
+    <string name="delete_dialog_message">本気ですか？</string>
+    <string name="delete_dialog_ok">はい</string>
+    <string name="delete_dialog_no">番号</string>
+
+
+    <string name="unseen_perm_req_text_1">アプリに通知が表示されます。</string>
+    <string name="unseen_perm_req_text_2">[%s]ボックスをオンにしてから、[戻る]ボタンを押して続行してください。</string>
+    <string name="unseen_perm_req">許可を与えて開始する</string>
+
+
+    <string name="action_scroll_bottom">下にスクロール</string>
+    <string name="action_delete">すべて削除</string>
+    <string name="unseen_no_data_title">メッセージはまだ受信されていません。</string>
+    <string name="unseen_no_data_text">ここにメッセージが表示されます。</string>
+
+</resources>

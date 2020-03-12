@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">پوشیدہ پیغامات</string>
+
+    <string name="delete_dialog_title">پیغامات کو ہٹا دیں</string>
+    <string name="delete_dialog_message">کیا تمہیں یقین ہے؟</string>
+    <string name="delete_dialog_ok">جی ہاں</string>
+    <string name="delete_dialog_no">نہیں</string>
+
+
+    <string name="unseen_perm_req_text_1">ہم آپ کی اطلاعات کو ایپ میں ظاہر کریں گے۔</string>
+    <string name="unseen_perm_req_text_2">براہ کرم "%s" باکس چیک کریں اور پھر جاری رکھنے کے لئے "بیک بٹن" کو دبائیں۔</string>
+    <string name="unseen_perm_req">اجازت دیں اور شروع کریں</string>
+
+
+    <string name="action_scroll_bottom">نیچے سکرول کریں</string>
+    <string name="action_delete">تمام حذف کریں</string>
+    <string name="unseen_no_data_title">ابھی تک کوئی پیغام موصول نہیں ہوا۔</string>
+    <string name="unseen_no_data_text">آپ کے پیغامات یہاں ظاہر ہوں گے۔</string>
+
+</resources>

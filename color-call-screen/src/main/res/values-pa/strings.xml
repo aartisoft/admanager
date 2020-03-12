@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">ਵਰਗ</string>
+    <string name="bgDetailsFragment">ਵੇਰਵਾ</string>
+    <string name="categoryDetailsFragment">ਸ਼੍ਰੇਣੀ</string>
+
+
+    <string name="import_text">ਗੈਲਰੀ ਤੋਂ ਥੀਮ ਇੰਪੋਰਟ ਕਰੋ</string>
+    <string name="call_screen_set">ਕਾਲ ਸਕ੍ਰੀਨ ਦੇ ਤੌਰ ਤੇ ਸੈੱਟ ਕਰੋ</string>
+    <string name="call_screen_cancel">ਕਾਲ ਸਕ੍ਰੀਨ ਨੂੰ ਰੱਦ ਕਰੋ</string>
+    <string name="contact_select">ਸੰਪਰਕ ਚੁਣੋ</string>
+    <string name="contact_list">ਸੰਪਰਕਾਂ ਦੀ ਸੂਚੀ</string>
+    <string name="nav_flash">ਫਲੈਸ਼ ਸੂਚਨਾਵਾਂ</string>
+    <string name="picture_select">ਤਸਵੀਰ ਚੁਣੋ</string>
+
+    <string name="ccs_status_connecting">ਕਨੈਕਟ ਕਰ ਰਿਹਾ ਹੈ ...</string>
+    <string name="ccs_status_dialing">ਕਾਲ ਕਰ ਰਿਹਾ ਹੈ ...</string>
+    <string name="ccs_status_ringing">ਆਉਣ ਵਾਲੇ ਕਾਲ</string>
+    <string name="ccs_status_disconnected">ਕਾਲ ਖਤਮ</string>
+    <string name="ccs_status_holding">ਹੋਲਡਿੰਗ</string>
+    <string name="ccs_status_active">ਕਿਰਿਆਸ਼ੀਲ ਕਾਲ</string>
+    <string name="ccs_changed">ਥੀਮ ਬਦਲਿਆ ਗਿਆ ਹੈ. ਤੁਹਾਡੀਆਂ ਕਾਲ ਕਰਨ ਵਾਲੀਆਂ ਪਰਦੇ ਰੰਗੀਨ ਹੋਣਗੀਆਂ.</string>
+
+
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">Mesej Inkognito</string>
+
+    <string name="delete_dialog_title">Keluarkan Mesej</string>
+    <string name="delete_dialog_message">Adakah anda pasti?</string>
+    <string name="delete_dialog_ok">ya</string>
+    <string name="delete_dialog_no">tidak</string>
+
+
+    <string name="unseen_perm_req_text_1">Kami akan memaparkan pemberitahuan anda dalam aplikasi.</string>
+    <string name="unseen_perm_req_text_2">Sila semak kotak "%s" dan tekan "butang belakang" untuk meneruskan.</string>
+    <string name="unseen_perm_req">Berikan kebenaran dan mulaka</string>
+
+
+    <string name="action_scroll_bottom">Tatal ke Bawah</string>
+    <string name="action_delete">Memadam semua</string>
+    <string name="unseen_no_data_title">Tiada mesej yang diterima lagi.</string>
+    <string name="unseen_no_data_text">Mesej anda akan dipaparkan di sini.</string>
+
+</resources>

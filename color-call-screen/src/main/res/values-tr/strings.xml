@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">Kategoriler</string>
+    <string name="bgDetailsFragment">ayrıntılar</string>
+    <string name="categoryDetailsFragment">Kategori</string>
+
+
+    <string name="import_text">temayı galeriden içe aktar</string>
+    <string name="call_screen_set">Çağrı ekranı olarak ayarla</string>
+    <string name="call_screen_cancel">Çağrı ekranını iptal et</string>
+    <string name="contact_select">Bir kişi seçin</string>
+    <string name="contact_list">Kişi listesi</string>
+    <string name="nav_flash">Flash Bildirimleri</string>
+    <string name="picture_select">Resim Seç</string>
+
+    <string name="ccs_status_connecting">Bağlanıyor…</string>
+    <string name="ccs_status_dialing">Aranıyor ...</string>
+    <string name="ccs_status_ringing">Gelen çağrı</string>
+    <string name="ccs_status_disconnected">Arama bitti</string>
+    <string name="ccs_status_holding">Tutma</string>
+    <string name="ccs_status_active">Aktif çağrı</string>
+    <string name="ccs_changed">Tema değiştirildi. Arama ekranlarınız renkli olacaktır.</string>
+
+
+</resources>

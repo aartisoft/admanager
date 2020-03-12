@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">Mensajes de incógnito</string>
+
+    <string name="delete_dialog_title">Eliminar mensajes</string>
+    <string name="delete_dialog_message">¿Estás seguro?</string>
+    <string name="delete_dialog_ok">si</string>
+    <string name="delete_dialog_no">No</string>
+
+
+    <string name="unseen_perm_req_text_1">Mostraremos sus notificaciones en la aplicación.</string>
+    <string name="unseen_perm_req_text_2">Marque la casilla "%s" y luego presione el "botón de retroceso" para continuar.</string>
+    <string name="unseen_perm_req">Conceder permiso y comenzar</string>
+
+
+    <string name="action_scroll_bottom">Desplazarse hacia abajo</string>
+    <string name="action_delete">Eliminar todos</string>
+    <string name="unseen_no_data_title">Aún no se ha recibido ningún mensaje.</string>
+    <string name="unseen_no_data_text">Sus mensajes se mostrarán aquí.</string>
+
+</resources>

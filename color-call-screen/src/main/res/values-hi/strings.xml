@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">श्रेणियाँ</string>
+    <string name="bgDetailsFragment">विवरण</string>
+    <string name="categoryDetailsFragment">वर्ग</string>
+
+
+    <string name="import_text">गैलरी से आयात विषय</string>
+    <string name="call_screen_set">कॉल स्क्रीन के रूप में सेट करें</string>
+    <string name="call_screen_cancel">कॉल स्क्रीन रद्द करें</string>
+    <string name="contact_select">एक संपर्क का चयन करें</string>
+    <string name="contact_list">संपर्कों की सूची</string>
+    <string name="nav_flash">फ्लैश सूचनाएं</string>
+    <string name="picture_select">चित्र का चयन करें</string>
+
+    <string name="ccs_status_connecting">कनेक्ट ...</string>
+    <string name="ccs_status_dialing">कॉलिंग ...</string>
+    <string name="ccs_status_ringing">आने वाली कॉल</string>
+    <string name="ccs_status_disconnected">समाप्त कॉल</string>
+    <string name="ccs_status_holding">होल्डिंग</string>
+    <string name="ccs_status_active">सक्रिय कॉल</string>
+    <string name="ccs_changed">थीम बदल दी गई है। आपकी कॉलिंग स्क्रीन रंगीन होगी।</string>
+
+
+</resources>

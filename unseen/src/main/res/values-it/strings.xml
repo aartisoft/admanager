@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">Messaggi in incognito</string>
+
+    <string name="delete_dialog_title">Rimuovi messaggi</string>
+    <string name="delete_dialog_message">Sei sicuro?</string>
+    <string name="delete_dialog_ok">sì</string>
+    <string name="delete_dialog_no">no</string>
+
+
+    <string name="unseen_perm_req_text_1">Mostreremo le tue notifiche nell\'app.</string>
+    <string name="unseen_perm_req_text_2">Seleziona la casella "%s" e premi il pulsante "indietro" per continuare.</string>
+    <string name="unseen_perm_req">Concedere l\'autorizzazione e iniziare</string>
+
+
+    <string name="action_scroll_bottom">Scorri fino in basso</string>
+    <string name="action_delete">Cancella tutto</string>
+    <string name="unseen_no_data_title">Nessun messaggio ancora ricevuto.</string>
+    <string name="unseen_no_data_text">I tuoi messaggi verranno visualizzati qui.</string>
+
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">시크릿 메시지</string>
+
+    <string name="delete_dialog_title">메시지 제거</string>
+    <string name="delete_dialog_message">확실합니까?</string>
+    <string name="delete_dialog_ok">예</string>
+    <string name="delete_dialog_no">아니</string>
+
+
+    <string name="unseen_perm_req_text_1">앱에 알림이 표시됩니다.</string>
+    <string name="unseen_perm_req_text_2">"%s"상자를 체크 한 다음 "뒤로 단추"를 눌러 계속하십시오.</string>
+    <string name="unseen_perm_req">권한 부여 및 시작</string>
+
+
+    <string name="action_scroll_bottom">아래로 스크롤</string>
+    <string name="action_delete">모두 삭제</string>
+    <string name="unseen_no_data_title">아직 메시지가 수신되지 않았습니다.</string>
+    <string name="unseen_no_data_text">귀하의 메시지가 여기에 표시됩니다.</string>
+
+</resources>

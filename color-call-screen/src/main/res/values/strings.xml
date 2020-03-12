@@ -1,11 +1,11 @@
 <resources>
-    <string name="colorCallScreen">Color Call Screen</string>
+    <string name="colorCallScreen" translatable="false">Color Call Screen</string>
 
     <string name="categoryFragment">Categories</string>
     <string name="bgDetailsFragment">Details</string>
     <string name="categoryDetailsFragment">Category</string>
 
-    <string name="duration_zero">00:00:00</string>
+    <string name="duration_zero" translatable="false">00:00:00</string>
     <string name="import_text">import theme from gallery</string>
     <string name="call_screen_set">Set as call screen</string>
     <string name="call_screen_cancel">Cancel call screen</string>

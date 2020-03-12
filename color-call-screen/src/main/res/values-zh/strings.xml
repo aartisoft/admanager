@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">分类目录</string>
+    <string name="bgDetailsFragment">细节</string>
+    <string name="categoryDetailsFragment">类别</string>
+
+
+    <string name="import_text">从图库导入主题</string>
+    <string name="call_screen_set">设为通话画面</string>
+    <string name="call_screen_cancel">取消通话画面</string>
+    <string name="contact_select">选择一个联系人</string>
+    <string name="contact_list">联系人列表</string>
+    <string name="nav_flash">Flash通知</string>
+    <string name="picture_select">选择图片</string>
+
+    <string name="ccs_status_connecting">正在连接…</string>
+    <string name="ccs_status_dialing">正在呼叫...</string>
+    <string name="ccs_status_ringing">来电</string>
+    <string name="ccs_status_disconnected">通话结束</string>
+    <string name="ccs_status_holding">保持</string>
+    <string name="ccs_status_active">通话中</string>
+    <string name="ccs_changed">主题已更改。您的呼叫屏幕将是彩色的。</string>
+
+
+</resources>

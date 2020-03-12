@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">Thể loại</string>
+    <string name="bgDetailsFragment">Chi tiết</string>
+    <string name="categoryDetailsFragment">thể loại</string>
+
+
+    <string name="import_text">nhập chủ đề từ thư viện</string>
+    <string name="call_screen_set">Đặt làm màn hình cuộc gọi</string>
+    <string name="call_screen_cancel">Hủy màn hình cuộc gọi</string>
+    <string name="contact_select">Chọn một số liên lạc</string>
+    <string name="contact_list">Danh sách liên lạc</string>
+    <string name="nav_flash">Thông báo Flash</string>
+    <string name="picture_select">Chọn hình</string>
+
+    <string name="ccs_status_connecting">Đang kết nối…</string>
+    <string name="ccs_status_dialing">Gọi điện thoại</string>
+    <string name="ccs_status_ringing">Cuộc gọi đến</string>
+    <string name="ccs_status_disconnected">Kết thúc cuộc gọi</string>
+    <string name="ccs_status_holding">Giữ</string>
+    <string name="ccs_status_active">Cuộc gọi hoạt động</string>
+    <string name="ccs_changed">Chủ đề đã được thay đổi. Màn hình gọi điện của bạn sẽ đầy màu sắc.</string>
+
+
+</resources>

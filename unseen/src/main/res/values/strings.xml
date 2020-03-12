@@ -1,0 +1,22 @@
+<resources>
+    <string name="unseen_title">Incognito Messages</string>
+
+    <string name="delete_dialog_title">Remove Messages</string>
+    <string name="delete_dialog_message">Are you sure?</string>
+    <string name="delete_dialog_ok">yes</string>
+    <string name="delete_dialog_no">no</string>
+
+
+    <string name="unseen_perm_req_text_1">We will display your notifications in the app.</string>
+    <string name="unseen_perm_req_text_2">Please check "%s" box and then hit the "back button" to continue.</string>
+    <string name="unseen_perm_req">Grant permission and start</string>
+
+
+    <string name="timeago_days" translatable="false">d ago</string>
+
+    <string name="action_scroll_bottom">Scroll to Bottom</string>
+    <string name="action_delete">Delete All</string>
+    <string name="unseen_no_data_title">No message received yet.</string>
+    <string name="unseen_no_data_text">Your messages will displayed here.</string>
+
+</resources>

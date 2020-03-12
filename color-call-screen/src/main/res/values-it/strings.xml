@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">categorie</string>
+    <string name="bgDetailsFragment">Dettagli</string>
+    <string name="categoryDetailsFragment">Categoria</string>
+
+
+    <string name="import_text">importa il tema dalla galleria</string>
+    <string name="call_screen_set">Imposta come schermata di chiamata</string>
+    <string name="call_screen_cancel">Annulla la schermata di chiamata</string>
+    <string name="contact_select">Seleziona un contatto</string>
+    <string name="contact_list">Elenco dei contatti</string>
+    <string name="nav_flash">Notifiche flash</string>
+    <string name="picture_select">Seleziona immagine</string>
+
+    <string name="ccs_status_connecting">Connessione in corso ...</string>
+    <string name="ccs_status_dialing">Chiamata ...</string>
+    <string name="ccs_status_ringing">Chiamata in arrivo</string>
+    <string name="ccs_status_disconnected">Chiamata finita</string>
+    <string name="ccs_status_holding">Tenere</string>
+    <string name="ccs_status_active">Chiamata attiva</string>
+    <string name="ccs_changed">Il tema è stato cambiato. Le schermate di chiamata saranno colorate.</string>
+
+
+</resources>

@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">गुप्त संदेश</string>
+
+    <string name="delete_dialog_title">संदेश निकालें</string>
+    <string name="delete_dialog_message">क्या आपको यकीन है?</string>
+    <string name="delete_dialog_ok">हाँ</string>
+    <string name="delete_dialog_no">नहीं</string>
+
+
+    <string name="unseen_perm_req_text_1">हम एप्लिकेशन में आपकी सूचनाएँ प्रदर्शित करेंगे।</string>
+    <string name="unseen_perm_req_text_2">कृपया "%s" बॉक्स देखें और फिर जारी रखने के लिए "बैक बटन" दबाएं।</string>
+    <string name="unseen_perm_req">अनुमति और प्रारंभ करें</string>
+
+
+    <string name="action_scroll_bottom">नीचे तक स्क्रॉल करें</string>
+    <string name="action_delete">सभी हटा दो</string>
+    <string name="unseen_no_data_title">अभी तक कोई संदेश नहीं मिला है।</string>
+    <string name="unseen_no_data_text">आपके संदेश यहां प्रदर्शित होंगे।</string>
+
+</resources>

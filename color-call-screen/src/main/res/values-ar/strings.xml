@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">التصنيفات</string>
+    <string name="bgDetailsFragment">تفاصيل</string>
+    <string name="categoryDetailsFragment">الفئة</string>
+
+
+    <string name="import_text">استيراد موضوع من المعرض</string>
+    <string name="call_screen_set">تعيين كشاشة اتصال</string>
+    <string name="call_screen_cancel">إلغاء شاشة المكالمة</string>
+    <string name="contact_select">حدد جهة اتصال</string>
+    <string name="contact_list">قائمة جهات الاتصال</string>
+    <string name="nav_flash">إخطارات فلاش</string>
+    <string name="picture_select">حدد الصورة</string>
+
+    <string name="ccs_status_connecting">توصيل…</string>
+    <string name="ccs_status_dialing">جارٍ الاتصال ...</string>
+    <string name="ccs_status_ringing">مكالمة واردة</string>
+    <string name="ccs_status_disconnected">مكالمة منتهية</string>
+    <string name="ccs_status_holding">تحتجز</string>
+    <string name="ccs_status_active">مكالمة نشطة</string>
+    <string name="ccs_changed">تم تغيير السمة. شاشات الاتصال الخاصة بك ستكون ملونة.</string>
+
+
+</resources>

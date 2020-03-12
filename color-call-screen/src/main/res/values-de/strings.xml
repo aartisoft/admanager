@@ -1,0 +1,26 @@
+<resources>
+
+
+    <string name="categoryFragment">Kategorien</string>
+    <string name="bgDetailsFragment">Einzelheiten</string>
+    <string name="categoryDetailsFragment">Kategorie</string>
+
+
+    <string name="import_text">Thema aus der Galerie importieren</string>
+    <string name="call_screen_set">Als Anrufbildschirm festlegen</string>
+    <string name="call_screen_cancel">Anrufbildschirm abbrechen</string>
+    <string name="contact_select">Wählen Sie einen Kontakt aus</string>
+    <string name="contact_list">Liste der Kontakte</string>
+    <string name="nav_flash">Flash-Benachrichtigungen</string>
+    <string name="picture_select">Wählen Sie Bild</string>
+
+    <string name="ccs_status_connecting">Anschließen…</string>
+    <string name="ccs_status_dialing">Berufung…</string>
+    <string name="ccs_status_ringing">Eingehender Anruf</string>
+    <string name="ccs_status_disconnected">Anruf beendet</string>
+    <string name="ccs_status_holding">Halten</string>
+    <string name="ccs_status_active">Aktiver Anruf</string>
+    <string name="ccs_changed">Das Thema wurde geändert. Ihre Anrufbildschirme sind bunt.</string>
+
+
+</resources>

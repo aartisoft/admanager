@@ -1,0 +1,20 @@
+<resources>
+    <string name="unseen_title">Gizli Mesajlar</string>
+
+    <string name="delete_dialog_title">İletileri Kaldır</string>
+    <string name="delete_dialog_message">Emin misiniz?</string>
+    <string name="delete_dialog_ok">Evet</string>
+    <string name="delete_dialog_no">Hayır</string>
+
+
+    <string name="unseen_perm_req_text_1">Bildirimlerinizi uygulamada görüntüleyeceğiz.</string>
+    <string name="unseen_perm_req_text_2">Lütfen "%s" kutusunu işaretleyin ve devam etmek için "geri düğmesine" basın.</string>
+    <string name="unseen_perm_req">İzin verin ve başlayı</string>
+
+
+    <string name="action_scroll_bottom">Aşağıya Kaydır</string>
+    <string name="action_delete">Hepsini sil</string>
+    <string name="unseen_no_data_title">Henüz bir mesaj alınmadı.</string>
+    <string name="unseen_no_data_text">Mesajlarınız burada görüntülenecektir.</string>
+
+</resources>
