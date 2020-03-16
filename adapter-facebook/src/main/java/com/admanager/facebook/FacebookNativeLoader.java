@@ -62,7 +62,7 @@ public class FacebookNativeLoader extends NativeLoader<FacebookNativeLoader> {
         return this;
     }
 
-    private void load() {
+    public void load() {
         if (isTestMode()) {
             this.adUnitId = FACEBOOK_BANNER_TEST_ID;
         }

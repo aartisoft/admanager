@@ -58,6 +58,17 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
     }
 
     public void loadWithRemoteConfigId(@Size(min = com.admanager.core.Consts.RC_KEY_SIZE) String rcAppIdKey, @Size(min = com.admanager.core.Consts.RC_KEY_SIZE) String rcZoneIdKey) {
+        withRemoteConfigId(rcAppIdKey, rcZoneIdKey);
+        load();
+    }
+
+    public void loadWithId(@Size(min = com.admanager.admost.Consts.ID_SIZE, max = com.admanager.admost.Consts.ID_SIZE) String appId,
+                           @Size(min = com.admanager.admost.Consts.ID_SIZE, max = com.admanager.admost.Consts.ID_SIZE) String zoneId) {
+        withId(appId, zoneId);
+        load();
+    }
+
+    public AdMostNativeLoader withRemoteConfigId(@Size(min = com.admanager.core.Consts.RC_KEY_SIZE) String rcAppIdKey, @Size(min = com.admanager.core.Consts.RC_KEY_SIZE) String rcZoneIdKey) {
         if (this.appId != null) {
             throw new IllegalStateException("You already set appId with 'withId' method.");
         }
@@ -66,11 +77,11 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
         }
         this.appId = RemoteConfigHelper.getConfigs().getString(rcAppIdKey);
         this.zoneId = RemoteConfigHelper.getConfigs().getString(rcZoneIdKey);
-        load();
+        return this;
     }
 
-    public void loadWithId(@Size(min = com.admanager.admost.Consts.ID_SIZE, max = com.admanager.admost.Consts.ID_SIZE) String appId,
-                           @Size(min = com.admanager.admost.Consts.ID_SIZE, max = com.admanager.admost.Consts.ID_SIZE) String zoneId) {
+    public AdMostNativeLoader withId(@Size(min = com.admanager.admost.Consts.ID_SIZE, max = com.admanager.admost.Consts.ID_SIZE) String appId,
+                                     @Size(min = com.admanager.admost.Consts.ID_SIZE, max = com.admanager.admost.Consts.ID_SIZE) String zoneId) {
         if (this.appId != null) {
             throw new IllegalStateException("You already set appId with 'withRemoteConfigId' method.");
         }
@@ -79,10 +90,10 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
         }
         this.appId = appId;
         this.zoneId = zoneId;
-        load();
+        return this;
     }
 
-    private void load() {
+    public void load() {
         if (isTestMode()) {
             this.appId = com.admanager.admost.Consts.TEST_APP_ID;
             this.zoneId = com.admanager.admost.Consts.TEST_NATIVE_ZONE;

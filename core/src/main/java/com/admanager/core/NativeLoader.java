@@ -89,6 +89,8 @@ public abstract class NativeLoader<L extends NativeLoader> {
         this.activity.getApplication().registerActivityLifecycleCallbacks(LIFECYCLE_CALLBACKS);
     }
 
+    abstract public void load();
+
     public Listener getListener() {
         return listener;
     }
@@ -278,7 +280,7 @@ public abstract class NativeLoader<L extends NativeLoader> {
         container.addView(border);
     }
 
-    protected LinearLayout getAdContainer() {
+    public LinearLayout getAdContainer() {
         return adContainer;
     }
 

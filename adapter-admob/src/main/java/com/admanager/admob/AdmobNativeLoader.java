@@ -29,13 +29,23 @@ public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
         super(activity, "Admob", adContainer, rcEnableKey);
     }
 
-    public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
+    public AdmobNativeLoader withRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
         this.adUnitId = RemoteConfigHelper.getConfigs().getString(rcAdUnitIdKey);
+        return this;
+    }
+
+    public AdmobNativeLoader withId(@Size(min = com.admanager.admob.Consts.AD_UNIT_SIZE_MIN, max = com.admanager.admob.Consts.AD_UNIT_SIZE_MAX) String adUnitId) {
+        this.adUnitId = adUnitId;
+        return this;
+    }
+
+    public void loadWithRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
+        withRemoteConfigId(rcAdUnitIdKey);
         load();
     }
 
     public void loadWithId(@Size(min = com.admanager.admob.Consts.AD_UNIT_SIZE_MIN, max = com.admanager.admob.Consts.AD_UNIT_SIZE_MAX) String adUnitId) {
-        this.adUnitId = adUnitId;
+        withId(adUnitId);
         load();
     }
 
@@ -66,7 +76,7 @@ public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
         return this;
     }
 
-    private void load() {
+    public void load() {
         if (isTestMode()) {
             this.adUnitId = ADMOB_NATIVE_TEST_ID;
         }
