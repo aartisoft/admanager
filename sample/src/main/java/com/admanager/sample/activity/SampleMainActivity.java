@@ -28,8 +28,10 @@ import com.admanager.popupenjoy.AdmPopupEnjoy;
 import com.admanager.popuppromo.AdmPopupPromo;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
+import com.admanager.speedometeraltitude.activities.SpeedoMeterAltitudeActivity;
 import com.admanager.speedtest.activities.SpeedTestActivity;
 import com.admanager.wastickers.activities.WAStickersActivity;
+import com.admanager.weather.activities.WeatherActivity;
 
 /**
  * Created by Gust on 20.11.2018.
@@ -155,6 +157,10 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
             toast(item.getTitle(), AdmUtils.capitalize("CaPiTAlizEd"));
         } else if (id == R.id.maps) {
             MapsActivity.start(this);
+        } else if (id == R.id.weather) {
+            WeatherActivity.start(this);
+        } else if (id == R.id.mSpeedoMeter) {
+            SpeedoMeterAltitudeActivity.start(this);
         }
         return false;
     }

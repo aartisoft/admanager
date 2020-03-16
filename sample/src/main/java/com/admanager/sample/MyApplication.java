@@ -15,9 +15,11 @@ import com.admanager.core.Ads;
 import com.admanager.gifs.GifsApp;
 import com.admanager.maps.MapsApp;
 import com.admanager.periodicnotification.PeriodicNotificationApp;
+import com.admanager.speedometeraltitude.SpeedoMeterAltitudeApp;
 import com.admanager.speedtest.SpeedTestApp;
 import com.admanager.unseen.UnseenApp;
 import com.admanager.wastickers.WastickersApp;
+import com.admanager.weather.WeatherApp;
 
 public class MyApplication extends MultiDexApplication implements Ads {
 
@@ -64,6 +66,28 @@ public class MyApplication extends MultiDexApplication implements Ads {
                 .build();
 
         new UnseenApp.Builder(this)
+                .build();
+
+        new SpeedoMeterAltitudeApp.Builder(this)
+                .ads(this)
+                //.speedoIndicatorType(Indicator.Indicators.XXX)
+                //.altimeterImage(R.drawable.altimeterImage)
+                //.bgColor(R.color.colorPrimary)
+                //.speedoImageBike(R.drawable.bikeImage)
+                //.speedoImageWalk(R.drawable.walkImage)
+                //.speedoImageMotorcycle(R.drawable.motorcycleImage)
+                //.speedoImageCar(R.drawable.carImage)
+                //.speedoMarkColor(R.color.markColor)
+                //.speedoSpeedTextColor(R.color.speedTextColor)
+                //.speedoTextColor(R.color.speedoTextColor)
+                //.unitTextColor(R.color.unitTextColor)
+                //.altimeterIndicator(R.drawable.altimeterIndicator)
+                .build();
+        new WeatherApp.Builder(this)
+                .ads(this)
+                .bgColor(R.color.colorStatusColor)
+                .itemBg(R.color.weather_silver)
+                .textColor(android.R.color.holo_green_light)
                 .build();
     }
 

@@ -65,6 +65,8 @@ dependencies {
     implementation project(path: ':maps')
     implementation project(path: ':color-call-screen')
     implementation project(path: ':unseen')
+    implementation project(path: ':weather')
+    implementation project(path: ':speedometer-altitude')
 
 
     /*  Admost ADDITIONAL ADAPTERS

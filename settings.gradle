@@ -24,4 +24,5 @@ include ':config',
         ':maps',
         ':speedometer-altitude',
         ':color-call-screen',
-        ':unseen'
+        ':unseen',
+        ':weather'

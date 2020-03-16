@@ -63,6 +63,12 @@
         <item
             android:id="@+id/maps"
             android:title="Maps" />
+        <item
+            android:id="@+id/weather"
+            android:title="Weather" />
+        <item
+            android:id="@+id/mSpeedoMeter"
+            android:title="SpeedoMeter" />
 
     </group>
     <item android:title="Communicate">
