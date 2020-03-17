@@ -1,9 +1,10 @@
 package com.admanager.sample.adapter;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.admanager.recyclerview.BindableViewHolder;
 import com.admanager.sample.R;

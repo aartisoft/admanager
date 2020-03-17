@@ -2,13 +2,14 @@ package com.admanager.applocker.fragments;
 
 import android.app.Dialog;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ToggleButton;
+
+import androidx.fragment.app.DialogFragment;
 
 import com.admanager.applocker.R;
 import com.admanager.applocker.activities.PasswordActivity;

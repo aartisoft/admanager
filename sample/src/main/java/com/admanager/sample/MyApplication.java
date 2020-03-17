@@ -1,8 +1,9 @@
 package com.admanager.sample;
 
 import android.app.Activity;
-import android.support.multidex.MultiDexApplication;
 import android.widget.LinearLayout;
+
+import androidx.multidex.MultiDexApplication;
 
 import com.admanager.admob.AdmobBannerLoader;
 import com.admanager.admob.AdmobNativeLoader;
@@ -85,9 +86,9 @@ public class MyApplication extends MultiDexApplication implements Ads {
                 .build();
         new WeatherApp.Builder(this)
                 .ads(this)
-                .bgColor(R.color.colorStatusColor)
-                .itemBg(R.color.weather_silver)
-                .textColor(android.R.color.holo_green_light)
+//                .bgColor(R.color.colorStatusColor)
+//                .itemBg(R.color.weather_silver)
+//                .textColor(android.R.color.holo_green_light)
                 .build();
     }
 

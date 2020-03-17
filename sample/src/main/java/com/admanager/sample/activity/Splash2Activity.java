@@ -1,7 +1,8 @@
 package com.admanager.sample.activity;
 
-import android.support.annotation.NonNull;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
 
 import com.admanager.admob.AdmobAdapter;
 import com.admanager.admob.AdmobNativeLoader;

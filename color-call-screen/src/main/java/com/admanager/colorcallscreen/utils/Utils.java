@@ -3,8 +3,9 @@ package com.admanager.colorcallscreen.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
-import android.support.annotation.Nullable;
 import android.view.View;
+
+import androidx.annotation.Nullable;
 
 import com.admanager.colorcallscreen.api.BgModel;
 import com.admanager.core.AdmUtils;

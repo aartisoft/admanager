@@ -3,9 +3,10 @@ package com.admanager.applocker.activities;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.admanager.applocker.prefrence.Prefs;
 import com.admanager.applocker.services.AppCheckServices;

@@ -1,7 +1,7 @@
 package com.admanager.recyclerview;
 
-import android.support.annotation.IntRange;
-import android.support.annotation.LayoutRes;
+import androidx.annotation.IntRange;
+import androidx.annotation.LayoutRes;
 
 public class AdmAdapterConfiguration<NATIVE_TYPE> {
     private static final String TAG = "AdmAdapterConf";

@@ -1,9 +1,10 @@
 package com.admanager.gifs.adapters;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.admanager.gifs.R;
 import com.admanager.recyclerview.BaseAdapter;

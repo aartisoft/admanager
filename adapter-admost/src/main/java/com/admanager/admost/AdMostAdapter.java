@@ -1,7 +1,8 @@
 package com.admanager.admost;
 
-import android.support.annotation.Size;
 import android.text.TextUtils;
+
+import androidx.annotation.Size;
 
 import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.Adapter;

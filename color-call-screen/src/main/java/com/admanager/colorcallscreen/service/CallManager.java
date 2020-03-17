@@ -6,9 +6,10 @@ import android.content.Intent;
 import android.media.AudioManager;
 import android.os.Build;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.telephony.TelephonyManager;
 import android.view.KeyEvent;
+
+import androidx.annotation.Nullable;
 
 import com.admanager.colorcallscreen.activities.CCSInCallActivity;
 import com.admanager.colorcallscreen.model.ContactBean;

@@ -3,12 +3,13 @@ package com.admanager.colorcallscreen.adapter;
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
 
 import com.admanager.colorcallscreen.ColorCallScreenApp;
 import com.admanager.colorcallscreen.R;

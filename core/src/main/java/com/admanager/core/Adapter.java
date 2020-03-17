@@ -2,9 +2,10 @@ package com.admanager.core;
 
 import android.app.Activity;
 import android.os.Handler;
-import android.support.annotation.CallSuper;
-import android.support.annotation.IntRange;
 import android.util.Log;
+
+import androidx.annotation.CallSuper;
+import androidx.annotation.IntRange;
 
 public abstract class Adapter {
     private int order = 0;

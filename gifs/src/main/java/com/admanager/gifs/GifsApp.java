@@ -2,9 +2,10 @@ package com.admanager.gifs;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.ColorRes;
-import android.support.annotation.DrawableRes;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
+import androidx.annotation.NonNull;
 
 import com.admanager.core.Ads;
 import com.admanager.core.AdsImp;

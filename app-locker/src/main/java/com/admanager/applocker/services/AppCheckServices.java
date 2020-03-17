@@ -16,9 +16,10 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
-import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import com.admanager.applocker.AppLockerApp;
 import com.admanager.applocker.activities.PasswordActivity;

@@ -4,13 +4,13 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 import android.os.Build;
-import android.support.design.widget.NavigationView;
 import android.view.MenuItem;
 
 import com.admanager.applocker.activities.SplashActivity;
 import com.admanager.applocker.utils.AppLockInitializer;
 import com.admanager.core.Ads;
 import com.admanager.core.AdsImp;
+import com.google.android.material.navigation.NavigationView;
 
 public class AppLockerApp {
     private static AppLockerApp INSTANCE;

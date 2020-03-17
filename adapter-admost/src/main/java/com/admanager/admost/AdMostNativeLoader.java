@@ -1,11 +1,12 @@
 package com.admanager.admost;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.annotation.Size;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Size;
 
 import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.NativeLoader;

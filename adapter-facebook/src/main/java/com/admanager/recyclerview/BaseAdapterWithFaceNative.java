@@ -1,14 +1,15 @@
 package com.admanager.recyclerview;
 
 import android.app.Activity;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Size;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Size;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.admanager.facebook.Consts;
 import com.admanager.facebook.R;

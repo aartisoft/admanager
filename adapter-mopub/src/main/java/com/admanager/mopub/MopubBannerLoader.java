@@ -1,10 +1,11 @@
 package com.admanager.mopub;
 
 import android.app.Activity;
-import android.support.annotation.Size;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
+
+import androidx.annotation.Size;
 
 import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.BannerLoader;
@@ -16,9 +17,6 @@ import com.mopub.common.SdkInitializationListener;
 import com.mopub.mobileads.DefaultBannerAdListener;
 import com.mopub.mobileads.MoPubErrorCode;
 import com.mopub.mobileads.MoPubView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MopubBannerLoader extends BannerLoader<MopubBannerLoader> {
 
@@ -56,12 +54,11 @@ public class MopubBannerLoader extends BannerLoader<MopubBannerLoader> {
 
         if (!MoPub.isSdkInitialized()) {
             // A list of rewarded video adapters to initialize
-            List<String> networksToInit = new ArrayList<>();
-            networksToInit.add("com.mopub.mobileads.VungleRewardedVideo");
+//            List<String> networksToInit = new ArrayList<>();
+//            networksToInit.add("com.mopub.mobileads.VungleRewardedVideo");
 
             SdkConfiguration sdkConfiguration = new SdkConfiguration.Builder(adUnitId)
                     .withMediationSettings(new Settings())
-                    .withNetworksToInit(networksToInit)
                     .build();
 
             MoPub.initializeSdk(getActivity(), sdkConfiguration, new SdkInitializationListener() {

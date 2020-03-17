@@ -1,8 +1,9 @@
 package com.admanager.unseen.adapters;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.admanager.unseen.R;
 import com.admanager.unseen.notiservice.models.Message;

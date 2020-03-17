@@ -1,9 +1,10 @@
 package com.admanager.ironsource;
 
 import android.app.Activity;
-import android.support.annotation.Size;
 import android.text.TextUtils;
 import android.widget.LinearLayout;
+
+import androidx.annotation.Size;
 
 import com.admanager.core.BannerLoader;
 import com.ironsource.mediationsdk.ISBannerSize;

@@ -3,12 +3,13 @@ package com.admanager.colorcallscreen.adapter;
 import android.app.Activity;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import com.admanager.colorcallscreen.R;
 import com.admanager.colorcallscreen.activities.ColorCallScreenActivity;

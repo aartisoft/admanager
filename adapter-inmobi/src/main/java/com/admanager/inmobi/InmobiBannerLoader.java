@@ -1,10 +1,11 @@
 package com.admanager.inmobi;
 
 import android.app.Activity;
-import android.support.annotation.Size;
 import android.util.DisplayMetrics;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import androidx.annotation.Size;
 
 import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.BannerLoader;

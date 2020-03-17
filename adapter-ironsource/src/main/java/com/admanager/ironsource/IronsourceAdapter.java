@@ -1,7 +1,8 @@
 package com.admanager.ironsource;
 
-import android.support.annotation.Size;
 import android.text.TextUtils;
+
+import androidx.annotation.Size;
 
 import com.admanager.core.Adapter;
 import com.admanager.core.Consts;

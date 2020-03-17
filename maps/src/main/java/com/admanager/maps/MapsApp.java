@@ -2,7 +2,8 @@ package com.admanager.maps;
 
 import android.app.Application;
 import android.content.Context;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import com.admanager.core.Ads;
 import com.admanager.core.AdsImp;

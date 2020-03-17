@@ -1,9 +1,10 @@
 package com.admanager.facebook;
 
 import android.app.Activity;
-import android.support.annotation.Size;
 import android.text.TextUtils;
 import android.widget.LinearLayout;
+
+import androidx.annotation.Size;
 
 import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.BannerLoader;

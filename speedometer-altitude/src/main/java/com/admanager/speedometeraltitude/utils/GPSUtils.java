@@ -5,9 +5,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.IntentSender;
 import android.location.LocationManager;
-import android.support.annotation.NonNull;
 import android.util.Log;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
 
 import com.admanager.speedometeraltitude.R;
 import com.google.android.gms.common.api.ApiException;

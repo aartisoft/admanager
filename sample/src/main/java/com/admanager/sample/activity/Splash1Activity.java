@@ -1,11 +1,11 @@
 package com.admanager.sample.activity;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.admanager.admob.AdmobAdapter;
-import com.admanager.admob.BuildConfig;
 import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.facebook.FacebookAdapter;
@@ -22,7 +22,7 @@ public class Splash1Activity extends AppCompatActivity {
         RemoteConfigHelper.init(this);
 
         //        If you want to close all ads for testing, use this method
-        RemoteConfigHelper.setAdsEnabled(!BuildConfig.DEBUG);
+//        RemoteConfigHelper.setAdsEnabled(!BuildConfig.DEBUG);
 
         new AdManagerBuilder(this)
                 .add(new AdmobAdapter(RCUtils.S1_ADMOB_ENABLED).withRemoteConfigId(RCUtils.S1_ADMOB_ID))

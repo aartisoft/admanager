@@ -2,7 +2,8 @@ package com.admanager.periodicnotification;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.Keep;
+
+import androidx.annotation.Keep;
 
 import com.admanager.config.RemoteConfigHelper;
 

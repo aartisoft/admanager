@@ -3,10 +3,11 @@ package com.admanager.sample.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.admanager.sample.R;
 
@@ -37,7 +38,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         clickMap.put(R.id.ex_recycler_view_custom_design, RecyclerViewCustomDesignActivity.class);
         clickMap.put(R.id.ex_recycler_view_custom, RecyclerViewCustomActivity.class);
         clickMap.put(R.id.ex_sample_main, SampleMainActivity.class);
-        clickMap.put(R.id.ex_sample_wastickers, SampleWAStickersActivity.class);
         clickMap.put(R.id.ex_pack_name_opener, PackNameOpenerActivity.class);
 
         for (Integer i : clickMap.keySet()) {

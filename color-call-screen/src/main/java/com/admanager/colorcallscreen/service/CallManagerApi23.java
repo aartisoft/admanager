@@ -4,9 +4,10 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.telecom.Call;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.admanager.colorcallscreen.model.ContactBean;
 

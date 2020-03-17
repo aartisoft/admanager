@@ -4,12 +4,13 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 import android.os.Looper;
-import android.support.annotation.ColorRes;
-import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+
+import androidx.annotation.ColorRes;
+import androidx.core.content.ContextCompat;
 
 import com.admanager.config.RemoteConfigHelper;
 

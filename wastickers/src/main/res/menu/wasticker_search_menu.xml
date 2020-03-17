@@ -5,6 +5,6 @@
         android:id="@+id/sticker_search"
         android:icon="@android:drawable/ic_menu_search"
         android:title="@string/sticker_search"
-        app:actionViewClass="android.support.v7.widget.SearchView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
         app:showAsAction="ifRoom|collapseActionView" />
 </menu>

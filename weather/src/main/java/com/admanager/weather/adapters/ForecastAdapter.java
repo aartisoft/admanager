@@ -1,12 +1,13 @@
 package com.admanager.weather.adapters;
 
 import android.app.Activity;
-import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import com.admanager.recyclerview.BaseAdapter;
 import com.admanager.recyclerview.BindableViewHolder;
