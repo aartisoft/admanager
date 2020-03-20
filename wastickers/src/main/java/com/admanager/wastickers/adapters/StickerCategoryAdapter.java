@@ -19,11 +19,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
-import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.AdmUtils;
 import com.admanager.recyclerview.AdmAdapterConfiguration;
 import com.admanager.recyclerview.BaseAdapter;
-import com.admanager.recyclerview.BaseAdapterWithAdmobNative;
 import com.admanager.recyclerview.BindableViewHolder;
 import com.admanager.wastickers.R;
 import com.admanager.wastickers.WastickersApp;
@@ -43,35 +41,23 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class StickerCategoryAdapter extends BaseAdapterWithAdmobNative<PackageModel, StickerCategoryAdapter.StickerPackViewHolder> {
+public class StickerCategoryAdapter extends BaseAdapter<PackageModel, StickerCategoryAdapter.StickerPackViewHolder> {
     public static final String TAG = "GifCategoryAdapter";
     private final PermissionChecker permissionChecker;
     private final WastickersApp configs;
     private StickerClickListener stickerClickListener;
     private List<PackageModel> originalList;
 
-    public StickerCategoryAdapter(Activity activity, @NonNull PermissionChecker permissionChecker, String remoteConfigEnableKey, String remoteConfigIdKey, WastickersApp configs) {
-        super(activity, R.layout.item_image_group, null, showNative(remoteConfigEnableKey), nativeId(remoteConfigIdKey));
+    public StickerCategoryAdapter(Activity activity, @NonNull PermissionChecker permissionChecker, WastickersApp configs) {
+        super(activity, R.layout.item_image_group);
         this.permissionChecker = permissionChecker;
         this.configs = configs;
     }
 
-    public StickerCategoryAdapter(Activity activity, PermissionChecker permissionChecker, WastickersApp configs) {
-        this(activity, permissionChecker, "", "", configs);
-    }
-
-    private static boolean showNative(String remoteConfigEnableKey) {
-        return RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey) && RemoteConfigHelper.areAdsEnabled();
-    }
-
-    private static String nativeId(String remoteConfigIdKey) {
-        return RemoteConfigHelper.getConfigs().getString(remoteConfigIdKey);
-    }
-
     @Override
-    protected AdmAdapterConfiguration<NativeType> configure() {
-        return new AdmAdapterConfiguration<NativeType>()
-                .density(2);
+    protected AdmAdapterConfiguration<?> configure() {
+        return new AdmAdapterConfiguration<>()
+                .density(99);
     }
 
     @Override
