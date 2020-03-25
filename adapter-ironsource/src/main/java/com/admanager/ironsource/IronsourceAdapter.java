@@ -18,7 +18,7 @@ public class IronsourceAdapter extends Adapter {
     private InterstitialListener LISTENER = new InterstitialListener() {
         @Override
         public void onInterstitialAdReady() {
-            logv("onInterstitialAdReady");
+            logv("onInterstitialAdReady ");
             loaded();
         }
 

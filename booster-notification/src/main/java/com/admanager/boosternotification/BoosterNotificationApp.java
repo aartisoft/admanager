@@ -115,7 +115,7 @@ public class BoosterNotificationApp extends BaseHelper {
 
         MenuItem item = navigationView.getMenu().findItem(menuId);
         if (item == null) {
-            throw new IllegalStateException("Given menuId couldn't found!");
+            throw new IllegalStateException("Given menuId couldn't found !");
         }
         View actionView = item.getActionView();
         if (!(actionView instanceof SwitchCompat)) {
