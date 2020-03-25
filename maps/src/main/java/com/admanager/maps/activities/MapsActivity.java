@@ -38,6 +38,7 @@ public class MapsActivity extends AppCompatActivity implements View.OnKeyListene
         Intent intent = new Intent(context, MapsActivity.class);
         context.startActivity(intent);
         mQuery = query;
+
     }
 
     @Override
