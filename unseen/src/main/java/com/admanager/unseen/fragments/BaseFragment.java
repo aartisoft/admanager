@@ -27,7 +27,7 @@ import com.admanager.unseen.notiservice.converters.BaseConverter;
 import com.admanager.unseen.notiservice.models.Conversation;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import io.realm.Realm;
@@ -132,7 +132,7 @@ public abstract class BaseFragment extends Fragment {
         tab.setText("All");
         tabLayout.addTab(tab);
 
-        HashMap<String, String> map = new HashMap<>();
+        LinkedHashMap<String, String> map = new LinkedHashMap<>();
         for (Class<? extends BaseConverter> value : NotiListenerService.getPackageMap().values()) {
             try {
                 BaseConverter converter = value.newInstance();

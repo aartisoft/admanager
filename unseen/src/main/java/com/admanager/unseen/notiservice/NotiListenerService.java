@@ -17,7 +17,7 @@ import com.admanager.unseen.notiservice.converters.WeChatConverter;
 import com.admanager.unseen.notiservice.converters.WhatsAppConverter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -26,7 +26,7 @@ import java.util.Map;
 public class NotiListenerService extends NotificationListenerService {
     private static final String TAG = "NotiListenerService";
     public static boolean isConnected;
-    private static HashMap<String, Class<? extends BaseConverter>> hm;
+    private static LinkedHashMap<String, Class<? extends BaseConverter>> hm;
 
     public static ArrayList<String> getPackageFromType(String shortHand) {
         ArrayList<String> list = new ArrayList<>();
@@ -41,15 +41,15 @@ public class NotiListenerService extends NotificationListenerService {
         return list;
     }
 
-    public static HashMap<String, Class<? extends BaseConverter>> getPackageMap() {
+    public static LinkedHashMap<String, Class<? extends BaseConverter>> getPackageMap() {
         if (hm == null) {
-            hm = new HashMap<>();
+            hm = new LinkedHashMap<>();
             hm.put("com.whatsapp", WhatsAppConverter.class);
             hm.put("com.facebook.orca", FBookConverter.class);
             hm.put("com.facebook.mlite", FBookLiteConverter.class);
+            hm.put("com.tencent.mm", WeChatConverter.class);
             hm.put("com.viber.voip", VibeConverter.class);
             hm.put("org.telegram.messenger", TeleConverter.class);
-            hm.put("com.tencent.mm", WeChatConverter.class);
 
             hm.put("com.skype.raider", SkypeConverter.class);
             hm.put("com.skype.m2", SkypeLiteConverter.class);
