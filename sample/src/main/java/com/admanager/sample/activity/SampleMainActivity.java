@@ -157,6 +157,7 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
         } else if (id == R.id.capitalize) {
             toast(item.getTitle(), AdmUtils.capitalize("CaPiTAlizEd"));
         } else if (id == R.id.maps) {
+            //MapsActivity.start(this,"ATM");
             MapsActivity.start(this);
         } else if (id == R.id.weather) {
             WeatherActivity.start(this);

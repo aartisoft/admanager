@@ -28,10 +28,16 @@ public class MapsActivity extends AppCompatActivity implements View.OnKeyListene
     private WebView mWebView;
     private ProgressBar mProgress;
     private String BASE_URL = "https://www.google.com/maps/";
-
+    private static String mQuery;
     public static void start(Context context) {
         Intent intent = new Intent(context, MapsActivity.class);
         context.startActivity(intent);
+    }
+
+    public static void start(Context context, String query) {
+        Intent intent = new Intent(context, MapsActivity.class);
+        context.startActivity(intent);
+        mQuery = query;
     }
 
     @Override
@@ -43,7 +49,9 @@ public class MapsActivity extends AppCompatActivity implements View.OnKeyListene
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
-
+        if (mQuery != null && !mQuery.equalsIgnoreCase("")) {
+            BASE_URL += "search/" + mQuery;
+        }
         setTitle(getString(R.string.maps));
 
         MapsApp instance = MapsApp.getInstance();

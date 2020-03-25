@@ -25,4 +25,5 @@ include ':config',
         ':speedometer-altitude',
         ':color-call-screen',
         ':unseen',
-        ':weather'
+        ':weather',
+        ':gpstime-address-coord'
