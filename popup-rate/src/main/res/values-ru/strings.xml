@@ -1,0 +1,5 @@
+<resources>
+    <string name="no_thanks">Спасибо, не надо</string>
+    <string name="please_rate_us_to_open">Пожалуйста, оцените нас, чтобы открыть эту функцию</string>
+    <string name="rate_us">Оцените нас</string>
+</resources>

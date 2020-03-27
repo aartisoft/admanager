@@ -1,0 +1,5 @@
+<resources>
+    <string name="no_thanks">고맙지 만 사양 할게</string>
+    <string name="please_rate_us_to_open">이 기능을 열려면 우리를 평가하십시오</string>
+    <string name="rate_us">우리를 평가</string>
+</resources>
