@@ -1,5 +1,5 @@
 <resources>
     <string name="no_thanks">結構です</string>
     <string name="please_rate_us_to_open">この機能を開くために私たちを評価してください</string>
-    <string name="rate_us">私たちを評価してください</string>
+    <string name="popup_rate_us">私たちを評価してください</string>
 </resources>

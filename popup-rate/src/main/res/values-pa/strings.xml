@@ -1,5 +1,5 @@
 <resources>
     <string name="no_thanks">ਨਹੀਂ ਧੰਨਵਾਦ</string>
     <string name="please_rate_us_to_open">ਕਿਰਪਾ ਕਰਕੇ ਸਾਨੂੰ ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਨੂੰ ਖੋਲ੍ਹਣ ਲਈ ਦਰਜਾ ਦਿਓ</string>
-    <string name="rate_us">ਸਾਨੂੰ ਦਰਜਾ ਦਿਓ</string>
+    <string name="popup_rate_us">ਸਾਨੂੰ ਦਰਜਾ ਦਿਓ</string>
 </resources>

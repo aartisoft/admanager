@@ -1,5 +1,5 @@
 <resources>
     <string name="no_thanks">No, Thanks</string>
     <string name="please_rate_us_to_open">Please rate us to open this feature</string>
-    <string name="rate_us">Rate Us</string>
+    <string name="popup_rate_us">Rate Us</string>
 </resources>

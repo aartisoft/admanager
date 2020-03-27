@@ -1,5 +1,5 @@
 <resources>
     <string name="no_thanks">Không, cám ơn</string>
     <string name="please_rate_us_to_open">Vui lòng đánh giá chúng tôi để mở tính năng này</string>
-    <string name="rate_us">Đánh giá chúng tôi</string>
+    <string name="popup_rate_us">Đánh giá chúng tôi</string>
 </resources>

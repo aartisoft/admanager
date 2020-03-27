@@ -48,8 +48,8 @@ public class RateAppDialog extends Dialog implements
             initViews();
             configureStyle();
         } else {
-            listener.onRated(true);
             dismiss();
+            listener.onRated(true);
         }
     }
 
@@ -80,6 +80,7 @@ public class RateAppDialog extends Dialog implements
         }
         if (getWindow() != null)
             getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
     }
 
     private void initViews() {
@@ -130,4 +131,5 @@ public class RateAppDialog extends Dialog implements
         }
         dismiss();
     }
+
 }

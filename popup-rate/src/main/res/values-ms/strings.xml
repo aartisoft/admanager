@@ -1,5 +1,5 @@
 <resources>
     <string name="no_thanks">Tidak, Terima kasih</string>
     <string name="please_rate_us_to_open">Sila beri kami untuk membuka ciri ini</string>
-    <string name="rate_us">Beri Nilai Kami</string>
+    <string name="popup_rate_us">Beri Nilai Kami</string>
 </resources>

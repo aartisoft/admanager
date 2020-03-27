@@ -1,5 +1,5 @@
 <resources>
     <string name="no_thanks">Οχι ευχαριστώ</string>
     <string name="please_rate_us_to_open">Παρακαλώ αξιολογήστε μας για να ανοίξετε αυτό το χαρακτηριστικό</string>
-    <string name="rate_us">Βαθμολογήστε μας</string>
+    <string name="popup_rate_us">Βαθμολογήστε μας</string>
 </resources>

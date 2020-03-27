@@ -1,5 +1,5 @@
 <resources>
     <string name="no_thanks">ไม่เป็นไรขอบคุณ</string>
     <string name="please_rate_us_to_open">กรุณาให้คะแนนเราเพื่อเปิดคุณสมบัตินี้</string>
-    <string name="rate_us">ให้คะแนนเรา</string>
+    <string name="popup_rate_us">ให้คะแนนเรา</string>
 </resources>
