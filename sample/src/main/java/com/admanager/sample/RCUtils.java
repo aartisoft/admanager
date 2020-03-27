@@ -128,6 +128,8 @@ public class RCUtils {
             defaults.put(Consts.PopupEnjoy.DEFAULT_TITLE_KEY, "");
             defaults.put(Consts.PopupEnjoy.DEFAULT_IMAGE_URL_KEY, "");
 
+            defaults.put(Consts.PopupRate.DEFAULT_ENABLE_KEY, true);
+
             defaults.put(OPENER_DELAY, 2000);
         }
         return defaults;

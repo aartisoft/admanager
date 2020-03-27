@@ -69,6 +69,9 @@
         <item
             android:id="@+id/mSpeedoMeter"
             android:title="SpeedoMeter" />
+        <item
+            android:id="@+id/mRateDialog"
+            android:title="Rate Dialog" />
 
     </group>
     <item android:title="Communicate">

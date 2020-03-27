@@ -33,4 +33,8 @@ public class Consts {
         public static final String DEFAULT_IMAGE_URL_KEY = "enjoy_image_url";
     }
 
+    public static class PopupRate {
+        public static final String DEFAULT_ENABLE_KEY = "rate_enable";
+    }
+
 }

@@ -16,6 +16,7 @@ import com.admanager.core.Ads;
 import com.admanager.gifs.GifsApp;
 import com.admanager.maps.MapsApp;
 import com.admanager.periodicnotification.PeriodicNotificationApp;
+import com.admanager.popuprate.RateApp;
 import com.admanager.speedometeraltitude.SpeedoMeterAltitudeApp;
 import com.admanager.speedtest.SpeedTestApp;
 import com.admanager.unseen.UnseenApp;
@@ -89,6 +90,12 @@ public class MyApplication extends MultiDexApplication implements Ads {
 //                .bgColor(R.color.colorStatusColor)
 //                .itemBg(R.color.weather_silver)
 //                .textColor(android.R.color.holo_green_light)
+                .build();
+
+        new RateApp.Builder(this)
+                //.textColor(your text color) - optional-
+                //.bgColor(dialog bg color) - optional-
+                //.bgDrawable(dialog bg drawable) - optional-
                 .build();
     }
 

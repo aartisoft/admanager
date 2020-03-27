@@ -68,6 +68,7 @@ dependencies {
     implementation project(path: ':unseen')
     implementation project(path: ':weather')
     implementation project(path: ':speedometer-altitude')
+    implementation project(path: ':popup-rate')
 
 
     /*  Admost ADDITIONAL ADAPTERS

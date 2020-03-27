@@ -26,4 +26,5 @@ include ':config',
         ':color-call-screen',
         ':unseen',
         ':weather',
-        ':gpstime-address-coord'
+        ':gpstime-address-coord',
+        ':popup-rate'
