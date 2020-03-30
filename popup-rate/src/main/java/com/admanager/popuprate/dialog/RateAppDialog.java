@@ -1,8 +1,7 @@
-package com.admanager.popuprate.activities;
+package com.admanager.popuprate.dialog;
 
-import android.app.Dialog;
+import android.app.AlertDialog;
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,15 +14,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-import com.admanager.config.RemoteConfigHelper;
-import com.admanager.core.AdmUtils;
 import com.admanager.core.Consts;
 import com.admanager.popuprate.R;
 import com.admanager.popuprate.RateApp;
-import com.admanager.popuprate.common.Prefs;
-import com.admanager.popuprate.listeners.RateClickListener;
+import com.admanager.popuprate.listeners.AddRateListener;
 
-public class RateAppDialog extends Dialog implements
+public class RateAppDialog extends AlertDialog implements
         View.OnClickListener,
         RatingBar.OnRatingBarChangeListener {
 
@@ -31,33 +27,21 @@ public class RateAppDialog extends Dialog implements
     private TextView btnThanks, dialogTitle, dialogMessage;
     private LinearLayout mRootLayout;
     private Context context;
-    private RateClickListener listener;
-    private SharedPreferences sharedPref;
+    private AddRateListener listener;
 
-    public RateAppDialog(@NonNull Context context, RateClickListener listener) {
+    public RateAppDialog(@NonNull Context context, AddRateListener listener) {
         super(context);
         this.context = context;
         this.listener = listener;
+
     }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (isStatus()) {
-            setContentView(R.layout.adm_dialog_rate);
-            initViews();
-            configureStyle();
-        } else {
-            dismiss();
-            listener.onRated(true);
-        }
-    }
-
-    private void saveDialogStatus(boolean status) {
-        sharedPref = context.getSharedPreferences(Prefs.ADM_DIALOG_SHOW, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putBoolean(Prefs.ADM_DIALOG_STATUS, status);
-        editor.apply();
+        setContentView(R.layout.adm_dialog_rate);
+        initViews();
+        configureStyle();
     }
 
     private void configureStyle() {
@@ -97,39 +81,13 @@ public class RateAppDialog extends Dialog implements
     public void onClick(View v) {
         int id = v.getId();
         if (id == R.id.btnThanks) {
-            listener.onRated(false);
-            dismiss();
-        }
-    }
-
-    private boolean isStatus() {
-        SharedPreferences settings = context.getSharedPreferences(Prefs.ADM_DIALOG_SHOW, Context.MODE_PRIVATE);
-        boolean localEnabled = settings.getBoolean(Prefs.ADM_DIALOG_STATUS, true);
-        boolean dialogStatus = RemoteConfigHelper.getConfigs().getBoolean(Consts.PopupRate.DEFAULT_ENABLE_KEY);
-        if (dialogStatus) {
-            return localEnabled;
-        } else {
-            return false;
+            listener.onThanksClick();
         }
     }
 
     @Override
     public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
-        if (fromUser) {
-            if (rating >= 4) {
-                if (isStatus()) {
-                    listener.onRated(true);
-                    saveDialogStatus(false);
-                    AdmUtils.openApp(context, context.getPackageName());
-                } else {
-                    listener.onRated(false);
-                }
-            } else {
-                saveDialogStatus(true);
-                listener.onRated(false);
-            }
-        }
-        dismiss();
+        listener.onRated(ratingBar, rating, fromUser);
     }
 
 }

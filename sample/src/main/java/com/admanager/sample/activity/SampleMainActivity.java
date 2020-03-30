@@ -26,7 +26,8 @@ import com.admanager.core.ShareUtils;
 import com.admanager.maps.activities.MapsActivity;
 import com.admanager.popupenjoy.AdmPopupEnjoy;
 import com.admanager.popuppromo.AdmPopupPromo;
-import com.admanager.popuprate.activities.RateAppDialog;
+import com.admanager.popuprate.dialog.RateAppDialog;
+import com.admanager.popuprate.dialog.RateDialog;
 import com.admanager.popuprate.listeners.RateClickListener;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
@@ -41,6 +42,7 @@ import com.google.android.material.navigation.NavigationView;
  */
 public class SampleMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RateClickListener {
     public static final String TAG = "RateAndPopupAds";
+    private RateAppDialog dialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -166,8 +168,7 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
         } else if (id == R.id.mSpeedoMeter) {
             SpeedoMeterAltitudeActivity.start(this);
         } else if (id == R.id.mRateDialog) {
-            RateAppDialog dialog = new RateAppDialog(this, this);
-            dialog.show();
+            new RateDialog(this, this).show();
         }
         return false;
     }
