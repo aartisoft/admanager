@@ -13,7 +13,7 @@ import com.admanager.popuprate.listeners.RateClickListener;
 
 public class RateDialog implements AddRateListener {
 
-    RateAppDialog rateAppDialog;
+    RateAppView rateAppView;
     private Context context;
     private RateClickListener listener;
     private SharedPreferences sharedPref;
@@ -21,14 +21,14 @@ public class RateDialog implements AddRateListener {
     public RateDialog(Context context, RateClickListener listener) {
         this.context = context;
         this.listener = listener;
-        rateAppDialog = new RateAppDialog(context, this);
+        rateAppView = new RateAppView(context, this);
     }
 
     public void show() {
         if (isStatus()) {
-            rateAppDialog.show();
+            rateAppView.show();
         } else {
-            rateAppDialog.dismiss();
+            rateAppView.dismiss();
             listener.onRated(false);
         }
     }
@@ -68,12 +68,12 @@ public class RateDialog implements AddRateListener {
                 listener.onRated(false);
             }
         }
-        rateAppDialog.dismiss();
+        rateAppView.dismiss();
     }
 
     @Override
     public void onThanksClick() {
         listener.onRated(false);
-        rateAppDialog.dismiss();
+        rateAppView.dismiss();
     }
 }

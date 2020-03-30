@@ -7,4 +7,7 @@
     <!--todo define this colors if you want to change default native text colors-->
     <color name="colorAction">#022900</color>
     <color name="colorPrimaryLight">#208f84</color>
+    <color name="colorYellow">#E8D20F</color>
+    <color name="colorblue">#0F2CE8</color>
+
 </resources>

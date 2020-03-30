@@ -2,6 +2,8 @@ package com.admanager.popuprate.dialog;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.LayerDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,7 +21,7 @@ import com.admanager.popuprate.R;
 import com.admanager.popuprate.RateApp;
 import com.admanager.popuprate.listeners.AddRateListener;
 
-public class RateAppDialog extends AlertDialog implements
+public class RateAppView extends AlertDialog implements
         View.OnClickListener,
         RatingBar.OnRatingBarChangeListener {
 
@@ -29,7 +31,7 @@ public class RateAppDialog extends AlertDialog implements
     private Context context;
     private AddRateListener listener;
 
-    public RateAppDialog(@NonNull Context context, AddRateListener listener) {
+    public RateAppView(@NonNull Context context, AddRateListener listener) {
         super(context);
         this.context = context;
         this.listener = listener;
@@ -50,6 +52,7 @@ public class RateAppDialog extends AlertDialog implements
             Log.e(Consts.TAG, "init Rate module in Application class");
             dismiss();
         } else {
+            LayerDrawable progressDrawable = (LayerDrawable) ratingBar.getProgressDrawable();
             if (instance.bgDrawable != 0) {
                 mRootLayout.setBackground(ContextCompat.getDrawable(context, instance.bgDrawable));
             }
@@ -60,6 +63,15 @@ public class RateAppDialog extends AlertDialog implements
                 btnThanks.setTextColor(ContextCompat.getColor(context, instance.textColor));
                 dialogTitle.setTextColor(ContextCompat.getColor(context, instance.textColor));
                 dialogMessage.setTextColor(ContextCompat.getColor(context, instance.textColor));
+            }
+            if (instance.progressDrawable != 0) {
+                ratingBar.setProgressDrawable(ContextCompat.getDrawable(context, instance.progressDrawable));
+            }
+            if (instance.fullyNotSelectedColor != 0) {
+                progressDrawable.getDrawable(0).setColorFilter(ContextCompat.getColor(context, instance.fullyNotSelectedColor), PorterDuff.Mode.SRC_ATOP);
+            }
+            if (instance.fullySelectedColor != 0) {
+                progressDrawable.getDrawable(2).setColorFilter(ContextCompat.getColor(context, instance.fullySelectedColor), PorterDuff.Mode.SRC_ATOP);
             }
         }
         if (getWindow() != null)

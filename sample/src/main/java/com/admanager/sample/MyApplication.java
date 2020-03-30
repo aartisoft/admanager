@@ -86,16 +86,19 @@ public class MyApplication extends MultiDexApplication implements Ads {
                 //.altimeterIndicator(R.drawable.altimeterIndicator)
                 .build();
         new WeatherApp.Builder(this)
-                .ads(this)
-//                .bgColor(R.color.colorStatusColor)
-//                .itemBg(R.color.weather_silver)
-//                .textColor(android.R.color.holo_green_light)
+                //.ads(this)
+                //.bgColor(R.color.colorStatusColor)
+                //.itemBg(R.color.weather_silver)
+                // .textColor(android.R.color.holo_green_light)
                 .build();
 
         new RateApp.Builder(this)
                 //.textColor(your text color) - optional-
                 //.bgColor(dialog bg color) - optional-
                 //.bgDrawable(dialog bg drawable) - optional-
+                //.fullySelectedColor(R.color.colorYellow) - optional-
+                //.fullyNotSelectedColor(R.color.colorblue) - optional-
+                //.progressDrawable(your PROGRESS drawable) - optional-
                 .build();
     }
 

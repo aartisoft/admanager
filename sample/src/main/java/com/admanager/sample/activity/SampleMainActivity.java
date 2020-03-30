@@ -26,7 +26,7 @@ import com.admanager.core.ShareUtils;
 import com.admanager.maps.activities.MapsActivity;
 import com.admanager.popupenjoy.AdmPopupEnjoy;
 import com.admanager.popuppromo.AdmPopupPromo;
-import com.admanager.popuprate.dialog.RateAppDialog;
+import com.admanager.popuprate.dialog.RateAppView;
 import com.admanager.popuprate.dialog.RateDialog;
 import com.admanager.popuprate.listeners.RateClickListener;
 import com.admanager.sample.R;
@@ -42,7 +42,7 @@ import com.google.android.material.navigation.NavigationView;
  */
 public class SampleMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, RateClickListener {
     public static final String TAG = "RateAndPopupAds";
-    private RateAppDialog dialog;
+    private RateAppView dialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
