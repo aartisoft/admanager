@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
@@ -144,7 +143,6 @@
                     android:background="@color/colorBlackTR"
                     android:drawableTop="@drawable/ic_moisture"
                     android:gravity="center"
-                    android:maxLength="5"
                     android:padding="8dp"
                     android:textColor="@android:color/white"
                     android:textSize="25sp"
@@ -152,29 +150,13 @@
 
             </LinearLayout>
 
-            <FrameLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerForecast"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerForecast"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    tools:itemCount="1"
-                    tools:listitem="@layout/item_forecast" />
-
-                <ImageView
-                    android:id="@+id/indicator"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:alpha="0.3"
-                    android:rotation="180"
-                    android:visibility="gone"
-                    app:srcCompat="@drawable/ic_arrow_back_black_24dp"
-                    tools:visibility="visible" />
-            </FrameLayout>
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_forecast" />
 
         </LinearLayout>
 

@@ -3,12 +3,12 @@ package com.admanager.weather.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -34,22 +34,32 @@ import com.bumptech.glide.Glide;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class WeatherActivity extends AppCompatActivity {
+public class WeatherActivity extends AppCompatActivity implements View.OnTouchListener {
 
     private final String TAG = "WeatherActivity";
     private LinearLayout rootLayout;
     private ProgressBar loadingWeather;
-    private ImageView weatherIcon, indicator;
+    private ImageView weatherIcon;
     private TextView weatherDate, weatherStatus, windText, humidityext, pressureText, tempTxt;
 
     private RecyclerView recyclerForecast;
     private ApiService service;
     private LinearLayout dailyLayout;
+    private Timer timer;
+    private TimerTask timerTask;
+    private int each_time = 1000 * 4;
+    private Handler handler = new Handler();
+    private int index = 0;
+    private ForecastAdapter forecastAdapter;
+    private boolean isForward;
+    private String celsiusText;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, WeatherActivity.class);
@@ -68,10 +78,39 @@ public class WeatherActivity extends AppCompatActivity {
         }
         configureDesign();
         service = RetrofitClient.getRetrofitInstance(getString(R.string.base_url)).create(ApiService.class);
+        forecastAdapter = new ForecastAdapter(this);
 
         formatDate();
         loadDailyWeather();
         loadForecastWeather();
+
+        recyclerForecast.setOnTouchListener(this);
+    }
+
+    private void startTimer() {
+        timer = new Timer();
+        timerTask = new TimerTask() {
+            public void run() {
+                handler.post(new Runnable() {
+                    public void run() {
+                        if (isForward && index == forecastAdapter.getItemCount()) {
+                            isForward = false;
+                            index = forecastAdapter.getItemCount();
+                        } else if (index == 0 && !isForward) {
+                            isForward = true;
+                            index = 0;
+                        }
+                        if (isForward)
+                            index++;
+                        else
+                            index--;
+
+                        recyclerForecast.smoothScrollToPosition(index);
+                    }
+                });
+            }
+        };
+        timer.schedule(timerTask, 0, each_time);
     }
 
     @Override
@@ -94,12 +133,14 @@ public class WeatherActivity extends AppCompatActivity {
 
     private void loadForecastWeather() {
         recyclerForecast.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
-        final ForecastAdapter forecastAdapter = new ForecastAdapter(this);
         recyclerForecast.setAdapter(forecastAdapter);
         Call<Forecast> callHourlyWeather = service.myForecastWeathers();
         callHourlyWeather.enqueue(new Callback<Forecast>() {
             @Override
             public void onResponse(Call<Forecast> call, Response<Forecast> response) {
+                if (response.body() == null)
+                    return;
+
                 java.util.List<List> body = response.body().getList();
                 java.util.List<HourlyWeathers> hourlyList = new ArrayList<>();
                 for (int i = 0; i < body.size(); i++) {
@@ -115,27 +156,7 @@ public class WeatherActivity extends AppCompatActivity {
                     hourlyList.add(hourlyWeathers);
                 }
                 forecastAdapter.setData(hourlyList);
-                if (forecastAdapter.getData().size() > 0) {
-                    Animation animation = AnimationUtils.loadAnimation(WeatherActivity.this, android.R.anim.slide_out_right);
-                    animation.setDuration(3000);
-                    indicator.startAnimation(animation);
-                    animation.setAnimationListener(new Animation.AnimationListener() {
-                        @Override
-                        public void onAnimationStart(Animation animation) {
-                            indicator.setVisibility(View.VISIBLE);
-                        }
-
-                        @Override
-                        public void onAnimationEnd(Animation animation) {
-                            indicator.setVisibility(View.GONE);
-                        }
-
-                        @Override
-                        public void onAnimationRepeat(Animation animation) {
-
-                        }
-                    });
-                }
+                startTimer();
             }
 
             @Override
@@ -155,12 +176,14 @@ public class WeatherActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<MyWeather> call, Response<MyWeather> response) {
                 MyWeather body = response.body();
-                double celsius = calculateCelsius(body.getMain().getTemp());
+                if (body == null)
+                    return;
+
                 weatherStatus.setText(String.valueOf(body.getWeather().get(0).getDescription()));
                 pressureText.setText(body.getMain().getPressure() + " IN");
                 windText.setText(String.valueOf(body.getWind().getSpeed()));
                 humidityext.setText(String.valueOf(body.getMain().getHumidity()));
-                tempTxt.setText(String.valueOf(celsius));
+                tempTxt.setText(getCelsiusText(body));
                 Glide.with(WeatherActivity.this)
                         .load(getString(R.string.imgUrl) + body.getWeather().get(0).getIcon() + ".png")
                         .into(weatherIcon);
@@ -176,6 +199,16 @@ public class WeatherActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private String getCelsiusText(MyWeather body) {
+        double celsius = calculateCelsius(body.getMain().getTemp());
+        if (String.valueOf(celsius).length() >= 5)
+            celsiusText = String.valueOf(celsius).substring(0, 5) + "°C";
+        else
+            celsiusText = celsius + "°C";
+
+        return celsiusText;
     }
 
     private void configureDesign() {
@@ -213,7 +246,6 @@ public class WeatherActivity extends AppCompatActivity {
         rootLayout = findViewById(R.id.rootLayout);
         loadingWeather = findViewById(R.id.loadingWeather);
         weatherIcon = findViewById(R.id.weatherIcon);
-        indicator = findViewById(R.id.indicator);
         weatherDate = findViewById(R.id.weatherDate);
         weatherStatus = findViewById(R.id.weatherStatus);
         windText = findViewById(R.id.windText);
@@ -222,5 +254,16 @@ public class WeatherActivity extends AppCompatActivity {
         tempTxt = findViewById(R.id.tempTxt);
         recyclerForecast = findViewById(R.id.recyclerForecast);
         dailyLayout = findViewById(R.id.dailyLayout);
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        int action = event.getAction();
+        switch (action) {
+            case MotionEvent.ACTION_UP:
+                timer.cancel();
+                break;
+        }
+        return false;
     }
 }
