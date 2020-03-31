@@ -3,7 +3,6 @@ package com.admanager.unseen.activities;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,7 +13,6 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,6 +21,7 @@ import com.admanager.unseen.adapters.MessagesAdapter;
 import com.admanager.unseen.notiservice.NotiListenerService;
 import com.admanager.unseen.notiservice.models.Conversation;
 import com.admanager.unseen.notiservice.models.Message;
+import com.admanager.unseen.utils.Utils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -82,13 +81,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         //        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
 
         type = conversation.getType();
-        try {
-            Resources resources = getResources();
-            final int resourceId = resources.getIdentifier(type, "drawable", getPackageName());
-            this.send.setImageDrawable(ContextCompat.getDrawable(this, resourceId));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Utils.setCornerRadiusBgColorToImageView(this.send, type);
         send.setVisibility(View.VISIBLE);
         send.setOnClickListener(this);
     }

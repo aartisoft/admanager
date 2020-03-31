@@ -2,6 +2,7 @@ package com.admanager.unseen.fragments;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -10,10 +11,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.ColorRes;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -24,10 +30,13 @@ import com.admanager.unseen.R;
 import com.admanager.unseen.adapters.ConversationsAdapter;
 import com.admanager.unseen.notiservice.NotiListenerService;
 import com.admanager.unseen.notiservice.converters.BaseConverter;
+import com.admanager.unseen.notiservice.converters.ConverterData;
 import com.admanager.unseen.notiservice.models.Conversation;
+import com.admanager.unseen.utils.Utils;
 import com.google.android.material.tabs.TabLayout;
 
-import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
 import java.util.Map;
 
 import io.realm.Realm;
@@ -132,38 +141,47 @@ public abstract class BaseFragment extends Fragment {
         tab.setText("All");
         tabLayout.addTab(tab);
 
-        LinkedHashMap<String, String> map = new LinkedHashMap<>();
-        for (Class<? extends BaseConverter> value : NotiListenerService.getPackageMap().values()) {
-            try {
-                BaseConverter converter = value.newInstance();
-                map.put(converter.getType(), converter.getTitle());
-            } catch (Throwable e) {
-                e.printStackTrace();
-            }
+        LinkedHashSet<String> typeMap = new LinkedHashSet<>();
+        addDataToList(typeMap, true);
+        addDataToList(typeMap, false);
+
+        LinkedList<ConverterData> ordered = new LinkedList<>();
+        for (String ty : typeMap) {
+            ordered.add(NotiListenerService.getConverterData().get(ty));
         }
 
-        for (Map.Entry<String, String> entry : map.entrySet()) {
-            String type = entry.getKey();
-            String title = entry.getValue();
-
+        for (ConverterData data : ordered) {
             TabLayout.Tab t = tabLayout.newTab();
-            int id = getResources().getIdentifier(type, "drawable", getContext().getPackageName());
-            t.setCustomView(getCustomTab(title, id));
-            t.setTag(type);
+            t.setCustomView(getCustomTab(data.getTitle(), data.getColor()));
+            t.setTag(data.getType());
             tabLayout.addTab(t);
         }
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                final String tag = (String) tab.getTag();
-                final int id = getResources().getIdentifier(tag, "drawable", getContext().getPackageName());
-                if (!TextUtils.isEmpty(tag)) {
-                    typeText.setText(tag);
-                    type.setImageResource(id);
+                String tag = null;
+                Object o = tab.getTag();
+                if (o instanceof String) {
+                    tag = (String) o;
+                    Utils.setCornerRadiusBgColorToImageView(type, tag);
+                    if (!TextUtils.isEmpty(tag)) {
+                        typeText.setText(tag);
+                    } else {
+                        typeText.setText("");
+                    }
+
+                    ConverterData data = NotiListenerService.getConverterData().get(tag);
+                    int color = R.color.colorPrimary;
+                    int colorDark = R.color.colorPrimaryDark;
+                    if (data != null) {
+                        color = data.getColor();
+                        colorDark = color;
+                    }
+                    setToolbarColor(color, colorDark);
+
                 } else {
-                    typeText.setText("");
-                    type.setImageResource(id);
+                    System.out.println();
                 }
 
                 ConversationsAdapter adapter = (ConversationsAdapter) recyclerView.getAdapter();
@@ -194,14 +212,50 @@ public abstract class BaseFragment extends Fragment {
 
     }
 
-    public View getCustomTab(String text, int icon) {
+    private void addDataToList(LinkedHashSet<String> ordered, boolean b) {
+        for (Map.Entry<String, Class<? extends BaseConverter>> entry : NotiListenerService.getPackageMap().entrySet()) {
+            String pn = entry.getKey();
+
+            boolean installed = Utils.isPackageInstalled(pn, getActivity().getPackageManager());
+            if (installed == b) {
+                Class<? extends BaseConverter> value = entry.getValue();
+                try {
+                    BaseConverter converter = value.newInstance();
+                    ConverterData data = converter.getData();
+
+                    if (!ordered.contains(data.getType())) {
+                        ordered.add(data.getType());
+                    }
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private void setToolbarColor(int color, int colorDark) {
+        GradientDrawable gd = Utils.createGradientDrawable(getContext(), color, 0);
+        if (getActivity() == null) {
+            return;
+        }
+        ActionBar supportActionBar = ((AppCompatActivity) getActivity()).getSupportActionBar();
+        if (supportActionBar != null) {
+            supportActionBar.setBackgroundDrawable(gd);
+        }
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window w = getActivity().getWindow();
+            if (w != null) {
+                w.setStatusBarColor(ContextCompat.getColor(getContext(), colorDark));
+            }
+        }
+    }
+
+    public View getCustomTab(String text, @ColorRes int color) {
         View v = LayoutInflater.from(getContext()).inflate(R.layout.custom_tab, null);
         ImageView img = v.findViewById(R.id.img);
         TextView txt = v.findViewById(R.id.txt);
 
-        if (icon != -1) {
-            img.setImageResource(icon);
-        }
+        Utils.setCornerRadiusBgColorToImageView(img, color);
         txt.setText(text);
         return v;
     }

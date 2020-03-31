@@ -2,6 +2,7 @@ package com.admanager.unseen.notiservice.converters;
 
 import android.util.Log;
 
+import com.admanager.unseen.R;
 import com.admanager.unseen.notiservice.models.AppNotification;
 import com.admanager.unseen.notiservice.models.Conversation;
 import com.admanager.unseen.notiservice.models.Message;
@@ -31,15 +32,9 @@ public class WeChatConverter extends BaseConverter {
             return getSingleUser(realm, wcn);
         }
     }
-
     @Override
-    public String getType() {
-        return "wc";
-    }
-
-    @Override
-    public String getTitle() {
-        return "WeChat";
+    public ConverterData getData() {
+        return new ConverterData("com.tencent.mm", "wc", "WeChat", R.color.adm_unseen_brand_wc);
     }
 
     private Conversation getSingleGroup(Realm realm, AppNotification wcn) {

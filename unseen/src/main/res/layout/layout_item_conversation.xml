@@ -41,7 +41,7 @@
                         android:id="@+id/type"
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:src="@drawable/w" />
+                        tools:src="@drawable/w" />
 
                     <TextView
                         android:id="@+id/typeText"

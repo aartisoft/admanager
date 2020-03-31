@@ -2,6 +2,7 @@ package com.admanager.unseen.notiservice.converters;
 
 import android.util.Log;
 
+import com.admanager.unseen.R;
 import com.admanager.unseen.notiservice.models.AppNotification;
 import com.admanager.unseen.notiservice.models.Conversation;
 import com.admanager.unseen.notiservice.models.Message;
@@ -27,16 +28,11 @@ public class VibeConverter extends BaseConverter {
             return getSingleUser(realm, vin);
         }
     }
-
     @Override
-    public String getType() {
-        return "v";
+    public ConverterData getData() {
+        return new ConverterData("com.viber.voip", "v", "Viber", R.color.adm_unseen_brand_v);
     }
 
-    @Override
-    public String getTitle() {
-        return "Viber";
-    }
 
     private Conversation getSingleGroup(Realm realm, AppNotification vin) {
         List<String> list = vin.messages;

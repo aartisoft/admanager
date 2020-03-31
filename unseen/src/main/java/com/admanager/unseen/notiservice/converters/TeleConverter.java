@@ -2,6 +2,7 @@ package com.admanager.unseen.notiservice.converters;
 
 import android.util.Log;
 
+import com.admanager.unseen.R;
 import com.admanager.unseen.notiservice.models.AppNotification;
 import com.admanager.unseen.notiservice.models.Conversation;
 import com.admanager.unseen.notiservice.models.Message;
@@ -40,13 +41,8 @@ public class TeleConverter extends BaseConverter {
     }
 
     @Override
-    public String getType() {
-        return "t";
-    }
-
-    @Override
-    public String getTitle() {
-        return "Telegram";
+    public ConverterData getData() {
+        return new ConverterData("org.telegram.messenger", "t", "Telegram", R.color.adm_unseen_brand_t);
     }
 
     private Conversation getSingleGroup(Realm realm, AppNotification tele) {

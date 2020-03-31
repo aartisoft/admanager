@@ -1,14 +1,12 @@
 package com.admanager.unseen.adapters;
 
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.admanager.unseen.R;
@@ -54,13 +52,7 @@ public class ConversationViewHolder extends RecyclerView.ViewHolder {
             time.setText(Utils.getStringFormattedDate(itemView.getContext(), lm.getTime()));
         }
 
-        try {
-            Resources resources = itemView.getContext().getResources();
-            final int resourceId = resources.getIdentifier(c.getType(), "drawable", itemView.getContext().getPackageName());
-            this.type.setImageDrawable(ContextCompat.getDrawable(itemView.getContext(), resourceId));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Utils.setCornerRadiusBgColorToImageView(this.type, c.getType());
         typeText.setText(c.getType().toUpperCase(Locale.ENGLISH));
 
         if (name == null || name.length() < 1) {

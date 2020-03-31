@@ -2,6 +2,7 @@ package com.admanager.unseen.notiservice.converters;
 
 import android.util.Log;
 
+import com.admanager.unseen.R;
 import com.admanager.unseen.notiservice.models.AppNotification;
 import com.admanager.unseen.notiservice.models.Conversation;
 import com.admanager.unseen.notiservice.models.Message;
@@ -45,13 +46,8 @@ public class WhatsAppConverter extends BaseConverter {
     }
 
     @Override
-    public String getType() {
-        return "w";
-    }
-
-    @Override
-    public String getTitle() {
-        return "Whatsapp";
+    public ConverterData getData() {
+        return new ConverterData("com.whatsapp", "w", "Whatsapp", R.color.adm_unseen_brand_w);
     }
 
     private Conversation saveSingleGroupMultipleMessages(Realm realm, AppNotification wan) {

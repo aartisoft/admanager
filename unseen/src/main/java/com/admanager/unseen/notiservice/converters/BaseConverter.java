@@ -2,6 +2,8 @@ package com.admanager.unseen.notiservice.converters;
 
 import android.util.Log;
 
+import androidx.annotation.ColorRes;
+
 import com.admanager.unseen.notiservice.models.AppNotification;
 import com.admanager.unseen.notiservice.models.Conversation;
 import com.admanager.unseen.notiservice.models.Message;
@@ -17,7 +19,7 @@ import io.realm.Realm;
  */
 public abstract class BaseConverter {
     private static final String TAG = "MessageConverter";
-
+    private ConverterData data;
     public Conversation convert(final AppNotification wan) {
         try {
             Realm realm = Realm.getDefaultInstance();
@@ -49,9 +51,29 @@ public abstract class BaseConverter {
 
     public abstract Conversation saveAppNotification(Realm realm, AppNotification wan);
 
-    public abstract String getType();
+    public abstract ConverterData getData();
 
-    public abstract String getTitle();
+    private String getType() {
+        if (data == null) {
+            data = getData();
+        }
+        return data.getType();
+    }
+
+    @ColorRes
+    private int getColor() {
+        if (data == null) {
+            data = getData();
+        }
+        return data.getColor();
+    }
+
+    private String getTitle() {
+        if (data == null) {
+            data = getData();
+        }
+        return data.getTitle();
+    }
 
     protected Message createMessage(Realm realm, User user, String message, long time) {
         message = message != null ? message.trim() : "";

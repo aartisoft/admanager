@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="adm_unseen_brand_w">#075e54</color>
+    <color name="adm_unseen_brand_f">#3b5998</color>
+    <color name="adm_unseen_brand_s">#00aff0</color>
+    <color name="adm_unseen_brand_wc">#7bb32e</color>
+    <color name="adm_unseen_brand_v">#59267c</color>
+    <color name="adm_unseen_brand_t">#0088cc</color>
+
+    <color name="adm_unseen_brand_w2">#128c7e</color>
+    <color name="adm_unseen_brand_f2">#3b5998</color>
+    <color name="adm_unseen_brand_s2">#00aff0</color>
+    <color name="adm_unseen_brand_wc2">#7bb32e</color>
+    <color name="adm_unseen_brand_v2">#8f5db7</color>
+    <color name="adm_unseen_brand_t2">#0088cc</color>
+
+</resources>

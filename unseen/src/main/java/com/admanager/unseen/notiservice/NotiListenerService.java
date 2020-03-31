@@ -7,6 +7,7 @@ import android.service.notification.StatusBarNotification;
 import android.util.Log;
 
 import com.admanager.unseen.notiservice.converters.BaseConverter;
+import com.admanager.unseen.notiservice.converters.ConverterData;
 import com.admanager.unseen.notiservice.converters.FBookConverter;
 import com.admanager.unseen.notiservice.converters.FBookLiteConverter;
 import com.admanager.unseen.notiservice.converters.SkypeConverter;
@@ -27,12 +28,13 @@ public class NotiListenerService extends NotificationListenerService {
     private static final String TAG = "NotiListenerService";
     public static boolean isConnected;
     private static LinkedHashMap<String, Class<? extends BaseConverter>> hm;
+    private static LinkedHashMap<String, ConverterData> hmForData;
 
     public static ArrayList<String> getPackageFromType(String shortHand) {
         ArrayList<String> list = new ArrayList<>();
         for (Map.Entry<String, Class<? extends BaseConverter>> entry : getPackageMap().entrySet()) {
             try {
-                if (entry.getValue().newInstance().getType().equals(shortHand)) {
+                if (entry.getValue().newInstance().getData().getType().equals(shortHand)) {
                     list.add(entry.getKey());
                 }
             } catch (Throwable e) {
@@ -41,6 +43,20 @@ public class NotiListenerService extends NotificationListenerService {
         return list;
     }
 
+    public static LinkedHashMap<String, ConverterData> getConverterData() {
+        if (hmForData == null) {
+            hmForData = new LinkedHashMap<>();
+            for (Class<? extends BaseConverter> value : getPackageMap().values()) {
+                try {
+                    BaseConverter converter = value.newInstance();
+                    hmForData.put(converter.getData().getType(), converter.getData());
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return hmForData;
+    }
     public static LinkedHashMap<String, Class<? extends BaseConverter>> getPackageMap() {
         if (hm == null) {
             hm = new LinkedHashMap<>();

@@ -2,6 +2,7 @@ package com.admanager.unseen.notiservice.converters;
 
 import android.util.Log;
 
+import com.admanager.unseen.R;
 import com.admanager.unseen.notiservice.models.AppNotification;
 import com.admanager.unseen.notiservice.models.Conversation;
 import com.admanager.unseen.notiservice.models.Message;
@@ -36,13 +37,8 @@ public class SkypeConverter extends BaseConverter {
     }
 
     @Override
-    public String getType() {
-        return "s";
-    }
-
-    @Override
-    public String getTitle() {
-        return "Skype";
+    public ConverterData getData() {
+        return new ConverterData("com.skype.raider", "s", "Skype", R.color.adm_unseen_brand_s);
     }
 
     private Conversation getSingleGroup(Realm realm, AppNotification fbn) {

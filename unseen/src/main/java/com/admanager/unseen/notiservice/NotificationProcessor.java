@@ -36,7 +36,7 @@ public class NotificationProcessor {
             Log.i(TAG, "converter class could not created.");
             return;
         }
-        this.title = converter.getTitle();
+        this.title = converter.getData().getTitle();
         this.hashCode = this.title.hashCode();
     }
 
