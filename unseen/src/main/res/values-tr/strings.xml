@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">Hayır</string>
 
 
-    <string name="unseen_perm_req_text_1">Bildirimlerinizi uygulamada görüntüleyeceğiz.</string>
     <string name="unseen_perm_req_title">İzin Gerekiyor</string>
-    <string name="unseen_perm_req_text_2">Lütfen "%s" kutusunu işaretleyin ve devam etmek için "geri düğmesine" basın.</string>
+    <string name="unseen_perm_req_text_1">Tek bir APP\'de gelen tüm mesajlarınızın bildirimlerini okumanız için lütfen izin veriniz</string>
+    <string name="unseen_perm_req_text_2">Lütfen "%s" kutusunu işaretleyin ve devam etmek için geri düğmesine basın.</string>
     <string name="unseen_perm_req">İzin verin ve başlayın</string>
 
 

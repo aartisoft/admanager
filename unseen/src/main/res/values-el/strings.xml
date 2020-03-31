@@ -7,8 +7,8 @@
     <string name="delete_dialog_no">όχι</string>
 
 
-    <string name="unseen_perm_req_text_1">Θα εμφανιστούν οι ειδοποιήσεις σας στην εφαρμογή.</string>
     <string name="unseen_perm_req_title">Χρειάζεται άδεια</string>
+    <string name="unseen_perm_req_text_1">Για να διαβάσετε τις ειδοποιήσεις όλων των εισερχόμενων μηνυμάτων σας σε μία ΕΦΕ, θα πρέπει να δώσετε την άδειά σας</string>
     <string name="unseen_perm_req_text_2">Ελέγξτε το πλαίσιο "%s" και, στη συνέχεια, πατήστε το κουμπί "πίσω" για να συνεχίσετε.</string>
     <string name="unseen_perm_req">Αδειοδότηση και έναρξη</string>
 

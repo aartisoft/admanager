@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">没有</string>
 
 
-    <string name="unseen_perm_req_text_1">我们将在应用程序中显示您的通知。</string>
     <string name="unseen_perm_req_title">需要许可</string>
-    <string name="unseen_perm_req_text_2">请选中“ %s”框，然后点击“后退按钮”以继续。</string>
+    <string name="unseen_perm_req_text_1">为了让您在ONE APP中阅读所有传入消息的通知，请允许您授予权限</string>
+    <string name="unseen_perm_req_text_2">请选中“ %s”框，然后点击“后退”按钮继续。</string>
     <string name="unseen_perm_req">授予权限并开始</string>
 
 

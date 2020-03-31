@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">no</string>
 
 
-    <string name="unseen_perm_req_text_1">Mostreremo le tue notifiche nell\'app.</string>
     <string name="unseen_perm_req_title">Necessita autorizzazione</string>
-    <string name="unseen_perm_req_text_2">Seleziona la casella "%s" e premi il pulsante "indietro" per continuare.</string>
+    <string name="unseen_perm_req_text_1">Per poter leggere le notifiche di tutti i messaggi in arrivo in UNA APP, è necessario concedere l\'autorizzazione</string>
+    <string name="unseen_perm_req_text_2">Seleziona la casella "%s" e premi il pulsante Indietro per continuare.</string>
     <string name="unseen_perm_req">Concedere l\'autorizzazione e iniziare</string>
 
 

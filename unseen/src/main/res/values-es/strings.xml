@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">No</string>
 
 
-    <string name="unseen_perm_req_text_1">Mostraremos sus notificaciones en la aplicación.</string>
     <string name="unseen_perm_req_title">Necesita permiso</string>
-    <string name="unseen_perm_req_text_2">Marque la casilla "%s" y luego presione el "botón de retroceso" para continuar.</string>
+    <string name="unseen_perm_req_text_1">Para que pueda leer las notificaciones de todos sus mensajes entrantes en UNA APLICACIÓN, amablemente necesitamos otorgar su permiso</string>
+    <string name="unseen_perm_req_text_2">Marque la casilla "%s" y luego presione el botón Atrás para continuar.</string>
     <string name="unseen_perm_req">Conceder permiso y comenzar</string>
 
 

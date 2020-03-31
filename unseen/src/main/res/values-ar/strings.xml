@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">لا</string>
 
 
-    <string name="unseen_perm_req_text_1">سنعرض الإخطارات الخاصة بك في التطبيق.</string>
     <string name="unseen_perm_req_title">إذن يحتاج</string>
-    <string name="unseen_perm_req_text_2">يرجى تحديد مربع "%s" ثم الضغط على زر "رجوع" للمتابعة.</string>
+    <string name="unseen_perm_req_text_1">لكي تقرأ إشعارات جميع رسائلك الواردة في تطبيق واحد ، يرجى أن نمنحك إذنك</string>
+    <string name="unseen_perm_req_text_2">يرجى تحديد مربع "%s" ثم الضغط على زر العودة للمتابعة.</string>
     <string name="unseen_perm_req">منح الإذن والبدء</string>
 
 

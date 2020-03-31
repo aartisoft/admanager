@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">아니</string>
 
 
-    <string name="unseen_perm_req_text_1">앱에 알림이 표시됩니다.</string>
     <string name="unseen_perm_req_title">허가 필요</string>
-    <string name="unseen_perm_req_text_2">"%s"상자를 체크 한 다음 "뒤로 단추"를 눌러 계속하십시오.</string>
+    <string name="unseen_perm_req_text_1">하나의 APP에서 모든 수신 메시지의 알림을 읽으려면 친절하게 권한을 부여해야합니다.</string>
+    <string name="unseen_perm_req_text_2">"%s"상자를 체크 한 다음 뒤로 버튼을 눌러 계속하십시오.</string>
     <string name="unseen_perm_req">권한 부여 및 시작</string>
 
 

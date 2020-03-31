@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">ไม่</string>
 
 
-    <string name="unseen_perm_req_text_1">เราจะแสดงการแจ้งเตือนของคุณในแอป</string>
     <string name="unseen_perm_req_title">ต้องได้รับอนุญาต</string>
-    <string name="unseen_perm_req_text_2">โปรดทำเครื่องหมายที่ช่อง "%s" จากนั้นกดปุ่ม "ย้อนกลับ" เพื่อดำเนินการต่อ</string>
+    <string name="unseen_perm_req_text_1">เพื่อให้คุณอ่านการแจ้งเตือนข้อความขาเข้าทั้งหมดของคุณในแอปเดียวเราจำเป็นต้องให้สิทธิ์ของคุณ</string>
+    <string name="unseen_perm_req_text_2">โปรดทำเครื่องหมายที่ช่อง "%s" จากนั้นกดปุ่มย้อนกลับเพื่อดำเนินการต่อ</string>
     <string name="unseen_perm_req">ให้สิทธิ์และเริ่มต้น</string>
 
 

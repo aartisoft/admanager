@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">нет</string>
 
 
-    <string name="unseen_perm_req_text_1">Мы будем отображать ваши уведомления в приложении.</string>
     <string name="unseen_perm_req_title">Требуется разрешение</string>
-    <string name="unseen_perm_req_text_2">Пожалуйста, установите флажок «%s», а затем нажмите «Назад», чтобы продолжить.</string>
+    <string name="unseen_perm_req_text_1">Чтобы вы могли читать уведомления обо всех ваших входящих сообщениях в одном приложении, просим вас дать вам разрешение</string>
+    <string name="unseen_perm_req_text_2">Установите флажок «%s», а затем нажмите кнопку «Назад», чтобы продолжить.</string>
     <string name="unseen_perm_req">Предоставить разрешение и начать</string>
 
 

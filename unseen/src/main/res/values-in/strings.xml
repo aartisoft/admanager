@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">tidak</string>
 
 
-    <string name="unseen_perm_req_text_1">Kami akan menampilkan notifikasi Anda di aplikasi.</string>
     <string name="unseen_perm_req_title">Membutuhkan Izin</string>
-    <string name="unseen_perm_req_text_2">Silakan centang kotak "%s" dan kemudian tekan tombol "kembali" untuk melanjutkan.</string>
+    <string name="unseen_perm_req_text_1">Agar Anda dapat membaca notifikasi dari semua pesan masuk Anda dalam SATU APLIKASI, mohon kami beri izin</string>
+    <string name="unseen_perm_req_text_2">Silakan centang kotak "%s" dan kemudian tekan tombol kembali untuk melanjutkan.</string>
     <string name="unseen_perm_req">Berikan izin dan mulai</string>
 
 

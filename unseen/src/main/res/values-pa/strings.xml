@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">ਨਹੀਂ</string>
 
 
-    <string name="unseen_perm_req_text_1">ਅਸੀਂ ਐਪ ਵਿੱਚ ਤੁਹਾਡੀਆਂ ਸੂਚਨਾਵਾਂ ਪ੍ਰਦਰਸ਼ਤ ਕਰਾਂਗੇ.</string>
     <string name="unseen_perm_req_title">ਅਨੁਮਤੀ ਦੀ ਲੋੜ ਹੈ</string>
-    <string name="unseen_perm_req_text_2">ਕਿਰਪਾ ਕਰਕੇ "%s" ਬਾਕਸ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਫਿਰ ਜਾਰੀ ਰੱਖਣ ਲਈ "ਪਿਛਲੇ ਬਟਨ" ਨੂੰ ਦਬਾਓ.</string>
+    <string name="unseen_perm_req_text_1">ਤੁਹਾਨੂੰ ਇੱਕ ਐਪ ਵਿੱਚ ਆਪਣੇ ਸਾਰੇ ਆਉਣ ਵਾਲੇ ਸੁਨੇਹਿਆਂ ਦੀਆਂ ਨੋਟੀਫਿਕੇਸ਼ਨਾਂ ਪੜ੍ਹਨ ਲਈ, ਕਿਰਪਾ ਕਰਕੇ ਸਾਨੂੰ ਤੁਹਾਡੀ ਇਜ਼ਾਜ਼ਤ ਦੇਣ ਦੀ ਜ਼ਰੂਰਤ ਹੈ</string>
+    <string name="unseen_perm_req_text_2">ਕਿਰਪਾ ਕਰਕੇ "%s" ਬਾਕਸ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਫਿਰ ਜਾਰੀ ਰੱਖਣ ਲਈ ਪਿਛਲੇ ਬਟਨ ਨੂੰ ਦਬਾਓ.</string>
     <string name="unseen_perm_req">ਆਗਿਆ ਦਿਓ ਅਤੇ ਸ਼ੁਰੂ ਕਰੋ</string>
 
 

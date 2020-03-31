@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">नहीं</string>
 
 
-    <string name="unseen_perm_req_text_1">हम एप्लिकेशन में आपकी सूचनाएँ प्रदर्शित करेंगे।</string>
     <string name="unseen_perm_req_title">अनुमति चाहिए</string>
-    <string name="unseen_perm_req_text_2">कृपया "%s" बॉक्स देखें और फिर जारी रखने के लिए "बैक बटन" दबाएं।</string>
+    <string name="unseen_perm_req_text_1">आपके लिए वन एपीपी में आपके सभी आने वाले संदेशों की सूचनाएँ पढ़ने के लिए, कृपया हमें आपकी अनुमति प्रदान करने की आवश्यकता है</string>
+    <string name="unseen_perm_req_text_2">कृपया "%s" बॉक्स को चेक करें और फिर जारी रखने के लिए बैक बटन दबाएं।</string>
     <string name="unseen_perm_req">अनुमति दें और शुरू करें</string>
 
 

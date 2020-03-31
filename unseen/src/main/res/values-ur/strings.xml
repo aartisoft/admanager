@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">نہیں</string>
 
 
-    <string name="unseen_perm_req_text_1">ہم آپ کی اطلاعات کو ایپ میں ظاہر کریں گے۔</string>
     <string name="unseen_perm_req_title">اجازت کی ضرورت ہے</string>
-    <string name="unseen_perm_req_text_2">براہ کرم "%s" باکس چیک کریں اور پھر جاری رکھنے کے لئے "بیک بٹن" کو دبائیں۔</string>
+    <string name="unseen_perm_req_text_1">آپ کو ایک اے پی پی میں آنے والے تمام پیغامات کی اطلاعات پڑھنے کے ل kind ، براہ کرم ہمیں آپ کی اجازت دینے کی ضرورت ہے</string>
+    <string name="unseen_perm_req_text_2">براہ کرم "%s" باکس چیک کریں اور پھر جاری رکھنے کے لئے پچھلے بٹن پر دبائیں۔</string>
     <string name="unseen_perm_req">اجازت دیں اور شروع کریں</string>
 
 

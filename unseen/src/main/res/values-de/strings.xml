@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">Nein</string>
 
 
-    <string name="unseen_perm_req_text_1">Wir werden Ihre Benachrichtigungen in der App anzeigen.</string>
     <string name="unseen_perm_req_title">Benötigt Erlaubnis</string>
-    <string name="unseen_perm_req_text_2">Bitte aktivieren Sie das Kontrollkästchen "%s" und klicken Sie dann auf "Zurück", um fortzufahren.</string>
+    <string name="unseen_perm_req_text_1">Damit Sie Benachrichtigungen über alle eingehenden Nachrichten in EINER APP lesen können, müssen wir Ihre Erlaubnis erteilen</string>
+    <string name="unseen_perm_req_text_2">Bitte aktivieren Sie das Kontrollkästchen "%s" und drücken Sie die Zurück-Taste, um fortzufahren.</string>
     <string name="unseen_perm_req">Erlaubnis erteilen und starten</string>
 
 

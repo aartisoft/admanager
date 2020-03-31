@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">tidak</string>
 
 
-    <string name="unseen_perm_req_text_1">Kami akan memaparkan pemberitahuan anda dalam aplikasi.</string>
     <string name="unseen_perm_req_title">Kebenaran Perlu</string>
-    <string name="unseen_perm_req_text_2">Sila semak kotak "%s" dan tekan "butang belakang" untuk meneruskan.</string>
+    <string name="unseen_perm_req_text_1">Bagi anda untuk membaca pemberitahuan semua mesej masuk anda dalam SATU APP, sila hubungi kami</string>
+    <string name="unseen_perm_req_text_2">Sila semak kotak "%s" dan kemudian tekan butang belakang untuk meneruskan.</string>
     <string name="unseen_perm_req">Berikan kebenaran dan mulakan</string>
 
 

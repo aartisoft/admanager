@@ -7,9 +7,9 @@
     <string name="delete_dialog_no">番号</string>
 
 
-    <string name="unseen_perm_req_text_1">アプリに通知を表示します。</string>
     <string name="unseen_perm_req_title">許可が必要</string>
-    <string name="unseen_perm_req_text_2">「%s」チェックボックスをオンにしてから、「戻るボタン」を押して続行してください。</string>
+    <string name="unseen_perm_req_text_1">すべての着信メッセージの通知を1つのアプリで読むには、親切に許可を与える必要があります</string>
+    <string name="unseen_perm_req_text_2">[%s]チェックボックスをオンにしてから、[戻る]ボタンを押して続行してください。</string>
     <string name="unseen_perm_req">許可を与えて開始</string>
 
 
