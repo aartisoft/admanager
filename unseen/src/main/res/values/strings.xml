@@ -8,6 +8,7 @@
 
 
     <string name="unseen_perm_req_text_1">We will display your notifications in the app.</string>
+    <string name="unseen_perm_req_title">Needs Permission</string>
     <string name="unseen_perm_req_text_2">Please check "%s" box and then hit the "back button" to continue.</string>
     <string name="unseen_perm_req">Grant permission and start</string>
 

@@ -1,6 +1,7 @@
 package com.admanager.unseen.fragments;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
@@ -32,6 +33,7 @@ import com.admanager.unseen.notiservice.NotiListenerService;
 import com.admanager.unseen.notiservice.converters.BaseConverter;
 import com.admanager.unseen.notiservice.converters.ConverterData;
 import com.admanager.unseen.notiservice.models.Conversation;
+import com.admanager.unseen.utils.NotifReadPermissionDialog;
 import com.admanager.unseen.utils.Utils;
 import com.google.android.material.tabs.TabLayout;
 
@@ -57,6 +59,7 @@ public abstract class BaseFragment extends Fragment {
     private TextView name;
     private View req;
     private boolean hasData;
+    NotifReadPermissionDialog permDialog;
 
     public BaseFragment() {
     }
@@ -82,8 +85,6 @@ public abstract class BaseFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // todo ilk acilista ALL sekmesinde data olmadigini saniyor
-
         recyclerView = view.findViewById(R.id.recyclerView);
         noDataContainer = view.findViewById(R.id.noDataContainer);
         type = view.findViewById(R.id.type);
@@ -91,8 +92,17 @@ public abstract class BaseFragment extends Fragment {
         tabLayout = view.findViewById(R.id.tabLayout);
         realm = Realm.getDefaultInstance();
 
+        permDialog = new NotifReadPermissionDialog(getActivity());
+        permDialog.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                getActivity().finish();
+            }
+        });
+
         req = view.findViewById(R.id.req);
         name = view.findViewById(R.id.name);
+
         String appName = "";
         try {
             appName = getString(getContext().getApplicationInfo().labelRes);
@@ -274,6 +284,14 @@ public abstract class BaseFragment extends Fragment {
     }
 
     protected void setButtonEnableStatus(boolean showList) {
+        if (permDialog != null) {
+            if (showList) {
+                permDialog.dismiss();
+            } else if (!permDialog.isShowing()) {
+                permDialog.show();
+            }
+        }
+
         if (name != null) {
             name.setVisibility(showList ? View.GONE : View.VISIBLE);
         }
