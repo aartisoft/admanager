@@ -15,6 +15,7 @@ import com.admanager.config.RemoteConfigApp;
 import com.admanager.core.Ads;
 import com.admanager.gifs.GifsApp;
 import com.admanager.maps.MapsApp;
+import com.admanager.news.NewsApp;
 import com.admanager.periodicnotification.PeriodicNotificationApp;
 import com.admanager.popuprate.RateApp;
 import com.admanager.speedometeraltitude.SpeedoMeterAltitudeApp;
@@ -68,6 +69,11 @@ public class MyApplication extends MultiDexApplication implements Ads {
                 .build();
 
         new UnseenApp.Builder(this)
+                .build();
+
+        new NewsApp.Builder(this,
+                getString(R.string.the_start_magazine_key),
+                getString(R.string.the_start_magazine_publisher_id))
                 .build();
 
         new SpeedoMeterAltitudeApp.Builder(this)

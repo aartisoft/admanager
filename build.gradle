@@ -1,5 +1,4 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
 
     repositories {
@@ -45,6 +44,10 @@ allprojects {
             url "http://giphy.bintray.com/giphy-sdk"
         }
     }
+}
+
+ext {
+    resources_prefix = 'adm_'
 }
 
 task clean(type: Delete) {

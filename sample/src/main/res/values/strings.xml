@@ -32,6 +32,8 @@
     <string name="mopub_banner" translatable="false">b195f8dd8ded45fe847ad89ed1d016da</string> <!--todo-->
     <string name="inmobi_banner" translatable="false">1547483178070</string> <!--todo-->
     <string name="inmobi_account_id" translatable="false">0ebbbd7c75be47feb316d4dde2017b89</string> <!--todo-->
+    <string name="the_start_magazine_key" translatable="false">Sw2am7S3UEETnPww9YFv9PCVx04oVxoE</string> <!--todo-->
+    <string name="the_start_magazine_publisher_id" translatable="false">oaktech-hardikmess</string> <!--todo-->
 
     <string name="adm_tutorial_next">Sample - Next</string>
     <string name="adm_tutorial_goto_app">Sample - Go to app</string>
