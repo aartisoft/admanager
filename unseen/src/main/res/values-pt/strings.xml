@@ -8,6 +8,7 @@
 
 
     <string name="unseen_perm_req_text_1">Vamos exibir suas notificações no aplicativo.</string>
+    <string name="unseen_perm_req_title">Precisa de permissão</string>
     <string name="unseen_perm_req_text_2">Marque a caixa "%s" e pressione o botão "Voltar" para continuar.</string>
     <string name="unseen_perm_req">Conceder permissão e iniciar</string>
 

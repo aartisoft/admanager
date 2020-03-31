@@ -8,6 +8,7 @@
 
 
     <string name="unseen_perm_req_text_1">Mostraremos sus notificaciones en la aplicación.</string>
+    <string name="unseen_perm_req_title">Necesita permiso</string>
     <string name="unseen_perm_req_text_2">Marque la casilla "%s" y luego presione el "botón de retroceso" para continuar.</string>
     <string name="unseen_perm_req">Conceder permiso y comenzar</string>
 

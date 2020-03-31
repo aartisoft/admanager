@@ -8,8 +8,9 @@
 
 
     <string name="unseen_perm_req_text_1">हम एप्लिकेशन में आपकी सूचनाएँ प्रदर्शित करेंगे।</string>
+    <string name="unseen_perm_req_title">अनुमति चाहिए</string>
     <string name="unseen_perm_req_text_2">कृपया "%s" बॉक्स देखें और फिर जारी रखने के लिए "बैक बटन" दबाएं।</string>
-    <string name="unseen_perm_req">अनुमति और प्रारंभ करें</string>
+    <string name="unseen_perm_req">अनुमति दें और शुरू करें</string>
 
 
     <string name="action_scroll_bottom">नीचे तक स्क्रॉल करें</string>

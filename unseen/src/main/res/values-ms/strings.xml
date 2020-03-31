@@ -8,8 +8,9 @@
 
 
     <string name="unseen_perm_req_text_1">Kami akan memaparkan pemberitahuan anda dalam aplikasi.</string>
+    <string name="unseen_perm_req_title">Kebenaran Perlu</string>
     <string name="unseen_perm_req_text_2">Sila semak kotak "%s" dan tekan "butang belakang" untuk meneruskan.</string>
-    <string name="unseen_perm_req">Berikan kebenaran dan mulaka</string>
+    <string name="unseen_perm_req">Berikan kebenaran dan mulakan</string>
 
 
     <string name="action_scroll_bottom">Tatal ke Bawah</string>

@@ -4,10 +4,11 @@
     <string name="delete_dialog_title">Supprimer les messages</string>
     <string name="delete_dialog_message">Êtes-vous sûr?</string>
     <string name="delete_dialog_ok">Oui</string>
-    <string name="delete_dialog_no">no</string>
+    <string name="delete_dialog_no">non</string>
 
 
     <string name="unseen_perm_req_text_1">Nous afficherons vos notifications dans l\'application.</string>
+    <string name="unseen_perm_req_title">Besoin d\'une autorisation</string>
     <string name="unseen_perm_req_text_2">Veuillez cocher la case "%s" puis appuyer sur le "bouton de retour" pour continuer.</string>
     <string name="unseen_perm_req">Accorder l\'autorisation et commencer</string>
 

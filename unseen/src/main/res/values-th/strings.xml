@@ -8,6 +8,7 @@
 
 
     <string name="unseen_perm_req_text_1">เราจะแสดงการแจ้งเตือนของคุณในแอป</string>
+    <string name="unseen_perm_req_title">ต้องได้รับอนุญาต</string>
     <string name="unseen_perm_req_text_2">โปรดทำเครื่องหมายที่ช่อง "%s" จากนั้นกดปุ่ม "ย้อนกลับ" เพื่อดำเนินการต่อ</string>
     <string name="unseen_perm_req">ให้สิทธิ์และเริ่มต้น</string>
 

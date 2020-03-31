@@ -1,13 +1,14 @@
 <resources>
     <string name="unseen_title">Tin nhắn ẩn danh</string>
 
-    <string name="delete_dialog_title">Xóa tin nhắ</string>
+    <string name="delete_dialog_title">Xóa tin nhắn</string>
     <string name="delete_dialog_message">Bạn có chắc không?</string>
     <string name="delete_dialog_ok">Đúng</string>
     <string name="delete_dialog_no">Không</string>
 
 
     <string name="unseen_perm_req_text_1">Chúng tôi sẽ hiển thị thông báo của bạn trong ứng dụng.</string>
+    <string name="unseen_perm_req_title">Cần giấy phép</string>
     <string name="unseen_perm_req_text_2">Vui lòng chọn hộp "%s" và sau đó nhấn "nút quay lại" để tiếp tục.</string>
     <string name="unseen_perm_req">Cấp phép và bắt đầu</string>
 

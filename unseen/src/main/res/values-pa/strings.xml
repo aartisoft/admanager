@@ -8,7 +8,8 @@
 
 
     <string name="unseen_perm_req_text_1">ਅਸੀਂ ਐਪ ਵਿੱਚ ਤੁਹਾਡੀਆਂ ਸੂਚਨਾਵਾਂ ਪ੍ਰਦਰਸ਼ਤ ਕਰਾਂਗੇ.</string>
-    <string name="unseen_perm_req_text_2">ਕਿਰਪਾ ਕਰਕੇ "%s" ਬਾਕਸ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਫਿਰ ਜਾਰੀ ਰੱਖਣ ਲਈ "ਬੈਕ ਬਟਨ" ਨੂੰ ਦਬਾਓ.</string>
+    <string name="unseen_perm_req_title">ਅਨੁਮਤੀ ਦੀ ਲੋੜ ਹੈ</string>
+    <string name="unseen_perm_req_text_2">ਕਿਰਪਾ ਕਰਕੇ "%s" ਬਾਕਸ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਫਿਰ ਜਾਰੀ ਰੱਖਣ ਲਈ "ਪਿਛਲੇ ਬਟਨ" ਨੂੰ ਦਬਾਓ.</string>
     <string name="unseen_perm_req">ਆਗਿਆ ਦਿਓ ਅਤੇ ਸ਼ੁਰੂ ਕਰੋ</string>
 
 

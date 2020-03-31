@@ -1,19 +1,20 @@
 <resources>
-    <string name="unseen_title">Inkognito-Nachrichte</string>
+    <string name="unseen_title">Inkognito-Nachrichten</string>
 
-    <string name="delete_dialog_title">Nachrichten entferne</string>
+    <string name="delete_dialog_title">Nachrichten entfernen</string>
     <string name="delete_dialog_message">Bist du sicher?</string>
     <string name="delete_dialog_ok">Ja</string>
-    <string name="delete_dialog_no">Nei</string>
+    <string name="delete_dialog_no">Nein</string>
 
 
     <string name="unseen_perm_req_text_1">Wir werden Ihre Benachrichtigungen in der App anzeigen.</string>
+    <string name="unseen_perm_req_title">Benötigt Erlaubnis</string>
     <string name="unseen_perm_req_text_2">Bitte aktivieren Sie das Kontrollkästchen "%s" und klicken Sie dann auf "Zurück", um fortzufahren.</string>
-    <string name="unseen_perm_req">Erlaubnis erteilen und starte</string>
+    <string name="unseen_perm_req">Erlaubnis erteilen und starten</string>
 
 
-    <string name="action_scroll_bottom">Scrollen Sie nach unte</string>
-    <string name="action_delete">Alles lösche</string>
+    <string name="action_scroll_bottom">Scrollen Sie nach unten</string>
+    <string name="action_delete">Alles löschen</string>
     <string name="unseen_no_data_title">Es wurde noch keine Nachricht empfangen.</string>
     <string name="unseen_no_data_text">Ihre Nachrichten werden hier angezeigt.</string>
 

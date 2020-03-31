@@ -8,6 +8,7 @@
 
 
     <string name="unseen_perm_req_text_1">ہم آپ کی اطلاعات کو ایپ میں ظاہر کریں گے۔</string>
+    <string name="unseen_perm_req_title">اجازت کی ضرورت ہے</string>
     <string name="unseen_perm_req_text_2">براہ کرم "%s" باکس چیک کریں اور پھر جاری رکھنے کے لئے "بیک بٹن" کو دبائیں۔</string>
     <string name="unseen_perm_req">اجازت دیں اور شروع کریں</string>
 

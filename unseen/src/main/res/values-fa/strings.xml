@@ -8,6 +8,7 @@
 
 
     <string name="unseen_perm_req_text_1">اعلان های شما را در برنامه نمایش خواهیم داد.</string>
+    <string name="unseen_perm_req_title">به مجوز احتیاج دارد</string>
     <string name="unseen_perm_req_text_2">لطفاً جعبه "%s" را علامت بزنید و برای ادامه ، "دکمه عقب" را بزنید.</string>
     <string name="unseen_perm_req">اعطای اجازه و شروع کنید</string>
 

@@ -8,8 +8,9 @@
 
 
     <string name="unseen_perm_req_text_1">Bildirimlerinizi uygulamada görüntüleyeceğiz.</string>
+    <string name="unseen_perm_req_title">İzin Gerekiyor</string>
     <string name="unseen_perm_req_text_2">Lütfen "%s" kutusunu işaretleyin ve devam etmek için "geri düğmesine" basın.</string>
-    <string name="unseen_perm_req">İzin verin ve başlayı</string>
+    <string name="unseen_perm_req">İzin verin ve başlayın</string>
 
 
     <string name="action_scroll_bottom">Aşağıya Kaydır</string>
