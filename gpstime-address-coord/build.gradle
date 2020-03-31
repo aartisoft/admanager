@@ -20,6 +20,7 @@ android {
             consumerProguardFiles 'proguard-rules.pro'
         }
     }
+    // resourcePrefix resources_prefix + 'gps_'
 }
 
 dependencies {

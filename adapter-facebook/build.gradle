@@ -5,11 +5,11 @@ group = 'com.github.fgustovo.admanager'
 
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -23,6 +23,7 @@ android {
             consumerProguardFiles 'proguard-rules.pro'
         }
     }
+    // resourcePrefix resources_prefix + 'ad_fb_'
 }
 
 dependencies {

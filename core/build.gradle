@@ -5,11 +5,11 @@ group = 'com.github.fgustovo.admanager'
 
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
 
@@ -23,6 +23,7 @@ android {
             consumerProguardFiles 'proguard-rules.pro'
         }
     }
+    // resourcePrefix resources_prefix
 }
 
 dependencies {
@@ -34,7 +35,7 @@ dependencies {
     api 'androidx.constraintlayout:constraintlayout:1.1.3'
     api 'androidx.annotation:annotation:1.1.0'
     api 'androidx.recyclerview:recyclerview:1.1.0'
-    api 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
+    api 'com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2'
 
     api project(path: ':config')
 
