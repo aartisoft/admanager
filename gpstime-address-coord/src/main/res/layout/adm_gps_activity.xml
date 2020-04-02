@@ -157,7 +157,7 @@
                     android:maxLines="2"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"
-                    tools:text="Vaktrianis 36 Zogrofou Athens" />
+                    tools:text="Vaktrianis 25 Zogrofou Athens" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -213,6 +213,7 @@
                 android:layout_height="match_parent" />
 
             <ProgressBar
+                android:id="@+id/mProgress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center" />
