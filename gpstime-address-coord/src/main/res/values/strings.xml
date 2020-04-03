@@ -1,8 +1,10 @@
 <resources>
-    <string name="gpsTime_address" translatable="false">Gps Time &amp; Address</string>
-    <string name="gps_time_date" translatable="false"><![CDATA[Gps Time & Date]]></string>
-    <string name="gpsTime" translatable="false">GPS Time</string>
-    <string name="gpsDate" translatable="false">Gps Date</string>
-    <string name="gpsCoord" translatable="false">Coordinates</string>
-    <string name="gpsAddress" translatable="false">Address</string>
+    <string name="gpsTime_address">Gps Time &amp; Address</string>
+    <string name="gps_time_date"><![CDATA[Gps Time & Date]]></string>
+    <string name="gpsTime">GPS Time</string>
+    <string name="gpsDate">Gps Date</string>
+    <string name="gpsCoord">Coordinates</string>
+    <string name="gpsAddress">Address</string>
+    <string name="gps_coord_address_lock_msg">Location settings are inadequate, and cannot be fixed here. Fix in Settings.</string>
+    <string name="gps_on">GPS ON</string>
 </resources>
