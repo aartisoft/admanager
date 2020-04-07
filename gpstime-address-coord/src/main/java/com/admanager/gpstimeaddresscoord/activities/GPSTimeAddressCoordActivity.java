@@ -8,9 +8,11 @@ import android.location.GpsStatus;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -20,22 +22,28 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.admanager.core.Consts;
 import com.admanager.gpstimeaddresscoord.GPSTimeApp;
 import com.admanager.gpstimeaddresscoord.R;
+import com.admanager.gpstimeaddresscoord.adapter.GpsAddressAdapter;
+import com.admanager.gpstimeaddresscoord.common.Common;
 import com.admanager.gpstimeaddresscoord.common.PermissionChecker;
+import com.admanager.gpstimeaddresscoord.database.LocationDao;
+import com.admanager.gpstimeaddresscoord.model.Addresses;
 import com.admanager.gpstimeaddresscoord.utils.GPSUtils;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class GPSTimeAddressCoordActivity extends AppCompatActivity implements LocationListener, GpsStatus.Listener {
+public class GPSTimeAddressCoordActivity extends AppCompatActivity implements LocationListener, GpsStatus.Listener, GpsAddressAdapter.RefreshListener {
 
     private static final int GPS_COORD_ADDRESS_REQUEST_CODE = 8888;
-    private ProgressBar mProgress;
+    private ProgressBar mProgress, mAddressProgress;
     private TextView gpsTime, gpsDate, gpsCoord, gpsAddress;
     private ImageView openAddress, saveAddress;
     private RecyclerView recyclerAddress;
@@ -45,6 +53,8 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
     private double latitude, longitude;
     private List<Address> addressList;
     private String address;
+    private long mGpsTime;
+    private GpsAddressAdapter mAdapter;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, GPSTimeAddressCoordActivity.class);
@@ -62,7 +72,7 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
         }
         setTitle(getString(R.string.gpsTime_address));
         configureStyle();
-
+        loadAddressList();
         permissionChecker.checkPermissionGrantedAndRun(new Runnable() {
             @Override
             public void run() {
@@ -73,21 +83,22 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
     }
 
     private void getAddressInfos() {
-        if (latitude != 0 || longitude != 0) {
+        if (latitude != 0 && longitude != 0) {
             try {
                 addressList = geocoder.getFromLocation(latitude, longitude, 1);
                 address = addressList.get(0).getAddressLine(0);
                 gpsAddress.setText(address);
                 Log.d("GeoCoaderAddress", address);
                 if (!gpsAddress.getText().toString().equalsIgnoreCase("")) {
-                    //    binding.loadingAddress.setVisibility(View.GONE);
+                    mAddressProgress.setVisibility(View.GONE);
                 } else {
-                    //  binding.loadingAddress.setVisibility(View.VISIBLE);
+                    mAddressProgress.setVisibility(View.VISIBLE);
                 }
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+
     }
 
     private void locationUpdates() {
@@ -142,9 +153,12 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
         saveAddress = findViewById(R.id.saveAddress);
         recyclerAddress = findViewById(R.id.recyclerAddress);
         mProgress = findViewById(R.id.mProgress);
+        mAddressProgress = findViewById(R.id.mAddressProgress);
         permissionChecker = new PermissionChecker(this);
         geocoder = new Geocoder(this, Locale.getDefault());
-
+        mAdapter = new GpsAddressAdapter(this, this);
+        recyclerAddress.setAdapter(mAdapter);
+        recyclerAddress.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
     }
 
     private void openGPS() {
@@ -160,10 +174,39 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
         Toast.makeText(this, getString(mesg), Toast.LENGTH_SHORT).show();
     }
 
+
+    private void setData() {
+        String coordinates = latitude + " , " + longitude;
+        if (latitude == 0 && longitude == 0) {
+            gpsCoord.setText(R.string.gps_coord_loading);
+        } else {
+            gpsCoord.setText(coordinates);
+        }
+    }
+
     @Override
     public void onLocationChanged(Location location) {
-
+        latitude = location.getLatitude();
+        longitude = location.getLongitude();
+        mGpsTime = location.getTime();
+        getAddressInfos();
+        setData();
+        setTime();
     }
+
+    private void setTime() {
+        if (mGpsTime == 0) {
+            gpsTime.setText(R.string.gps_coord_loading);
+        } else {
+            SimpleDateFormat watch = new SimpleDateFormat("HH:mm:ss");
+            SimpleDateFormat formattedDate = new SimpleDateFormat("dd.MM.yyyy");
+            String clock = watch.format(mGpsTime);
+            String date = formattedDate.format(mGpsTime);
+            gpsTime.setText(clock);
+            gpsDate.setText(date);
+        }
+    }
+
 
     @Override
     public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -177,11 +220,64 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
 
     @Override
     public void onProviderDisabled(String provider) {
-
+        openGPS();
     }
 
     @Override
     public void onGpsStatusChanged(int event) {
-
+        getAddressInfos();
+        setTime();
     }
+
+    public void openAddress(View view) {
+        Common.goLocation(this, latitude, longitude);
+    }
+
+
+    public void saveMyAddress(View view) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                LocationDao dao = Common.getDatabase(GPSTimeAddressCoordActivity.this).locationDao();
+                Addresses mAddress = new Addresses();
+                mAddress.addressName = gpsAddress.getText().toString();
+                mAddress.lat = latitude;
+                mAddress.lng = longitude;
+                dao.insertAddress(mAddress);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(GPSTimeAddressCoordActivity.this, getString(R.string.gps_added_to_list), Toast.LENGTH_SHORT).show();
+                        loadAddressList();
+                    }
+                });
+            }
+        }).start();
+    }
+
+    @Override
+    public void onRefresh() {
+        loadAddressList();
+    }
+
+    private void loadAddressList() {
+        new LoadAddressesList().execute();
+    }
+
+    private class LoadAddressesList extends AsyncTask<List<Addresses>, Void, List<Addresses>> {
+
+        @Override
+        protected List<Addresses> doInBackground(List<Addresses>... lists) {
+            LocationDao dao = Common.getDatabase(GPSTimeAddressCoordActivity.this).locationDao();
+            List<Addresses> addressList = dao.getAddressList();
+            return addressList;
+        }
+
+        @Override
+        protected void onPostExecute(List<Addresses> addresses) {
+            mAdapter.setData(addresses);
+            mProgress.setVisibility(View.GONE);
+        }
+    }
+
 }

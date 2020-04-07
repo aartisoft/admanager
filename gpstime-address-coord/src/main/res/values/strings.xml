@@ -7,4 +7,9 @@
     <string name="gpsAddress">Address</string>
     <string name="gps_coord_address_lock_msg">Location settings are inadequate, and cannot be fixed here. Fix in Settings.</string>
     <string name="gps_on">GPS ON</string>
+    <string name="gps_coord_loading">Loading…</string>
+    <string name="gps_no_location_warning">Trying to detecting your location</string>
+    <string name="gps_deleted">Deleted!</string>
+    <string name="gps_added_to_list">Added to List</string>
+    <string name="coppied">Copied</string>
 </resources>
