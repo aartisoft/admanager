@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">Masa &amp; Alamat Gps</string>
+    <string name="gps_time_date">Gps Time &amp; Date</string>
+    <string name="gpsTime">Masa GPS</string>
+    <string name="gpsDate">Tarikh Gps</string>
+    <string name="gpsCoord">Koordinat</string>
+    <string name="gpsAddress">Alamat</string>
+    <string name="gps_coord_address_lock_msg">Tetapan lokasi tidak mencukupi, dan tidak boleh diperbaiki di sini. Betulkan dalam Tetapan.</string>
+    <string name="gps_on">GPS ON</string>
+    <string name="gps_coord_loading">Memuatkan ...</string>
+    <string name="gps_no_location_warning">Cuba untuk mengesan lokasi anda</string>
+    <string name="gps_deleted">Dihapus!</string>
+    <string name="gps_added_to_list">Ditambah ke Senarai</string>
+    <string name="gps_copied">Disalin</string>
+    <string name="gps_no_address_msg">Mana-mana alamat yang disimpan masih belum dijumpai!</string>
+    <string name="gps_delete_title">Padam?</string>
+    <string name="gps_delete_message">Adakah anda pasti memadamkan alamat ini?</string>
+    <string name="gps_delete">Padam</string>
+    <string name="gps_cancel">Batalkan</string>
+    <string name="gps_type_a_location_name">Taipkan Nama Lokasi</string>
+    <string name="gps_save">Simpan</string>
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">GPS Zeit &amp; Adresse</string>
+    <string name="gps_time_date">GPS Zeit &amp; Datum</string>
+    <string name="gpsTime">GPS-Zeit</string>
+    <string name="gpsDate">GPS-Datum</string>
+    <string name="gpsCoord">Koordinaten</string>
+    <string name="gpsAddress">Adresse</string>
+    <string name="gps_coord_address_lock_msg">Die Standorteinstellungen sind unzureichend und können hier nicht behoben werden. Fix in Einstellungen.</string>
+    <string name="gps_on">GPS EIN</string>
+    <string name="gps_coord_loading">Wird geladen…</string>
+    <string name="gps_no_location_warning">Ich versuche, Ihren Standort zu ermitteln</string>
+    <string name="gps_deleted">Gelöscht!</string>
+    <string name="gps_added_to_list">Zur Liste hinzugefügt</string>
+    <string name="gps_copied">Kopiert</string>
+    <string name="gps_no_address_msg">Jede gespeicherte Adresse wurde bereits gefunden!</string>
+    <string name="gps_delete_title">Löschen?</string>
+    <string name="gps_delete_message">Sind Sie sicher, diese Adresse zu löschen?</string>
+    <string name="gps_delete">Löschen</string>
+    <string name="gps_cancel">Stornieren</string>
+    <string name="gps_type_a_location_name">Geben Sie einen Standortnamen ein</string>
+    <string name="gps_save">speichern</string>
+</resources>

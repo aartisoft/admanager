@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">GPS время и адрес</string>
+    <string name="gps_time_date">GPS время и дата</string>
+    <string name="gpsTime">Время GPS</string>
+    <string name="gpsDate">GPS дата</string>
+    <string name="gpsCoord">Координаты</string>
+    <string name="gpsAddress">Адрес</string>
+    <string name="gps_coord_address_lock_msg">Настройки местоположения неадекватны и не могут быть исправлены здесь. Исправить в настройках.</string>
+    <string name="gps_on">GPS включен</string>
+    <string name="gps_coord_loading">Loading ...</string>
+    <string name="gps_no_location_warning">Попытка определить ваше местоположение</string>
+    <string name="gps_deleted">Удаляется!</string>
+    <string name="gps_added_to_list">Добавлено в список</string>
+    <string name="gps_copied">скопированный</string>
+    <string name="gps_no_address_msg">Любой сохраненный адрес был найден!</string>
+    <string name="gps_delete_title">Удалять?</string>
+    <string name="gps_delete_message">Вы уверены, что хотите удалить этот адрес?</string>
+    <string name="gps_delete">удалять</string>
+    <string name="gps_cancel">отменить</string>
+    <string name="gps_type_a_location_name">Введите название местоположения</string>
+    <string name="gps_save">Сохранить</string>
+</resources>

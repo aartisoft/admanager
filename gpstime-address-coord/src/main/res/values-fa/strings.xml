@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">زمان و آدرس GPS</string>
+    <string name="gps_time_date">زمان و تاریخ GPS</string>
+    <string name="gpsTime">زمان GPS</string>
+    <string name="gpsDate">تاریخ GPS</string>
+    <string name="gpsCoord">مختصات</string>
+    <string name="gpsAddress">نشانی</string>
+    <string name="gps_coord_address_lock_msg">تنظیمات موقعیت مکانی ناکافی است و در اینجا قابل رفع نیست. تنظیمات را اصلاح کنید.</string>
+    <string name="gps_on">GPS روشن است</string>
+    <string name="gps_coord_loading">بارگذاری…</string>
+    <string name="gps_no_location_warning">تلاش برای تشخیص موقعیت مکانی شما</string>
+    <string name="gps_deleted">حذف شده!</string>
+    <string name="gps_added_to_list">به لیست اضافه شد</string>
+    <string name="gps_copied">کپی شده</string>
+    <string name="gps_no_address_msg">هنوز هیچ آدرس ذخیره شده ای یافت نشده است!</string>
+    <string name="gps_delete_title">حذف؟</string>
+    <string name="gps_delete_message">مطمئن هستید این آدرس را حذف کنید؟</string>
+    <string name="gps_delete">حذف</string>
+    <string name="gps_cancel">لغو</string>
+    <string name="gps_type_a_location_name">نام مکان را تایپ کنید</string>
+    <string name="gps_save">صرفه جویی</string>
+</resources>

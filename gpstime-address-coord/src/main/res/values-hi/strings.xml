@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">जीपीएस समय और पता</string>
+    <string name="gps_time_date">जीपीएस समय और तारीख</string>
+    <string name="gpsTime">जीपीएस समय</string>
+    <string name="gpsDate">जीपीएस दिनांक</string>
+    <string name="gpsCoord">निर्देशांक</string>
+    <string name="gpsAddress">पता</string>
+    <string name="gps_coord_address_lock_msg">स्थान सेटिंग्स अपर्याप्त हैं, और यहां तय नहीं किया जा सकता है। सेटिंग्स में ठीक करें।</string>
+    <string name="gps_on">GPS चालू</string>
+    <string name="gps_coord_loading">लोड हो रहा है…</string>
+    <string name="gps_no_location_warning">अपने स्थान का पता लगाने की कोशिश कर रहा है</string>
+    <string name="gps_deleted">हटाए गए!</string>
+    <string name="gps_added_to_list">सूची में जोड़ा गया</string>
+    <string name="gps_copied">कॉपी किया गया</string>
+    <string name="gps_no_address_msg">कोई भी सहेजा गया पता अभी तक नहीं मिला है!</string>
+    <string name="gps_delete_title">हटाना चाहते हैं?</string>
+    <string name="gps_delete_message">क्या आप इस पते को हटाना सुनिश्चित कर रहे हैं?</string>
+    <string name="gps_delete">हटाएं</string>
+    <string name="gps_cancel">रद्द करना</string>
+    <string name="gps_type_a_location_name">एक स्थान का नाम लिखें</string>
+    <string name="gps_save">सहेजें</string>
+</resources>

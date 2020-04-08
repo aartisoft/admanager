@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">Χρόνος &amp; Διεύθυνση GPS</string>
+    <string name="gps_time_date">Ώρα &amp; ημερομηνία GPS</string>
+    <string name="gpsTime">Χρόνος GPS</string>
+    <string name="gpsDate">Ημερομηνία GPS</string>
+    <string name="gpsCoord">Συντεταγμένες</string>
+    <string name="gpsAddress">Διεύθυνση</string>
+    <string name="gps_coord_address_lock_msg">Οι ρυθμίσεις τοποθεσίας είναι ανεπαρκείς και δεν μπορούν να διορθωθούν εδώ. Διορθώστε τις ρυθμίσεις.</string>
+    <string name="gps_on">Το GPS είναι ενεργοποιημένο</string>
+    <string name="gps_coord_loading">Φόρτωση…</string>
+    <string name="gps_no_location_warning">Προσπάθεια ανίχνευσης της θέσης σας</string>
+    <string name="gps_deleted">Διαγράφεται!</string>
+    <string name="gps_added_to_list">Προστέθηκε στη λίστα</string>
+    <string name="gps_copied">Αντιγραφή</string>
+    <string name="gps_no_address_msg">Οποιαδήποτε αποθηκευμένη διεύθυνση έχει βρεθεί ακόμα!</string>
+    <string name="gps_delete_title">Διαγράφω?</string>
+    <string name="gps_delete_message">Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτή τη διεύθυνση;</string>
+    <string name="gps_delete">Διαγράφω</string>
+    <string name="gps_cancel">Ματαίωση</string>
+    <string name="gps_type_a_location_name">Πληκτρολογήστε ένα όνομα τοποθεσίας</string>
+    <string name="gps_save">Αποθηκεύσετε</string>
+</resources>

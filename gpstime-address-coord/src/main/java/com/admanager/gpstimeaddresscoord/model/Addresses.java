@@ -11,5 +11,6 @@ public class Addresses {
     public double lat;
     public double lng;
     public String addressName;
+    public String savedAddress;
 
 }

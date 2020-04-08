@@ -11,5 +11,12 @@
     <string name="gps_no_location_warning">Trying to detecting your location</string>
     <string name="gps_deleted">Deleted!</string>
     <string name="gps_added_to_list">Added to List</string>
-    <string name="coppied">Copied</string>
+    <string name="gps_copied">Copied</string>
+    <string name="gps_no_address_msg">Any saved address has been found yet!</string>
+    <string name="gps_delete_title">Delete?</string>
+    <string name="gps_delete_message">Are you sure to delete this address?</string>
+    <string name="gps_delete">Delete</string>
+    <string name="gps_cancel">Cancel</string>
+    <string name="gps_type_a_location_name">Type a Location Name</string>
+    <string name="gps_save">Save</string>
 </resources>

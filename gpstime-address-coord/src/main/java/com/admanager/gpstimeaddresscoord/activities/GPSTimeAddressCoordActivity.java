@@ -1,6 +1,7 @@
 package com.admanager.gpstimeaddresscoord.activities;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -11,8 +12,10 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -21,7 +24,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,7 +50,7 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
 
     private static final int GPS_COORD_ADDRESS_REQUEST_CODE = 8888;
     private ProgressBar mProgress, mAddressProgress;
-    private TextView gpsTime, gpsDate, gpsCoord, gpsAddress;
+    private TextView gpsTime, gpsDate, gpsCoord, gpsAddress, noItemMsg;
     private ImageView openAddress, saveAddress;
     private RecyclerView recyclerAddress;
     private PermissionChecker permissionChecker;
@@ -55,6 +61,8 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
     private String address;
     private long mGpsTime;
     private GpsAddressAdapter mAdapter;
+    private LinearLayout root;
+    private CardView cardClock, cardDate, cardCoord, cardAddress;
 
     public static void start(Context context) {
         Intent intent = new Intent(context, GPSTimeAddressCoordActivity.class);
@@ -136,6 +144,25 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
                 instance.ads.loadTop(this, (LinearLayout) findViewById(R.id.top));
                 instance.ads.loadBottom(this, (LinearLayout) findViewById(R.id.bottom));
             }
+            if (instance.bgColor != 0) {
+                root.setBackgroundColor(ContextCompat.getColor(this, instance.bgColor));
+            }
+            if (instance.cardBgColor != 0) {
+                cardDate.setCardBackgroundColor(ContextCompat.getColor(this, instance.cardBgColor));
+                cardCoord.setCardBackgroundColor(ContextCompat.getColor(this, instance.cardBgColor));
+                cardAddress.setCardBackgroundColor(ContextCompat.getColor(this, instance.cardBgColor));
+                cardClock.setCardBackgroundColor(ContextCompat.getColor(this, instance.cardBgColor));
+            }
+            if (instance.textColor != 0) {
+                gpsTime.setTextColor(ContextCompat.getColor(this, instance.textColor));
+                gpsDate.setTextColor(ContextCompat.getColor(this, instance.textColor));
+                gpsCoord.setTextColor(ContextCompat.getColor(this, instance.textColor));
+                gpsAddress.setTextColor(ContextCompat.getColor(this, instance.textColor));
+                noItemMsg.setTextColor(ContextCompat.getColor(this, instance.textColor));
+            }
+            if (instance.bgColor != 0) {
+                root.setBackgroundColor(ContextCompat.getColor(this, instance.bgColor));
+            }
         }
     }
 
@@ -154,6 +181,13 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
         recyclerAddress = findViewById(R.id.recyclerAddress);
         mProgress = findViewById(R.id.mProgress);
         mAddressProgress = findViewById(R.id.mAddressProgress);
+        noItemMsg = findViewById(R.id.noItemMsg);
+        root = findViewById(R.id.root);
+        cardClock = findViewById(R.id.cardClock);
+        cardAddress = findViewById(R.id.cardAddress);
+        cardCoord = findViewById(R.id.cardCoord);
+        cardDate = findViewById(R.id.cardDate);
+
         permissionChecker = new PermissionChecker(this);
         geocoder = new Geocoder(this, Locale.getDefault());
         mAdapter = new GpsAddressAdapter(this, this);
@@ -235,12 +269,33 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
 
 
     public void saveMyAddress(View view) {
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.adm_gps_dialog_save, null);
+        final EditText editSaveName = dialogView.findViewById(R.id.editAddressName);
+        new AlertDialog.Builder(this)
+                .setView(dialogView)
+                .setTitle(R.string.gps_type_a_location_name)
+                .setPositiveButton(R.string.gps_save, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        saveAddress(editSaveName.getText().toString());
+                        dialog.dismiss();
+                    }
+                }).setNegativeButton(R.string.gps_cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        }).create().show();
+    }
+
+    private void saveAddress(final String addressName) {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 LocationDao dao = Common.getDatabase(GPSTimeAddressCoordActivity.this).locationDao();
                 Addresses mAddress = new Addresses();
-                mAddress.addressName = gpsAddress.getText().toString();
+                mAddress.savedAddress = gpsAddress.getText().toString();
+                mAddress.addressName = addressName;
                 mAddress.lat = latitude;
                 mAddress.lng = longitude;
                 dao.insertAddress(mAddress);
@@ -276,6 +331,11 @@ public class GPSTimeAddressCoordActivity extends AppCompatActivity implements Lo
         @Override
         protected void onPostExecute(List<Addresses> addresses) {
             mAdapter.setData(addresses);
+            if (addresses.size() > 0) {
+                noItemMsg.setVisibility(View.GONE);
+            } else {
+                noItemMsg.setVisibility(View.VISIBLE);
+            }
             mProgress.setVisibility(View.GONE);
         }
     }

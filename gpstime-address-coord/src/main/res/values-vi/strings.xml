@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">Thời gian và địa chỉ Gps</string>
+    <string name="gps_time_date">Thời gian và ngày của Gps</string>
+    <string name="gpsTime">Giờ GPS</string>
+    <string name="gpsDate">Ngày Gps</string>
+    <string name="gpsCoord">Tọa độ</string>
+    <string name="gpsAddress">Địa chỉ</string>
+    <string name="gps_coord_address_lock_msg">Cài đặt vị trí không đầy đủ và không thể sửa ở đây. Sửa trong Cài đặt.</string>
+    <string name="gps_on">BẬT GPS</string>
+    <string name="gps_coord_loading">Đang tải…</string>
+    <string name="gps_no_location_warning">Đang cố gắng phát hiện vị trí của bạn</string>
+    <string name="gps_deleted">Đã xóa!</string>
+    <string name="gps_added_to_list">Đã thêm vào danh sách</string>
+    <string name="gps_copied">Sao chép</string>
+    <string name="gps_no_address_msg">Bất kỳ địa chỉ lưu đã được tìm thấy chưa!</string>
+    <string name="gps_delete_title">Xóa bỏ?</string>
+    <string name="gps_delete_message">Bạn có chắc chắn để xóa địa chỉ này?</string>
+    <string name="gps_delete">Xóa bỏ</string>
+    <string name="gps_cancel">Hủy bỏ</string>
+    <string name="gps_type_a_location_name">Nhập tên vị trí</string>
+    <string name="gps_save">Tiết kiệm</string>
+</resources>

@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">GPS時間とアドレス</string>
+    <string name="gps_time_date">GPSの時刻と日付</string>
+    <string name="gpsTime">GPS時間</string>
+    <string name="gpsDate">GPSの日付</string>
+    <string name="gpsCoord">コーディネート</string>
+    <string name="gpsAddress">住所</string>
+    <string name="gps_coord_address_lock_msg">場所の設定が不十分で、ここで修正することはできません。設定で修正します。</string>
+    <string name="gps_on">GPS ON</string>
+    <string name="gps_coord_loading">読み込んでいます…</string>
+    <string name="gps_no_location_warning">あなたの場所を検出しようとしています</string>
+    <string name="gps_deleted">削除しました！</string>
+    <string name="gps_added_to_list">リストに追加しました</string>
+    <string name="gps_copied">コピーしました</string>
+    <string name="gps_no_address_msg">保存されたアドレスはまだ見つかりました！</string>
+    <string name="gps_delete_title">削除しますか？</string>
+    <string name="gps_delete_message">このアドレスを削除してもよろしいですか？</string>
+    <string name="gps_delete">削除する</string>
+    <string name="gps_cancel">キャンセル</string>
+    <string name="gps_type_a_location_name">ロケーション名を入力してください</string>
+    <string name="gps_save">保存する</string>
+</resources>

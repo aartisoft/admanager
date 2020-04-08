@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="130dp"
+    android:id="@+id/cardSaved"
     android:layout_margin="4dp"
+    android:layout_height="170dp"
     app:cardBackgroundColor="@color/colorBlackTR"
     app:cardCornerRadius="8dp"
     app:cardElevation="2dp">
@@ -24,20 +25,30 @@
                 android:id="@+id/gps_addressName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:maxLines="2"
-                android:padding="8dp"
+                android:maxLines="1"
+                android:padding="4dp"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 tools:text="My Home Address" />
+
+            <TextView
+                android:id="@+id/gps_savedAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:padding="4dp"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="Vaktrianis 25\n" />
 
             <TextView
                 android:id="@+id/gps_coordinates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLength="20"
-                android:paddingStart="8dp"
-                android:paddingEnd="8dp"
-                android:paddingBottom="8dp"
+                android:paddingStart="4dp"
+                android:paddingEnd="4dp"
+                android:paddingBottom="4dp"
                 android:textColor="@android:color/white"
                 android:textSize="18sp"
                 tools:text="38.2135135,54.2135540" />

@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">ਜੀਪੀਐਸ ਸਮਾਂ ਅਤੇ ਪਤਾ</string>
+    <string name="gps_time_date">ਜੀਪੀਐਸ ਸਮਾਂ ਅਤੇ ਤਾਰੀਖ</string>
+    <string name="gpsTime">ਜੀਪੀਐਸ ਟਾਈਮ</string>
+    <string name="gpsDate">ਜੀਪੀਐਸ ਮਿਤੀ</string>
+    <string name="gpsCoord">ਕੋਆਰਡੀਨੇਟ</string>
+    <string name="gpsAddress">ਪਤਾ</string>
+    <string name="gps_coord_address_lock_msg">ਸਥਾਨ ਸੈਟਿੰਗਜ਼ ਨਾਕਾਫੀ ਹਨ, ਅਤੇ ਇੱਥੇ ਨਿਸ਼ਚਤ ਨਹੀਂ ਕੀਤੀਆਂ ਜਾ ਸਕਦੀਆਂ. ਸੈਟਿੰਗਜ਼ ਵਿੱਚ ਫਿਕਸ ਕਰੋ.</string>
+    <string name="gps_on">ਜੀਪੀਐਸ ਚਾਲੂ</string>
+    <string name="gps_coord_loading">ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ ...</string>
+    <string name="gps_no_location_warning">ਆਪਣੇ ਟਿਕਾਣੇ ਦਾ ਪਤਾ ਲਗਾਉਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="gps_deleted">ਮਿਟਾਇਆ ਗਿਆ!</string>
+    <string name="gps_added_to_list">ਸੂਚੀ ਵਿੱਚ ਸ਼ਾਮਲ ਕੀਤਾ ਗਿਆ</string>
+    <string name="gps_copied">ਕਾੱਪੀ</string>
+    <string name="gps_no_address_msg">ਕੋਈ ਸੁੱਰਖਿਅਤ ਪਤਾ ਅਜੇ ਮਿਲਿਆ ਹੈ!</string>
+    <string name="gps_delete_title">ਮਿਟਾਓ?</string>
+    <string name="gps_delete_message">ਕੀ ਤੁਸੀਂ ਪੱਕਾ ਇਸ ਪਤੇ ਨੂੰ ਮਿਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?</string>
+    <string name="gps_delete">ਮਿਟਾਓ</string>
+    <string name="gps_cancel">ਰੱਦ ਕਰੋ</string>
+    <string name="gps_type_a_location_name">ਇੱਕ ਟਿਕਾਣਾ ਨਾਮ ਟਾਈਪ ਕਰੋ</string>
+    <string name="gps_save">ਸੇਵ</string>
+</resources>

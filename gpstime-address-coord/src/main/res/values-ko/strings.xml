@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">Gps 시간 및 주소</string>
+    <string name="gps_time_date">Gps 시간 및 날짜</string>
+    <string name="gpsTime">GPS 시간</string>
+    <string name="gpsDate">GPS 날짜</string>
+    <string name="gpsCoord">좌표</string>
+    <string name="gpsAddress">주소</string>
+    <string name="gps_coord_address_lock_msg">위치 설정이 부적절하며 여기에서 수정할 수 없습니다. 설정 수정.</string>
+    <string name="gps_on">GPS ON</string>
+    <string name="gps_coord_loading">로드 중…</string>
+    <string name="gps_no_location_warning">위치 감지 시도</string>
+    <string name="gps_deleted">삭제되었습니다!</string>
+    <string name="gps_added_to_list">목록에 추가</string>
+    <string name="gps_copied">복사</string>
+    <string name="gps_no_address_msg">저장된 주소가 아직 없습니다!</string>
+    <string name="gps_delete_title">지우다?</string>
+    <string name="gps_delete_message">이 주소를 삭제 하시겠습니까?</string>
+    <string name="gps_delete">지우다</string>
+    <string name="gps_cancel">취소</string>
+    <string name="gps_type_a_location_name">위치 이름을 입력하십시오</string>
+    <string name="gps_save">저장</string>
+</resources>

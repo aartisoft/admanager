@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">GPS Zaman ve Adresi</string>
+    <string name="gps_time_date">Gps Saat ve Tarihi</string>
+    <string name="gpsTime">GPS Zamanı</string>
+    <string name="gpsDate">GPS Tarihi</string>
+    <string name="gpsCoord">Koordinatlar</string>
+    <string name="gpsAddress">Adres</string>
+    <string name="gps_coord_address_lock_msg">Konum ayarları yetersiz ve burada düzeltilemez. Ayarlardan düzeltin.</string>
+    <string name="gps_on">GPS AÇIK</string>
+    <string name="gps_coord_loading">Yükleniyor…</string>
+    <string name="gps_no_location_warning">Konumunuzu tespit etmeye çalışıyoruz</string>
+    <string name="gps_deleted">Silindi!</string>
+    <string name="gps_added_to_list">Listeye eklendi</string>
+    <string name="gps_copied">Kopyalandı</string>
+    <string name="gps_no_address_msg">Kaydedilmiş herhangi bir adres henüz bulunamadı!</string>
+    <string name="gps_delete_title">Sil?</string>
+    <string name="gps_delete_message">Bu adresi silmek istediğinizden emin misiniz?</string>
+    <string name="gps_delete">Sil</string>
+    <string name="gps_cancel">İptal</string>
+    <string name="gps_type_a_location_name">Bir Konum Adı yazın</string>
+    <string name="gps_save">Kaydet</string>
+</resources>

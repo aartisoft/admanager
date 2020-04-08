@@ -25,7 +25,7 @@ public class Common {
 
         ClipData clip = ClipData.newPlainText(label, copyText);
         clipboard.setPrimaryClip(clip);
-        Toast.makeText(context, context.getResources().getString(R.string.coppied), Toast.LENGTH_SHORT).show();
+        Toast.makeText(context, context.getResources().getString(R.string.gps_copied), Toast.LENGTH_SHORT).show();
     }
 
     public static void goLocation(Context context, double lat, double lng) {

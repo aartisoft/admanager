@@ -1,0 +1,22 @@
+<resources>
+    <string name="gpsTime_address">GPS时间和地址</string>
+    <string name="gps_time_date">GPS时间和日期</string>
+    <string name="gpsTime">GPS时间</string>
+    <string name="gpsDate">GPS日期</string>
+    <string name="gpsCoord">座标</string>
+    <string name="gpsAddress">地址</string>
+    <string name="gps_coord_address_lock_msg">位置设置不足，因此无法在此处固定。在设置中修复。</string>
+    <string name="gps_on">GPS开启</string>
+    <string name="gps_coord_loading">载入中…</string>
+    <string name="gps_no_location_warning">尝试检测您的位置</string>
+    <string name="gps_deleted">已删除！</string>
+    <string name="gps_added_to_list">已添加到列表</string>
+    <string name="gps_copied">复制的</string>
+    <string name="gps_no_address_msg">找不到任何保存的地址！</string>
+    <string name="gps_delete_title">删除？</string>
+    <string name="gps_delete_message">您确定要删除此地址吗？</string>
+    <string name="gps_delete">删除</string>
+    <string name="gps_cancel">取消</string>
+    <string name="gps_type_a_location_name">输入位置名称</string>
+    <string name="gps_save">保存</string>
+</resources>
