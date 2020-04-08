@@ -23,6 +23,7 @@ import com.admanager.compass.activities.CompassActivity;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
+import com.admanager.gpstimeaddresscoord.activities.GPSTimeAddressCoordActivity;
 import com.admanager.maps.activities.MapsActivity;
 import com.admanager.popupenjoy.AdmPopupEnjoy;
 import com.admanager.popuppromo.AdmPopupPromo;
@@ -169,6 +170,8 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
             SpeedoMeterAltitudeActivity.start(this);
         } else if (id == R.id.mRateDialog) {
             new RateDialog(this, this).show();
+        } else if (id == R.id.mGps) {
+            GPSTimeAddressCoordActivity.start(this);
         }
         return false;
     }

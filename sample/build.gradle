@@ -70,6 +70,7 @@ dependencies {
     implementation project(path: ':speedometer-altitude')
     implementation project(path: ':popup-rate')
     implementation project(path: ':news')
+    implementation project(path: ':gpstime-address-coord')
 
 
     /*  Admost ADDITIONAL ADAPTERS

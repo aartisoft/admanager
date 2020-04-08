@@ -72,6 +72,9 @@
         <item
             android:id="@+id/mRateDialog"
             android:title="Rate Dialog" />
+        <item
+            android:id="@+id/mGps"
+            android:title="GPS-Address-Coord" />
 
     </group>
     <item android:title="Communicate">

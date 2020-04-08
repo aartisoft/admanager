@@ -14,6 +14,7 @@ import com.admanager.compass.CompassApp;
 import com.admanager.config.RemoteConfigApp;
 import com.admanager.core.Ads;
 import com.admanager.gifs.GifsApp;
+import com.admanager.gpstimeaddresscoord.GPSTimeApp;
 import com.admanager.maps.MapsApp;
 import com.admanager.news.NewsApp;
 import com.admanager.periodicnotification.PeriodicNotificationApp;
@@ -105,6 +106,13 @@ public class MyApplication extends MultiDexApplication implements Ads {
                 //.fullySelectedColor(R.color.colorYellow) - optional-
                 //.fullyNotSelectedColor(R.color.colorblue) - optional-
                 //.progressDrawable(your PROGRESS drawable) - optional-
+                .build();
+
+        new GPSTimeApp.Builder(this)
+                .ads(this)
+                //.bgColor(android.R.color.holo_blue_bright) -- optional --
+                //.cardBgColor(android.R.color.holo_green_light)-- optional --
+                //.textColor(android.R.color.holo_red_dark)-- optional --
                 .build();
     }
 
