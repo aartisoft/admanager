@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.admanager.recyclerview.ClickListener;
 import com.admanager.sample.R;
 import com.admanager.sample.adapter.TrackAdmobAdapter;
 import com.admanager.sample.adapter.TrackModel;
@@ -34,6 +35,12 @@ public class RecyclerViewAdmobDefaultActivity extends AppCompatActivity {
 
         // set adapter
         trackAdapter = new TrackAdmobAdapter(this);
+        trackAdapter.setClickListener(new ClickListener<TrackModel>() {
+            @Override
+            public void clicked(TrackModel model, int position) {
+                System.out.println(model);
+            }
+        });
         recyclerView.setAdapter(trackAdapter);
 
         // divider

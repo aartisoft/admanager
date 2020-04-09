@@ -36,6 +36,7 @@ public class AdmStaticNotification extends BaseHelper {
     private static final int ID = 52189;
     private static final String PREF_FILE_NAME = "notif_helper_prefs";
     private static final String EASY_ACCESS = "easy_access";
+    public static final String INTENT_CLICK_PARAM = "notification_clicked";
     private static AdmStaticNotification INSTANCE;
     private String title;
     private String text;
@@ -143,6 +144,9 @@ public class AdmStaticNotification extends BaseHelper {
                 .setContentTitle(title)
                 .setContentText(content)
                 .setPriority(NotificationCompat.PRIORITY_MAX);
+        if (intent != null) {
+            intent.putExtra(INTENT_CLICK_PARAM, true);
+        }
         builder.setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
         builder.setOngoing(true);
         nm.notify(ID, builder.build());
@@ -162,6 +166,22 @@ public class AdmStaticNotification extends BaseHelper {
 
     private static boolean getStatus(SharedPreferences sharedPreferences) {
         return sharedPreferences.getBoolean(EASY_ACCESS, true);
+    }
+
+    public static void setClickListener(Activity activity, ClickListener clickListener) {
+        if (AdmUtils.isContextInvalid(activity)) {
+            return;
+        }
+        if (clickListener == null) {
+            return;
+        }
+        if (activity.getIntent() == null) {
+            return;
+        }
+        boolean clicked = activity.getIntent().getBooleanExtra(INTENT_CLICK_PARAM, false);
+        if (clicked) {
+            clickListener.clicked();
+        }
     }
 
     @Override
@@ -315,4 +335,7 @@ public class AdmStaticNotification extends BaseHelper {
         }
     }
 
+    public interface ClickListener {
+        void clicked();
+    }
 }

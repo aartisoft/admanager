@@ -43,6 +43,7 @@ public class BoosterNotificationApp extends BaseHelper {
     private static final int ID = 52188;
     private static final String PREF_FILE_NAME = "notif_helper_prefs";
     private static final String EASY_ACCESS = "easy_access";
+    public static final String INTENT_CLICK_PARAM = "booster_clicked";
     private static com.admanager.boosternotification.BoosterNotificationApp INSTANCE;
     private static BatteryStatusReceiver batteryStatusReceiver;
     private static ConnectionStatusReceiver connectionStatusReceiver;
@@ -192,9 +193,32 @@ public class BoosterNotificationApp extends BaseHelper {
                 .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), largeIcon))
                 .setSmallIcon(smallIcon)
                 .setContent(contentView);
+
+        if (intent != null) {
+            intent.putExtra(INTENT_CLICK_PARAM, true);
+        }
         builder.setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
         builder.setOngoing(true);
         nm.notify(ID, builder.build());
+    }
+
+    public static void setClickListener(Activity activity, ClickListener clickListener) {
+        if (AdmUtils.isContextInvalid(activity)) {
+            return;
+        }
+        if (clickListener == null) {
+            return;
+        }
+        if (activity.getIntent() == null) {
+            return;
+        }
+        if (activity.getIntent().getExtras() == null) {
+            return;
+        }
+        boolean clicked = activity.getIntent().getBooleanExtra(INTENT_CLICK_PARAM, false);
+        if (clicked) {
+            clickListener.clicked();
+        }
     }
 
     private static PendingIntent getPendingIntent(Context context, String action, boolean collapse) {
@@ -398,5 +422,9 @@ public class BoosterNotificationApp extends BaseHelper {
             }
 
         }
+    }
+
+    public interface ClickListener {
+        void clicked();
     }
 }

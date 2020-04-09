@@ -36,6 +36,10 @@ public class FacebookAdHelper {
     }
 
     public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey, final Listener listener) {
+        showNsecInters(N, context, remoteConfigEnableKey, remoteConfigIdKey, listener, null);
+    }
+
+    public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey, final Listener listener, final ClickListener clicklistener) {
         RemoteConfigHelper.init(context);
         boolean enable = RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey) && RemoteConfigHelper.areAdsEnabled();
         if (RemoteConfigHelper.isTestMode()) {
@@ -78,6 +82,13 @@ public class FacebookAdHelper {
                             listener.completed(true);
                         }
                     }
+
+                    @Override
+                    public void onAdClicked(Ad ad) {
+                        if (clicklistener != null) {
+                            clicklistener.clicked();
+                        }
+                    }
                 });
                 ad.loadAd();
             }
@@ -88,6 +99,9 @@ public class FacebookAdHelper {
         void completed(boolean displayed);
     }
 
+    public interface ClickListener {
+        void clicked();
+    }
     public static void attachNativeToContainer(LinearLayout adView, LinearLayout container) {
         if (container == null || adView == null) {
             return;

@@ -21,6 +21,11 @@ public class AdMostAdHelper {
 
     public static void showNsecInters(final long N, final Activity context, final String remoteConfigEnableKey,
                                       final String appIdKey, final String zoneIdKey, final String tag, final Listener listener) {
+        showNsecInters(N, context, remoteConfigEnableKey, appIdKey, zoneIdKey, tag, listener, null);
+    }
+
+    public static void showNsecInters(final long N, final Activity context, final String remoteConfigEnableKey,
+                                      final String appIdKey, final String zoneIdKey, final String tag, final Listener listener, final ClickListener clicklistener) {
         RemoteConfigHelper.init(context);
         boolean enable = RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey) && RemoteConfigHelper.areAdsEnabled();
         if (RemoteConfigHelper.isTestMode()) {
@@ -81,6 +86,9 @@ public class AdMostAdHelper {
                     @Override
                     public void onClicked(String s) {
                         // It indicates that the interstitial ad is clicked.
+                        if (clicklistener != null) {
+                            clicklistener.clicked();
+                        }
                     }
 
                     @Override
@@ -96,5 +104,9 @@ public class AdMostAdHelper {
 
     public interface Listener {
         void completed(boolean displayed);
+    }
+
+    public interface ClickListener {
+        void clicked();
     }
 }

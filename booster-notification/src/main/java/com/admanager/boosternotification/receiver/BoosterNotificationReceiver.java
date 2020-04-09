@@ -93,6 +93,7 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
     private void launch(Context context) {
         PackageManager pm = context.getPackageManager();
         Intent launchIntentForPackage = pm.getLaunchIntentForPackage(context.getPackageName());
+        launchIntentForPackage.putExtra(BoosterNotificationApp.INTENT_CLICK_PARAM, true);
         launchIntentForPackage.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(launchIntentForPackage);
     }

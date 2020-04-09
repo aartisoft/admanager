@@ -68,7 +68,7 @@ public class AdmPopupPromo {
     }
 
     public interface Listener {
-        void completed(boolean displayed);
+        void completed(boolean clicked);
     }
 
     public static class Builder {

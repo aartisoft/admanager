@@ -27,12 +27,12 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>, CONF extends Ad
     boolean show_native;
     //native
     int DEFAULT_NO_OF_DATA_BETWEEN_ADS;
-    private List<RowWrapper> rowWrappers;
-    private List<T> data;
     CONF configuration;
-
     @LayoutRes
     int layout;
+    private List<RowWrapper> rowWrappers;
+    private List<T> data;
+    private ClickListener<T> clickListener;
     private boolean isLoading = false;
     private boolean isLoadingPage = false;
 
@@ -80,6 +80,10 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>, CONF extends Ad
     }
 
     protected abstract VH createViewHolder(View view);
+
+    public void setClickListener(ClickListener<T> clickListener) {
+        this.clickListener = clickListener;
+    }
 
     @Override
     public final int getItemViewType(int position) {
@@ -131,9 +135,17 @@ abstract class ABaseAdapter<T, VH extends BindableViewHolder<T>, CONF extends Ad
     @CallSuper
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if (rowWrappers.get(position).type.ordinal() == RowWrapper.Type.LIST.ordinal()) {
-            int pos = rowWrappers.get(position).listIndex;
+            final int pos = rowWrappers.get(position).listIndex;
             if (holder instanceof BindableViewHolder) {
                 ((BindableViewHolder) holder).bindTo(activity, data.get(pos), pos);
+                if (clickListener != null) {
+                    holder.itemView.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            clickListener.clicked(data.get(pos), pos);
+                        }
+                    });
+                }
             }
         }
     }

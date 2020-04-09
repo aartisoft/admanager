@@ -56,10 +56,10 @@ public abstract class BaseFragment extends Fragment {
     protected ImageView type;
     protected TextView typeText;
     protected TabLayout tabLayout;
+    NotifReadPermissionDialog permDialog;
     private TextView name;
     private View req;
     private boolean hasData;
-    NotifReadPermissionDialog permDialog;
 
     public BaseFragment() {
     }

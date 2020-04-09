@@ -122,6 +122,10 @@ public class AdmobAdHelper {
     }
 
     public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey, final Listener listener) {
+        showNsecInters(N, context, remoteConfigEnableKey, remoteConfigIdKey, listener, null);
+    }
+
+    public static void showNsecInters(final long N, final Context context, String remoteConfigEnableKey, final String remoteConfigIdKey, final Listener listener, final ClickListener clicklistener) {
         RemoteConfigHelper.init(context);
         boolean enable = RemoteConfigHelper.getConfigs().getBoolean(remoteConfigEnableKey) && RemoteConfigHelper.areAdsEnabled();
         if (RemoteConfigHelper.isTestMode()) {
@@ -164,6 +168,13 @@ public class AdmobAdHelper {
                             listener.completed(false);
                         }
                     }
+
+                    @Override
+                    public void onAdClicked() {
+                        if (clicklistener != null) {
+                            clicklistener.clicked();
+                        }
+                    }
                 });
                 ad.loadAd(new AdRequest.Builder().build());
             }
@@ -172,5 +183,9 @@ public class AdmobAdHelper {
 
     public interface Listener {
         void completed(boolean displayed);
+    }
+
+    public interface ClickListener {
+        void clicked();
     }
 }

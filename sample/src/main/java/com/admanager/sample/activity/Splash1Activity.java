@@ -24,6 +24,9 @@ public class Splash1Activity extends AppCompatActivity {
         //        If you want to close all ads for testing, use this method
         //RemoteConfigHelper.setAdsEnabled(!BuildConfig.DEBUG);
 
+//        AdmStaticNotification.setClickListener(this, () -> System.out.println("CLICKED")); // you need to call this method in launcher Activity
+//        BoosterNotificationApp.setClickListener(this, () -> System.out.println("CLICKED")); // you need to call this method in launcher Activity
+
         new AdManagerBuilder(this)
                 .add(new AdmobAdapter(RCUtils.S1_ADMOB_ENABLED).withRemoteConfigId(RCUtils.S1_ADMOB_ID))
                 .add(new FacebookAdapter(RCUtils.S1_FACEBOOK_ENABLED).withRemoteConfigId(RCUtils.S1_FACEBOOK_ID))
