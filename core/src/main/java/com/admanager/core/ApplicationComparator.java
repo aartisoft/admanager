@@ -12,9 +12,8 @@ public abstract class ApplicationComparator<T> {
 
     private boolean isPackageInstalled(String packageName, PackageManager packageManager) {
         try {
-            packageManager.getPackageInfo(packageName, 0);
-            return true;
-        } catch (PackageManager.NameNotFoundException e) {
+            return packageManager.getLaunchIntentForPackage(packageName) != null;
+        } catch (Throwable e) {
             return false;
         }
     }

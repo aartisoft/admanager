@@ -10,7 +10,10 @@ import com.admanager.core.Consts;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.RequestConfiguration;
 
+import java.util.Collections;
 
 public class AdmobAdapter extends Adapter {
     public static final String ADMOB_INTERS_TEST_ID = "ca-app-pub-3940256099942544/1033173712";
@@ -42,7 +45,6 @@ public class AdmobAdapter extends Adapter {
     private InterstitialAd ad;
     private boolean anyIdMethodCalled;
     private String testDevice;
-
 
     public AdmobAdapter(@Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
         super("Admob", rcEnableKey);
@@ -88,8 +90,11 @@ public class AdmobAdapter extends Adapter {
         ad.setAdUnitId(adUnitId);
         ad.setAdListener(ADMOB_AD_LISTENER);
         AdRequest.Builder builder = new AdRequest.Builder();
-        if(testDevice != null) {
-            builder.addTestDevice(testDevice);
+        if (testDevice != null) {
+            RequestConfiguration configuration = new RequestConfiguration.Builder()
+                    .setTestDeviceIds(Collections.singletonList(testDevice))
+                    .build();
+            MobileAds.setRequestConfiguration(configuration);
         }
         ad.loadAd(builder.build());
     }

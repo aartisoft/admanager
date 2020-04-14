@@ -17,13 +17,15 @@ public class GifsApp {
     public int iconDownload;
     public Ads ads;
     public int bgColor;
+    public boolean lightToolbarColor;
     public String api_key;
 
-    GifsApp(Application app, Ads ads, String api_key, int iconDownload, int bgColor) {
+    GifsApp(Application app, Ads ads, String api_key, int iconDownload, int bgColor, boolean lightToolbarColor) {
         this.api_key = api_key;
         this.iconDownload = iconDownload;
         this.ads = ads;
         this.bgColor = bgColor;
+        this.lightToolbarColor = lightToolbarColor;
     }
 
     public static GifsApp getInstance() {
@@ -42,6 +44,7 @@ public class GifsApp {
         private int iconDownload;
         private Ads ads;
         private int bgColor;
+        private boolean lightToolbarColor;
 
         public Builder(@NonNull Application context, String api_key) {
             this.context = new WeakReference<>(context.getApplicationContext());
@@ -58,6 +61,11 @@ public class GifsApp {
             return this;
         }
 
+        public GifsApp.Builder lightToolbarColor() {
+            this.lightToolbarColor = true;
+            return this;
+        }
+
         public GifsApp.Builder bgColor(@ColorRes int bgColor) {
             this.bgColor = bgColor;
             return this;
@@ -70,7 +78,7 @@ public class GifsApp {
             Context context = this.context.get();
 
             Application app = (Application) context.getApplicationContext();
-            GifsApp.init(new GifsApp(app, ads, api_key, iconDownload, bgColor));
+            GifsApp.init(new GifsApp(app, ads, api_key, iconDownload, bgColor, lightToolbarColor));
 
         }
 

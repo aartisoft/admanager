@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -56,17 +57,19 @@ public class GifsActivity extends AppCompatActivity implements GifsAdapter.Selec
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gifs);
 
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setDisplayShowHomeEnabled(true);
-        }
-
         permissionChecker = new PermissionChecker(this);
         rvSubCategory = findViewById(R.id.rvSubCategory);
         rvCategory = findViewById(R.id.rvCategory);
         rvGifs = findViewById(R.id.rvGifs);
         root = findViewById(R.id.root);
-        setTitle(getString(R.string.gifs_powered_by_giphy));
+        ImageView giphy_image = findViewById(R.id.giphy_image);
+        ImageView toolbarBackArrow = findViewById(R.id.toolbarBackArrow);
+        toolbarBackArrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         GifsApp instance = GifsApp.getInstance();
         if (instance != null) {
@@ -79,6 +82,9 @@ public class GifsActivity extends AppCompatActivity implements GifsAdapter.Selec
             if (instance.bgColor != 0) {
                 root.setBackgroundColor(ContextCompat.getColor(this, instance.bgColor));
             }
+
+            giphy_image.setImageResource(instance.lightToolbarColor ? R.drawable.powered_by_gifs2 : R.drawable.powered_by_gifs);
+            toolbarBackArrow.setImageResource(instance.lightToolbarColor ? R.drawable.adm_gifs_back_arrow2 : R.drawable.adm_gifs_back_arrow);
         } else {
             Log.e(Consts.TAG, "init Gif module in Application class");
             finish();
