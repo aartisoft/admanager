@@ -25,6 +25,7 @@ import com.admanager.gifs.adapters.CategoryAdapter;
 import com.admanager.gifs.adapters.GifsAdapter;
 import com.admanager.gifs.utils.GifDialog;
 import com.admanager.gifs.utils.PermissionChecker;
+import com.admanager.recyclerview.ClickListener;
 import com.giphy.sdk.core.models.Category;
 import com.giphy.sdk.core.models.Media;
 import com.giphy.sdk.core.models.enums.MediaType;
@@ -35,7 +36,7 @@ import com.giphy.sdk.core.network.response.ListMediaResponse;
 
 import java.util.List;
 
-public class GifsActivity extends AppCompatActivity implements GifsAdapter.SelectedListener {
+public class GifsActivity extends AppCompatActivity implements ClickListener<Media> {
     PermissionChecker permissionChecker;
     RecyclerView rvSubCategory;
     RecyclerView rvCategory;
@@ -93,7 +94,8 @@ public class GifsActivity extends AppCompatActivity implements GifsAdapter.Selec
 
         GridLayoutManager grid = new GridLayoutManager(this, 2);
         rvGifs.setLayoutManager(grid);
-        adapterGifs = new GifsAdapter(this, this);
+        adapterGifs = new GifsAdapter(this);
+        adapterGifs.setClickListener(this);
         rvGifs.setAdapter(adapterGifs);
 
         LinearLayoutManager llm1 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -220,7 +222,7 @@ public class GifsActivity extends AppCompatActivity implements GifsAdapter.Selec
     }
 
     @Override
-    public void selected(final Media media) {
+    public void clicked(final Media media, int position) {
         if (media == null) {
             return;
         }

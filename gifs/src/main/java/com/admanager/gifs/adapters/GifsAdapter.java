@@ -14,20 +14,14 @@ import com.bumptech.glide.Glide;
 import com.giphy.sdk.core.models.Media;
 
 public class GifsAdapter extends BaseAdapter<Media, GifsAdapter.ViewHolder> {
-    private final GifsAdapter.SelectedListener selectedListener;
 
-    public GifsAdapter(Activity activity, GifsAdapter.SelectedListener selectedListener) {
+    public GifsAdapter(Activity activity) {
         super(activity, R.layout.item_gif);
-        this.selectedListener = selectedListener;
     }
 
     @Override
     protected ViewHolder createViewHolder(View view) {
         return new ViewHolder(view);
-    }
-
-    public interface SelectedListener {
-        void selected(Media media);
     }
 
     public class ViewHolder extends BindableViewHolder<Media> {
@@ -46,13 +40,6 @@ public class GifsAdapter extends BaseAdapter<Media, GifsAdapter.ViewHolder> {
             Glide.with(itemView.getContext())
                     .load(model.getImages().getFixedHeightDownsampled().getGifUrl())
                     .into(img);
-
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    selectedListener.selected(model);
-                }
-            });
         }
     }
 }
