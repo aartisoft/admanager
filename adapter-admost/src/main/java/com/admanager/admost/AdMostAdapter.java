@@ -152,7 +152,7 @@ public class AdMostAdapter extends Adapter {
     @Override
     protected void destroy() {
         super.destroy();
-        if (!ad.isDestroyed()) {
+        if (ad != null && !ad.isDestroyed()) {
             ad.destroy();
         }
         ad = null;
