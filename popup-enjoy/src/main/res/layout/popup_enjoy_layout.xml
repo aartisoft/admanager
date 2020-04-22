@@ -53,7 +53,7 @@
             android:layout_weight="1"
             android:background="@null"
             android:gravity="center"
-            android:text="no"
+            android:text="NO"
             android:textAllCaps="false"
             android:textColor="@color/popupenjoyNegativeButton"
             android:textSize="16sp" />
@@ -63,11 +63,11 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@drawable/positive_button"
+            android:background="@null"
             android:gravity="center"
             android:text="YES"
             android:textAllCaps="false"
-            android:textColor="@color/popupenjoyBg"
+            android:textColor="@color/popupenjoyNegativeButton"
             android:textSize="18sp" />
     </LinearLayout>
 </LinearLayout>
