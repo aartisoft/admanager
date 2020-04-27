@@ -78,7 +78,6 @@ public class RateDialog implements AddRateListener {
     public void onThanksClick() {
         listener.onRated(false);
         rateAppView.dismiss();
-        toast();
     }
 
     private void toast() {
