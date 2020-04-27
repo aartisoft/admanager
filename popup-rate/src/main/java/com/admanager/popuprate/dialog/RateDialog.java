@@ -3,10 +3,12 @@ package com.admanager.popuprate.dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.widget.RatingBar;
+import android.widget.Toast;
 
 import com.admanager.config.RemoteConfigHelper;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.Consts;
+import com.admanager.popuprate.R;
 import com.admanager.popuprate.common.Prefs;
 import com.admanager.popuprate.listeners.AddRateListener;
 import com.admanager.popuprate.listeners.RateClickListener;
@@ -66,6 +68,7 @@ public class RateDialog implements AddRateListener {
             } else {
                 saveDialogStatus(true);
                 listener.onRated(false);
+                toast();
             }
         }
         rateAppView.dismiss();
@@ -75,5 +78,10 @@ public class RateDialog implements AddRateListener {
     public void onThanksClick() {
         listener.onRated(false);
         rateAppView.dismiss();
+        toast();
+    }
+
+    private void toast() {
+        Toast.makeText(context, context.getResources().getString(R.string.popup_rate_us_thanks), Toast.LENGTH_SHORT).show();
     }
 }

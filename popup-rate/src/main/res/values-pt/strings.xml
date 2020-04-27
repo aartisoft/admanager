@@ -2,4 +2,5 @@
     <string name="no_thanks">Não, obrigado</string>
     <string name="please_rate_us_to_open">Classifique-nos para abrir este recurso</string>
     <string name="popup_rate_us">Nos avalie</string>
+    <string name="popup_rate_us_thanks">Obrigado</string>
 </resources>
