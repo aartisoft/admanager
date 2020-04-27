@@ -40,6 +40,7 @@ public class FlashLightHelper {
         if (!flashEnabled) {
             return;
         }
+        stop();
 
         TASK = new AsyncTask<Void, Void, Void>() {
 
@@ -63,6 +64,12 @@ public class FlashLightHelper {
                 }
                 flashlight(false);
                 return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void aVoid) {
+                super.onPostExecute(aVoid);
+                flashlight(false);
             }
         };
         TASK.execute();

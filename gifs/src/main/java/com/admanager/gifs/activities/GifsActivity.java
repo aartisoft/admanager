@@ -29,6 +29,7 @@ import com.admanager.recyclerview.ClickListener;
 import com.giphy.sdk.core.models.Category;
 import com.giphy.sdk.core.models.Media;
 import com.giphy.sdk.core.models.enums.MediaType;
+import com.giphy.sdk.core.models.enums.RatingType;
 import com.giphy.sdk.core.network.api.CompletionHandler;
 import com.giphy.sdk.core.network.api.GPHApiClient;
 import com.giphy.sdk.core.network.response.ListCategoryResponse;
@@ -200,7 +201,8 @@ public class GifsActivity extends AppCompatActivity implements ClickListener<Med
     private void loadGifs(String name) {
         adapterSubCategory.setSelected(name);
         adapterGifs.setLoadingFullScreen();
-        gphApiClient.search(name, MediaType.gif, 50, null, null, null, new CompletionHandler<ListMediaResponse>() {
+        // todo endless scrollview
+        gphApiClient.search(name, MediaType.gif, 100, null, RatingType.g, null, new CompletionHandler<ListMediaResponse>() {
             @Override
             public void onComplete(ListMediaResponse listMediaResponse, Throwable throwable) {
                 adapterGifs.loaded();
