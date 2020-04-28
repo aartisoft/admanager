@@ -153,13 +153,13 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         adplaceholderCenterContainer.setVisibility(pos.equals(NativePosition.CENTER) ? View.VISIBLE : View.GONE);
         switch (pos) {
             case TOP:
-                loadAd(adplaceholderTopContainer);
+                loadAd(adplaceholderTop);
                 break;
             case BOTTOM:
-                loadAd(adplaceholderContainer);
+                loadAd(adplaceholder);
                 break;
             case CENTER:
-                loadAd(adplaceholderCenterContainer);
+                loadAd(adplaceholderCenter);
                 break;
         }
     }
