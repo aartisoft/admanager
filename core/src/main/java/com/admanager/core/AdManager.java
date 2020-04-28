@@ -124,7 +124,7 @@ public class AdManager {
         for (Adapter adapter : ADAPTERS) {
             boolean remoteValue = RemoteConfigHelper.getConfigs().getValue(adapter.getEnableKey()).getSource() == FirebaseRemoteConfig.VALUE_SOURCE_REMOTE;
             boolean enabled = RemoteConfigHelper.getConfigs().getBoolean(adapter.getEnableKey());
-            if (remoteValue && !enabled) {
+            if (!this.testMode && remoteValue && !enabled) {
                 // do not initialize the adapter if remote enable value is FALSE
                 adapter.error("not enabled");
             } else {
