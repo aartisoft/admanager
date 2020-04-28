@@ -30,13 +30,14 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
     private boolean testMode;
     private WeakReference<Context> context;
 
-    private RemoteConfigHelper(Map<String, Object> defaultMap, boolean idDeveloperModeEnabled) {
+    private RemoteConfigHelper(Map<String, Object> defaultMap, boolean isDeveloperModeEnabled) {
         mRemoteConfig = FirebaseRemoteConfig.getInstance();
         mRemoteConfig.activate();
-        mRemoteConfig.setDefaultsAsync(defaultMap);
-        mRemoteConfig.setConfigSettingsAsync(new FirebaseRemoteConfigSettings.Builder().setMinimumFetchIntervalInSeconds(idDeveloperModeEnabled ? 0 : 10800).build());
-        mRemoteConfig.fetch(idDeveloperModeEnabled ? 0 : 10800).addOnCompleteListener(this);
-        testMode = idDeveloperModeEnabled;
+        mRemoteConfig.setDefaults(defaultMap);
+        int minimumFetchIntervalInSeconds = isDeveloperModeEnabled ? 0 : 10800;
+        mRemoteConfig.setConfigSettingsAsync(new FirebaseRemoteConfigSettings.Builder().setMinimumFetchIntervalInSeconds(minimumFetchIntervalInSeconds).build());
+        mRemoteConfig.fetch(minimumFetchIntervalInSeconds).addOnCompleteListener(this);
+        testMode = isDeveloperModeEnabled;
     }
 
     public static boolean areAdsEnabled() {
