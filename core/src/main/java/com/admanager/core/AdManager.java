@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.admanager.config.RemoteConfigHelper;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -121,8 +122,16 @@ public class AdManager {
         }
 
         for (Adapter adapter : ADAPTERS) {
-            adapter.init();
-            adapter.startTimer();
+            boolean remoteValue = RemoteConfigHelper.getConfigs().getValue(adapter.getEnableKey()).getSource() == FirebaseRemoteConfig.VALUE_SOURCE_REMOTE;
+            boolean enabled = RemoteConfigHelper.getConfigs().getBoolean(adapter.getEnableKey());
+            if (remoteValue && !enabled) {
+                // do not initialize the adapter if remote enable value is FALSE
+                adapter.error("not enabled");
+            } else {
+                adapter.init();
+                adapter.startTimer();
+            }
+
         }
         return this;
     }

@@ -33,7 +33,7 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
     private RemoteConfigHelper(Map<String, Object> defaultMap, boolean idDeveloperModeEnabled) {
         mRemoteConfig = FirebaseRemoteConfig.getInstance();
         mRemoteConfig.activate();
-        mRemoteConfig.setDefaults(defaultMap);
+        mRemoteConfig.setDefaultsAsync(defaultMap);
         mRemoteConfig.setConfigSettingsAsync(new FirebaseRemoteConfigSettings.Builder().setMinimumFetchIntervalInSeconds(idDeveloperModeEnabled ? 0 : 10800).build());
         mRemoteConfig.fetch(idDeveloperModeEnabled ? 0 : 10800).addOnCompleteListener(this);
         testMode = idDeveloperModeEnabled;
