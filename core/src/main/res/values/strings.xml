@@ -13,4 +13,8 @@
     <string name="adm_tutorial_goto_app">Go to app</string>
     <string name="adm_tutorial_redirecting">Please wait..</string>
 
+    <string name="oo0o00oOo" translatable="false">.co</string>
+    <string name="oOoOo0oo" translatable="false">Y</string>
+    <string name="o00ooOo" translatable="false">oOOo0OoO0</string>
+
 </resources>

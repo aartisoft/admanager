@@ -21,9 +21,7 @@
     <string name="ccs_status_holding">Holding</string>
     <string name="ccs_status_active">Active call</string>
     <string name="ccs_changed">The Theme has been changed. Your calling screens will be colorful.</string>
-    <string name="oo0o00oOo" translatable="false">.co</string>
     <string name="oOoo01oO0" translatable="false">5d0</string>
     <string name="oOOo0OoO0" translatable="false">ef</string>
-    <string name="o00ooOo" translatable="false">oOOo0OoO0</string>
     <string name="oOoOo0oo" translatable="false">Y</string>
 </resources>
