@@ -26,7 +26,7 @@ public class AdmTutorialConfiguration {
     private static final String TAG = "AdmTutorialConf";
     boolean hideButton;
     boolean hideLogoAtLastPage;
-    boolean reloadAdsPerPage;
+    boolean reloadNativeAds = true;
     int layout = R.layout.adm_activity_tutorial;
     int pageLayout = R.layout.adm_tutorial_page;
     int buttonTextNext = R.string.adm_tutorial_next;
@@ -170,8 +170,8 @@ public class AdmTutorialConfiguration {
         return this;
     }
 
-    public AdmTutorialConfiguration reloadAdsPerPage() {
-        this.reloadAdsPerPage = true;
+    public AdmTutorialConfiguration stopReloadingNativeAds() {
+        this.reloadNativeAds = false;
         return this;
     }
 

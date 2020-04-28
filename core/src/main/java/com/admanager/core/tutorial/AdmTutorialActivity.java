@@ -259,7 +259,7 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
             }
         }
 
-        if ((configuration.nativePositions.length > 1 || configuration.reloadAdsPerPage) && position != 0) {
+        if ((configuration.nativePositions.length > 1 || configuration.reloadNativeAds) && position != 0) {
             _loadAd(position);
         }
 
