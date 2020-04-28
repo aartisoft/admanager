@@ -58,7 +58,7 @@ public class CallScreenService {
         int s = 35;
         int s1 = 340;
         int s2 = 701;
-        return context.getString(R.string.oOoo01oO0) + s + solve(context, context.getString(R.string.oOoOo0oo) + "WQyODdmZA", 2) + s1 + aaaa() + s2 + context.getString(R.string.oOOo0OoO0);
+        return context.getString(R.string.oOoo01oO0) + s + solve(context, context.getString(R.string.oOoOo0ooo) + "WQyODdmZA", 2) + s1 + aaaa() + s2 + context.getString(R.string.oOOo0OoO0);
     }
 
     private static String aaaa() {
