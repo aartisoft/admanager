@@ -45,8 +45,10 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
 
     private LinearLayout adplaceholder;
     private LinearLayout adplaceholderTop;
+    private LinearLayout adplaceholderCenter;
     private LinearLayout adplaceholderContainer;
     private LinearLayout adplaceholderTopContainer;
+    private LinearLayout adplaceholderCenterContainer;
     private LinearLayout root;
     private Button btnNext;
     private ViewPager viewPager;
@@ -71,8 +73,10 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         btnNext = findViewById(R.id.btn_next);
         adplaceholder = findViewById(R.id.adplaceholder);
         adplaceholderTop = findViewById(R.id.adplaceholder_top);
+        adplaceholderCenter = findViewById(R.id.adplaceholder_center);
         adplaceholderContainer = findViewById(R.id.adplaceholder_container);
         adplaceholderTopContainer = findViewById(R.id.adplaceholder_top_container);
+        adplaceholderCenterContainer = findViewById(R.id.adplaceholder_center_container);
         waWormDotsIndicator = findViewById(R.id.worm_dots_indicator);
         btnNext.setOnClickListener(this);
         configuration.applyRootLayoutStyle(root, 0);
@@ -120,7 +124,7 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         // load Banner / Native
         loadTopAd((LinearLayout) findViewById(R.id.top_container));
         loadBottomAd((LinearLayout) findViewById(R.id.bottom_container));
-        _loadAd();
+        _loadAd(0);
 
         // Load Inters Adds
         AdManagerBuilder builder = createAdManagerBuilder();
@@ -138,11 +142,22 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
 
     protected abstract void addTutorialPages();
 
-    private void _loadAd() {
-        boolean top = configuration.moveAdToTop;
-        adplaceholderContainer.setVisibility(top ? View.GONE : View.VISIBLE);
-        adplaceholderTopContainer.setVisibility(!top ? View.GONE : View.VISIBLE);
-        loadAd(top ? adplaceholderTop : adplaceholder);
+    private void _loadAd(int position) {
+        NativePosition pos = configuration.nativePositions[position % configuration.nativePositions.length];
+        adplaceholderTopContainer.setVisibility(pos.equals(NativePosition.TOP) ? View.VISIBLE : View.GONE);
+        adplaceholderContainer.setVisibility(pos.equals(NativePosition.BOTTOM) ? View.VISIBLE : View.GONE);
+        adplaceholderCenterContainer.setVisibility(pos.equals(NativePosition.CENTER) ? View.VISIBLE : View.GONE);
+        switch (pos) {
+            case TOP:
+                loadAd(adplaceholderTopContainer);
+                break;
+            case BOTTOM:
+                loadAd(adplaceholderContainer);
+                break;
+            case CENTER:
+                loadAd(adplaceholderCenterContainer);
+                break;
+        }
     }
 
     protected abstract void loadAd(LinearLayout container);
@@ -237,8 +252,8 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
             }
         }
 
-        if (configuration.reloadAdsPerPage && position != 0) {
-            _loadAd();
+        if ((configuration.nativePositions.length > 1 || configuration.reloadAdsPerPage) && position != 0) {
+            _loadAd(position);
         }
 
     }

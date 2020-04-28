@@ -31,7 +31,6 @@ public class AdmTutorialConfiguration {
     int pageLayout = R.layout.adm_tutorial_page;
     int buttonTextNext = R.string.adm_tutorial_next;
     int buttonTextLast = R.string.adm_tutorial_goto_app;
-    boolean moveAdToTop;
     private int textColor;
     private int textSize;
     private int titleColor;
@@ -47,6 +46,7 @@ public class AdmTutorialConfiguration {
     private int[] bgColor;
     private int[] bg;
     private int[] viewPagerPadding;
+    NativePosition[] nativePositions = new NativePosition[]{NativePosition.BOTTOM};
 
     public AdmTutorialConfiguration(Context context) {
     }
@@ -56,8 +56,12 @@ public class AdmTutorialConfiguration {
         return this;
     }
 
+    /**
+     * USE .nativePosition(NativePosition.TOP)
+     */
+    @Deprecated
     public AdmTutorialConfiguration moveAdToTop() {
-        this.moveAdToTop = true;
+        nativePositions = new NativePosition[]{NativePosition.TOP};
         return this;
     }
 
@@ -92,6 +96,11 @@ public class AdmTutorialConfiguration {
 
     public AdmTutorialConfiguration viewPagerPadding(@IntRange(from = 0, to = 24) int all) {
         this.viewPagerPadding = new int[]{all, all, all, all};
+        return this;
+    }
+
+    public AdmTutorialConfiguration nativePosition(NativePosition... nativePositions) {
+        this.nativePositions = nativePositions;
         return this;
     }
 
