@@ -30,6 +30,7 @@ import com.admanager.core.AdManager;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.R;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
 import java.util.ArrayList;
@@ -55,12 +56,15 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
     private LayoutInflater layoutInflater;
     private WormDotsIndicator waWormDotsIndicator;
     private AdmTutorialConfiguration configuration;
+    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected final void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN, View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         hideStatusBar();
+
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         // Create and get configuration
         configuration = configure();
@@ -232,6 +236,9 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         if (adManager != null) {
             adManager.show();
         }
+        if (firebaseAnalytics != null) {
+            firebaseAnalytics.logEvent("tutorial_completed", null);
+        }
     }
 
     @Override
@@ -256,6 +263,12 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
             _loadAd(position);
         }
 
+        if (firebaseAnalytics != null) {
+            Bundle bundle = new Bundle();
+            bundle.putInt("page", (position + 1));
+
+            firebaseAnalytics.logEvent("tutorial", bundle);
+        }
     }
 
     private void setNextButtonVisibility(int position) {
