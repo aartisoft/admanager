@@ -19,6 +19,7 @@ import com.admanager.admob.AdmobNativeLoader;
 import com.admanager.applocker.AppLockerApp;
 import com.admanager.barcode.activities.BarcodeReaderActivity;
 import com.admanager.boosternotification.BoosterNotificationApp;
+import com.admanager.colorcallscreen.activities.ColorCallScreenActivity;
 import com.admanager.compass.activities.CompassActivity;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.AdmUtils;
@@ -172,6 +173,8 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
             new RateDialog(this, this).show();
         } else if (id == R.id.mGps) {
             GPSTimeAddressCoordActivity.start(this);
+        } else if (id == R.id.colorCallScreen) {
+            ColorCallScreenActivity.start(this);
         }
         return false;
     }

@@ -1,7 +1,9 @@
 package com.admanager.colorcallscreen;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.widget.LinearLayout;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
@@ -10,6 +12,7 @@ import androidx.annotation.StringRes;
 import com.admanager.core.Ads;
 import com.admanager.core.AdsImp;
 
+import java.io.Serializable;
 import java.lang.ref.WeakReference;
 
 public class ColorCallScreenApp {
@@ -21,12 +24,14 @@ public class ColorCallScreenApp {
     public Ads ads;
     public int bgColor;
     public int textColor;
+    public AfterCallLayout afterCallLayout;
 
-    ColorCallScreenApp(Application app, Ads ads, String title, int bgColor, int textColor, String NUMBER, String[] NAMES, int[] IMAGES) {
+    ColorCallScreenApp(Application app, Ads ads, String title, int bgColor, int textColor, AfterCallLayout afterCallLayout, String NUMBER, String[] NAMES, int[] IMAGES) {
         this.title = title;
         this.ads = ads;
         this.bgColor = bgColor;
         this.textColor = textColor;
+        this.afterCallLayout = afterCallLayout;
         if (NAMES != null) {
             ColorCallScreenApp.NAMES = NAMES;
         }
@@ -48,6 +53,10 @@ public class ColorCallScreenApp {
         return INSTANCE;
     }
 
+    public interface AfterCallLayout extends Serializable {
+        void inflateInto(Activity activity, LinearLayout container, String lastNumber);
+    }
+
     public static class Builder {
 
         private final WeakReference<Context> context;
@@ -55,6 +64,7 @@ public class ColorCallScreenApp {
         private Ads ads;
         private int bgColor;
         private int textColor;
+        private AfterCallLayout afterCallLayout;
         private String[] NAMES;
         private int[] IMAGES;
         private String number;
@@ -112,6 +122,11 @@ public class ColorCallScreenApp {
             return this;
         }
 
+        public ColorCallScreenApp.Builder afterCallLayout(AfterCallLayout afterCallLayout) {
+            this.afterCallLayout = afterCallLayout;
+            return this;
+        }
+
         public void build() {
             if (ads == null) {
                 ads = new AdsImp();
@@ -119,7 +134,7 @@ public class ColorCallScreenApp {
             Context context = this.context.get();
 
             Application app = (Application) context.getApplicationContext();
-            ColorCallScreenApp.init(new ColorCallScreenApp(app, ads, title, bgColor, textColor, number, NAMES, IMAGES));
+            ColorCallScreenApp.init(new ColorCallScreenApp(app, ads, title, bgColor, textColor, afterCallLayout, number, NAMES, IMAGES));
 
         }
 

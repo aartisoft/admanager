@@ -11,171 +11,231 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimaryLight"
-        android:scaleType="centerCrop" />
+
+        android:scaleType="centerCrop"
+        tools:src="@tools:sample/backgrounds/scenic" />
 
     <com.admanager.colorcallscreen.view.FullScreenVideoView
         android:id="@+id/bg_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryLight"
+
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <FrameLayout
-        android:id="@+id/imageContainer"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_margin="24dp"
-        android:background="@drawable/ic_portrait_border"
-        android:padding="12dp"
-        app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintHeight_max="108dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_max="108dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-        <com.admanager.colorcallscreen.view.RoundImageView
-            android:id="@+id/iv_portrait"
+        android:layout_gravity="center_horizontal|top"
+        android:gravity="center_horizontal|top"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/imageContainer"
+            android:layout_width="108dp"
+            android:layout_height="108dp"
+            android:layout_margin="12dp"
+            android:background="@drawable/ic_portrait_border"
+            android:padding="12dp">
+
+            <com.admanager.colorcallscreen.view.RoundImageView
+                android:id="@+id/iv_portrait"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/text_display_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:shadowColor="@color/colorPrimary"
+            android:shadowRadius="8"
+            android:textColor="#fefefe"
+            android:textSize="29sp"
+            tools:text="display_name" />
+
+        <TextView
+            android:id="@+id/text_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:shadowColor="@color/colorPrimary"
+            android:shadowRadius="8"
+            android:textColor="#fefefe"
+            android:textSize="20sp"
+            tools:text="number" />
+
+        <TextView
+            android:id="@+id/text_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:shadowColor="@color/colorPrimary"
+            android:shadowRadius="8"
+            android:textColor="#fefefe"
+            android:textSize="20sp"
+            tools:text="status" />
+
+        <TextView
+            android:id="@+id/text_duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:shadowColor="@color/colorPrimary"
+            android:shadowRadius="8"
+            android:text="@string/duration_zero"
+            android:textColor="#fefefe"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:id="@+id/layout_callend"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:scaleType="centerCrop" />
-    </FrameLayout>
+            android:layout_height="wrap_content"
 
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:paddingLeft="24dp"
+            android:paddingTop="24dp"
+            android:paddingRight="24dp"
+            android:paddingBottom="24dp"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/text_duration"
+            tools:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/image_call"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/adm_ccs_ic_call" />
+
+                <ImageView
+                    android:id="@+id/image_write_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/adm_ccs_ic_message" />
+
+                <ImageView
+                    android:id="@+id/image_addperson"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/adm_ccs_ic_addperson" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/adm_ccs_write_message_bg"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <EditText
+                    android:id="@+id/edit_quick_message"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:hint="@string/adm_ccs_send_quick_message"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/image_send_quick_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end|center"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:src="@drawable/adm_ccs_btn_send" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/additional_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:layout_height="200dp">
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/close"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_margin="16dp"
-
         android:scaleType="centerCrop"
+        android:tint="@color/colorPrimary"
         android:visibility="gone"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageContainer"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_close" />
 
-    <TextView
-        android:id="@+id/text_display_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:shadowColor="#000000"
-        android:shadowRadius="8"
-        android:textColor="#fefefe"
-        android:textSize="29sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/close"
-        tools:text="display_name" />
-
-    <TextView
-        android:id="@+id/text_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:shadowColor="#000000"
-        android:shadowRadius="8"
-        android:textColor="#fefefe"
-        android:textSize="20sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_display_name"
-        tools:text="number" />
-
-    <TextView
-        android:id="@+id/text_status"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:shadowColor="#000000"
-        android:shadowRadius="8"
-        android:textColor="#fefefe"
-        android:textSize="20sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_number"
-        tools:text="status" />
-
-    <TextView
-        android:id="@+id/text_duration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:shadowColor="#000000"
-        android:shadowRadius="8"
-        android:text="@string/duration_zero"
-        android:textColor="#fefefe"
-        android:textSize="30sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_status" />
-
-    <View
-        android:id="@+id/space"
+    <LinearLayout
+        android:id="@+id/call_buttons"
         android:layout_width="match_parent"
-        android:layout_height="2dp"
-
-        app:layout_constraintBottom_toTopOf="@id/button_hangup"
-        app:layout_constraintTop_toBottomOf="@id/text_duration" />
-
-
-    <LinearLayout
-        android:id="@+id/button_hangup"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
+        android:layout_height="196dp"
         android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/container"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/button_answer"
-        app:layout_constraintTop_toBottomOf="@id/space">
-
-        <ImageView
-            android:id="@+id/iv_micro_decline"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
-            android:src="@drawable/btn_no_l" />
-
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:id="@+id/button_answer"
-        android:layout_width="112dp"
-        android:layout_height="112dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="@id/button_hangup"
-        app:layout_constraintLeft_toRightOf="@id/button_hangup"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/button_hangup">
-
-        <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="112dp"
-            android:layout_height="112dp"
-            android:layout_gravity="top|left"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="online/micro_lottie_json/accept.json"
-            app:lottie_imageAssetsFolder="micro_lottie_image"
-            app:lottie_loop="true" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryDark"
-        android:orientation="vertical"
-        android:visibility="gone"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/button_hangup"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <ImageView
+                android:id="@+id/iv_micro_decline"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/btn_no_l" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:id="@+id/button_answer"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_gravity="top|left"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="online/micro_lottie_json/accept.json"
+                app:lottie_imageAssetsFolder="micro_lottie_image"
+                app:lottie_loop="true" />
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

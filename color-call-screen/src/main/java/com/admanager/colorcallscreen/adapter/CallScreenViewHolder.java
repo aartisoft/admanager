@@ -28,10 +28,10 @@ import java.util.Random;
 
 public class CallScreenViewHolder extends BindableViewHolder<BgModel> {
 
-    private View selectedForUser;
     private TextView textDuration;
     private LinearLayout buttonHangup;
     private LinearLayout buttonAnswer;
+    private LinearLayout call_buttons;
     private TextView textStatus;
     private TextView textDisplayName;
     private TextView textNumber;
@@ -40,6 +40,8 @@ public class CallScreenViewHolder extends BindableViewHolder<BgModel> {
     private ImageView iv_portrait;
     private View imageContainer;
     private View selected;
+    private View selectedForUser;
+    private View root;
 
     public CallScreenViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -55,6 +57,8 @@ public class CallScreenViewHolder extends BindableViewHolder<BgModel> {
         textNumber = itemView.findViewById(R.id.text_number);
         buttonHangup = itemView.findViewById(R.id.button_hangup);
         buttonAnswer = itemView.findViewById(R.id.button_answer);
+        call_buttons = itemView.findViewById(R.id.call_buttons);
+        root = itemView.findViewById(R.id.root);
 
         int p = (int) AdmUtils.dpToPx(itemView.getContext(), 60);
         reSize(imageContainer, p);
@@ -86,7 +90,6 @@ public class CallScreenViewHolder extends BindableViewHolder<BgModel> {
 
     private static Uri getPortraitUri(Activity activity, int i) {
         return Uri.parse("android.resource://" + activity.getPackageName() + "/" + (ColorCallScreenApp.IMAGES[i % ColorCallScreenApp.IMAGES.length]));
-//        return Uri.parse("android.resource://" + activity.getPackageName() + "/drawable/" + (IMAGES[i % IMAGES.length]));
     }
 
     @Override
@@ -103,7 +106,7 @@ public class CallScreenViewHolder extends BindableViewHolder<BgModel> {
         ContactBean contactBean = new ContactBean(null, name, ColorCallScreenApp.NUMBER, uri.toString());
 
         GsmCall gsmCall = new GsmCall(GsmCall.Status.RINGING, contactBean);
-        CCSInCallActivity.updateView(gsmCall, textStatus, textDuration, buttonHangup, buttonAnswer, textDisplayName, textNumber, iv_portrait);
+        CCSInCallActivity.updateView(gsmCall, textStatus, textDuration, buttonHangup, buttonAnswer, call_buttons, textDisplayName, textNumber, iv_portrait);
 
         CCSInCallActivity.loadBgImage(itemView.getContext(), bgModel.thumbnail, bg_image);
 
@@ -111,7 +114,7 @@ public class CallScreenViewHolder extends BindableViewHolder<BgModel> {
         buttonAnswer.setVisibility(isSelected ? View.VISIBLE : View.GONE);
         textStatus.setVisibility(View.GONE);
 
-        itemView.setOnClickListener(new View.OnClickListener() {
+        root.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (activity instanceof ColorCallScreenActivity) {

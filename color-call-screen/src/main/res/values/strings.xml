@@ -24,4 +24,6 @@
     <string name="oOoo01oO0" translatable="false">5d0</string>
     <string name="oOOo0OoO0" translatable="false">ef</string>
     <string name="oOoOo0ooo" translatable="false">Y</string>
+    <string name="adm_ccs_send_quick_message">Send quick message</string>
+    <string name="adm_ccs_intent_not_found">Your device not supports this function</string>
 </resources>

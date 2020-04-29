@@ -75,6 +75,9 @@
         <item
             android:id="@+id/mGps"
             android:title="GPS-Address-Coord" />
+        <item
+            android:id="@+id/colorCallScreen"
+            android:title="Color Call Screen" />
 
     </group>
     <item android:title="Communicate">
