@@ -1,5 +1,6 @@
 <com.google.android.gms.ads.formats.UnifiedNativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content">
 
     <LinearLayout
@@ -29,6 +30,7 @@
                     android:id="@+id/ad_app_icon"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    tools:src="@tools:sample/avatars"
                     android:adjustViewBounds="true"
                     android:paddingEnd="5dp"
                     android:paddingRight="5dp"
@@ -43,6 +45,7 @@
                         android:id="@+id/ad_headline"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        tools:text="@tools:sample/full_names"
                         android:textColor="@color/colorPrimary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -55,6 +58,7 @@
                             android:id="@+id/ad_advertiser"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            tools:text="@tools:sample/full_names"
                             android:gravity="bottom"
                             android:textSize="14sp"
                             android:textStyle="bold" />
@@ -81,6 +85,7 @@
                     android:id="@+id/ad_body"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    tools:text="@tools:sample/full_names"
                     android:layout_marginEnd="20dp"
                     android:layout_marginRight="20dp"
                     android:textColor="@color/colorPrimaryLight"
@@ -95,6 +100,7 @@
                         android:id="@+id/ad_media"
                         android:layout_width="0dp"
                         android:layout_height="125dp"
+                        tools:background="@tools:sample/backgrounds/scenic"
                         android:layout_gravity="center_horizontal"
                         android:layout_weight="2" />
 
@@ -110,6 +116,7 @@
                             android:id="@+id/ad_price"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            tools:text="FREE"
                             android:paddingStart="5dp"
                             android:paddingLeft="5dp"
                             android:paddingEnd="5dp"
@@ -121,6 +128,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:paddingStart="5dp"
+                            tools:text="Play Store"
                             android:paddingLeft="5dp"
                             android:paddingEnd="5dp"
                             android:paddingRight="5dp"
@@ -134,6 +142,7 @@
                             android:gravity="center"
                             android:paddingStart="10dp"
                             android:paddingLeft="10dp"
+                            tools:text="download"
                             android:paddingEnd="10dp"
                             android:paddingRight="10dp"
                             android:textColor="@color/colorNativeBg"

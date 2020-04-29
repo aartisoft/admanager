@@ -1,5 +1,6 @@
 <com.google.android.gms.ads.formats.UnifiedNativeAdView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="70dp">
 
     <LinearLayout
@@ -24,6 +25,7 @@
                 android:id="@+id/ad_app_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                tools:src="@tools:sample/avatars"
                 android:layout_gravity="center"
                 android:adjustViewBounds="true"
                 android:maxWidth="80dp" />
@@ -33,6 +35,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                tools:text="@tools:sample/full_names"
                 android:layout_weight="1"
                 android:maxLines="3"
                 android:paddingLeft="5dp"
@@ -48,6 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="@color/colorAction"
+                tools:text="download"
                 android:gravity="center"
                 android:maxWidth="50dp"
                 android:maxLines="3"

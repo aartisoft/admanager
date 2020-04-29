@@ -120,6 +120,14 @@ public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
         mAdLoader.loadAd(builder.build());
     }
 
+    @Override
+    public void destroy() {
+        super.destroy();
+        if (unifiedNativeAdView != null) {
+            unifiedNativeAdView.destroy();
+        }
+    }
+
     public enum NativeType {
         NATIVE_BANNER, NATIVE_BANNER_XS, NATIVE_LARGE, NATIVE_XL
     }
