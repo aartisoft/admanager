@@ -1,10 +1,13 @@
 package com.admanager.unseen.notiservice;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.IBinder;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
+
+import androidx.annotation.RequiresApi;
 
 import com.admanager.unseen.notiservice.converters.BaseConverter;
 import com.admanager.unseen.notiservice.converters.ConverterData;
@@ -24,6 +27,7 @@ import java.util.Map;
 /**
  * Created by a on 28.03.2017.
  */
+@RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
 public class NotiListenerService extends NotificationListenerService {
     private static final String TAG = "NotiListenerService";
     public static boolean isConnected;

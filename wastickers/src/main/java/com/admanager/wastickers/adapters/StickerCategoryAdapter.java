@@ -234,7 +234,7 @@ public class StickerCategoryAdapter extends BaseAdapter<PackageModel, StickerCat
             }
 
             final AlertDialog loading = new AlertDialog.Builder(activity)
-                    .setTitle("Importing to Whatsapp..")
+                    .setTitle("Importing to Whatsapp..") // todo
                     .setMessage("Please be patient, it takes few secs.")
                     .setCancelable(false)
                     .create();
