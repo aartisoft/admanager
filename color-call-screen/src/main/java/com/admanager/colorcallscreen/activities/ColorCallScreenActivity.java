@@ -94,7 +94,7 @@ public class ColorCallScreenActivity extends AppCompatActivity {
         }
 
         if (getIntent() != null) {
-            BgModel bgModel = (BgModel) getIntent().getSerializableExtra("BgImage");
+            BgModel bgModel = (BgModel) getIntent().getSerializableExtra("BgModel");
             int position = getIntent().getIntExtra("position", -1);
             if (position != -1 && bgModel != null) {
                 String name = ColorCallScreenApp.NAMES[position % ColorCallScreenApp.NAMES.length];
