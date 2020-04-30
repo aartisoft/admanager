@@ -92,5 +92,4 @@ public class CategoryDetailsFragment extends BaseFragment {
             subscribe = null;
         }
     }
-
 }

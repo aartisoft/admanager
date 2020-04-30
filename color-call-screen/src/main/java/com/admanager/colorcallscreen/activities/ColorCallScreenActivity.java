@@ -28,6 +28,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.admanager.colorcallscreen.ColorCallScreenApp;
 import com.admanager.colorcallscreen.R;
+import com.admanager.colorcallscreen.api.BgModel;
 import com.admanager.colorcallscreen.fragment.BgDetailsFragment;
 import com.admanager.colorcallscreen.fragment.CategoryFragment;
 import com.admanager.colorcallscreen.model.ContactBean;
@@ -47,6 +48,13 @@ public class ColorCallScreenActivity extends AppCompatActivity {
 
     public static void start(Context context) {
         Intent intent = new Intent(context, ColorCallScreenActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void start(Context context, BgModel bgModel, int position) {
+        Intent intent = new Intent(context, ColorCallScreenActivity.class);
+        intent.putExtra("BgModel", bgModel);
+        intent.putExtra("position", position);
         context.startActivity(intent);
     }
 
@@ -83,6 +91,17 @@ public class ColorCallScreenActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
             PhoneStateService.start(this);
+        }
+
+        if (getIntent() != null) {
+            BgModel bgModel = (BgModel) getIntent().getSerializableExtra("BgImage");
+            int position = getIntent().getIntExtra("position", -1);
+            if (position != -1 && bgModel != null) {
+                String name = ColorCallScreenApp.NAMES[position % ColorCallScreenApp.NAMES.length];
+                Uri uri = Uri.parse("android.resource://" + getPackageName() + "/" + (ColorCallScreenApp.IMAGES[position % ColorCallScreenApp.IMAGES.length]));
+                Bundle bundle = BgDetailsFragment.createBgDetailsBundle(name, uri, bgModel, ColorCallScreenApp.NUMBER, false);
+                navController.navigate(R.id.bgDetailsFragment, bundle);
+            }
         }
     }
 

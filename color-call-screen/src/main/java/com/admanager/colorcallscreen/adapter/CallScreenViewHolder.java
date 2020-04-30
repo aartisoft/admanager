@@ -93,7 +93,7 @@ public class CallScreenViewHolder extends BindableViewHolder<BgModel> {
     }
 
     @Override
-    public void bindTo(final Activity activity, final BgModel bgModel, int position) {
+    public void bindTo(final Activity activity, final BgModel bgModel, final int position) {
 
         boolean isSelected = Prefs.with(activity).isSelectedBg(bgModel);
         boolean isSelectedForUser = Prefs.with(activity).isSelectedBgForUser(null, bgModel);
@@ -120,6 +120,8 @@ public class CallScreenViewHolder extends BindableViewHolder<BgModel> {
                 if (activity instanceof ColorCallScreenActivity) {
                     Bundle bundle = BgDetailsFragment.createBgDetailsBundle(name, uri, bgModel, ColorCallScreenApp.NUMBER, false);
                     ((ColorCallScreenActivity) activity).navController.navigate(R.id.bgDetailsFragment, bundle);
+                } else {
+                    ColorCallScreenActivity.start(activity, bgModel, position);
                 }
             }
         });

@@ -10,6 +10,7 @@ import com.admanager.recyclerview.BaseAdapter;
 
 public class CallScreenAdapter extends BaseAdapter<BgModel, CallScreenViewHolder> {
 
+
     public CallScreenAdapter(Activity activity) {
         super(activity, R.layout.ccs_item_ring_incoming);
     }
