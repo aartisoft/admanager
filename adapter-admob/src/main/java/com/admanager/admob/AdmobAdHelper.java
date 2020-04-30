@@ -25,6 +25,9 @@ public class AdmobAdHelper {
     }
 
     public static void populateUnifiedNativeAdView(UnifiedNativeAd nativeAd, UnifiedNativeAdView adView) {
+        if (adView == null || nativeAd == null) {
+            return;
+        }
         // Set the media view. Media content will be automatically populated in the media view once
         // adView.setNativeAd() is called.
         MediaView mediaView = adView.findViewById(R.id.ad_media);

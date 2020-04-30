@@ -126,6 +126,7 @@ public class AdmobNativeLoader extends NativeLoader<AdmobNativeLoader> {
         if (unifiedNativeAdView != null) {
             unifiedNativeAdView.destroy();
         }
+        unifiedNativeAdView = null;
     }
 
     public enum NativeType {
