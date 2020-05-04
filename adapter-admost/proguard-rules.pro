@@ -296,11 +296,6 @@ public static <fields>;
 # SMAATO
 -dontwarn com.smaato.**
 -keep class com.smaato.** { public *; }
--assumenosideeffects class android.util.Log {
-    public static *** d(...);
-    public static *** v(...);
-    public static *** i(...);
-}
 -keep public class com.smaato.soma.internal.connector.OrmmaBridge { public *; }
 -keepattributes *Annotation*
 -dontwarn com.smaato.soma.SomaUnityPlugin*
