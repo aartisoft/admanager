@@ -32,12 +32,14 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
 
     private RemoteConfigHelper(Map<String, Object> defaultMap, boolean isDeveloperModeEnabled) {
         mRemoteConfig = FirebaseRemoteConfig.getInstance();
-        mRemoteConfig.activate();
         mRemoteConfig.setDefaults(defaultMap);
         int minimumFetchIntervalInSeconds = isDeveloperModeEnabled ? 0 : 10800;
         mRemoteConfig.setConfigSettingsAsync(new FirebaseRemoteConfigSettings.Builder().setMinimumFetchIntervalInSeconds(minimumFetchIntervalInSeconds).build());
         mRemoteConfig.fetch(minimumFetchIntervalInSeconds).addOnCompleteListener(this);
         testMode = isDeveloperModeEnabled;
+        if (!testMode) { // don't activate server based values in debug mode
+            mRemoteConfig.activate();
+        }
     }
 
     public static boolean areAdsEnabled() {
@@ -106,13 +108,18 @@ public class RemoteConfigHelper implements OnCompleteListener<Void> {
     @Override
     public void onComplete(@NonNull Task<Void> task) {
         if (task.isSuccessful()) {
-            mRemoteConfig.activate().addOnCompleteListener(new OnCompleteListener<Boolean>() {
-                @Override
-                public void onComplete(@NonNull Task<Boolean> task) {
-                    Log.i(TAG, "remote configs fetched");
-                    initPeriodicNotifIfExist();
-                }
-            });
+            if (isTestMode()) { // don't activate server based values in debug mode
+                Log.i(TAG, "remote configs fetched");
+                initPeriodicNotifIfExist();
+            } else {
+                mRemoteConfig.activate().addOnCompleteListener(new OnCompleteListener<Boolean>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Boolean> task) {
+                        Log.i(TAG, "remote configs fetched");
+                        initPeriodicNotifIfExist();
+                    }
+                });
+            }
         }
     }
 
