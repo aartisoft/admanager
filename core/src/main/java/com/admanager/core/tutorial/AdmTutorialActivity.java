@@ -57,6 +57,7 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
     private WormDotsIndicator waWormDotsIndicator;
     private AdmTutorialConfiguration configuration;
     private FirebaseAnalytics firebaseAnalytics;
+    private boolean displayedFirstPage;
 
     @Override
     protected final void onCreate(@Nullable Bundle savedInstanceState) {
@@ -259,8 +260,12 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
             }
         }
 
-        if ((configuration.nativePositions.length > 1 || configuration.reloadNativeAds) && position != 0) {
+        if ((configuration.nativePositions.length > 1 || configuration.reloadNativeAds) && displayedFirstPage) {
             _loadAd(position);
+        }
+
+        if (!displayedFirstPage) {
+            displayedFirstPage = true;
         }
 
         if (firebaseAnalytics != null) {
