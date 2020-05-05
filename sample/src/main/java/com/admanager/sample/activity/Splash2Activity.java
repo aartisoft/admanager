@@ -38,7 +38,7 @@ public class Splash2Activity extends AdmTutorialActivity {
     }
 
     @Override
-    protected void loadAd(LinearLayout container, int page) {
+    protected void loadAd(LinearLayout container) {
         new AdmobNativeLoader(this, container, RCUtils.NATIVE_ADMOB_ENABLED).size(AdmobNativeLoader.NativeType.NATIVE_XL).loadWithRemoteConfigId(RCUtils.NATIVE_ADMOB_ID);
     }
 

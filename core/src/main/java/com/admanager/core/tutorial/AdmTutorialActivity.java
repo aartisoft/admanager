@@ -58,6 +58,7 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
     private AdmTutorialConfiguration configuration;
     private FirebaseAnalytics firebaseAnalytics;
     private boolean displayedFirstPage;
+    private int page;
 
     @Override
     protected final void onCreate(@Nullable Bundle savedInstanceState) {
@@ -112,6 +113,10 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         onPageSelected(0);
     }
 
+    public int getPosition() {
+        return page;
+    }
+
     private void hideStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window window = getWindow();
@@ -154,18 +159,18 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
         adplaceholderCenterContainer.setVisibility(pos.equals(NativePosition.CENTER) ? View.VISIBLE : View.GONE);
         switch (pos) {
             case TOP:
-                loadAd(adplaceholderTop, position);
+                loadAd(adplaceholderTop);
                 break;
             case BOTTOM:
-                loadAd(adplaceholder, position);
+                loadAd(adplaceholder);
                 break;
             case CENTER:
-                loadAd(adplaceholderCenter, position);
+                loadAd(adplaceholderCenter);
                 break;
         }
     }
 
-    protected abstract void loadAd(LinearLayout container, int page);
+    protected abstract void loadAd(LinearLayout container);
 
     protected void loadTopAd(LinearLayout container) {
     }
@@ -244,6 +249,7 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
 
     @Override
     public final void onPageSelected(int position) {
+        this.page = position;
         configuration.applyRootLayoutStyle(root, position);
         configuration.applyButtonStyle(btnNext, position);
         setNextButtonVisibility(position);
