@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 
 import com.admanager.config.RemoteConfigHelper;
@@ -166,6 +167,18 @@ public class AdManager {
         for (Adapter adapter : ADAPTERS) {
             adapter.destroy();
         }
+    }
+
+    public void waitAndShow(long wait) {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                if (AdmUtils.isContextInvalid(getActivity())) {
+                    return;
+                }
+                show();
+            }
+        }, wait);
     }
 
     public void show() {

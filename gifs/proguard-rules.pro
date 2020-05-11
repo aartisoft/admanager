@@ -19,3 +19,5 @@
 -keepclassmembernames class com.giphy.sdk.core.network.response.** { *; }
 -keepattributes *Annotation*
 -dontwarn com.giphy.sdk.core.**
+-keep class com.giphy.sdk.** {*;}
+-keep class * extends androidx.fragment.app.Fragment{}
