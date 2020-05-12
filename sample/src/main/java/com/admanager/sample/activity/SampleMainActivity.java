@@ -20,10 +20,10 @@ import com.admanager.applocker.AppLockerApp;
 import com.admanager.barcode.activities.BarcodeReaderActivity;
 import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.colorcallscreen.activities.ColorCallScreenActivity;
-import com.admanager.compass.activities.CompassActivity;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.ShareUtils;
+import com.admanager.core.toolbar.AdmToolbarAnimator;
 import com.admanager.gpstimeaddresscoord.activities.GPSTimeAddressCoordActivity;
 import com.admanager.maps.activities.MapsActivity;
 import com.admanager.popupenjoy.AdmPopupEnjoy;
@@ -113,7 +113,10 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
             }
         });
 
-
+        new AdmToolbarAnimator(toolbar)
+                .animate()
+                .setBadgeText("9+")
+                .start();
     }
 
     private void toast(CharSequence title, boolean text) {
@@ -145,7 +148,7 @@ public class SampleMainActivity extends AppCompatActivity implements NavigationV
         } else if (id == R.id.nav_gps_satellite) {
             SpeedTestActivity.start(this);
         } else if (id == R.id.nav_compass) {
-            CompassActivity.start(this);
+//            CompassActivity.start(this);
         } else if (id == R.id.nav_share) {
             ShareUtils.shareApp(this, "Lets check interesting app", true);
         } else if (id == R.id.isConnected) {
