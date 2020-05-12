@@ -76,7 +76,7 @@ public class NotificationProcessor {
             }
 
             Notification build = new NotificationCompat.Builder(context, channelID)
-                    .setContentTitle(context.getString(R.string.unseen_new_message, this.title)
+                    .setContentTitle(context.getString(R.string.unseen_new_message, this.title))
                     .setContentText(m.getTitle() + ": " + m.getLastMessageText())
                     .setSmallIcon(android.R.drawable.star_off)//todo logo small
                     .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.circle_white)) // todo logo
