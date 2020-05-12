@@ -40,6 +40,9 @@ public class RCUtils {
     public static final String MAIN_3SEC_ADMOB_ENABLED = "main_3sec_admob_enabled";
     public static final String MAIN_3SEC_ADMOB_ID = "main_3sec_admob_id";
 
+    public static final String MAIN_POPUP_REWARDED_ENABLED = "main_popup_rewarded_enabled";
+    public static final String MAIN_POPUP_REWARDED_ID = "main_popup_rewarded_id";
+
     public static final String ADMOB_BANNER_ENABLED = "admob_banner_enabled";
     public static final String ADMOB_BANNER_ID = "admob_banner_id";
 
@@ -77,6 +80,7 @@ public class RCUtils {
             defaults.put(ONRESUME_UNITY_ENABLED, true);
             defaults.put(MAIN_6SEC_FACEBOOK_ENABLED, true);
             defaults.put(MAIN_3SEC_ADMOB_ENABLED, true);
+            defaults.put(MAIN_POPUP_REWARDED_ENABLED, true);
 
             defaults.put(NATIVE_FACEBOOK_ENABLED, true);
             defaults.put(NATIVE_ADMOB_ENABLED, true);
@@ -94,6 +98,7 @@ public class RCUtils {
             defaults.put(NATIVE_ADMOB_ID, "ca-app-pub-3940256099942544/2247696110"); // TODO
             defaults.put(MAIN_3SEC_ADMOB_ID, "ca-app-pub-3940256099942544/1033173712"); // TODO
             defaults.put(ADMOB_LIBS_BANNER_ID, "ca-app-pub-3940256099942544/1033173712"); // TODO
+            defaults.put(MAIN_POPUP_REWARDED_ID, "ca-app-pub-3940256099942544/5224354917"); // TODO
 
             defaults.put(S1_FACEBOOK_ID, "YOUR_PLACEMENT_ID"); // TODO
             defaults.put(S2_FACEBOOK_ID, "YOUR_PLACEMENT_ID"); // TODO

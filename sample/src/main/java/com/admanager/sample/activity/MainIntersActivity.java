@@ -2,11 +2,13 @@ package com.admanager.sample.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.admanager.admob.AdmobAdapter;
+import com.admanager.admob.AdmobRewardedAdapter;
 import com.admanager.core.AdManager;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.DummyAdapter;
@@ -35,6 +37,9 @@ public class MainIntersActivity extends AppCompatActivity implements View.OnClic
                 .add(new DummyAdapter())
                 .add(new AdmobAdapter(RCUtils.MAIN_ADMOB_ENABLED).withRemoteConfigId(RCUtils.MAIN_ADMOB_ID))
                 .add(new FacebookAdapter(RCUtils.MAIN_FACEBOOK_ENABLED).withRemoteConfigId(RCUtils.MAIN_FACEBOOK_ID))
+                .add(new AdmobRewardedAdapter(RCUtils.MAIN_POPUP_REWARDED_ENABLED).withRemoteConfigId(RCUtils.MAIN_POPUP_REWARDED_ID, () -> {
+                    Toast.makeText(this, "Here you go! You won!", Toast.LENGTH_SHORT).show();
+                }))
                 .build();
 
         unityOnExit = new AdManagerBuilder(this)
@@ -54,7 +59,7 @@ public class MainIntersActivity extends AppCompatActivity implements View.OnClic
         switch (id) {
             case R.id.any_action:
                 // any_action();
-                adManager.showOne();
+                adManager.show();
                 break;
         }
     }
