@@ -1,6 +1,6 @@
 <resources>
     <string name="no_thanks">نه ممنون</string>
-    <string name="please_rate_us_to_open">لطفا برای باز کردن این ویژگی به ما امتیاز دهید</string>
+    <string name="please_rate_us_to_open">لطفا به ما امتیاز دهید</string>
     <string name="popup_rate_us">به ما رای دهید</string>
     <string name="popup_rate_us_thanks">با تشکر</string>
 </resources>

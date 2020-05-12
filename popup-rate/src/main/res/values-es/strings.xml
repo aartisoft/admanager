@@ -1,6 +1,6 @@
 <resources>
     <string name="no_thanks">No, gracias</string>
-    <string name="please_rate_us_to_open">Califícanos para abrir esta función</string>
+    <string name="please_rate_us_to_open">Por favor califícanos</string>
     <string name="popup_rate_us">Nos califica</string>
     <string name="popup_rate_us_thanks">Gracias</string>
 </resources>
