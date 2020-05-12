@@ -37,8 +37,8 @@ public class MainIntersActivity extends AppCompatActivity implements View.OnClic
                 .add(new DummyAdapter())
                 .add(new AdmobAdapter(RCUtils.MAIN_ADMOB_ENABLED).withRemoteConfigId(RCUtils.MAIN_ADMOB_ID))
                 .add(new FacebookAdapter(RCUtils.MAIN_FACEBOOK_ENABLED).withRemoteConfigId(RCUtils.MAIN_FACEBOOK_ID))
-                .add(new AdmobRewardedAdapter(RCUtils.MAIN_POPUP_REWARDED_ENABLED).withRemoteConfigId(RCUtils.MAIN_POPUP_REWARDED_ID, () -> {
-                    Toast.makeText(this, "Here you go! You won!", Toast.LENGTH_SHORT).show();
+                .add(new AdmobRewardedAdapter(RCUtils.MAIN_POPUP_REWARDED_ENABLED).withRemoteConfigId(RCUtils.MAIN_POPUP_REWARDED_ID).setUserRewardedListener(amount -> {
+                    Toast.makeText(MainIntersActivity.this, "Here you go! You won " + amount + " reward!", Toast.LENGTH_SHORT).show();
                 }))
                 .build();
 
