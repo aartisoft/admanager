@@ -44,7 +44,6 @@ public class AdmobRewardedAdapter extends RewardedAdapter {
         @Override
         public void onRewardedAdOpened() {
             logv("onRewardedAdOpened");
-            clicked();
         }
 
         @Override
@@ -62,7 +61,7 @@ public class AdmobRewardedAdapter extends RewardedAdapter {
     };
 
     public AdmobRewardedAdapter(@Size(min = com.admanager.core.Consts.RC_KEY_SIZE) String enableKey) {
-        super("Rewarded", enableKey);
+        super("RewardedAdmob", enableKey);
     }
 
     public RewardedAdapter withRemoteConfigId(@Size(min = com.admanager.core.Consts.RC_KEY_SIZE) String rcAdUnitIdKey) {
@@ -120,7 +119,4 @@ public class AdmobRewardedAdapter extends RewardedAdapter {
         this.rewardedAd = null;
     }
 
-    public interface UserRewardedListener {
-        void onUserRewarded();
-    }
 }
