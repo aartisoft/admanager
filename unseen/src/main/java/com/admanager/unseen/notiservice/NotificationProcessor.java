@@ -64,15 +64,9 @@ public class NotificationProcessor {
             clickIntent.putExtras(b);
             PendingIntent aIntent = PendingIntent.getActivity(context, 0, clickIntent, 0);
 
-            String chanellSuffix = m.getTitle();
-            if (chanellSuffix == null) {
-                chanellSuffix = "";
-            }
-            chanellSuffix = chanellSuffix.replace(" ", "_");
-            String channelID = "unseen_ch_" + hashCode + "_" + chanellSuffix;
-
+            String channelID = "unseen_notif_channel";
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                NotificationChannel chan = new NotificationChannel(channelID, channelID, NotificationManager.IMPORTANCE_NONE);
+                NotificationChannel chan = new NotificationChannel(channelID, context.getString(R.string.unseen_title), NotificationManager.IMPORTANCE_NONE);
                 chan.setLightColor(Color.BLUE);
                 chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
                 NotificationManager service = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -82,7 +76,7 @@ public class NotificationProcessor {
             }
 
             Notification build = new NotificationCompat.Builder(context, channelID)
-                    .setContentTitle("New Unseen " + this.title + " Message")
+                    .setContentTitle(context.getString(R.string.unseen_new_message, this.title)
                     .setContentText(m.getTitle() + ": " + m.getLastMessageText())
                     .setSmallIcon(android.R.drawable.star_off)//todo logo small
                     .setLargeIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.circle_white)) // todo logo

@@ -18,5 +18,6 @@
     <string name="action_delete">Delete All</string>
     <string name="unseen_no_data_title">No message received yet.</string>
     <string name="unseen_no_data_text">Your messages will displayed here.</string>
+    <string name="unseen_new_message" translatable="false">New Unseen %s Message</string> <!--todo-->
 
 </resources>
