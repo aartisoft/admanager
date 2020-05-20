@@ -2,12 +2,7 @@ package com.admanager.sample;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.multidex.MultiDexApplication;
 
@@ -17,7 +12,7 @@ import com.admanager.applocker.AppLockerApp;
 import com.admanager.barcode.BarcodeReaderApp;
 import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.colorcallscreen.ColorCallScreenApp;
-import com.admanager.compass.CompassApp;
+import com.admanager.colorcallscreen.model.AfterCallCard;
 import com.admanager.config.RemoteConfigApp;
 import com.admanager.core.Ads;
 import com.admanager.gifs.GifsApp;
@@ -33,7 +28,11 @@ import com.admanager.unseen.UnseenApp;
 import com.admanager.wastickers.WastickersApp;
 import com.admanager.weather.WeatherApp;
 
-public class MyApplication extends MultiDexApplication implements Ads, ColorCallScreenApp.AfterCallLayout {
+import org.jetbrains.annotations.NotNull;
+
+import java.util.ArrayList;
+
+public class MyApplication extends MultiDexApplication implements Ads {
 
     @Override
     public void onCreate() {
@@ -82,9 +81,10 @@ public class MyApplication extends MultiDexApplication implements Ads, ColorCall
                 .ads(this)
                 .build();
 
+        ArrayList<AfterCallCard> afterCallCards = createAfterCallCards();
         new ColorCallScreenApp.Builder(this)
                 .ads(this)
-                .afterCallLayout(this)
+                .afterCallCards(afterCallCards)
                 .build();
 
         new NewsApp.Builder(this,
@@ -131,6 +131,21 @@ public class MyApplication extends MultiDexApplication implements Ads, ColorCall
                 .build();
     }
 
+    @NotNull
+    private ArrayList<AfterCallCard> createAfterCallCards() {
+        ArrayList<AfterCallCard> afterCallCards = new ArrayList<>();
+
+        Intent intent = new Intent(this, Splash1Activity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        AfterCallCard e = new AfterCallCard(R.string.after_call_card_title, R.drawable.ic_download, intent);
+        e.setSubtitle(R.string.after_call_card_subtitle);
+
+        afterCallCards.add(e);
+
+        return afterCallCards;
+    }
+
     @Override
     public void loadTop(Activity activity, LinearLayout container) {
         new AdmobBannerLoader(activity, container, RCUtils.ADMOB_LIBS_BANNER_ENABLED).loadWithRemoteConfigId(RCUtils.ADMOB_LIBS_BANNER_ID);
@@ -141,31 +156,4 @@ public class MyApplication extends MultiDexApplication implements Ads, ColorCall
         new AdmobNativeLoader(activity, container, RCUtils.NATIVE_ADMOB_ENABLED).size(AdmobNativeLoader.NativeType.NATIVE_BANNER).loadWithRemoteConfigId(RCUtils.NATIVE_ADMOB_ID);
     }
 
-    @Override
-    public void inflateInto(Activity activity, LinearLayout container, String lastNumber) {
-        // color call screen aftercall screen
-
-        // IMPORTANT NOTE! : This code is only an example, you MUST change below code
-        View view = LayoutInflater.from(activity).inflate(R.layout.layout_after_call, container);
-        TextView textView = view.findViewById(R.id.text);
-        Button changeCallScreen = view.findViewById(R.id.changeCallScreen);
-        Button goToContacts = view.findViewById(R.id.goToContacts);
-
-        textView.setText("Phone number: " + lastNumber);
-        goToContacts.setOnClickListener(view12 -> {
-            Intent contactIntent = new Intent(Intent.ACTION_MAIN);
-            contactIntent.addCategory(Intent.CATEGORY_APP_CONTACTS);
-            try {
-                startActivity(contactIntent);
-            } catch (Exception e) {
-                Toast.makeText(activity, getString(R.string.adm_ccs_intent_not_found), Toast.LENGTH_SHORT).show();
-            }
-        });
-        changeCallScreen.setOnClickListener(view1 -> {
-            Intent launchIntent = new Intent(activity, Splash1Activity.class);
-            startActivity(launchIntent);
-            activity.finish(); // terminate the aftercall screen
-        });
-
-    }
 }
