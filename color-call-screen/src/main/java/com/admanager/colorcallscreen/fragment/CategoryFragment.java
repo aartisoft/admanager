@@ -1,6 +1,5 @@
 package com.admanager.colorcallscreen.fragment;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +21,7 @@ import com.admanager.colorcallscreen.api.BgModel;
 import com.admanager.colorcallscreen.api.CallScreenService;
 import com.admanager.colorcallscreen.api.CategoryModel;
 import com.admanager.colorcallscreen.utils.Utils;
+import com.admanager.core.AdmUtils;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -41,13 +41,7 @@ public class CategoryFragment extends BaseFragment {
     public CategoryAdapter adapter;
     Disposable subscribe;
     RecyclerView recyclerView;
-
-    public static void importImageClicked(Activity act) {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/*");
-        act.startActivityForResult(Intent.createChooser(intent, act.getString(R.string.picture_select)), ColorCallScreenActivity.REQUEST_GET_SINGLE_FILE);
-    }
+    View importImage;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,15 +54,26 @@ public class CategoryFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.ccs_fragment_category, parent, false);
         getColorCallScreenActivity().setTitle(getString(R.string.colorCallScreen));
         recyclerView = view.findViewById(R.id.recycler_view);
+        importImage = view.findViewById(R.id.importImage);
         setAdapter();
-
+        importImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (AdmUtils.isContextInvalid(getActivity())) {
+                    return;
+                }
+                Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("image/*");
+                getActivity().startActivityForResult(Intent.createChooser(intent, getString(R.string.picture_select)), ColorCallScreenActivity.REQUEST_GET_SINGLE_FILE);
+            }
+        });
         return view;
     }
 
     private void setAdapter() {
         adapter = new CategoryAdapter(getColorCallScreenActivity());
         ArrayList<CategoryModel> data = new ArrayList<>();
-        data.add(null); // import button
         adapter.setData(data);
         LinearLayoutManager layout = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layout);
@@ -93,7 +98,6 @@ public class CategoryFragment extends BaseFragment {
                 .subscribe(new Consumer<List<CategoryModel>>() {
                     @Override
                     public void accept(List<CategoryModel> list) throws Exception {
-                        list.add(0, null);
                         adapter.setData(list);
                         adapter.loaded();
                     }

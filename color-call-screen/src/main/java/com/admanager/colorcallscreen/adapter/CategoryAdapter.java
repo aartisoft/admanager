@@ -11,7 +11,7 @@ import com.admanager.recyclerview.BaseAdapter;
 public class CategoryAdapter extends BaseAdapter<CategoryModel, CategoryViewHolder> {
 
     public CategoryAdapter(Activity activity) {
-        super(activity, R.layout.item_category);
+        super(activity, R.layout.adm_ccs_item_category);
     }
 
     @Override

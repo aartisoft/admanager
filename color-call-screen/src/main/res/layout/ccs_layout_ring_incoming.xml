@@ -10,8 +10,7 @@
         android:id="@+id/bg_image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimaryLight"
-
+        android:background="@null"
         android:scaleType="centerCrop"
         tools:src="@tools:sample/backgrounds/scenic" />
 
@@ -19,8 +18,7 @@
         android:id="@+id/bg_video"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimaryLight"
-
+        android:background="@null"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -68,6 +66,7 @@
             android:paddingRight="10dp"
             android:shadowColor="@color/colorPrimary"
             android:shadowRadius="8"
+            android:alpha="0.8"
             android:textColor="#fefefe"
             android:textSize="20sp"
             tools:text="number" />
@@ -80,6 +79,7 @@
             android:paddingRight="10dp"
             android:shadowColor="@color/colorPrimary"
             android:shadowRadius="8"
+            android:alpha="0.6"
             android:textColor="#fefefe"
             android:textSize="20sp"
             tools:text="status" />
@@ -91,6 +91,7 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:shadowColor="@color/colorPrimary"
+            android:alpha="0.5"
             android:shadowRadius="8"
             android:text="@string/duration_zero"
             android:textColor="#fefefe"

@@ -9,6 +9,8 @@
     <color name="colorCategory6">#7E7DFC</color>
     <color name="colorCategory7">#83C38A</color>
     <color name="colorCategory8">#FDA36D</color>
-    <color name="admCCsColorWriteMessageBg">#f1f3f6</color>
+    <color name="admCCsColorWriteMessageBg">#ffffff</color>
+    <color name="adm_ccs_import_bg">#5850C2</color>
+    <color name="adm_ccs_import_text">#ffffff</color>
 
 </resources>

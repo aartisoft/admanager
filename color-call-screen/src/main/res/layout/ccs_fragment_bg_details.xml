@@ -11,6 +11,7 @@
         android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:src="@tools:sample/backgrounds/scenic"
         android:scaleType="centerCrop" />
 
     <FrameLayout
@@ -89,36 +90,50 @@
 
     <Button
         android:id="@+id/set_as_call"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_importimage"
+        android:minWidth="250dp"
+        android:paddingLeft="48dp"
+        android:paddingTop="4dp"
+        android:paddingRight="48dp"
+        android:paddingBottom="4dp"
+        android:textColor="@color/adm_ccs_import_text"
         android:alpha="0.95"
-        android:background="@drawable/btn_setas"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         android:text="@string/call_screen_set"
-        android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@id/bottom_line" />
 
     <LinearLayout
         android:id="@+id/bottom_line"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
             android:id="@+id/list_contacts"
-            android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_importimage"
+            android:minWidth="250dp"
+            android:paddingLeft="48dp"
+            android:paddingTop="4dp"
+            android:paddingRight="48dp"
+            android:paddingBottom="4dp"
+            android:textColor="@color/adm_ccs_import_text"
             android:layout_margin="12dp"
-            android:layout_weight="1"
             android:alpha="0.95"
-            android:background="@drawable/btn_select"
-            android:text="@string/contact_select"
-            android:textColor="@android:color/white" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:text="@string/contact_select" />
 
         <Button
             android:id="@+id/add_contact"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_margin="12dp"
             android:alpha="0.95"
             android:background="@drawable/ic_add"

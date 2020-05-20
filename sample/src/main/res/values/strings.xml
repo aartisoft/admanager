@@ -42,4 +42,7 @@
     <string name="tut_desc_2">Some description comes here. A Folder is displaying.</string>
     <string name="tut_desc_3">Some description comes here. One Screenshot.</string>
 
+    <string name="after_call_card_title">Gifs</string>
+    <string name="after_call_card_subtitle">Download and Share GIFs</string>
+
 </resources>

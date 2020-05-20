@@ -3,7 +3,7 @@
     <item>
         <shape>
             <corners android:radius="11dp" />
-            <gradient android:angle="0" android:endColor="#FFC130" android:startColor="#F9563D" android:type="linear" />
+            <solid android:color="@color/adm_ccs_import_bg" />
         </shape>
     </item>
 </selector>

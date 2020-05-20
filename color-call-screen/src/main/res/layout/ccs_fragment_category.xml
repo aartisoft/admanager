@@ -12,15 +12,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--  <Button
+    <Button
           android:id="@+id/importImage"
-          android:layout_width="match_parent"
-          android:layout_height="80dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
           android:background="@drawable/btn_importimage"
-          android:padding="12dp"
+        android:layout_marginBottom="24dp"
+        android:paddingLeft="24dp"
+        android:paddingTop="8dp"
+        android:paddingRight="24dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
           android:text="@string/import_text"
           android:textAppearance="@style/TextAppearance.AppCompat.Medium"
           android:textColor="@android:color/white"
-          app:layout_constraintBottom_toBottomOf="parent" />-->
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

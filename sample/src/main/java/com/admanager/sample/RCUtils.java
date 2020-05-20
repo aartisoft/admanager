@@ -31,6 +31,9 @@ public class RCUtils {
     public static final String NATIVE_FACEBOOK_ENABLED = "native_facebook_enabled";
     public static final String NATIVE_FACEBOOK_ID = "native_facebook_id";
 
+    public static final String TUTORIAL_NATIVE_ADMOB_ID = "tutorial_native_admob_id";
+    public static final String TUTORIAL_NATIVE_ADMOB_ENABLED = "tutorial_native_admob_enabled";
+
     public static final String NATIVE_ADMOB_ENABLED = "native_admob_enabled";
     public static final String NATIVE_ADMOB_ID = "native_admob_id";
 
@@ -73,6 +76,7 @@ public class RCUtils {
             defaults.put(S2_ADMOB_ENABLED, true);
             defaults.put(S2_FACEBOOK_ENABLED, true);
 
+            defaults.put(TUTORIAL_NATIVE_ADMOB_ENABLED, true);
             defaults.put(MAIN_ADMOB_ENABLED, true);
             defaults.put(MAIN_FACEBOOK_ENABLED, true);
 
@@ -96,6 +100,7 @@ public class RCUtils {
             defaults.put(MAIN_ADMOB_ID, "ca-app-pub-3940256099942544/1033173712"); // TODO
             defaults.put(ADMOB_BANNER_ID, "ca-app-pub-3940256099942544/6300978111"); // TODO
             defaults.put(NATIVE_ADMOB_ID, "ca-app-pub-3940256099942544/2247696110"); // TODO
+            defaults.put(TUTORIAL_NATIVE_ADMOB_ID, "ca-app-pub-3940256099942544/2247696110"); // TODO
             defaults.put(MAIN_3SEC_ADMOB_ID, "ca-app-pub-3940256099942544/1033173712"); // TODO
             defaults.put(ADMOB_LIBS_BANNER_ID, "ca-app-pub-3940256099942544/1033173712"); // TODO
             defaults.put(MAIN_POPUP_REWARDED_ID, "ca-app-pub-3940256099942544/5224354917"); // TODO

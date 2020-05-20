@@ -108,7 +108,7 @@ public class CallScreenViewHolder extends BindableViewHolder<BgModel> {
         GsmCall gsmCall = new GsmCall(GsmCall.Status.RINGING, contactBean);
         CCSInCallActivity.updateView(gsmCall, textStatus, textDuration, buttonHangup, buttonAnswer, call_buttons, textDisplayName, textNumber, iv_portrait);
 
-        CCSInCallActivity.loadBgImage(itemView.getContext(), bgModel.thumbnail, bg_image);
+        CCSInCallActivity.loadBgImage(itemView.getContext(), bgModel.thumbnail, bg_image, 12);
 
         buttonHangup.setVisibility(isSelected ? View.VISIBLE : View.GONE);
         buttonAnswer.setVisibility(isSelected ? View.VISIBLE : View.GONE);

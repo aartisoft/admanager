@@ -101,7 +101,7 @@ public class BgDetailsFragment extends BaseFragment implements View.OnClickListe
         selected.setVisibility(isSelected ? View.VISIBLE : View.GONE);
 
         setAsCall.setText(isSelected ? R.string.call_screen_cancel : R.string.call_screen_set);
-        setAsCall.setBackgroundResource(isSelected ? R.drawable.setas_disabled : R.drawable.btn_setas);
+        setAsCall.setAlpha(isSelected ? 0.7f : 1f);
 
         listContacts.setText(isSelectedForUser ? R.string.contact_list : R.string.contact_select);
         addContact.setVisibility(isSelectedForUser ? View.VISIBLE : View.GONE);

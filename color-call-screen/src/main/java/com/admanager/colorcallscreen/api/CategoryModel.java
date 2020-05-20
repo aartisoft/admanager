@@ -15,4 +15,8 @@ public class CategoryModel implements Serializable {
     @Expose
     public String icon;
 
+    @SerializedName("image")
+    @Expose
+    public String image;
+
 }

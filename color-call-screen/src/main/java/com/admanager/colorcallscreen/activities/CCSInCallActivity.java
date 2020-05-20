@@ -3,13 +3,16 @@ package com.admanager.colorcallscreen.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,6 +26,7 @@ import androidx.core.content.ContextCompat;
 
 import com.admanager.colorcallscreen.ColorCallScreenApp;
 import com.admanager.colorcallscreen.R;
+import com.admanager.colorcallscreen.model.AfterCallCard;
 import com.admanager.colorcallscreen.model.ContactBean;
 import com.admanager.colorcallscreen.service.CallManagerCompat;
 import com.admanager.colorcallscreen.service.GsmCall;
@@ -32,6 +36,10 @@ import com.admanager.colorcallscreen.utils.Utils;
 import com.admanager.colorcallscreen.view.FullScreenVideoView;
 import com.admanager.core.AdmUtils;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.MultiTransformation;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -70,9 +78,13 @@ public class CCSInCallActivity extends AppCompatActivity implements View.OnClick
     private Disposable timerDisposable;
     private LinearLayout buttons;
 
-    public static void loadBgImage(Context context, String url, ImageView imageView) {
+    public static void loadBgImage(Context context, String url, ImageView imageView, int cornerRadius) {
+        RoundedCorners roundedCorners = new RoundedCorners(cornerRadius);
+        CenterCrop centerCrop = new CenterCrop();
+        MultiTransformation<Bitmap> transforms = new MultiTransformation<>(centerCrop, roundedCorners);
         Glide.with(context)
                 .load(url)
+                .apply(new RequestOptions().transform(transforms))
                 .into(imageView);
     }
 
@@ -232,6 +244,7 @@ public class CCSInCallActivity extends AppCompatActivity implements View.OnClick
             Toast.makeText(this, getString(R.string.adm_ccs_intent_not_found), Toast.LENGTH_SHORT).show();
         }
     }
+
     public void onResume() {
         super.onResume();
         Log.d(LOG_TAG, "onResume");
@@ -291,13 +304,13 @@ public class CCSInCallActivity extends AppCompatActivity implements View.OnClick
     }
 
     private void showResults(boolean show) {
-        bg_image.setVisibility(show ? View.GONE : View.VISIBLE);
+        bg_image.setAlpha(show ? 0.2f : 1f);
         imageContainer.setVisibility(show ? View.GONE : View.VISIBLE);
         layout_callend.setVisibility(!show ? View.GONE : View.VISIBLE);
 
         for (TextView textview : textviews) {
             int radius = show ? 0 : 8;
-            int color = show ? R.color.colorPrimary : android.R.color.white;
+            int color = show ? android.R.color.black : android.R.color.white;
             textview.setShadowLayer(radius, -1, 1, ContextCompat.getColor(this, R.color.colorPrimary));
             textview.setTextColor(ContextCompat.getColor(this, color));
         }
@@ -318,8 +331,62 @@ public class CCSInCallActivity extends AppCompatActivity implements View.OnClick
                     additionalLayout.removeAllViews();
                     instance.afterCallLayout.inflateInto(this, additionalLayout, lastNumber);
                 }
+
+                if (instance.afterCallCards != null) {
+                    additionalLayout.removeAllViews();
+                    for (AfterCallCard params : instance.afterCallCards) {
+                        View v = createAfterCallLayout(this, params);
+                        LinearLayout.LayoutParams llp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                        int margin = 10;
+                        llp.setMargins(0, margin, 0, margin);
+                        v.setLayoutParams(llp);
+                        additionalLayout.addView(v);
+                    }
+                }
             }
         }
+    }
+
+    public View createAfterCallLayout(final Context context, final AfterCallCard parameter) {
+
+        // IMPORTANT NOTE! : This code is only an example, you MUST change below code
+        View view = LayoutInflater.from(context).inflate(R.layout.adm_ccs_default_layout_after_call, null);
+        TextView title = view.findViewById(R.id.title);
+        TextView subtitle = view.findViewById(R.id.subtitle);
+        ImageView image = view.findViewById(R.id.image);
+
+        title.setVisibility(parameter.getTitle() == 0 ? View.GONE : View.VISIBLE);
+        if (parameter.getTitle() != 0) {
+            title.setText(getString(parameter.getTitle()));
+        }
+
+        subtitle.setVisibility(parameter.getSubtitle() == 0 ? View.GONE : View.VISIBLE);
+        if (parameter.getSubtitle() != 0) {
+            subtitle.setText(getString(parameter.getSubtitle()));
+        }
+
+        image.setVisibility(parameter.getImage() == 0 ? View.GONE : View.VISIBLE);
+        if (parameter.getImage() != 0) {
+            Glide.with(context)
+                    .load(parameter.getImage())
+                    .into(image);
+        }
+
+        if (parameter.getIntent() != null) {
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    try {
+                        context.startActivity(parameter.getIntent());
+                    } catch (Exception e) {
+                    }
+                }
+            });
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            view.setForeground(null);
+        }
+
+        return view;
     }
 
     private FlashLightHelper getFlash() {
