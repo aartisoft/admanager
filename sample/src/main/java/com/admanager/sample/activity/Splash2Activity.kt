@@ -7,7 +7,6 @@ import com.admanager.core.AdManagerBuilder
 import com.admanager.core.tutorial.AdmTutorialActivity
 import com.admanager.core.tutorial.AdmTutorialConfiguration
 import com.admanager.core.tutorial.NativePosition
-import com.admanager.facebook.FacebookAdapter
 import com.admanager.sample.R
 import com.admanager.sample.RCUtils
 
@@ -36,6 +35,6 @@ class Splash2Activity : AdmTutorialActivity() {
 
     override fun createAdManagerBuilder(): AdManagerBuilder = AdManagerBuilder(this)
         .add(AdmobAdapterWithNative(RCUtils.s2_admob_enabled).withRemoteConfigId(RCUtils.s2_admob_id))
-        .add(FacebookAdapter(RCUtils.s2_facebook_enabled).withRemoteConfigId(RCUtils.s2_facebook_id))
+//        .add(FacebookAdapter(RCUtils.s2_facebook_enabled).withRemoteConfigId(RCUtils.s2_facebook_id))
         .thenStart(MainActivity::class.java)
 }
