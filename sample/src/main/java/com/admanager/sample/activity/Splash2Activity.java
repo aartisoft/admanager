@@ -4,13 +4,12 @@ import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 
-import com.admanager.admob.AdmobAdapterWithNative;
+import com.admanager.admob.AdmobAdapter;
 import com.admanager.admob.AdmobNativeLoader;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.tutorial.AdmTutorialActivity;
 import com.admanager.core.tutorial.AdmTutorialConfiguration;
 import com.admanager.core.tutorial.NativePosition;
-import com.admanager.facebook.FacebookAdapter;
 import com.admanager.sample.R;
 import com.admanager.sample.RCUtils;
 
@@ -45,8 +44,7 @@ public class Splash2Activity extends AdmTutorialActivity {
     @Override
     protected AdManagerBuilder createAdManagerBuilder() {
         return new AdManagerBuilder(this)
-                .add(new AdmobAdapterWithNative(RCUtils.S2_ADMOB_ENABLED).withRemoteConfigId(RCUtils.S2_ADMOB_ID))
-                .add(new FacebookAdapter(RCUtils.S2_FACEBOOK_ENABLED).withRemoteConfigId(RCUtils.S2_FACEBOOK_ID))
+                .add(new AdmobAdapter(RCUtils.S2_ADMOB_ENABLED).withRemoteConfigId(RCUtils.S2_ADMOB_ID))
                 .thenStart(MainActivity.class);
     }
 
