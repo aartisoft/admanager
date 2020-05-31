@@ -5,8 +5,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application>
-        <service android:name=".ReminderService"
-            android:permission="android.permission.BIND_JOB_SERVICE"/>
+        <receiver android:name=".ReminderReceiver" />
 
         <receiver android:name=".BootReceiver">
             <intent-filter>

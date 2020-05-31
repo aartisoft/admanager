@@ -10,7 +10,6 @@ import com.admanager.core.AdManager.AAdapterListener
 import com.admanager.core.AdManagerBuilder
 import com.admanager.core.Adapter
 import com.admanager.core.DummyAdapter
-import com.admanager.facebook.FacebookAdapter
 import com.admanager.sample.R
 import com.admanager.sample.RCUtils
 import com.admanager.sample.activity.PackNameRedirectingActivity.Companion.redirectTo
@@ -33,7 +32,6 @@ class PackNameOpenerActivity : AppCompatActivity(),
         adManager = AdManagerBuilder(this)
             .add(DummyAdapter())
             .add(AdmobAdapter(RCUtils.main_admob_enabled).withRemoteConfigId(RCUtils.main_admob_id))
-            .add(FacebookAdapter(RCUtils.main_facebook_enabled).withRemoteConfigId(RCUtils.main_facebook_id))
             .listener(object : AAdapterListener() {
                 override fun finished(
                     order: Int,

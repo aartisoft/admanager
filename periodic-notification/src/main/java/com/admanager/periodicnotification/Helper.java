@@ -40,6 +40,7 @@ public class Helper {
     @Nullable
     static Notif getNotif(Context context) {
         if (context == null) {
+            Log.e(TAG, "null context");
             return null;
         }
 
@@ -47,6 +48,7 @@ public class Helper {
 
         PeriodicNotificationApp pna = PeriodicNotificationApp.getInstance();
         if (pna == null) {
+            Log.e(TAG, "null pna");
             return null;
         }
 

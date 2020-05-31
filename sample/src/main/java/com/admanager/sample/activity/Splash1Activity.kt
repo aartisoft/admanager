@@ -2,10 +2,11 @@ package com.admanager.sample.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.admanager.adjust.AdmAdjust
 import com.admanager.admob.AdmobAdapter
 import com.admanager.config.RemoteConfigHelper
 import com.admanager.core.AdManagerBuilder
-import com.admanager.facebook.FacebookAdapter
+import com.admanager.sample.R
 import com.admanager.sample.RCUtils
 
 /**
@@ -22,7 +23,7 @@ class Splash1Activity : AppCompatActivity() {
 //        BoosterNotificationApp.setClickListener(this, () -> System.out.println("CLICKED")); // you need to call this method in launcher Activity
         AdManagerBuilder(this)
             .add(AdmobAdapter(RCUtils.s1_admob_enabled).withRemoteConfigId(RCUtils.s1_admob_id))
-            .add(FacebookAdapter(RCUtils.s1_facebook_enabled).withRemoteConfigId(RCUtils.s1_facebook_id))
+                .clickListener { _, _, _ -> AdmAdjust.event(this, R.string.adjust_event_inters) }
             .thenStart(Splash2Activity::class.java)
             .build()
             .show()

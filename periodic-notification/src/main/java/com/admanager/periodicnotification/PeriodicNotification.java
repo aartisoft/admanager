@@ -21,7 +21,7 @@ public class PeriodicNotification {
         }
 
         // set alarm
-        ReminderService.setAlarm(context);
+        ReminderReceiver.setAlarm(context);
     }
 
 }

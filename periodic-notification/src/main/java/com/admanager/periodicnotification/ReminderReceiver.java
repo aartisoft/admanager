@@ -5,6 +5,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TaskStackBuilder;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
@@ -13,13 +14,12 @@ import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.core.app.JobIntentService;
 import androidx.core.app.NotificationCompat;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class ReminderService extends JobIntentService {
+public class ReminderReceiver extends BroadcastReceiver {
     public static final String TAG = PeriodicNotification.TAG;
 
     public static final int ALARM_ID = 778;
@@ -59,13 +59,14 @@ public class ReminderService extends JobIntentService {
     }
 
     private static PendingIntent getPendingIntent(Context context) {
-        Intent serviceIntent = new Intent(context, ReminderService.class);
-        return PendingIntent.getService(context, ALARM_ID, serviceIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        Intent serviceIntent = new Intent(context, ReminderReceiver.class);
+        return PendingIntent.getBroadcast(context, ALARM_ID, serviceIntent, PendingIntent.FLAG_CANCEL_CURRENT);
     }
 
     public static void sendNotification(Context context, Notif notif) {
         PeriodicNotificationApp app = PeriodicNotificationApp.getInstance();
         if (app == null) {
+            Log.e(TAG, "sendNotification null app");
             return;
         }
 
@@ -105,16 +106,17 @@ public class ReminderService extends JobIntentService {
     }
 
     @Override
-    protected void onHandleWork(@NonNull Intent intent) {
-        Notif notif = Helper.getNotif(getApplicationContext());
+    public void onReceive(Context context, Intent intent) {
+        Notif notif = Helper.getNotif(context);
         if (notif == null) {
+            Log.e(TAG, "null notif");
             return;
         }
 
         if (notif.isEnabled()) {
-            sendNotification(getApplicationContext(), notif);
+            sendNotification(context, notif);
         }
 
-        setAlarm(getApplicationContext(), notif);
+        setAlarm(context, notif);
     }
 }

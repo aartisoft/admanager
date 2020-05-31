@@ -36,46 +36,60 @@ class MyApplication : MultiDexApplication(), Ads {
         // .build();
         RemoteConfigApp.Builder(getDefaults())
             .build()
+
         PeriodicNotificationApp.Builder(this)
             .build()
+
         BoosterNotificationApp.Builder(this)
             .ads(this)
             .build()
+
         AppLockerApp.Builder(this)
             .ads(this)
             .build()
+
         WastickersApp.Builder(this)
             .ads(this)
             .build()
+
         BarcodeReaderApp.Builder(this)
             .ads(this)
             .build()
+
         CompassApp.Builder(this)
             .ads(this)
             .build()
+
         SpeedTestApp.Builder(this)
             .ads(this)
             .build()
+
         GifsApp.Builder(this, getString(R.string.giphy_api_key))
             .ads(this)
             .build()
+
         MapsApp.Builder(this)
             .ads(this)
             .build()
+
         UnseenApp.Builder(this)
             .ads(this)
             .build()
+
         val afterCallCards = createAfterCallCards()
+
         ColorCallScreenApp.Builder(this)
             .ads(this)
             .afterCallCards(afterCallCards)
             .build()
+
         NewsApp.Builder(
             this,
             getString(R.string.the_start_magazine_key),
             getString(R.string.the_start_magazine_publisher_id)
         )
             .build()
+
         SpeedoMeterAltitudeApp.Builder(this)
             .ads(this)
             //.speedoIndicatorType(Indicator.Indicators.XXX)
@@ -114,6 +128,18 @@ class MyApplication : MultiDexApplication(), Ads {
             //.cardBgColor(android.R.color.holo_green_light)-- optional --
             //.textColor(android.R.color.holo_red_dark)-- optional --
             .build()
+
+        /*ADJUST
+        val status: OSPermissionSubscriptionState = OneSignal.getPermissionSubscriptionState()
+        val pushtoken: String = status.getSubscriptionStatus().getPushToken()
+        AdmAdjust.init(this,
+            R.string.adjust_app_token,
+            R.string.adjust_secret_id,
+            R.string.adjust_info_1,
+            R.string.adjust_info_2,
+            R.string.adjust_info_3,
+            R.string.adjust_info_4,
+            pushtoken, null)*/
     }
 
     private fun createAfterCallCards(): ArrayList<AfterCallCard> {

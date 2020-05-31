@@ -74,6 +74,7 @@ dependencies {
     implementation project(path: ':popup-rate')
     implementation project(path: ':news')
     implementation project(path: ':gpstime-address-coord')
+    implementation project(path: ':adjust')
 
 
     /*  Admost ADDITIONAL ADAPTERS

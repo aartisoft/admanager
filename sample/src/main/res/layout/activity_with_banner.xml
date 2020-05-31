@@ -1,55 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/constraint"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white">
+    android:background="@android:color/white"
+    android:orientation="vertical">
 
 
     <LinearLayout
-        android:id="@+id/admob_container"
+        android:id="@+id/top_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical" />
 
     <LinearLayout
-        android:id="@+id/mopub_container"
+        android:id="@+id/top_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/admob_container" />
+        android:orientation="vertical" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@android:color/holo_orange_light"
         android:gravity="center"
         android:text="Page Content"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toTopOf="@id/custom_banner_with_loader"
-        app:layout_constraintTop_toBottomOf="@id/mopub_container" />
+        android:textSize="50sp" />
 
     <LinearLayout
-        android:id="@+id/custom_banner_with_loader"
+        android:id="@+id/bottom_2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/inmobi_container" />
+        android:orientation="vertical" />
 
     <LinearLayout
-        android:id="@+id/inmobi_container"
+        android:id="@+id/bottom_1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@id/facebook_container" />
-
-    <LinearLayout
-        android:id="@+id/facebook_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical" />
+</LinearLayout>
 
