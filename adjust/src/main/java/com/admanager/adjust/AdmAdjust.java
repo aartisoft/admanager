@@ -25,7 +25,7 @@ public class AdmAdjust {
                             @StringRes int _ADJUST_INFO_2,
                             @StringRes int _ADJUST_INFO_3,
                             @StringRes int _ADJUST_INFO_4,
-                            String pushtoken, OnAttributionChangedListener attributionChangedListener) {
+                            String pushToken, OnAttributionChangedListener attributionChangedListener) {
         if (AdmUtils.isContextInvalid(app)) {
             return;
         }
@@ -49,8 +49,8 @@ public class AdmAdjust {
         app.registerActivityLifecycleCallbacks(new AdjustLifecycleCallbacks());
 
 //        OSPermissionSubscriptionState status = OneSignal.getPermissionSubscriptionState();
-//        String pushtoken = status.getSubscriptionStatus().getPushToken();
-        Adjust.setPushToken(pushtoken, app);
+//        String pushToken = status.getSubscriptionStatus().getPushToken();
+        Adjust.setPushToken(pushToken, app);
 
     }
 
