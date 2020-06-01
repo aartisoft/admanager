@@ -27,6 +27,6 @@ include ':config',
         ':unseen',
         ':weather',
         ':gpstime-address-coord',
-        ':popup-rate',
         ':news',
+        ':popup-rate',
         ':adjust'
