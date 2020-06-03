@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [2.3.0] - 2020-06-03
 ### Added
-- Periodic Notification: Multiple notification suppot
+- Periodic Notification: Multiple notification support
 - Color Call Screen: Scroll to card layout
 
 ## [1.8.5] - 2020-02-17
