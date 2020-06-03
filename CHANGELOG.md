@@ -1,9 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.0] - 2020-06-03
+### Added
+- Periodic Notification: Multiple notification suppot
+- Color Call Screen: Scroll to card layout
+
 ## [1.8.5] - 2020-02-17
 ### Added
-- Click Listener for Adapters and Loaders  
+- Click Listener for Adapters and Loaders
 
 ## [1.8.0] - 2020-02-11
 ### Added
