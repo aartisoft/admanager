@@ -70,7 +70,7 @@ public class CCSInCallActivity extends AppCompatActivity implements View.OnClick
     ImageView iv_portrait;
     GsmCall.Status lastStatus;
     String lastNumber;
-    LinearLayout layout_callend;
+    View layout_callend;
     ImageView image_call, image_write_message, image_addperson;
     EditText edit_quick_message;
     ImageView image_send_quick_message;
