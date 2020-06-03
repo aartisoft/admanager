@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
@@ -30,6 +30,7 @@ import com.admanager.core.AdManager;
 import com.admanager.core.AdManagerBuilder;
 import com.admanager.core.AdmUtils;
 import com.admanager.core.R;
+import com.bumptech.glide.Glide;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
 
@@ -181,10 +182,18 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
     protected abstract AdManagerBuilder createAdManagerBuilder();
 
     protected final void addPage(@StringRes int desc, @DrawableRes int image) {
-        addPage(0, desc, image);
+        addPage(0, desc, image, null);
+    }
+
+    protected final void addPage(@StringRes int desc, @DrawableRes int image, String imageUrl) {
+        addPage(0, desc, image, imageUrl);
     }
 
     protected final void addPage(@StringRes int title, @StringRes int desc, @DrawableRes int image) {
+        addPage(title, desc, image, null);
+    }
+
+    protected final void addPage(@StringRes int title, @StringRes int desc, @DrawableRes int image, String imageUrl) {
         View view = layoutInflater.inflate(configuration.pageLayout, null);
         TextView tvTitle = view.findViewById(R.id.title);
         TextView tvDesc = view.findViewById(R.id.desc);
@@ -210,14 +219,32 @@ public abstract class AdmTutorialActivity extends AppCompatActivity implements V
             }
         }
 
-        if (image != 0) {
-            iv.setImageDrawable(ContextCompat.getDrawable(this, image));
+        boolean hasURL = !TextUtils.isEmpty(imageUrl) && imageUrl.startsWith("https://");
+        boolean hasImage = image != 0;
+
+        if (hasImage || hasURL) {
+            if (hasImage && hasURL) {
+                Glide.with(this)
+                        .load(imageUrl)
+                        .placeholder(image)
+                        .into(iv);
+            } else if (hasURL) {
+                Glide.with(this)
+                        .load(imageUrl)
+                        .into(iv);
+            } else if (hasImage) {
+                Glide.with(this)
+                        .load(image)
+                        .into(iv);
+            }
         }
         if (image == 0 && desc == 0) {
             try {
                 ApplicationInfo info = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
-                iv.setImageDrawable(ContextCompat.getDrawable(this, info.icon));
-                iv.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
+                Glide.with(this)
+                        .load(info.icon)
+                        .centerInside()
+                        .into(iv);
                 int p = (int) AdmUtils.pxToDp(getApplicationContext(), 40);
                 iv.setPadding(p, p, p, p);
             } catch (Throwable ignored) {
