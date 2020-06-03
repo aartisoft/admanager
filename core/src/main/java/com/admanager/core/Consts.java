@@ -11,6 +11,9 @@ public class Consts {
         public static final String DEFAULT_TITLE_KEY = "notif_title";
         public static final String DEFAULT_TICKER_KEY = "notif_ticker";
         public static final String DEFAULT_CONTENT_KEY = "notif_content";
+
+        public static final String DEFAULT_MINS_KEY = "notif_mins";
+        public static final String DEFAULT_REPEAT_KEY = "notif_repeat";
     }
 
     public static class PopupPromo {

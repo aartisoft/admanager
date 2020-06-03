@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -40,6 +41,7 @@ import com.bumptech.glide.load.MultiTransformation;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
@@ -74,6 +76,7 @@ public class CCSInCallActivity extends AppCompatActivity implements View.OnClick
     ImageView image_send_quick_message;
     String name = null;
     TextView[] textviews;
+    FirebaseAnalytics firebaseAnalytics;
     private Disposable updatesDisposable = Disposables.empty();
     private Disposable timerDisposable;
     private LinearLayout buttons;
@@ -146,14 +149,21 @@ public class CCSInCallActivity extends AppCompatActivity implements View.OnClick
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        int flags = WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON |
                 WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD |
                 WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED |
-                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON);
+                WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON |
+                WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        getWindow().setFlags(flags, flags);
+        getWindow().addFlags(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         if (android.os.Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
         setContentView(R.layout.ccs_layout_ring_incoming);
+        Utils.hideBottomNavigationBar(this);
+
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         additionalLayout = findViewById(R.id.additional_layout);
         layout_callend = findViewById(R.id.layout_callend);
@@ -173,7 +183,6 @@ public class CCSInCallActivity extends AppCompatActivity implements View.OnClick
         buttons = findViewById(R.id.call_buttons);
         int l = (int) AdmUtils.dpToPx(this, 48);
         buttons.setPadding(l, 0, l, 0);
-        Utils.hideBottomNavigationBar(this);
 
         edit_quick_message = findViewById(R.id.edit_quick_message);
         image_call = findViewById(R.id.image_call);
@@ -380,13 +389,31 @@ public class CCSInCallActivity extends AppCompatActivity implements View.OnClick
                         context.startActivity(parameter.getIntent());
                     } catch (Exception e) {
                     }
+                    String event = "aftercall_card_click_";
+
+                    logCardClickEvent(event, parameter);
+
                 }
+
             });
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             view.setForeground(null);
         }
 
         return view;
+    }
+
+    private void logCardClickEvent(String event, AfterCallCard parameter) {
+        try {
+            String resourceEntryName = getResources().getResourceEntryName(parameter.getTitle());
+            event += resourceEntryName;
+            if (event.length() > 39) {
+                event = event.substring(0, 39);
+            }
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        firebaseAnalytics.logEvent(event, null);
     }
 
     private FlashLightHelper getFlash() {

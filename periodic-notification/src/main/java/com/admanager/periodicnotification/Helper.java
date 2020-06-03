@@ -8,6 +8,8 @@ import androidx.annotation.Nullable;
 
 import com.admanager.config.RemoteConfigHelper;
 
+import java.util.List;
+
 import static com.admanager.periodicnotification.PeriodicNotification.TAG;
 
 /**
@@ -16,7 +18,9 @@ import static com.admanager.periodicnotification.PeriodicNotification.TAG;
 public class Helper {
     private static final String PREF_FILE_NAME = "adman_periodic_notif";
 
-    private static final String PREF_KEY_NOTIFICATION = "notification";
+    private static final String PREF_KEY_CURRENT_NOTIFICATION = "current_notification";
+    private static final String PREF_KEY_NOTIFICATION = "notification_";
+    private static final String PREF_KEY_REPEAT_TIME = "notification_repeat_";
     private static final String PREF_KEY_INSTALL_DATE = "install_date";
     private static final String PREF_KEY_LAUNCH_TIMES = "launch_times";
     private static final String PREF_KEY_LAST_LAUNCH_DATE = "last_launch_date";
@@ -36,9 +40,8 @@ public class Helper {
     }
 
 
-
     @Nullable
-    static Notif getNotif(Context context) {
+    static Notif getNextAvailableNotif(Context context) {
         if (context == null) {
             Log.e(TAG, "null context");
             return null;
@@ -55,44 +58,93 @@ public class Helper {
         // get keys from application context
         PeriodicNotificationKeys keys = pna.getKeys();
 
-        // return null keys
-        if (keys == null) {
-            keys = new PeriodicNotificationKeys();
-            Log.w(TAG, "Since PeriodicNotificationApp returns null keys, default remote config keys was used.");
-        }
-        Log.d(TAG, "Remote config keys: " + keys.toString());
 
-        // convert keys to notif object
-        Notif notif = new Notif(keys);
-        if (!notif.isValid()) {
-            notif = with(context).getNotif();
-            if (notif == null || !notif.isValid()) {
-                Log.d(TAG, "Notification values are not valid yet.");
-                return null;
+        List<Notif> notifs = Notif.getAsList(context, keys);
+
+
+        // return next available
+        long lastLaunchDate = Helper.with(context).getLastLaunchDate();
+        long currentTime = System.currentTimeMillis();
+        long timePassed = currentTime - lastLaunchDate;
+
+        Notif earliestNotif = null;
+        long earliestNotifTime = Long.MAX_VALUE;
+        for (Notif notif : notifs) {
+            if (notif.getDelayInMillis() > timePassed && (notif.getDelayInMillis() + lastLaunchDate < earliestNotifTime)) {
+                earliestNotif = notif;
+                earliestNotifTime = lastLaunchDate + notif.getDelayInMillis();
+            } else if (notif.repeat > 1) {
+                long times = 1 + (timePassed / notif.getDelayInMillis());
+                if (times <= notif.repeat) {
+                    if (times * notif.getDelayInMillis() > timePassed && (lastLaunchDate + times * notif.getDelayInMillis() < earliestNotifTime)) {
+                        earliestNotif = notif;
+                        earliestNotifTime = lastLaunchDate + times * notif.getDelayInMillis();
+                    }
+                }
             }
-        } else {
-            with(context).setNotif(notif);
         }
 
-        return notif;
+        if (earliestNotif != null) {
+            Log.d(TAG, "Remote config keys: " + PeriodicNotificationKeys.copyWithSuffix(keys, earliestNotif.suffix));
+        }
+
+        return earliestNotif;
     }
 
-    private Notif getNotif() {
-        String string = sharedPreferences.getString(PREF_KEY_NOTIFICATION, null);
+    Notif getNotif(String suffix) {
+        String string = sharedPreferences.getString(PREF_KEY_NOTIFICATION + suffix, null);
         if (string == null) {
             return null;
         }
         return Notif.deserialize(string);
     }
 
-    private void setNotif(Notif notif) {
+    protected void setNotif(String suffix, Notif notif) {
         if (notif == null) {
             return;
         }
         sharedPreferences
                 .edit()
-                .putString(PREF_KEY_NOTIFICATION, notif.serialize())
+                .putString(PREF_KEY_NOTIFICATION + suffix, notif.serialize())
                 .apply();
+    }
+
+
+    Notif getCurrentNotif() {
+        String string = sharedPreferences.getString(PREF_KEY_CURRENT_NOTIFICATION, null);
+        if (string == null) {
+            return null;
+        }
+        return Notif.deserialize(string);
+    }
+
+    protected void setCurrentNotif(Notif notif) {
+        if (notif == null) {
+            return;
+        }
+        sharedPreferences
+                .edit()
+                .putString(PREF_KEY_CURRENT_NOTIFICATION, notif.serialize())
+                .apply();
+    }
+
+    long getRepeatTime(Notif notif) {
+        if (notif == null) {
+            return 0;
+        }
+        return sharedPreferences.getLong(PREF_KEY_REPEAT_TIME + notif.suffix, 0);
+    }
+
+    long increaseRepeatTime(Notif notif) {
+        if (notif == null) {
+            return 0;
+        }
+        long l = getRepeatTime(notif) + 1;
+        sharedPreferences
+                .edit()
+                .putLong(PREF_KEY_REPEAT_TIME + notif.suffix, l)
+                .apply();
+        return l;
     }
 
     private void setInstallDate() {

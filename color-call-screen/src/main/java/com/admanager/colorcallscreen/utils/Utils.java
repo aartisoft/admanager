@@ -3,6 +3,7 @@ package com.admanager.colorcallscreen.utils;
 import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
+import android.os.Build;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -30,7 +31,17 @@ public class Utils {
         if (AdmUtils.isContextInvalid(activity)) {
             return;
         }
-        activity.getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        int visibility = View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
+                View.SYSTEM_UI_FLAG_FULLSCREEN;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            visibility = visibility |
+                    View.SYSTEM_UI_FLAG_IMMERSIVE;
+        }
+
+        activity.getWindow().getDecorView().setSystemUiVisibility(visibility);
+
+
     }
 
     public static String toDurationString(Long aLong) {

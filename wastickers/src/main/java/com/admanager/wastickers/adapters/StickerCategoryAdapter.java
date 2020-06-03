@@ -17,7 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
 import com.admanager.core.AdmUtils;
 import com.admanager.recyclerview.AdmAdapterConfiguration;
@@ -194,7 +193,7 @@ public class StickerCategoryAdapter extends BaseAdapter<PackageModel, StickerCat
                 data.add(s);
             }
             stickerImageAdapter = new StickerImageAdapter(activity, data, stickerClickListener);
-            LinearLayoutManager sgl = new LinearLayoutManager(itemView.getContext(), StaggeredGridLayoutManager.HORIZONTAL, false);
+            LinearLayoutManager sgl = new LinearLayoutManager(itemView.getContext(), RecyclerView.HORIZONTAL, false);
             recyclerView.setLayoutManager(sgl);
             recyclerView.setAdapter(stickerImageAdapter);
 
