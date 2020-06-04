@@ -1,6 +1,10 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.3.1] - 2020-06-04
+### Change
+- Color Call Screen: Layout bug fix for card title overlap
+
 ## [2.3.0] - 2020-06-03
 ### Added
 - Periodic Notification: Multiple notification support
