@@ -77,6 +77,7 @@ public class AdManager {
     private boolean showAndFinish;
     private long timeCap;
     private long lastTimeShowed;
+    private Runnable runAfterAd;
 
     AdManager(Activity activity) {
         RemoteConfigHelper.init(activity);
@@ -207,7 +208,13 @@ public class AdManager {
         show();
     }
 
+    public void showOne(Runnable runAfterAd) {
+        this.runAfterAd = runAfterAd;
+        show(true);
+    }
+
     public void showOne() {
+        this.runAfterAd = null;
         show(true);
     }
 
@@ -383,6 +390,10 @@ public class AdManager {
         Boolean called = ADAPTER_FINISH_LISTENER_CALLED.get(i);
         if (called) {
             return;
+        }
+        if (showOneBarrier && runAfterAd != null) {
+            runAfterAd.run();
+            runAfterAd = null;
         }
         ADAPTER_FINISH_LISTENER_CALLED.set(i, true);
 

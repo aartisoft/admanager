@@ -369,7 +369,7 @@ public class CCSInCallActivity extends AppCompatActivity implements View.OnClick
             title.setText(getString(parameter.getTitle()));
         }
 
-        subtitle.setVisibility(parameter.getSubtitle() == 0 ? View.GONE : View.VISIBLE);
+        subtitle.setVisibility(parameter.getSubtitle() == 0 || parameter.getSubtitle() == -1 ? View.GONE : View.VISIBLE);
         if (parameter.getSubtitle() != 0) {
             subtitle.setText(getString(parameter.getSubtitle()));
         }
