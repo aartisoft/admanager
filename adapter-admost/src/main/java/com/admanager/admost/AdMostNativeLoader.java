@@ -76,6 +76,12 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
         if (this.zoneId != null) {
             throw new IllegalStateException("You already set zoneId with 'withId' method.");
         }
+        if (rcAppIdKey.matches(com.admanager.core.Consts.UUID_REGEX)) {
+            throw new IllegalStateException("Use Remote Config KEY, NOT an ID!");
+        }
+        if (rcZoneIdKey.matches(com.admanager.core.Consts.UUID_REGEX)) {
+            throw new IllegalStateException("Use Remote Config KEY, NOT an ID!");
+        }
         this.appId = RemoteConfigHelper.getConfigs().getString(rcAppIdKey);
         this.zoneId = RemoteConfigHelper.getConfigs().getString(rcZoneIdKey);
         return this;

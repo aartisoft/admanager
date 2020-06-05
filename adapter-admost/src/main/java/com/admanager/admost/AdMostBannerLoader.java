@@ -45,6 +45,12 @@ public class AdMostBannerLoader extends BannerLoader<AdMostBannerLoader> {
         if (this.zoneId != null) {
             throw new IllegalStateException("You already set zoneId with 'withId' method.");
         }
+        if (rcAppIdKey.matches(Consts.UUID_REGEX)) {
+            throw new IllegalStateException("Use Remote Config KEY, NOT an ID!");
+        }
+        if (rcZoneIdKey.matches(Consts.UUID_REGEX)) {
+            throw new IllegalStateException("Use Remote Config KEY, NOT an ID!");
+        }
         this.appId = RemoteConfigHelper.getConfigs().getString(rcAppIdKey);
         this.zoneId = RemoteConfigHelper.getConfigs().getString(rcZoneIdKey);
         load();

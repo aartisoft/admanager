@@ -4,6 +4,7 @@ public class Consts {
 
     public static final int RC_KEY_SIZE = 2;
     public static final String TAG = "ADM";
+    public static final String UUID_REGEX = "[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}";
 
     public static class PeriodicNotification {
         public static final String DEFAULT_ENABLE_KEY = "notif_enable";
