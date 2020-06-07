@@ -1,0 +1,4 @@
+<resources>
+    <string name="saved_to_gallery">गैलरी में सहेजा गया</string>
+    <string name="saved_to_gallery_error">गैलरी में सहेज नहीं सकता!</string>
+</resources>

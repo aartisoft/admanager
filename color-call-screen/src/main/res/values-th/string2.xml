@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">ส่งข้อความด่วน</string>
+    <string name="adm_ccs_intent_not_found">อุปกรณ์ของคุณไม่รองรับฟังก์ชั่นนี้</string>
+
+</resources>

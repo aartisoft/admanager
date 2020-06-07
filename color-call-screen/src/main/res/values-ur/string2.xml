@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">فوری پیغام بھیجیں</string>
+    <string name="adm_ccs_intent_not_found">آپ کا آلہ اس فنکشن کی حمایت نہیں کرتا ہے</string>
+
+</resources>

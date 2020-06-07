@@ -1,0 +1,4 @@
+<resources>
+    <string name="saved_to_gallery">Αποθηκεύτηκε στη συλλογή</string>
+    <string name="saved_to_gallery_error">Δεν είναι δυνατή η αποθήκευση στη συλλογή!</string>
+</resources>

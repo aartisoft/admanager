@@ -1,0 +1,4 @@
+<resources>
+    <string name="saved_to_gallery">บันทึกไปที่คลังภาพแล้ว</string>
+    <string name="saved_to_gallery_error">ไม่สามารถบันทึกลงแกลเลอรี่!</string>
+</resources>

@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -15,9 +14,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.FileProvider;
 
 import com.admanager.gifs.R;
+import com.admanager.utils.AdmDrawableUtils;
+import com.admanager.utils.AdmFileUtils;
+import com.admanager.utils.AdmShareUtils;
 import com.bumptech.glide.Glide;
 import com.giphy.sdk.core.models.Media;
 import com.google.android.material.snackbar.Snackbar;
@@ -83,7 +84,7 @@ public class GifDialog extends Dialog implements View.OnClickListener {
 
     private void downloadedAlert(File gifFile) {
         //        Uri selectedUri = Uri.fromFile(gifFile);
-        Uri selectedUri = FileProvider.getUriForFile(getContext(), getContext().getApplicationContext().getPackageName() + ".fileprovider", gifFile);
+        Uri selectedUri = AdmFileUtils.getUriFromProvider(getContext(), gifFile);
 
         final Intent intent = new Intent(Intent.ACTION_VIEW);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -104,7 +105,6 @@ public class GifDialog extends Dialog implements View.OnClickListener {
             e.printStackTrace();
         }
 
-        Utils.addToGallery(getContext(), gifFile);
     }
 
     private String getFileName(Media media) {
@@ -121,14 +121,25 @@ public class GifDialog extends Dialog implements View.OnClickListener {
             return;
         }
 
-        final File gifFile = new File(Utils.getDownloadFolder(getContext()), getFileName(media));
-        boolean success = Utils.getFileFromImageView(gifFile, img);
+        String fileName = getFileName(media);
+        final File gifFile = AdmFileUtils.getFilesDirFile(getContext(), fileName);
+        boolean success = false;
+        try {
+            success = AdmDrawableUtils.copyDrawableFromImageViewToFile(gifFile, img);
+        } catch (Exception e) {
+            //gif may not downloaded yet
+            e.printStackTrace();
+        }
         if (success) {
             downloadedAlert(gifFile);
+
+            //todo can save directly to gallery from imageview
+            AdmFileUtils.saveFileToGallery(getContext(), gifFile, fileName);
             return;
         }
 
-        new DownloadFileFromURL(media.getImages().getFixedHeightDownsampled().getGifUrl(), getFileName(media), Utils.getDownloadFolder(getContext()), new OnDownloadListener() {
+        new DownloadFileFromURL(media.getImages().getFixedHeightDownsampled().getGifUrl(), fileName
+                , AdmFileUtils.getFilesDir(getContext()).getAbsolutePath(), new OnDownloadListener() {
             @Override
             public void onDownloadFinished(String url, String path, String name) {
                 downloadedAlert(gifFile);
@@ -151,9 +162,9 @@ public class GifDialog extends Dialog implements View.OnClickListener {
 
     public void share(Media media) {
         final File gifFile = getCacheFile();
-        boolean success = Utils.getFileFromImageView(gifFile, img);
+        boolean success = AdmDrawableUtils.copyDrawableFromImageViewToFile(gifFile, img);
         if (success) {
-            Utils.shareGif(getContext(), gifFile);
+            AdmShareUtils.shareFile(getContext(), gifFile);
             return;
         }
 
@@ -161,7 +172,7 @@ public class GifDialog extends Dialog implements View.OnClickListener {
             download(media, new Runnable() {
                 @Override
                 public void run() {
-                    Utils.shareGif(getContext(), gifFile);
+                    AdmShareUtils.shareFile(getContext(), gifFile);
                 }
             });
         }
@@ -169,7 +180,7 @@ public class GifDialog extends Dialog implements View.OnClickListener {
 
     @NonNull
     private File getCacheFile() {
-        return new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), LATEST_SHARED);
+        return AdmFileUtils.getCacheFile(getContext(), LATEST_SHARED);
     }
 }
 

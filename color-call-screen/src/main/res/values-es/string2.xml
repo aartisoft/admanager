@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">Enviar mensaje rápido</string>
+    <string name="adm_ccs_intent_not_found">Su dispositivo no es compatible con esta función</string>
+
+</resources>

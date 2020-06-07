@@ -1,0 +1,4 @@
+<resources>
+    <string name="saved_to_gallery">Galeriye kaydedildi</string>
+    <string name="saved_to_gallery_error">Galeriye kaydetme hatası!</string>
+</resources>

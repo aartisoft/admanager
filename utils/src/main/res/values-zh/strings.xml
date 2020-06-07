@@ -1,0 +1,4 @@
+<resources>
+    <string name="saved_to_gallery">保存到图库</string>
+    <string name="saved_to_gallery_error">无法保存到图库！</string>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">Hantar pesanan pantas</string>
+    <string name="adm_ccs_intent_not_found">Peranti anda tidak menyokong fungsi ini</string>
+
+</resources>

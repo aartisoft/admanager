@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">Hızlı mesaj gönder</string>
+    <string name="adm_ccs_intent_not_found">Cihazınız bu işlevi desteklemiyor</string>
+
+</resources>

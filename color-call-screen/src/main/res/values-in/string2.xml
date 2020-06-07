@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">Kirim pesan cepat</string>
+    <string name="adm_ccs_intent_not_found">Perangkat Anda tidak mendukung fungsi ini</string>
+
+</resources>

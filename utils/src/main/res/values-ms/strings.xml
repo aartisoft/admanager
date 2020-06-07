@@ -1,0 +1,4 @@
+<resources>
+    <string name="saved_to_gallery">Disimpan ke galeri</string>
+    <string name="saved_to_gallery_error">Tidak dapat menyimpan ke galeri!</string>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">Отправить быстрое сообщение</string>
+    <string name="adm_ccs_intent_not_found">Ваше устройство не поддерживает эту функцию</string>
+
+</resources>

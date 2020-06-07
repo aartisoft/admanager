@@ -4,7 +4,10 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -22,32 +25,33 @@ import com.admanager.core.AdmUtils;
 import com.admanager.recyclerview.AdmAdapterConfiguration;
 import com.admanager.recyclerview.BaseAdapter;
 import com.admanager.recyclerview.BindableViewHolder;
+import com.admanager.utils.AdmDrawableUtils;
+import com.admanager.utils.AdmFileUtils;
+import com.admanager.utils.AdmPermissionChecker;
 import com.admanager.wastickers.R;
 import com.admanager.wastickers.WastickersApp;
 import com.admanager.wastickers.WhitelistCheck;
 import com.admanager.wastickers.model.PackageModel;
 import com.admanager.wastickers.model.StickerModel;
 import com.admanager.wastickers.model.StickerPack;
-import com.admanager.wastickers.utils.PermissionChecker;
-import com.admanager.wastickers.utils.Utils;
 import com.admanager.wastickers.utils.WAStickerHelper;
+import com.admanager.wastickers.utils.WasUtils;
 import com.admanager.wastickers.utils.WorkCounter;
 import com.bumptech.glide.Glide;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 public class StickerCategoryAdapter extends BaseAdapter<PackageModel, StickerCategoryAdapter.StickerPackViewHolder> {
     public static final String TAG = "GifCategoryAdapter";
-    private final PermissionChecker permissionChecker;
+    private final AdmPermissionChecker permissionChecker;
     private final WastickersApp configs;
     private StickerClickListener stickerClickListener;
     private List<PackageModel> originalList;
 
-    public StickerCategoryAdapter(Activity activity, @NonNull PermissionChecker permissionChecker, WastickersApp configs) {
+    public StickerCategoryAdapter(Activity activity, @NonNull AdmPermissionChecker permissionChecker, WastickersApp configs) {
         super(activity, R.layout.item_image_group);
         this.permissionChecker = permissionChecker;
         this.configs = configs;
@@ -146,9 +150,9 @@ public class StickerCategoryAdapter extends BaseAdapter<PackageModel, StickerCat
             public void bindTo(final Activity activity, final StickerPackContainer model, int position) {
                 Glide.with(itemView.getContext())
                         .load(model.url)
-                        .placeholder(Utils.getRandomColoredDrawable())
+                        .placeholder(AdmDrawableUtils.getRandomColoredDrawable())
                         .fitCenter()
-                        .override(Utils.DEFAULT_IMG_SIZE, Utils.DEFAULT_IMG_SIZE)
+                        .override(AdmDrawableUtils.DEFAULT_IMG_SIZE, AdmDrawableUtils.DEFAULT_IMG_SIZE)
                         .into(image);
                 image.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -243,7 +247,7 @@ public class StickerCategoryAdapter extends BaseAdapter<PackageModel, StickerCat
             new Thread() {
                 @Override
                 public void run() {
-                    final StickerPack pack = Utils.toWAStickerPack(activity, model);
+                    final StickerPack pack = WasUtils.toWAStickerPack(activity, model);
                     if (pack == null || AdmUtils.isContextInvalid(activity)) {
                         return;
                     }
@@ -273,15 +277,18 @@ public class StickerCategoryAdapter extends BaseAdapter<PackageModel, StickerCat
                     }
                     Toast.makeText(activity, "Downloading: " + model.name, Toast.LENGTH_LONG).show();
 
-                    File folder = new File(Utils.getDownloadFolder(activity) + "/" + model.name);
-                    folder.mkdirs();
                     final WorkCounter workCounter = new WorkCounter(model.stickers.size(), new WorkCounter.Listener() {
                         @Override
                         public void completed() {
                             if (AdmUtils.isContextInvalid(activity)) {
                                 return;
                             }
-                            Toast.makeText(activity, "Downloaded to gallery: " + model.name, Toast.LENGTH_LONG).show();
+                            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(activity, "Downloaded to gallery: " + model.name, Toast.LENGTH_LONG).show();
+                                }
+                            });
                         }
                     });
 
@@ -289,8 +296,7 @@ public class StickerCategoryAdapter extends BaseAdapter<PackageModel, StickerCat
                     for (int i = 0; i < stickers.size(); i++) {
                         final StickerModel stickerModel = stickers.get(i);
 
-                        final File file = new File(folder.getAbsolutePath() + "/" + model.name + "_" + (i + 1) + ".png");
-                        if (file.exists()) file.delete();
+                        final String fileName = model.name + "_" + (i + 1) + ".png";
 
                         new AsyncTask<Void, Void, Void>() {
                             @Override
@@ -301,12 +307,11 @@ public class StickerCategoryAdapter extends BaseAdapter<PackageModel, StickerCat
                                     public void downloaded(File resource) {
 
                                         try {
-                                            Utils.copyFile(resource, file);
 
                                             if (!AdmUtils.isContextInvalid(activity)) {
-                                                Utils.addToGallery(activity, file);
+                                                Uri uri = AdmFileUtils.saveFileToGallery(activity, resource, false, fileName);
                                             }
-                                        } catch (IOException e) {
+                                        } catch (Exception e) {
                                             e.printStackTrace();
                                         }
                                         workCounter.taskFinished();

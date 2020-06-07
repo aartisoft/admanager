@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">Senden Sie eine kurze Nachricht</string>
+    <string name="adm_ccs_intent_not_found">Ihr Gerät unterstützt diese Funktion nicht</string>
+
+</resources>

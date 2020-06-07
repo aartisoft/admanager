@@ -1,0 +1,4 @@
+<resources>
+    <string name="saved_to_gallery">Enregistré dans la galerie</string>
+    <string name="saved_to_gallery_error">Impossible d\'enregistrer dans la galerie!</string>
+</resources>

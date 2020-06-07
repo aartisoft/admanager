@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -22,6 +23,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.admanager.core.AdmUtils;
+import com.admanager.utils.AdmDrawableUtils;
+import com.admanager.utils.AdmFileUtils;
+import com.admanager.utils.AdmPermissionChecker;
+import com.admanager.utils.AdmShareUtils;
 import com.admanager.wastickers.R;
 import com.admanager.wastickers.WastickersApp;
 import com.admanager.wastickers.WhitelistCheck;
@@ -30,13 +35,10 @@ import com.admanager.wastickers.adapters.StickerMainCategoryAdapter;
 import com.admanager.wastickers.api.StickerService;
 import com.admanager.wastickers.model.CategoryModel;
 import com.admanager.wastickers.model.PackageModel;
-import com.admanager.wastickers.utils.PermissionChecker;
-import com.admanager.wastickers.utils.Utils;
 import com.admanager.wastickers.utils.WAStickerHelper;
 import com.bumptech.glide.Glide;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
@@ -45,7 +47,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class WAStickersActivity extends AppCompatActivity {
-    PermissionChecker permissionChecker;
+    AdmPermissionChecker permissionChecker;
     RecyclerView recyclerView;
     private MenuItem searchMenuItem;
     private CategoryModel category = null;
@@ -65,7 +67,7 @@ public class WAStickersActivity extends AppCompatActivity {
             getSupportActionBar().setDisplayShowHomeEnabled(true);
         }
 
-        permissionChecker = new PermissionChecker(this);
+        permissionChecker = new AdmPermissionChecker(this);
         recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager llm = new LinearLayoutManager(WAStickersActivity.this);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), llm.getOrientation());
@@ -221,7 +223,7 @@ public class WAStickersActivity extends AppCompatActivity {
                 final ImageView imageView = new ImageView(WAStickersActivity.this);
                 Glide.with(imageView.getContext())
                         .load(model.url)
-                        .placeholder(Utils.getRandomColoredDrawable())
+                        .placeholder(AdmDrawableUtils.getRandomColoredDrawable())
                         .fitCenter()
                         .override(512, 512)
                         .into(imageView);
@@ -243,20 +245,26 @@ public class WAStickersActivity extends AppCompatActivity {
                                         if (AdmUtils.isContextInvalid(WAStickersActivity.this)) {
                                             return;
                                         }
-                                        final File gifFile = Utils.getCacheFile();
-                                        boolean success = Utils.getFileFromImageView(gifFile, imageView);
+                                        final File gifFile = AdmFileUtils.getCacheFile(WAStickersActivity.this);
+                                        boolean success = AdmDrawableUtils.copyDrawableFromImageViewToFile(gifFile, imageView);
                                         if (success) {
-                                            Utils.shareGif(WAStickersActivity.this, gifFile);
+                                            // todo
+                                            //    java.lang.SecurityException: Permission Denial: reading com.admanager.utils.GenericFileProvider uri content://adm.com.admanager.sample.fileprovider/shared_images/latest_shared.png from pid=24947, uid=1000 requires the provider be exported, or grantUriPermission()
+
+                                            AdmShareUtils.shareFile(WAStickersActivity.this, gifFile);
                                             return;
                                         }
 
+                                        //todo is this second downlaod neccessary
+                                        // shared file may give error because of direct downloading to gallery
+
                                         download(permissionChecker, model, new DownloadListener() {
                                             @Override
-                                            public void downloaded(File file) {
+                                            public void downloaded(Uri file) {
                                                 if (AdmUtils.isContextInvalid(WAStickersActivity.this)) {
                                                     return;
                                                 }
-                                                Utils.shareGif(WAStickersActivity.this, file);
+                                                AdmShareUtils.shareFile(WAStickersActivity.this, file);
                                             }
                                         });
                                     }
@@ -308,21 +316,13 @@ public class WAStickersActivity extends AppCompatActivity {
 
     }
 
-    private void download(PermissionChecker permissionChecker, final StickerCategoryAdapter.StickerPackContainer model, final DownloadListener downloadListener) {
+    private void download(AdmPermissionChecker permissionChecker, final StickerCategoryAdapter.StickerPackContainer model, final DownloadListener downloadListener) {
         permissionChecker.checkPermissionGrantedAndRun(new Runnable() {
             @Override
             public void run() {
                 if (AdmUtils.isContextInvalid(WAStickersActivity.this)) {
                     return;
                 }
-
-                File folder = new File(Utils.getDownloadFolder(WAStickersActivity.this) + "/" + model.packageName);
-                folder.mkdirs();
-
-                String lastBitFromUrl = Utils.getLastBitFromUrl(model.url);
-
-                final File file = new File(folder.getAbsolutePath() + "/" + model.packageName + "_" + lastBitFromUrl + ".png");
-                if (file.exists()) file.delete();
 
                 AsyncTask.execute(new Runnable() {
                     @Override
@@ -331,15 +331,17 @@ public class WAStickersActivity extends AppCompatActivity {
                             @Override
                             public void downloaded(File resource) {
                                 try {
-                                    Utils.copyFile(resource, file);
 
                                     if (!AdmUtils.isContextInvalid(WAStickersActivity.this)) {
-                                        Utils.addToGallery(WAStickersActivity.this, file);
+                                        String lastBitFromUrl = AdmFileUtils.getLastBitFromUrl(model.url);
+                                        final String fileName = model.packageName + "_" + lastBitFromUrl + ".png";
+                                        Uri uri = AdmFileUtils.saveFileToGallery(WAStickersActivity.this, resource, fileName);
+
+                                        if (downloadListener != null) {
+                                            downloadListener.downloaded(uri);
+                                        }
                                     }
-                                    if (downloadListener != null) {
-                                        downloadListener.downloaded(file);
-                                    }
-                                } catch (IOException e) {
+                                } catch (Exception e) {
                                     e.printStackTrace();
                                 }
                             }
@@ -352,7 +354,7 @@ public class WAStickersActivity extends AppCompatActivity {
     }
 
     private interface DownloadListener {
-        void downloaded(File file);
+        void downloaded(Uri uri);
     }
 
 }

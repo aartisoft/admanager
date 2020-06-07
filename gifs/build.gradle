@@ -37,6 +37,7 @@ dependencies {
     // others
     api project(path: ':config')
     api project(path: ':core')
+    api project(path: ':utils')
 
     api 'com.giphy.sdk:core:1.0.2'
 

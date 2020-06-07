@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">빠른 메시지 보내기</string>
+    <string name="adm_ccs_intent_not_found">장치가이 기능을 지원하지 않습니다</string>
+
+</resources>

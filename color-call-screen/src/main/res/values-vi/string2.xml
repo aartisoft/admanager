@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">Gửi tin nhắn nhanh</string>
+    <string name="adm_ccs_intent_not_found">Thiết bị của bạn không hỗ trợ chức năng này</string>
+
+</resources>

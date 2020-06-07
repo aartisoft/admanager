@@ -20,6 +20,7 @@ import com.admanager.core.AdManagerBuilder
 import com.admanager.core.AdmUtils
 import com.admanager.core.ShareUtils
 import com.admanager.core.toolbar.AdmToolbarAnimator
+import com.admanager.gifs.activities.GifsActivity
 import com.admanager.gpstimeaddresscoord.activities.GPSTimeAddressCoordActivity
 import com.admanager.maps.activities.MapsActivity
 import com.admanager.popupenjoy.AdmPopupEnjoy
@@ -138,12 +139,10 @@ class SampleMainActivity : AppCompatActivity(),
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        when (id) {
-            R.id.nav_dialogad -> AdmPopupPromo.Builder(this)
-                .build()
-                .show()
+        when (item.itemId) {
+            R.id.nav_dialogad -> AdmPopupPromo.Builder(this).build().show()
             R.id.nav_wastickers -> WAStickersActivity.start(this)
+            R.id.nav_gifs -> GifsActivity.start(this)
             R.id.nav_barcode_reader -> BarcodeReaderActivity.start(this)
             R.id.nav_speed_test -> SpeedTestActivity.start(this)
             R.id.nav_gps_satellite -> SpeedTestActivity.start(this)

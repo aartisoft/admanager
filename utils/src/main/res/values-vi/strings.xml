@@ -1,0 +1,4 @@
+<resources>
+    <string name="saved_to_gallery">Lưu vào thư viện</string>
+    <string name="saved_to_gallery_error">Không thể lưu vào thư viện!</string>
+</resources>

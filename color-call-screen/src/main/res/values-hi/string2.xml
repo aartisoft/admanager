@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">त्वरित संदेश भेजें</string>
+    <string name="adm_ccs_intent_not_found">आपका डिवाइस इस फ़ंक्शन का समर्थन नहीं करता है</string>
+
+</resources>

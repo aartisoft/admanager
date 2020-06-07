@@ -42,6 +42,9 @@
             android:id="@+id/nav_wastickers"
             android:title="@string/wastickers" />
         <item
+            android:id="@+id/nav_gifs"
+            android:title="@string/gifs" />
+        <item
             android:id="@+id/nav_applock"
             android:title="App Lock" />
 

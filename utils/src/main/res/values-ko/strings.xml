@@ -1,0 +1,4 @@
+<resources>
+    <string name="saved_to_gallery">갤러리에 저장</string>
+    <string name="saved_to_gallery_error">갤러리에 저장할 수 없습니다!</string>
+</resources>

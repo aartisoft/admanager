@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">クイックメッセージを送信</string>
+    <string name="adm_ccs_intent_not_found">デバイスはこの機能をサポートしていません</string>
+
+</resources>

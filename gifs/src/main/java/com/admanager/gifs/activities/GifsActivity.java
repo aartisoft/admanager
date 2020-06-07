@@ -24,8 +24,8 @@ import com.admanager.gifs.R;
 import com.admanager.gifs.adapters.CategoryAdapter;
 import com.admanager.gifs.adapters.GifsAdapter;
 import com.admanager.gifs.utils.GifDialog;
-import com.admanager.gifs.utils.PermissionChecker;
 import com.admanager.recyclerview.ClickListener;
+import com.admanager.utils.AdmPermissionChecker;
 import com.giphy.sdk.core.models.Category;
 import com.giphy.sdk.core.models.Media;
 import com.giphy.sdk.core.models.enums.MediaType;
@@ -38,7 +38,7 @@ import com.giphy.sdk.core.network.response.ListMediaResponse;
 import java.util.List;
 
 public class GifsActivity extends AppCompatActivity implements ClickListener<Media> {
-    PermissionChecker permissionChecker;
+    AdmPermissionChecker permissionChecker;
     RecyclerView rvSubCategory;
     RecyclerView rvCategory;
     View root;
@@ -59,7 +59,7 @@ public class GifsActivity extends AppCompatActivity implements ClickListener<Med
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gifs);
 
-        permissionChecker = new PermissionChecker(this);
+        permissionChecker = new AdmPermissionChecker(this);
         rvSubCategory = findViewById(R.id.rvSubCategory);
         rvCategory = findViewById(R.id.rvCategory);
         rvGifs = findViewById(R.id.rvGifs);

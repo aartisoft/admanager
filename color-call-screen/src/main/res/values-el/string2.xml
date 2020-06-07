@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">Αποστολή γρήγορου μηνύματος</string>
+    <string name="adm_ccs_intent_not_found">Η συσκευή σας δεν υποστηρίζει αυτήν τη λειτουργία</string>
+
+</resources>

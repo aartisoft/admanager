@@ -29,4 +29,5 @@ include ':config',
         ':gpstime-address-coord',
         ':news',
         ':popup-rate',
-        ':adjust'
+        ':adjust',
+        ':utils'

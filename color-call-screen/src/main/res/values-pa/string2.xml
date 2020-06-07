@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">ਤੇਜ਼ ਸੁਨੇਹਾ ਭੇਜੋ</string>
+    <string name="adm_ccs_intent_not_found">ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਇਸ ਫੰਕਸ਼ਨ ਦਾ ਸਮਰਥਨ ਨਹੀਂ ਕਰਦੀ</string>
+
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="adm_ccs_send_quick_message">传送快速讯息</string>
+    <string name="adm_ccs_intent_not_found">您的设备不支持此功能</string>
+
+</resources>
