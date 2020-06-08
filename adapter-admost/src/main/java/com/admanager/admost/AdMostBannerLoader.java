@@ -105,6 +105,7 @@ public class AdMostBannerLoader extends BannerLoader<AdMostBannerLoader> {
         }, null);
 
         if (this.tag == null) {
+            loge("missing .tag()");
             BANNER.load();
         } else {
             BANNER.load(this.tag);

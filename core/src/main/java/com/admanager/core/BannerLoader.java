@@ -132,6 +132,10 @@ public abstract class BannerLoader<L extends BannerLoader> {
         Log.v(TAG, getAdapterName() + ": " + s);
     }
 
+    protected void loge(String s) {
+        Log.e(TAG, getAdapterName() + ": " + s);
+    }
+
     private String getAdapterName() {
         return adapterName;
     }

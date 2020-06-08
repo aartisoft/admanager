@@ -168,6 +168,7 @@ public class AdMostAdapter extends Adapter {
     protected void show() {
         if (ad != null && ad.isLoaded()) {
             if (this.tag == null) {
+                loge("missing .tag()");
                 ad.show();
             } else {
                 ad.show(this.tag);

@@ -131,6 +131,10 @@ public abstract class NativeLoader<L extends NativeLoader> {
         Log.v(TAG, getAdapterName() + ": " + s);
     }
 
+    protected void loge(String s) {
+        Log.e(TAG, getAdapterName() + ": " + s);
+    }
+
     private String getAdapterName() {
         return adapterName;
     }

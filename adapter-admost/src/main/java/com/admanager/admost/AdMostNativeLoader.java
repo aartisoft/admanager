@@ -156,6 +156,7 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
         }, binder);
 
         if (this.tag == null) {
+            loge("missing .tag()");
             NATIVE.load();
         } else {
             NATIVE.load(this.tag);
