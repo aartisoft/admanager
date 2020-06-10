@@ -23,6 +23,7 @@ public class AdMostBannerLoader extends BannerLoader<AdMostBannerLoader> {
     private String tag;
     private int size = AdMostManager.AD_BANNER;
     private AdMostView BANNER;
+    private Double revenue;
 
     public AdMostBannerLoader(Activity activity, LinearLayout adContainer, @Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
         super(activity, "AdMost", adContainer, rcEnableKey);
@@ -88,6 +89,7 @@ public class AdMostBannerLoader extends BannerLoader<AdMostBannerLoader> {
             @Override
             public void onReady(String network, int ecpm, View adView) {
                 logv("onReady:" + network);
+                revenue = com.admanager.admost.Consts.ecpmToRevenue(ecpm);
                 initContainer(adView);
             }
 
@@ -98,7 +100,7 @@ public class AdMostBannerLoader extends BannerLoader<AdMostBannerLoader> {
 
             @Override
             public void onClick(String network) {
-                clicked(network);
+                clicked(network, revenue);
                 //Ad clicked
             }
 

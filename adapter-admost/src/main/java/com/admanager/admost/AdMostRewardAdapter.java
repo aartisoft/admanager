@@ -9,10 +9,11 @@ import com.admanager.core.Consts;
 import com.admanager.core.RewardedAdapter;
 
 import admost.sdk.AdMostInterstitial;
-import admost.sdk.base.AdMost;
 import admost.sdk.listener.AdMostAdListener;
 
 public class AdMostRewardAdapter extends RewardedAdapter {
+    private Double revenue;
+
     private final AdMostAdListener AD_MOST_AD_LISTENER = new AdMostAdListener() {
         @Override
         public void onDismiss(String message) {
@@ -22,13 +23,14 @@ public class AdMostRewardAdapter extends RewardedAdapter {
 
         @Override
         public void onFail(int errorCode) {
-            error("code:" + errorCode + " " + logError(errorCode));
+            error("code:" + errorCode + " " + com.admanager.admost.Consts.logError(errorCode));
 
         }
 
         @Override
         public void onReady(String network, int ecpm) {
             logv("onReady:" + network);
+            revenue = com.admanager.admost.Consts.ecpmToRevenue(ecpm);
             loaded();
         }
 
@@ -40,13 +42,13 @@ public class AdMostRewardAdapter extends RewardedAdapter {
         @Override
         public void onClicked(String s) {
             // It indicates that the interstitial ad is clicked.
-            clicked(s);
+            clicked(s, revenue);
         }
 
         @Override
         public void onComplete(String s) {
             // If you are using interstitial, this callback will not be triggered.
-            earnedReward(0);
+            earnedReward(1);
 
         }
 
@@ -59,40 +61,6 @@ public class AdMostRewardAdapter extends RewardedAdapter {
 
     public AdMostRewardAdapter(@Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
         super("AdMostRewardAdapter", rcEnableKey);
-    }
-
-    protected static String logError(int errorCode) {
-        String message;
-        switch (errorCode) {
-            case AdMost.AD_ERROR_NO_FILL:
-                message = "AD_ERROR_NO_FILL";
-                break;
-            case AdMost.AD_ERROR_FREQ_CAP:
-                message = "AD_ERROR_FREQ_CAP";
-                break;
-            case AdMost.AD_ERROR_CONNECTION:
-                message = "AD_ERROR_CONNECTION";
-                break;
-            case AdMost.AD_ERROR_WATERFALL_EMPTY:
-                message = "AD_ERROR_WATERFALL_EMPTY";
-                break;
-            case AdMost.AD_ERROR_FREQ_CAP_ON_SHOWN:
-                message = "AD_ERROR_FREQ_CAP_ON_SHOWN";
-                break;
-            case AdMost.AD_ERROR_ZONE_PASSIVE:
-                message = "AD_ERROR_ZONE_PASSIVE";
-                break;
-            case AdMost.AD_ERROR_TAG_PASSIVE:
-                message = "AD_ERROR_TAG_PASSIVE";
-                break;
-            case AdMost.AD_ERROR_TOO_MANY_REQUEST:
-                message = "AD_ERROR_TOO_MANY_REQUEST";
-                break;
-            default:
-                message = "";
-                break;
-        }
-        return message;
     }
 
     public AdMostRewardAdapter withRemoteConfigId(@Size(min = Consts.RC_KEY_SIZE) String rcAppIdKey, @Size(min = Consts.RC_KEY_SIZE) String rcZoneIdKey) {

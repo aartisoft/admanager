@@ -23,6 +23,7 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
     private int layoutId = R.layout.custom_layout_native_250;
     private AdMostViewBinder binder;
     private AdMostView NATIVE;
+    private Double revenue;
 
     public AdMostNativeLoader(Activity activity, LinearLayout adContainer, @Size(min = com.admanager.core.Consts.RC_KEY_SIZE) String rcEnableKey) {
         super(activity, "AdMost", adContainer, rcEnableKey);
@@ -139,6 +140,7 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
             @Override
             public void onReady(String network, int ecpm, View adView) {
                 logv("onReady:" + network);
+                revenue = com.admanager.admost.Consts.ecpmToRevenue(ecpm);
                 initContainer(adView);
             }
 
@@ -150,7 +152,7 @@ public class AdMostNativeLoader extends NativeLoader<AdMostNativeLoader> {
             @Override
             public void onClick(String network) {
                 logv("onClick:" + network);
-                clicked(network);
+                clicked(network, revenue);
             }
 
         }, binder);

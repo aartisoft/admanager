@@ -27,6 +27,7 @@ import androidx.core.app.NotificationCompat;
 
 import com.admanager.core.AdmUtils;
 import com.admanager.core.BaseHelper;
+import com.admanager.core.Consts;
 import com.google.android.material.navigation.NavigationView;
 
 import java.lang.ref.WeakReference;
@@ -36,7 +37,6 @@ public class AdmStaticNotification extends BaseHelper {
     private static final int ID = 52189;
     private static final String PREF_FILE_NAME = "notif_helper_prefs";
     private static final String EASY_ACCESS = "easy_access";
-    public static final String INTENT_CLICK_PARAM = "notification_clicked";
     private static AdmStaticNotification INSTANCE;
     private String title;
     private String text;
@@ -145,7 +145,7 @@ public class AdmStaticNotification extends BaseHelper {
                 .setContentText(content)
                 .setPriority(NotificationCompat.PRIORITY_MAX);
         if (intent != null) {
-            intent.putExtra(INTENT_CLICK_PARAM, true);
+            intent.putExtra(Consts.IntentClickParam.STATIC_NOTIFICATION_CLICKED, true);
         }
         builder.setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
         builder.setOngoing(true);
@@ -178,7 +178,7 @@ public class AdmStaticNotification extends BaseHelper {
         if (activity.getIntent() == null) {
             return;
         }
-        boolean clicked = activity.getIntent().getBooleanExtra(INTENT_CLICK_PARAM, false);
+        boolean clicked = activity.getIntent().getBooleanExtra(Consts.IntentClickParam.STATIC_NOTIFICATION_CLICKED, false);
         if (clicked) {
             clickListener.clicked();
         }

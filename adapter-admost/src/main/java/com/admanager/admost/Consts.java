@@ -16,6 +16,12 @@ public class Consts {
     public final static String TEST_OFFERWALL = "fa1072e4-afcf-49b6-a919-1ab1ab1b0aa9";
     public final static String TEST_NATIVE_ZONE = "0155f3d0-5de1-4b10-a48e-8d1d069436b9";
 
+    public static double ecpmToRevenue(int ecpm) {
+        double revenueForUser = ecpm / 1000d;
+        double revenueInUSD = revenueForUser / 100;
+        return revenueInUSD;
+    }
+
     public static void initAdMost(Activity activity, String appId) {
         AdMostConfiguration.Builder configuration = new AdMostConfiguration.Builder(activity, appId);
 
@@ -25,5 +31,39 @@ public class Consts {
         }
 
         AdMost.getInstance().init(configuration.build());
+    }
+
+    protected static String logError(int errorCode) {
+        String message;
+        switch (errorCode) {
+            case AdMost.AD_ERROR_NO_FILL:
+                message = "AD_ERROR_NO_FILL";
+                break;
+            case AdMost.AD_ERROR_FREQ_CAP:
+                message = "AD_ERROR_FREQ_CAP";
+                break;
+            case AdMost.AD_ERROR_CONNECTION:
+                message = "AD_ERROR_CONNECTION";
+                break;
+            case AdMost.AD_ERROR_WATERFALL_EMPTY:
+                message = "AD_ERROR_WATERFALL_EMPTY";
+                break;
+            case AdMost.AD_ERROR_FREQ_CAP_ON_SHOWN:
+                message = "AD_ERROR_FREQ_CAP_ON_SHOWN";
+                break;
+            case AdMost.AD_ERROR_ZONE_PASSIVE:
+                message = "AD_ERROR_ZONE_PASSIVE";
+                break;
+            case AdMost.AD_ERROR_TAG_PASSIVE:
+                message = "AD_ERROR_TAG_PASSIVE";
+                break;
+            case AdMost.AD_ERROR_TOO_MANY_REQUEST:
+                message = "AD_ERROR_TOO_MANY_REQUEST";
+                break;
+            default:
+                message = "";
+                break;
+        }
+        return message;
     }
 }

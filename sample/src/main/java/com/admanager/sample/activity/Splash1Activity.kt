@@ -23,7 +23,13 @@ class Splash1Activity : AppCompatActivity() {
 //        BoosterNotificationApp.setClickListener(this, () -> System.out.println("CLICKED")); // you need to call this method in launcher Activity
         AdManagerBuilder(this)
             .add(AdmobAdapter(RCUtils.s1_admob_enabled).withRemoteConfigId(RCUtils.s1_admob_id))
-                .clickListener { _, _, _ -> AdmAdjust.event(this, R.string.adjust_event_inters) }
+            .clickListener { _, _, _, revenue ->
+                AdmAdjust.event(
+                    this,
+                    R.string.adjust_event_inters,
+                    revenue
+                )
+            }
             .thenStart(Splash2Activity::class.java)
             .build()
             .show()

@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.4.0] - 2020-06-10
+### Change
+- Click Listeners: Added Revenue parameter to ad Click Listeners
+- Adjust Events: Added optional revenue parameter
+
 ## [2.3.1] - 2020-06-04
 ### Change
 - Color Call Screen: Layout bug fix for card title overlap

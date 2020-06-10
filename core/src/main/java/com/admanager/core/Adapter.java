@@ -77,16 +77,21 @@ public abstract class Adapter {
     }
 
     protected final void clicked() {
-        clicked(null);
+        clicked(null, null);
     }
 
     protected final void clicked(final String tag) {
+        clicked(tag, null);
+
+    }
+
+    protected final void clicked(final String tag, final Double revenue) {
         logv("clicked");
 
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Adapter.this.manager.clicked(order, getAdapterName(), tag);
+                Adapter.this.manager.clicked(order, getAdapterName(), tag, revenue);
             }
         });
     }

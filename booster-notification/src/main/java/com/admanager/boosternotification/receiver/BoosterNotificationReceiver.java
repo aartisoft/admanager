@@ -16,6 +16,7 @@ import com.admanager.boosternotification.BoosterNotificationApp;
 import com.admanager.boosternotification.boost.BatteryBoostActivity;
 import com.admanager.boosternotification.boost.RamBoostActivity;
 import com.admanager.core.AdmUtils;
+import com.admanager.core.Consts;
 
 public class BoosterNotificationReceiver extends BroadcastReceiver {
     public static final String TAG = "Booster";
@@ -93,7 +94,7 @@ public class BoosterNotificationReceiver extends BroadcastReceiver {
     private void launch(Context context) {
         PackageManager pm = context.getPackageManager();
         Intent launchIntentForPackage = pm.getLaunchIntentForPackage(context.getPackageName());
-        launchIntentForPackage.putExtra(BoosterNotificationApp.INTENT_CLICK_PARAM, true);
+        launchIntentForPackage.putExtra(Consts.IntentClickParam.BOOSTER_NOTIFICATION_CLICKED, true);
         launchIntentForPackage.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(launchIntentForPackage);
     }

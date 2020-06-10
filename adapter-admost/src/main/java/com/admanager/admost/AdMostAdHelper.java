@@ -49,6 +49,9 @@ public class AdMostAdHelper {
 
                 com.admanager.admost.Consts.initAdMost(context, appId);
                 final AdMostInterstitial ad = new AdMostInterstitial(context, zoneId, null);
+
+                final Double[] revenue = new Double[1];
+
                 ad.setListener(new AdMostAdListener() {
                     @Override
                     public void onDismiss(String message) {
@@ -60,7 +63,7 @@ public class AdMostAdHelper {
 
                     @Override
                     public void onFail(int errorCode) {
-                        Log.e(TAG, "code:" + errorCode + " " + AdMostAdapter.logError(errorCode));
+                        Log.e(TAG, "code:" + errorCode + " " + com.admanager.admost.Consts.logError(errorCode));
                         if (listener != null) {
                             listener.completed(false);
                         }
@@ -69,6 +72,7 @@ public class AdMostAdHelper {
 
                     @Override
                     public void onReady(String network, int ecpm) {
+                        revenue[0] = com.admanager.admost.Consts.ecpmToRevenue(ecpm);
                         if (ad.isLoaded()) {
                             if (tag == null) {
                                 ad.show();
@@ -87,7 +91,7 @@ public class AdMostAdHelper {
                     public void onClicked(String s) {
                         // It indicates that the interstitial ad is clicked.
                         if (clicklistener != null) {
-                            clicklistener.clicked();
+                            clicklistener.clicked(revenue[0]);
                         }
                     }
 
@@ -107,6 +111,6 @@ public class AdMostAdHelper {
     }
 
     public interface ClickListener {
-        void clicked();
+        void clicked(Double revenue);
     }
 }

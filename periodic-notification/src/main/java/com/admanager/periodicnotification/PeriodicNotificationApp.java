@@ -6,20 +6,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.os.Bundle;
 
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 
 import com.admanager.core.AdmUtils;
+import com.admanager.core.Consts;
 import com.admanager.core.staticnotification.AdmStaticNotification;
-import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.lang.ref.WeakReference;
 
 public class PeriodicNotificationApp {
-    public static final String PERIODIC_NOTIFICATION_SUFFIX = "perinotif_suffix";
 
     private static final String TAG = "PeriodicNotif";
     private static PeriodicNotificationApp INSTANCE;
@@ -59,12 +57,8 @@ public class PeriodicNotificationApp {
         if (activity.getIntent() == null) {
             return;
         }
-        String suffix = activity.getIntent().getStringExtra(PERIODIC_NOTIFICATION_SUFFIX);
+        String suffix = activity.getIntent().getStringExtra(Consts.IntentClickParam.PERIODIC_NOTIFICATION_SUFFIX);
         if (suffix != null) {
-            FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.getInstance(activity);
-            Bundle bundle = new Bundle();
-            firebaseAnalytics.logEvent("perinotif_click_" + suffix, bundle);
-
             if (clickListener != null) {
                 clickListener.clicked();
             }

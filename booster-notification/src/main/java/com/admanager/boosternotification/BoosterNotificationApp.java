@@ -34,6 +34,7 @@ import com.admanager.core.AdmUtils;
 import com.admanager.core.Ads;
 import com.admanager.core.AdsImp;
 import com.admanager.core.BaseHelper;
+import com.admanager.core.Consts;
 import com.google.android.material.navigation.NavigationView;
 
 import java.lang.ref.WeakReference;
@@ -43,7 +44,6 @@ public class BoosterNotificationApp extends BaseHelper {
     private static final int ID = 52188;
     private static final String PREF_FILE_NAME = "notif_helper_prefs";
     private static final String EASY_ACCESS = "easy_access";
-    public static final String INTENT_CLICK_PARAM = "booster_clicked";
     private static com.admanager.boosternotification.BoosterNotificationApp INSTANCE;
     private static BatteryStatusReceiver batteryStatusReceiver;
     private static ConnectionStatusReceiver connectionStatusReceiver;
@@ -195,7 +195,7 @@ public class BoosterNotificationApp extends BaseHelper {
                 .setContent(contentView);
 
         if (intent != null) {
-            intent.putExtra(INTENT_CLICK_PARAM, true);
+            intent.putExtra(Consts.IntentClickParam.BOOSTER_NOTIFICATION_CLICKED, true);
         }
         builder.setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT));
         builder.setOngoing(true);
@@ -215,7 +215,7 @@ public class BoosterNotificationApp extends BaseHelper {
         if (activity.getIntent().getExtras() == null) {
             return;
         }
-        boolean clicked = activity.getIntent().getBooleanExtra(INTENT_CLICK_PARAM, false);
+        boolean clicked = activity.getIntent().getBooleanExtra(Consts.IntentClickParam.BOOSTER_NOTIFICATION_CLICKED, false);
         if (clicked) {
             clickListener.clicked();
         }

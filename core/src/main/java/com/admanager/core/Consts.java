@@ -6,6 +6,12 @@ public class Consts {
     public static final String TAG = "ADM";
     public static final String UUID_REGEX = "[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}";
 
+    public static class IntentClickParam {
+        public static final String PERIODIC_NOTIFICATION_SUFFIX = "perinotif_suffix";
+        public static final String BOOSTER_NOTIFICATION_CLICKED = "booster_clicked";
+        public static final String STATIC_NOTIFICATION_CLICKED = "notification_clicked";
+    }
+
     public static class PeriodicNotification {
         public static final String DEFAULT_ENABLE_KEY = "notif_enable";
         public static final String DEFAULT_DAYS_KEY = "notif_days";

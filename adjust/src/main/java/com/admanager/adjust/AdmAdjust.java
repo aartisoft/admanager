@@ -55,11 +55,18 @@ public class AdmAdjust {
     }
 
     public static void event(Context context, @StringRes int strid) {
+        event(context, strid, null);
+    }
+
+    public static void event(Context context, @StringRes int strid, Double revenueUsd) {
         if (AdmUtils.isContextInvalid(context)) {
             return;
         }
         String eventId = context.getString(strid);
         AdjustEvent adjustEvent = new AdjustEvent(eventId);
+        if (revenueUsd != null) {
+            adjustEvent.setRevenue(revenueUsd, "USD");
+        }
         Adjust.trackEvent(adjustEvent);
     }
 

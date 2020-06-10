@@ -373,7 +373,7 @@ public class AdManager {
         adapterFinished(order, true, true);
     }
 
-    void clicked(int i, String adapterName, String subname) {
+    void clicked(int i, String adapterName, String subname, Double revenue) {
         if (clickListener == null) {
             return;
         }
@@ -383,7 +383,7 @@ public class AdManager {
             subname = "_" + subname;
         }
         Class<? extends Adapter> clz = ADAPTERS.get(i).getClass();
-        clickListener.clicked(i, clz, adapterName + subname);
+        clickListener.clicked(i, clz, adapterName + subname, revenue);
     }
 
     private void adapterFinished(int i, boolean displayed, boolean showOneBarrier) {
@@ -411,7 +411,7 @@ public class AdManager {
     }
 
     public interface ClickListener {
-        void clicked(int order, Class<? extends Adapter> clz, String adapterName);
+        void clicked(int order, Class<? extends Adapter> clz, String adapterName, Double revenue);
     }
 
     public interface AdapterListener extends Listener {

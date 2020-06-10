@@ -15,6 +15,7 @@ import android.util.Log;
 
 import androidx.core.app.NotificationCompat;
 
+import com.admanager.core.Consts;
 import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.Date;
@@ -92,7 +93,7 @@ public class ReminderReceiver extends BroadcastReceiver {
         }
 
         if (app.getIntent() != null) {
-            app.getIntent().putExtra(PeriodicNotificationApp.PERIODIC_NOTIFICATION_SUFFIX, notif.suffix);
+            app.getIntent().putExtra(Consts.IntentClickParam.PERIODIC_NOTIFICATION_SUFFIX, notif.suffix);
             mBuilder = mBuilder.setContentIntent(PendingIntent.getActivity(context, 0, app.getIntent(), PendingIntent.FLAG_UPDATE_CURRENT));
         }
 

@@ -194,10 +194,10 @@ public abstract class NativeLoader<L extends NativeLoader> {
     }
 
     protected void clicked() {
-        clicked(null);
+        clicked(null, null);
     }
 
-    protected void clicked(final String subname) {
+    protected void clicked(final String subname, final Double revenue) {
         if (clickListener == null) {
             return;
         }
@@ -209,7 +209,7 @@ public abstract class NativeLoader<L extends NativeLoader> {
                 if (subname != null) {
                     name = name + "_" + subname;
                 }
-                clickListener.clicked(name);
+                clickListener.clicked(name, revenue);
             }
         });
     }
@@ -300,6 +300,6 @@ public abstract class NativeLoader<L extends NativeLoader> {
     }
 
     public interface ClickListener {
-        void clicked(String adapterName);
+        void clicked(String adapterName, Double revenue);
     }
 }
