@@ -5,14 +5,14 @@ import android.text.TextUtils;
 import androidx.annotation.Size;
 
 import com.admanager.config.RemoteConfigHelper;
-import com.admanager.core.AdMostRewardedAdapter;
 import com.admanager.core.Consts;
+import com.admanager.core.RewardedAdapter;
 
 import admost.sdk.AdMostInterstitial;
 import admost.sdk.base.AdMost;
 import admost.sdk.listener.AdMostAdListener;
 
-public class AdMostRewardAdapter extends AdMostRewardedAdapter {
+public class AdMostRewardAdapter extends RewardedAdapter {
     private final AdMostAdListener AD_MOST_AD_LISTENER = new AdMostAdListener() {
         @Override
         public void onDismiss(String message) {
@@ -46,8 +46,7 @@ public class AdMostRewardAdapter extends AdMostRewardedAdapter {
         @Override
         public void onComplete(String s) {
             // If you are using interstitial, this callback will not be triggered.
-            clicked(s);
-            earnedReward();
+            earnedReward(0);
 
         }
 
@@ -59,7 +58,7 @@ public class AdMostRewardAdapter extends AdMostRewardedAdapter {
     private boolean anyIdMethodCalled;
 
     public AdMostRewardAdapter(@Size(min = Consts.RC_KEY_SIZE) String rcEnableKey) {
-        super("AdMost", rcEnableKey);
+        super("AdMostRewardAdapter", rcEnableKey);
     }
 
     protected static String logError(int errorCode) {
