@@ -11,9 +11,11 @@ public class AdMostTag {
     public static final String BANNER_TUT = "banner_tut";
     public static final String BANNER_LIB = "banner_lib";
 
+    public static final String NATIVE_BANNER_LIB = "native_banner_lib";
+    public static final String NATIVE_BANNER_MAIN = "native_banner_main";
+
     public static final String NATIVE_MAIN = "native_main";
     public static final String NATIVE_TUT = "native_tut";
-    public static final String NATIVE_LIB = "native_lib";
     public static final String NATIVE_ENJOY = "native_enjoy";
     public static final String NATIVE_EXIT = "native_exit";
 }
