@@ -187,7 +187,7 @@ class AdmFileUtils {
             file: File
         ) = GenericFileProvider.getUriForFile(
             activity,
-            "com.admanager.utils.fileprovider",
+            activity.packageName + ".admfileprovider",
             file
         )
 
@@ -197,7 +197,7 @@ class AdmFileUtils {
             file: String
         ) = GenericFileProvider.getUriForFile(
             activity,
-            "com.admanager.utils.fileprovider",
+            activity.packageName + ".admfileprovider",
             File(file)
         )
 

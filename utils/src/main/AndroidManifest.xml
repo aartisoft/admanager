@@ -11,7 +11,7 @@
 
         <provider
             android:name=".GenericFileProvider"
-            android:authorities="com.admanager.utils.fileprovider"
+            android:authorities="${applicationId}.admfileprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data

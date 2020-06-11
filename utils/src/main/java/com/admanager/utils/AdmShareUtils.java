@@ -27,7 +27,7 @@ public class AdmShareUtils {
         shareIntent.setType("image/*");// + AdmFileUtils.getExtension(sharingGifFile));
 //        Uri uri = Uri.fromFile(sharingGifFile);
         String packageName = activity.getApplicationContext().getPackageName();
-//        Uri uri = FileProvider.getUriForFile(activity, packageName + ".fileprovider", sharingGifFile);
+//        Uri uri = FileProvider.getUriForFile(activity, packageName + ".admfileprovider", sharingGifFile);
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
         shareIntent.putExtra(Intent.EXTRA_STREAM, sharingGifFile);

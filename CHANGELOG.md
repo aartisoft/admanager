@@ -1,6 +1,12 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.4.1] - 2020-06-10
+### Change
+- Admost: Version updated
+### Bugfix
+- fileprovider corruption
+
 ## [2.4.0] - 2020-06-10
 ### Change
 - Click Listeners: Added Revenue parameter to ad Click Listeners
