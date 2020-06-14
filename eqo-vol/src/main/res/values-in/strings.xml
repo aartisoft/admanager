@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Penambah Volume Ekstra</string>
+
+
+    <string name="navigation_drawer_open">Buka laci navigasi</string>
+    <string name="navigation_drawer_close">Tutup laci navigasi</string>
+
+    <string name="volume_booster">Penguat Volume</string>
+    <string name="menu_title">Pemutar Musik &amp; Penguat Volume</string>
+    <string name="title_2">Equalizer</string>
+
+    <string name="extra_boost">Dorongan Ekstra</string>
+
+
+    <string name="tutorial">Tutorial</string>
+    <string name="privacy_policy">Kebijakan pribadi</string>
+    <string name="notification">Pemberitahuan</string>
+    <string name="settings">Pengaturan</string>
+    <string name="share">Bagikan</string>
+    <string name="share_with">Bagikan Penambah Volume Ekstra:</string>
+    <string name="loading_splash">Memuat …</string>
+
+
+    <string name="notification_text">Anda dapat menyesuaikan suaranya dengan mudah!</string>
+
+    <string name="tutorial_1_text_1">% 200Volume Ekstra</string>
+    <string name="tutorial_1_text_2">Dapatkan volume maksimalsambil mendengarkan musik</string>
+
+    <string name="tutorial_2_text_1">Equalizer</string>
+    <string name="tutorial_2_text_2">Sesuaikan suaratrek Anda di equalizer</string>
+
+    <string name="next">Lanjut</string>
+    <string name="got_it">Mengerti!</string>
+
+    <string name="on">Di</string>
+    <string name="off">Mati</string>
+
+
+    <string name="bass">Bas</string>
+    <string name="visual">Membayangkan</string>
+
+    <string name="open_music_player">Ketuk untuk membuka pemutar musik Anda.</string>
+
+    <string name="not_valid_link">Ini bukan tautan yang valid!</string>
+    <string name="no_browser">Anda tidak memiliki browser apa pun untuk membuka halaman web!</string>
+    <string name="share_app">Hei! Bagikan penguat volume ekstra terbaik!</string>
+    <string name="not_started_music_yet">Belum memulai musik!</string>
+    <string name="playing">(Bermain &#8230;)</string>
+    <string name="paused">(Dijeda)</string>
+    <string name="no">Tidak</string>
+    <string name="yes">Iya</string>
+    <string name="enjoy">Nikmati</string>
+    <string name="permission_not_granted">Izin yang diperlukan tidak diberikan! Visualizer tidak dijalankan!</string>
+
+
+    <string name="ad_settings">Pengaturan Iklan</string>
+
+    <string name="voice_recorder">Perekam suara</string>
+
+    <string name="speedtest">Tes kecepatan</string>
+
+</resources>

@@ -1,0 +1,100 @@
+<resources>
+    <string name="mp_app_name">Reproductor de música</string>
+
+    <string name="mp_refresh">Actualizar</string>
+    <string name="mp_search">Buscar</string>
+    <string name="mp_disc">Dto</string>
+
+    <string name="mp_loading_splash">Cargando …</string>
+
+    <string name="mp_no_picture">Oups, no hay nada aquí :(</string>
+
+    <string name="mp_preset">Preestablecido :</string>
+    <string name="mp_create_preset">Crear preajuste</string>
+
+
+    <string name="mp_bass_boost">Refuerzo de graves</string>
+    <string name="mp_can_t_access_your_local_music">No puedo acceder a tu música local.</string>
+    <string name="mp_equalizer_needs_permission">Equalizer necesita permiso para usar y mostrar tu música.</string>
+    <string name="mp_allow_library_access">Permitir acceso a la biblioteca</string>
+    <string name="mp_open">Abierto</string>
+    <string name="mp_play_all">Jugar todo</string>
+    <string name="mp_add_all">Añadir todo</string>
+    <string name="mp_remove_all">Eliminar todo</string>
+    <string name="mp_add_to_playlist">Agregar a la lista de reproducción</string>
+    <string name="mp_edit">Editar</string>
+    <string name="mp_delete">Eliminar</string>
+    <string name="mp_play_now">Reproducir ahora</string>
+    <string name="mp_move_to_first">Mover a primero</string>
+    <string name="mp_move_to_last">Mover al último</string>
+    <string name="mp_move_up">Ascender</string>
+    <string name="mp_move_down">Mover hacia abajo</string>
+    <string name="mp_remove_from_playlist">Eliminar de la lista de reproducción</string>
+    <string name="mp_remove_from_queue">Eliminar de la cola</string>
+    <string name="mp_play_next">Jugar siguiente</string>
+    <string name="mp_add_to_queue">Añadir a la cola</string>
+    <plurals name="mp_number_tracks">
+
+        <item quantity="one">%d track</item>
+        <item quantity="other">%d tracks</item>
+    </plurals>
+
+
+    <string name="mp_read_granted">Se otorga permiso para leer archivos de música &#8230;</string>
+    <string name="mp_not_granted">¡No se otorgan los permisos necesarios! ¡Para acceder a sus archivos de música locales, se debe dar permiso!</string>
+    <string name="mp_delete_playlist">Eliminar lista de reproducción</string>
+    <string name="mp_yes">si</string>
+    <string name="mp_no">No</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">¿Estás seguro de eliminar la lista de reproducción %1$s?</string>
+    <string name="mp_rename_playlist">Renombrar lista de reproducción</string>
+    <string name="mp_enter_new_playlist_name">Ingrese el nuevo nombre de la lista de reproducción:</string>
+    <string name="mp_update">Actualizar</string>
+    <string name="mp_cancel">Cancelar</string>
+    <string name="mp_playlist_deleted">La lista de reproducción %s se eliminó correctamente.</string>
+    <string name="mp_create_a_preset">Crea un preset</string>
+    <string name="mp_enter_preset_name">Ingrese el nombre preestablecido:</string>
+    <string name="mp_create">Crear</string>
+    <string name="mp_ok">Okay</string>
+    <string name="mp_create_a_playlist">Crea una lista de reproducción</string>
+    <string name="mp_enter_playlist_name">Ingrese el nombre de la lista de reproducción:</string>
+    <string name="mp_create_uppercase">CREAR</string>
+    <string name="mp_playlist_must_be_created">¡La lista de reproducción se debe crear al principio!</string>
+    <string name="mp_cancel_uppercase">CANCELAR</string>
+    <string name="mp_add_uppercase">AÑADIR</string>
+
+    <string name="mp_remove_all_track">Eliminar todas las pistas</string>
+    <string name="mp_are_you_sure_to_remove_track">¿Estás seguro de eliminar todas las pistas de la cola?</string>
+    <string name="mp_remove_preset">Eliminar preajuste</string>
+    <string name="mp_are_you_sure_to_remove_preset">¿Estás seguro de eliminar %s preset?</string>
+    <string name="mp_rename_preset">Renombrar preajuste</string>
+    <string name="mp_enter_new_preset_name">Ingrese el nuevo nombre preestablecido:</string>
+    <string name="mp_preset_is_updated">El preajuste se actualiza.</string>
+    <string name="mp_preset_not_updated">¡El preajuste no se actualiza!</string>
+    <string name="mp_preset_is_deleted">%s preestablecido se elimina.</string>
+    <string name="mp_preset_is_not_deleted">¡El preajuste %s no se elimina!</string>
+    <string name="mp_all_tracks_are_removed_from_queue">Todas las pistas se eliminan de la cola con éxito.</string>
+    <string name="mp_will_be_played_next">%s se jugará a continuación.</string>
+    <string name="mp_is_added_to_queue">%s se agrega a la cola con éxito.</string>
+    <string name="mp_artist_tracks_are_added">Se agregaron %s pistas de artista a la cola con éxito.</string>
+    <string name="mp_album_tracks_are_added">Las pistas del álbum %s se agregan a la cola con éxito.</string>
+    <string name="mp_genre_tracks_are_added">Se agregaron %s pistas de género a la cola con éxito.</string>
+    <string name="mp_playlist_tracks_are_added">Se agregaron %s pistas de la lista de reproducción a la cola correctamente.</string>
+    <string name="mp_playlist_updated">La lista de reproducción se actualizó correctamente.</string>
+    <string name="mp_playlist_not_updated">¡La lista de reproducción no está actualizada!</string>
+    <string name="mp_music_list_refreshed">La lista de música se actualiza con éxito.</string>
+    <string name="mp_preset_is_created">Se crea %s preestablecido.</string>
+    <string name="mp_track_added_to_playlist">%s se agrega a %s.</string>
+    <string name="mp_track_not_added_to_playlist">¡%s no se agrega a %s!</string>
+    <string name="mp_playlist_created_tracks_added">Se crea la lista de reproducción %s. Se añaden %d pistas.</string>
+    <string name="mp_playlist_exists">¡La lista de reproducción %s ya existe!</string>
+    <string name="mp_playlist_added_one_track_add">Se crea la lista de reproducción %s. Se agrega una pista.</string>
+    <string name="mp_playlist_not_deleted">¡La lista de reproducción %s no se elimina!</string>
+    <string name="mp_track_removed_from_playlist">%s se eliminó de %s con éxito.</string>
+    <string name="mp_track_not_removed_from_playlist">¡%s no se elimina de %s!</string>
+
+    <string name="mp_visualizer_permission_not_granted">¡No se otorga el permiso necesario! ¡El visualizador no se ejecuta!</string>
+
+
+</resources>

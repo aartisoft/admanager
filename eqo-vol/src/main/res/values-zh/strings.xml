@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">额外音量助推器</string>
+
+
+    <string name="navigation_drawer_open">打开导航抽屉</string>
+    <string name="navigation_drawer_close">关闭导航抽屉</string>
+
+    <string name="volume_booster">音量助推器</string>
+    <string name="menu_title">音乐播放器和音量增强器</string>
+    <string name="title_2">均衡器</string>
+
+    <string name="extra_boost">额外提升</string>
+
+
+    <string name="tutorial">讲解</string>
+    <string name="privacy_policy">隐私政策</string>
+    <string name="notification">通知</string>
+    <string name="settings">设定值</string>
+    <string name="share">分享</string>
+    <string name="share_with">分享额外的音量助推器：</string>
+    <string name="loading_splash">载入中&#8230;</string>
+
+
+    <string name="notification_text">您可以轻松自定义声音！</string>
+
+    <string name="tutorial_1_text_1">％200额外的音量</string>
+    <string name="tutorial_1_text_2">获得最大音量在听音乐的同时</string>
+
+    <string name="tutorial_2_text_1">均衡器</string>
+    <string name="tutorial_2_text_2">自定义声音您在均衡器上的音轨</string>
+
+    <string name="next">下一个</string>
+    <string name="got_it">得到它了！</string>
+
+    <string name="on">上</string>
+    <string name="off">关</string>
+
+
+    <string name="bass">低音</string>
+    <string name="visual">可视化</string>
+
+    <string name="open_music_player">点击以打开您的音乐播放器。</string>
+
+    <string name="not_valid_link">这不是有效的链接！</string>
+    <string name="no_browser">您没有任何浏览器来打开网页！</string>
+    <string name="share_app">嘿!分享最好的额外音量增强器！</string>
+    <string name="not_started_music_yet">尚未开始播放音乐！</string>
+    <string name="playing">（正在播放&#8230;）</string>
+    <string name="paused">（已暂停）</string>
+    <string name="no">没有</string>
+    <string name="yes">是</string>
+    <string name="enjoy">请享用</string>
+    <string name="permission_not_granted">未获得必要的许可！ Visualizer未运行！</string>
+
+
+    <string name="ad_settings">广告设定</string>
+
+    <string name="voice_recorder">录音机</string>
+
+    <string name="speedtest">速度测试</string>
+
+</resources>

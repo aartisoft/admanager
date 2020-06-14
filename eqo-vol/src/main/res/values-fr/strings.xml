@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Booster de volume supplémentaire</string>
+
+
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le tiroir de navigation</string>
+
+    <string name="volume_booster">Booster de volume</string>
+    <string name="menu_title">Lecteur de musique et amplificateur de volume</string>
+    <string name="title_2">Égaliseur</string>
+
+    <string name="extra_boost">Boost supplémentaire</string>
+
+
+    <string name="tutorial">Didacticiel</string>
+    <string name="privacy_policy">Politique de confidentialité</string>
+    <string name="notification">Notification</string>
+    <string name="settings">Réglages</string>
+    <string name="share">Partager</string>
+    <string name="share_with">Partager Extra Volume Booster:</string>
+    <string name="loading_splash">Chargement …</string>
+
+
+    <string name="notification_text">Vous pouvez facilement personnaliser le son!</string>
+
+    <string name="tutorial_1_text_1">% 200Volume supplémentaire</string>
+    <string name="tutorial_1_text_2">Obtenez le volume maximumtout en écoutant de la musique</string>
+
+    <string name="tutorial_2_text_1">Égaliseur</string>
+    <string name="tutorial_2_text_2">Personnalisez le son devos morceaux sur l\'égaliseur</string>
+
+    <string name="next">Prochain</string>
+    <string name="got_it">Je l\'ai!</string>
+
+    <string name="on">Sur</string>
+    <string name="off">De</string>
+
+
+    <string name="bass">Basse</string>
+    <string name="visual">Visualiser</string>
+
+    <string name="open_music_player">Appuyez pour ouvrir votre lecteur de musique.</string>
+
+    <string name="not_valid_link">Ce n\'est pas un lien valide!</string>
+    <string name="no_browser">Vous n\'avez pas de navigateur pour ouvrir la page Web!</string>
+    <string name="share_app">Hey! Partagez le meilleur booster de volume supplémentaire!</string>
+    <string name="not_started_music_yet">Pas encore commencé la musique!</string>
+    <string name="playing">(En jouant…)</string>
+    <string name="paused">(En pause)</string>
+    <string name="no">Non</string>
+    <string name="yes">Oui</string>
+    <string name="enjoy">Prendre plaisir</string>
+    <string name="permission_not_granted">L\'autorisation nécessaire n\'est pas accordée! Le visualiseur n\'est pas exécuté!</string>
+
+
+    <string name="ad_settings">Paramètres des annonces</string>
+
+    <string name="voice_recorder">Enregistreur vocal</string>
+
+    <string name="speedtest">Test de rapidité</string>
+
+</resources>

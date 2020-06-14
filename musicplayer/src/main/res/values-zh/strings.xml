@@ -1,0 +1,99 @@
+<resources>
+    <string name="mp_app_name">音乐播放器</string>
+
+    <string name="mp_refresh">刷新</string>
+    <string name="mp_search">搜索</string>
+    <string name="mp_disc">碟片</string>
+
+    <string name="mp_loading_splash">载入中&#8230;</string>
+
+    <string name="mp_no_picture">哎呀，这里什么都没有:(</string>
+
+    <string name="mp_preset">预设：</string>
+    <string name="mp_create_preset">创建预设</string>
+
+
+    <string name="mp_bass_boost">低音增强</string>
+    <string name="mp_can_t_access_your_local_music">无法访问您的本地音乐。</string>
+    <string name="mp_equalizer_needs_permission">均衡器需要使用和显示音乐的许可。</string>
+    <string name="mp_allow_library_access">允许图书馆访问</string>
+    <string name="mp_open">打开</string>
+    <string name="mp_play_all">全部播放</string>
+    <string name="mp_add_all">全部添加</string>
+    <string name="mp_remove_all">移除所有</string>
+    <string name="mp_add_to_playlist">添加到播放列表</string>
+    <string name="mp_edit">编辑</string>
+    <string name="mp_delete">删除</string>
+    <string name="mp_play_now">现在播放</string>
+    <string name="mp_move_to_first">移至第一</string>
+    <string name="mp_move_to_last">移至最后</string>
+    <string name="mp_move_up">提升</string>
+    <string name="mp_move_down">下移</string>
+    <string name="mp_remove_from_playlist">从播放列表中删除</string>
+    <string name="mp_remove_from_queue">从队列中删除</string>
+    <string name="mp_play_next">继续播放</string>
+    <string name="mp_add_to_queue">添加到队列</string>
+    <plurals name="mp_number_tracks">
+
+        <item quantity="other">%d tracks</item>
+    </plurals>
+
+
+    <string name="mp_read_granted">授予读取音乐文件的权限…</string>
+    <string name="mp_not_granted">没有授予必要的权限！为了访问您的本地音乐文件，应授予权限！</string>
+    <string name="mp_delete_playlist">删除播放列表</string>
+    <string name="mp_yes">是</string>
+    <string name="mp_no">没有</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">您确定要删除%1$s播放列表吗？</string>
+    <string name="mp_rename_playlist">重命名播放列表</string>
+    <string name="mp_enter_new_playlist_name">输入新的播放列表名称：</string>
+    <string name="mp_update">更新资料</string>
+    <string name="mp_cancel">取消</string>
+    <string name="mp_playlist_deleted">%s播放列表已成功删除。</string>
+    <string name="mp_create_a_preset">创建一个预设</string>
+    <string name="mp_enter_preset_name">输入预设名称：</string>
+    <string name="mp_create">创建</string>
+    <string name="mp_ok">好</string>
+    <string name="mp_create_a_playlist">建立播放清单</string>
+    <string name="mp_enter_playlist_name">输入播放列表名称：</string>
+    <string name="mp_create_uppercase">创建</string>
+    <string name="mp_playlist_must_be_created">必须首先创建播放列表！</string>
+    <string name="mp_cancel_uppercase">取消</string>
+    <string name="mp_add_uppercase">加</string>
+
+    <string name="mp_remove_all_track">删除所有曲目</string>
+    <string name="mp_are_you_sure_to_remove_track">您确定要从队列中删除所有曲目吗？</string>
+    <string name="mp_remove_preset">删除预设</string>
+    <string name="mp_are_you_sure_to_remove_preset">您确定要删除%s预设吗？</string>
+    <string name="mp_rename_preset">重命名预设</string>
+    <string name="mp_enter_new_preset_name">输入新的预设名称：</string>
+    <string name="mp_preset_is_updated">预设已更新。</string>
+    <string name="mp_preset_not_updated">预设未更新！</string>
+    <string name="mp_preset_is_deleted">%s预设被删除。</string>
+    <string name="mp_preset_is_not_deleted">%s预设未删除！</string>
+    <string name="mp_all_tracks_are_removed_from_queue">成功将所有曲目从队列中删除。</string>
+    <string name="mp_will_be_played_next">%s接下来将播放。</string>
+    <string name="mp_is_added_to_queue">%s已添加到队列中。</string>
+    <string name="mp_artist_tracks_are_added">%s个艺术家曲目已添加到队列中。</string>
+    <string name="mp_album_tracks_are_added">%s个专辑曲目已添加到队列中。</string>
+    <string name="mp_genre_tracks_are_added">%s流派曲目已成功添加到队列中。</string>
+    <string name="mp_playlist_tracks_are_added">%s个播放列表曲目已添加到队列中。</string>
+    <string name="mp_playlist_updated">播放列表已成功更新。</string>
+    <string name="mp_playlist_not_updated">播放列表未更新！</string>
+    <string name="mp_music_list_refreshed">音乐列表刷新成功。</string>
+    <string name="mp_preset_is_created">%s预设已创建。</string>
+    <string name="mp_track_added_to_playlist">%s已添加到%s。</string>
+    <string name="mp_track_not_added_to_playlist">%s未添加到%s！</string>
+    <string name="mp_playlist_created_tracks_added">%s播放列表已创建。添加了%d曲目。</string>
+    <string name="mp_playlist_exists">%s播放列表已经存在！</string>
+    <string name="mp_playlist_added_one_track_add">%s播放列表已创建。一首曲目被添加。</string>
+    <string name="mp_playlist_not_deleted">%s播放列表未删除！</string>
+    <string name="mp_track_removed_from_playlist">%s已成功从%s中删除。</string>
+    <string name="mp_track_not_removed_from_playlist">%s并未从%s中删除！</string>
+
+    <string name="mp_visualizer_permission_not_granted">未获得必要的许可！ Visualizer未运行！</string>
+
+
+</resources>

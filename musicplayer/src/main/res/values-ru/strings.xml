@@ -1,0 +1,103 @@
+<resources>
+    <string name="mp_app_name">Музыкальный проигрыватель</string>
+
+    <string name="mp_refresh">обновление</string>
+    <string name="mp_search">Поиск</string>
+    <string name="mp_disc">диск</string>
+
+    <string name="mp_loading_splash">Загрузка…</string>
+
+
+    <string name="mp_no_picture">Упс, здесь ничего нет :(</string>
+
+    <string name="mp_preset">Предустановка:</string>
+    <string name="mp_create_preset">Создать пресет</string>
+
+
+    <string name="mp_bass_boost">Усиление басов</string>
+    <string name="mp_can_t_access_your_local_music">Не могу получить доступ к вашей местной музыке.</string>
+    <string name="mp_equalizer_needs_permission">Эквалайзеру требуется разрешение на использование и отображение вашей музыки.</string>
+    <string name="mp_allow_library_access">Разрешить доступ к библиотеке</string>
+    <string name="mp_open">открыто</string>
+    <string name="mp_play_all">Играть все</string>
+    <string name="mp_add_all">Добавить все</string>
+    <string name="mp_remove_all">Удалить все</string>
+    <string name="mp_add_to_playlist">Добавить в плейлист</string>
+    <string name="mp_edit">редактировать</string>
+    <string name="mp_delete">удалять</string>
+    <string name="mp_play_now">Играть сейчас</string>
+    <string name="mp_move_to_first">Перейти к первому</string>
+    <string name="mp_move_to_last">Перейти к последнему</string>
+    <string name="mp_move_up">Двигаться вверх</string>
+    <string name="mp_move_down">Двигаться вниз</string>
+    <string name="mp_remove_from_playlist">Удалить из плейлиста</string>
+    <string name="mp_remove_from_queue">Удалить из очереди</string>
+    <string name="mp_play_next">Play Next</string>
+    <string name="mp_add_to_queue">Добавить в очередь</string>
+    <plurals name="mp_number_tracks">
+
+        <item quantity="one">%d track</item>
+        <item quantity="other">%d tracks</item>
+        <item quantity="few">%d track</item>
+        <item quantity="many">%d track</item>
+    </plurals>
+
+
+    <string name="mp_read_granted">Разрешение на чтение музыкальных файлов предоставляется &#8230;</string>
+    <string name="mp_not_granted">Необходимые разрешения не предоставляются! Для доступа к вашим локальным музыкальным файлам необходимо дать разрешение!</string>
+    <string name="mp_delete_playlist">Удалить плейлист</string>
+    <string name="mp_yes">да</string>
+    <string name="mp_no">нет</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">Вы уверены, что хотите удалить %1$s плейлист?</string>
+    <string name="mp_rename_playlist">Переименовать плейлист</string>
+    <string name="mp_enter_new_playlist_name">Введите новое имя плейлиста:</string>
+    <string name="mp_update">Обновить</string>
+    <string name="mp_cancel">Отмена</string>
+    <string name="mp_playlist_deleted">%s плейлист успешно удален.</string>
+    <string name="mp_create_a_preset">Создать пресет</string>
+    <string name="mp_enter_preset_name">Введите название предустановки:</string>
+    <string name="mp_create">Создайте</string>
+    <string name="mp_ok">Ok</string>
+    <string name="mp_create_a_playlist">Создать плейлист</string>
+    <string name="mp_enter_playlist_name">Введите название плейлиста:</string>
+    <string name="mp_create_uppercase">СОЗДАЙТЕ</string>
+    <string name="mp_playlist_must_be_created">Сначала должен быть создан плейлист!</string>
+    <string name="mp_cancel_uppercase">ОТМЕНА</string>
+    <string name="mp_add_uppercase">ДОБАВЛЯТЬ</string>
+
+    <string name="mp_remove_all_track">Удалить все треки</string>
+    <string name="mp_are_you_sure_to_remove_track">Вы уверены, что удалили все треки из очереди?</string>
+    <string name="mp_remove_preset">Удалить пресет</string>
+    <string name="mp_are_you_sure_to_remove_preset">Вы уверены, что хотите удалить %s пресет?</string>
+    <string name="mp_rename_preset">Переименовать пресет</string>
+    <string name="mp_enter_new_preset_name">Введите новое имя пресета:</string>
+    <string name="mp_preset_is_updated">Предустановка обновлена.</string>
+    <string name="mp_preset_not_updated">Пресет не обновляется!</string>
+    <string name="mp_preset_is_deleted">Предустановка %s удалена.</string>
+    <string name="mp_preset_is_not_deleted">Предустановка %s не удаляется!</string>
+    <string name="mp_all_tracks_are_removed_from_queue">Все треки успешно удалены из очереди.</string>
+    <string name="mp_will_be_played_next">%s будет сыграно дальше.</string>
+    <string name="mp_is_added_to_queue">%s успешно добавлен в очередь.</string>
+    <string name="mp_artist_tracks_are_added">%s треки исполнителя успешно добавлены в очередь.</string>
+    <string name="mp_album_tracks_are_added">%s дорожки альбома успешно добавлены в очередь.</string>
+    <string name="mp_genre_tracks_are_added">Следы жанра %s успешно добавлены в очередь.</string>
+    <string name="mp_playlist_tracks_are_added">%s дорожки списка воспроизведения успешно добавлены в очередь.</string>
+    <string name="mp_playlist_updated">Плейлист успешно обновлен.</string>
+    <string name="mp_playlist_not_updated">Плейлист не обновляется!</string>
+    <string name="mp_music_list_refreshed">Список музыки обновлен успешно.</string>
+    <string name="mp_preset_is_created">Предустановка %s создана.</string>
+    <string name="mp_track_added_to_playlist">%s добавлен в %s.</string>
+    <string name="mp_track_not_added_to_playlist">%s не добавляется в %s!</string>
+    <string name="mp_playlist_created_tracks_added">%s плейлист создан. Добавлено %d треков.</string>
+    <string name="mp_playlist_exists">%s плейлист уже существует!</string>
+    <string name="mp_playlist_added_one_track_add">%s плейлист создан. Один трек добавлен.</string>
+    <string name="mp_playlist_not_deleted">%s плейлист не удален!</string>
+    <string name="mp_track_removed_from_playlist">%s успешно удален из %s.</string>
+    <string name="mp_track_not_removed_from_playlist">%s не удаляется из %s!</string>
+
+    <string name="mp_visualizer_permission_not_granted">Необходимое разрешение не предоставляется! Визуализатор не запускается!</string>
+
+
+</resources>

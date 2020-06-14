@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="mpColorPrimary">#273338</color>
+    <color name="mpColorPrimaryDark">#00574B</color>
+    <color name="mpColorAccent">#D81B60</color>
+
+    <color name="mpsilver">#C0C0C0</color>
+    <color name="mpyellow">#ffff00</color>
+    <color name="mpdropdown_list_item">#110F10</color>
+    <color name="mpstart_color">#333333</color>
+    <color name="mpend_color">#131313</color>
+    <color name="mpcenter_color">#2c2c2c</color>
+    <color name="mplight_red">#FF3331</color>
+    <color name="mpdark_red">#2C0700</color>
+    <color name="mplight_orange">#FF7200</color>
+    <color name="mpdark_orange">#2F1500</color>
+    <color name="mplight_yellow">#FFE53E</color>
+    <color name="mpdark_yellow">#362C00</color>
+    <color name="mplight_blue">#4CDDFF</color>
+    <color name="mpdark_blue">#002F32</color>
+    <color name="mplight_green">#35FF65</color>
+    <color name="mpdark_green">#003711</color>
+    <color name="mpvolume_button_inactive">#CFCFCF</color>
+    <color name="mpvolume_button_active">#FFF83A</color>
+</resources>

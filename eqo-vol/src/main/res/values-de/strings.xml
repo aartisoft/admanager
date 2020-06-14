@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Extra Volume Booster</string>
+
+
+    <string name="navigation_drawer_open">Navigationsschublade öffnen</string>
+    <string name="navigation_drawer_close">Navigationsschublade schließen</string>
+
+    <string name="volume_booster">Volume Booster</string>
+    <string name="menu_title">Music Player &amp; Volume Booster</string>
+    <string name="title_2">Equalizer</string>
+
+    <string name="extra_boost">Extra Boost</string>
+
+
+    <string name="tutorial">Lernprogramm</string>
+    <string name="privacy_policy">Datenschutz-Bestimmungen</string>
+    <string name="notification">Benachrichtigung</string>
+    <string name="settings">die Einstellungen</string>
+    <string name="share">Teilen</string>
+    <string name="share_with">Teilen Sie Extra Volume Booster:</string>
+    <string name="loading_splash">Wird geladen …</string>
+
+
+    <string name="notification_text">Sie können den Sound einfach anpassen!</string>
+
+    <string name="tutorial_1_text_1">% 200Zusätzliches Volumen</string>
+    <string name="tutorial_1_text_2">Holen Sie sich die maximale Lautstärkebeim Musikhören</string>
+
+    <string name="tutorial_2_text_1">Equalizer</string>
+    <string name="tutorial_2_text_2">Passen Sie den Sound von anIhre Spuren auf dem Equalizer</string>
+
+    <string name="next">Nächster</string>
+    <string name="got_it">Ich habs!</string>
+
+    <string name="on">Auf</string>
+    <string name="off">aus</string>
+
+
+    <string name="bass">Bass</string>
+    <string name="visual">Visualisieren</string>
+
+    <string name="open_music_player">Tippen Sie hier, um Ihren Musik-Player zu öffnen.</string>
+
+    <string name="not_valid_link">Dies ist kein gültiger Link!</string>
+    <string name="no_browser">Sie haben keinen Browser zum Öffnen einer Webseite!</string>
+    <string name="share_app">Hallo! Teilen Sie den besten zusätzlichen Volumenverstärker!</string>
+    <string name="not_started_music_yet">Noch keine Musik gestartet!</string>
+    <string name="playing">(Spielen…)</string>
+    <string name="paused">(Pause)</string>
+    <string name="no">Nein</string>
+    <string name="yes">Ja</string>
+    <string name="enjoy">Genießen</string>
+    <string name="permission_not_granted">Notwendige Erlaubnis wird nicht erteilt! Visualizer wird nicht ausgeführt!</string>
+
+
+    <string name="ad_settings">Anzeigeneinstellungen</string>
+
+    <string name="voice_recorder">Diktiergerät</string>
+
+    <string name="speedtest">Geschwindigkeitstest</string>
+
+</resources>

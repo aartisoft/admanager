@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Έξτρα ενίσχυση έντασης</string>
+
+
+    <string name="navigation_drawer_open">Άνοιγμα συρταριού πλοήγησης</string>
+    <string name="navigation_drawer_close">Κλείστε το συρτάρι πλοήγησης</string>
+
+    <string name="volume_booster">Ενίσχυση έντασης ήχου</string>
+    <string name="menu_title">Αναπαραγωγή μουσικής και ενισχυτής έντασης ήχου</string>
+    <string name="title_2">Εξισωτής</string>
+
+    <string name="extra_boost">Extra Boost</string>
+
+
+    <string name="tutorial">Φροντιστήριο</string>
+    <string name="privacy_policy">Πολιτική Απορρήτου</string>
+    <string name="notification">Γνωστοποίηση</string>
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="share">Μερίδιο</string>
+    <string name="share_with">Μοιραστείτε επιπλέον ενισχυτή έντασης ήχου:</string>
+    <string name="loading_splash">Φόρτωση …</string>
+
+
+    <string name="notification_text">Μπορείτε να προσαρμόσετε τον ήχο εύκολα!</string>
+
+    <string name="tutorial_1_text_1">% 200Επιπλέον ένταση</string>
+    <string name="tutorial_1_text_2">Αποκτήστε τη μέγιστη έντασηενώ ακούτε μουσική</string>
+
+    <string name="tutorial_2_text_1">Εξισωτής</string>
+    <string name="tutorial_2_text_2">Προσαρμογή του ήχου τουτα κομμάτια σας στον ισοσταθμιστή</string>
+
+    <string name="next">Επόμενο</string>
+    <string name="got_it">Το έπιασα!</string>
+
+    <string name="on">Επί</string>
+    <string name="off">Μακριά από</string>
+
+
+    <string name="bass">Μπάσσο</string>
+    <string name="visual">Απεικονίζω</string>
+
+    <string name="open_music_player">Πατήστε για να ανοίξετε τη συσκευή αναπαραγωγής μουσικής.</string>
+
+    <string name="not_valid_link">Αυτό δεν είναι ένας έγκυρος σύνδεσμος!</string>
+    <string name="no_browser">Δεν έχετε κανένα πρόγραμμα περιήγησης για να ανοίξετε μια ιστοσελίδα!</string>
+    <string name="share_app">Γεια σου! Μοιραστείτε το καλύτερο επιπλέον ενισχυτικό όγκου!</string>
+    <string name="not_started_music_yet">Δεν έχει ξεκινήσει ακόμα μουσική!</string>
+    <string name="playing">(Παιχνίδι…)</string>
+    <string name="paused">(Παύση)</string>
+    <string name="no">Οχι</string>
+    <string name="yes">Ναί</string>
+    <string name="enjoy">Απολαμβάνω</string>
+    <string name="permission_not_granted">Η απαραίτητη άδεια δεν χορηγείται! Ο οπτικοποιητής δεν εκτελείται!</string>
+
+
+    <string name="ad_settings">Ρυθμίσεις διαφήμισης</string>
+
+    <string name="voice_recorder">Μαγνητόφωνο, συσκευή εγγραφής φωνής</string>
+
+    <string name="speedtest">Δοκιμασία ταχύτητας</string>
+
+</resources>

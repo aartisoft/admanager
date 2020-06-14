@@ -1,0 +1,56 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="MPAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/mpColorPrimary</item>
+        <item name="colorPrimaryDark">@color/mpColorPrimaryDark</item>
+        <item name="colorAccent">@color/mpColorAccent</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="MPAppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!--<item name="android:fontFamily">@font/cerapro_medium</item> -->
+    </style>
+
+    <style name="MPTheme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/mpColorPrimary</item>
+        <item name="colorPrimaryDark">@color/mpColorPrimaryDark</item>
+        <item name="colorAccent">@color/mpColorAccent</item>
+
+    </style>
+
+    <style name="MPAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="MPAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="MPToolbarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="MPSearchViewStyle" parent="MPAppTheme">
+        <item name="android:editTextColor">@color/mpColorPrimary</item>
+        <item name="android:textColorHint">@color/mpsilver</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+    <style name="MPmySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/ubuntu</item>
+    </style>
+
+</resources>

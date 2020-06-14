@@ -30,4 +30,6 @@ include ':config',
         ':news',
         ':popup-rate',
         ':adjust',
-        ':utils'
+        ':utils',
+        ':eqo-vol',
+        ':musicplayer'

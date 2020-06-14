@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">تقویت کننده جلد اضافی</string>
+
+
+    <string name="navigation_drawer_open">کشوی ناوبری را باز کنید</string>
+    <string name="navigation_drawer_close">بستن کشو ناوبری</string>
+
+    <string name="volume_booster">تقویت کننده صدا</string>
+    <string name="menu_title">پخش کننده موسیقی و تقویت کننده صدا</string>
+    <string name="title_2">اکولایزر</string>
+
+    <string name="extra_boost">تقویت اضافی</string>
+
+
+    <string name="tutorial">آموزش</string>
+    <string name="privacy_policy">سیاست حفظ حریم خصوصی</string>
+    <string name="notification">اطلاع</string>
+    <string name="settings">تنظیمات</string>
+    <string name="share">اشتراک گذاری</string>
+    <string name="share_with">تقویت کننده حجم اضافی:</string>
+    <string name="loading_splash">بارگذاری …</string>
+
+
+    <string name="notification_text">شما می توانید صدا را به راحتی تنظیم کنید!</string>
+
+    <string name="tutorial_1_text_1">200٪جلد اضافی</string>
+    <string name="tutorial_1_text_2">حداکثر حجم را دریافت کنیددر حالی که به موسیقی گوش می دهید</string>
+
+    <string name="tutorial_2_text_1">اکولایزر</string>
+    <string name="tutorial_2_text_2">صدا را سفارشی کنیدآهنگ های شما در اکولایزر</string>
+
+    <string name="next">بعد</string>
+    <string name="got_it">فهمیدم!</string>
+
+    <string name="on">بر</string>
+    <string name="off">خاموش</string>
+
+
+    <string name="bass">باس</string>
+    <string name="visual">تجسم</string>
+
+    <string name="open_music_player">برای باز کردن پخش کننده موسیقی ، روی ضربه بزنید.</string>
+
+    <string name="not_valid_link">این یک لینک معتبر نیست!</string>
+    <string name="no_browser">شما هیچ مرورگری برای باز کردن صفحه وب ندارید!</string>
+    <string name="share_app">با سلام بهترین تقویت کننده حجم اضافی را به اشتراک بگذارید!</string>
+    <string name="not_started_music_yet">هنوز موسیقی شروع نشده است!</string>
+    <string name="playing">(بازی کردن…)</string>
+    <string name="paused">(مکث)</string>
+    <string name="no">نه</string>
+    <string name="yes">آره</string>
+    <string name="enjoy">لذت بردن</string>
+    <string name="permission_not_granted">اجازه لازم داده نمی شود! ویژوالایزر اجرا نشده است!</string>
+
+
+    <string name="ad_settings">تنظیمات آگهی</string>
+
+    <string name="voice_recorder">ضبط صدا</string>
+
+    <string name="speedtest">تست سرعت</string>
+
+</resources>

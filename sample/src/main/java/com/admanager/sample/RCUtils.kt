@@ -37,7 +37,13 @@ object RCUtils {
     const val custom_banner_image_url = "custom_banner_image_url"
     const val custom_banner_click_url = "custom_banner_click_url"
     const val opener_delay = "opener_delay"
+
+    const val ADMOST_APP_ID = "admost_app_id"
+    const val REWARDED_ZONE_ID = "rewarded_zone_id" //todo
+
+
     private var defaults: HashMap<String, Any>? = null
+
     @JvmStatic
     fun getDefaults(): HashMap<String, Any>? {
         if (defaults == null) {
@@ -73,12 +79,13 @@ object RCUtils {
 
             defaults!![custom_banner_image_url] = ""
             defaults!![custom_banner_click_url] = ""
+
             //NOTIFIC
             defaults!![Consts.PeriodicNotification.DEFAULT_ENABLE_KEY] = true
             defaults!![Consts.PeriodicNotification.DEFAULT_DAYS_KEY] = 1
-            defaults!![Consts.PeriodicNotification.DEFAULT_TITLE_KEY] = "title_title"
-            defaults!![Consts.PeriodicNotification.DEFAULT_TICKER_KEY] = "ticker_ticker"
-            defaults!![Consts.PeriodicNotification.DEFAULT_CONTENT_KEY] = "content_content"
+            defaults!![Consts.PeriodicNotification.DEFAULT_TITLE_KEY] = ""
+            defaults!![Consts.PeriodicNotification.DEFAULT_TICKER_KEY] = ""
+            defaults!![Consts.PeriodicNotification.DEFAULT_CONTENT_KEY] = ""
 
             defaults!![Consts.PopupPromo.DEFAULT_ENABLE_KEY] = false
             defaults!![Consts.PopupPromo.DEFAULT_MESSAGE_KEY] = ""
@@ -86,15 +93,20 @@ object RCUtils {
             defaults!![Consts.PopupPromo.DEFAULT_TITLE_KEY] = ""
             defaults!![Consts.PopupPromo.DEFAULT_URL_KEY] = ""
             defaults!![Consts.PopupPromo.DEFAULT_YES_KEY] = ""
-            //            defaults.put(Consts.PopupPromo.DEFAULT_LOGO_URL_KEY, "");
-//            defaults.put(Consts.PopupPromo.DEFAULT_VIDEO_URL_KEY, ""); //
-//            defaults.put(Consts.PopupPromo.DEFAULT_IMAGE_URL_KEY, ""); //
+            // defaults!!(Consts.PopupPromo.DEFAULT_LOGO_URL_KEY, "")
+            // defaults!!(Consts.PopupPromo.DEFAULT_VIDEO_URL_KEY, "")
+            // defaults!!(Consts.PopupPromo.DEFAULT_IMAGE_URL_KEY, "")
+
+            defaults!![ADMOST_APP_ID] = "6cc8e89a-b52a-4e9a-bb8c-579f7ec538fe" // TEST
+            defaults!![REWARDED_ZONE_ID] = "88cfcfd0-2f8c-4aba-9f36-cc0ac99ab140" //TEST
+
 
             defaults!![Consts.PopupEnjoy.DEFAULT_ENABLE_KEY] = true
             defaults!![Consts.PopupEnjoy.DEFAULT_NO_KEY] = ""
             defaults!![Consts.PopupEnjoy.DEFAULT_YES_KEY] = ""
             defaults!![Consts.PopupEnjoy.DEFAULT_TITLE_KEY] = ""
             defaults!![Consts.PopupEnjoy.DEFAULT_IMAGE_URL_KEY] = ""
+
             defaults!![Consts.PopupRate.DEFAULT_ENABLE_KEY] = true
 
             defaults!![opener_delay] = 2000

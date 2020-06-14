@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/maPresetLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/mp_bg_preset"
+        android:baselineAligned="false"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:text="@string/mp_preset"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+            <com.admanager.musicplayer.utilities.DynamicWidthSpinner
+                android:id="@+id/efPresetSpinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginLeft="4dp"
+                android:background="@drawable/mp_drop_down_btn"
+                android:dropDownWidth="wrap_content"
+                android:gravity="center"
+                android:popupBackground="@drawable/mp_drop_down_list_bg"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:theme="@style/MPmySpinnerItemStyle" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/maCreatePresetLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mp_create_preset"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/maPresetLayout"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="44dp"
+        android:contentDescription="@string/todo"
+        android:scaleType="fitXY"
+        android:src="@drawable/mp_bg_equalizer" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/maPresetLayout"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1">
+
+            <com.admanager.musicplayer.utilities.VerticalSeekBar
+                android:id="@+id/efSeekbar_1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/efSeekbar_1_Title"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:progressDrawable="@drawable/mp_bar_seekbar"
+                android:splitTrack="false"
+                android:thumb="@drawable/mp_indicator_bar" />
+
+            <TextView
+                android:id="@+id/efSeekbar_1_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/ubuntu"
+                android:text="@string/mp_50"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1">
+
+            <com.admanager.musicplayer.utilities.VerticalSeekBar
+                android:id="@+id/efSeekbar_2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/efSeekbar_2_Title"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:progressDrawable="@drawable/mp_bar_seekbar"
+                android:splitTrack="false"
+                android:thumb="@drawable/mp_indicator_bar" />
+
+            <TextView
+                android:id="@+id/efSeekbar_2_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/ubuntu"
+                android:text="@string/mp_150"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1">
+
+            <com.admanager.musicplayer.utilities.VerticalSeekBar
+                android:id="@+id/efSeekbar_3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/efSeekbar_3_Title"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:progressDrawable="@drawable/mp_bar_seekbar"
+                android:splitTrack="false"
+                android:thumb="@drawable/mp_indicator_bar" />
+
+            <TextView
+                android:id="@+id/efSeekbar_3_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/ubuntu"
+                android:text="@string/mp_400"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1">
+
+            <com.admanager.musicplayer.utilities.VerticalSeekBar
+                android:id="@+id/efSeekbar_4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/efSeekbar_4_Title"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:progressDrawable="@drawable/mp_bar_seekbar"
+                android:splitTrack="false"
+                android:thumb="@drawable/mp_indicator_bar" />
+
+            <TextView
+                android:id="@+id/efSeekbar_4_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/ubuntu"
+                android:text="@string/mp_1k"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1">
+
+            <com.admanager.musicplayer.utilities.VerticalSeekBar
+                android:id="@+id/efSeekbar_5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/efSeekbar_5_Title"
+                android:layout_centerInParent="true"
+                android:background="@null"
+                android:paddingStart="20dp"
+                android:paddingLeft="20dp"
+                android:paddingEnd="20dp"
+                android:paddingRight="20dp"
+                android:progressDrawable="@drawable/mp_bar_seekbar"
+                android:splitTrack="false"
+                android:thumb="@drawable/mp_indicator_bar" />
+
+            <TextView
+                android:id="@+id/efSeekbar_5_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="@font/ubuntu"
+                android:text="@string/mp_2k"
+                android:textColor="@android:color/white"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

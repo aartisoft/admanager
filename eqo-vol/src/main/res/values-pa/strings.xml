@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">ਵਾਧੂ ਵਾਲੀਅਮ ਬੂਸਟਰ</string>
+
+
+    <string name="navigation_drawer_open">ਨੈਵੀਗੇਸ਼ਨ ਦਰਾਜ਼ ਖੋਲ੍ਹੋ</string>
+    <string name="navigation_drawer_close">ਨੇਵੀਗੇਸ਼ਨ ਦਰਾਜ਼ ਨੂੰ ਬੰਦ ਕਰੋ</string>
+
+    <string name="volume_booster">ਵਾਲੀਅਮ ਬੂਸਟਰ</string>
+    <string name="menu_title">ਸੰਗੀਤ ਪਲੇਅਰ ਅਤੇ ਵਾਲੀਅਮ ਬੂਸਟਰ</string>
+    <string name="title_2">ਬਰਾਬਰੀ ਕਰਨ ਵਾਲਾ</string>
+
+    <string name="extra_boost">ਵਾਧੂ ਬੂਸਟ</string>
+
+
+    <string name="tutorial">ਟਿutorialਟੋਰਿਅਲ</string>
+    <string name="privacy_policy">ਪਰਾਈਵੇਟ ਨੀਤੀ</string>
+    <string name="notification">ਸੂਚਨਾ</string>
+    <string name="settings">ਸੈਟਿੰਗਜ਼</string>
+    <string name="share">ਸਾਂਝਾ ਕਰੋ</string>
+    <string name="share_with">ਵਾਧੂ ਵਾਲੀਅਮ ਬੂਸਟਰ ਨੂੰ ਸਾਂਝਾ ਕਰੋ:</string>
+    <string name="loading_splash">ਲੋਡ ਹੋ ਰਿਹਾ ਹੈ &#8230;</string>
+
+
+    <string name="notification_text">ਤੁਸੀਂ ਆਸਾਨੀ ਨਾਲ ਆਵਾਜ਼ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰ ਸਕਦੇ ਹੋ!</string>
+
+    <string name="tutorial_1_text_1">% 200ਵਾਧੂ ਖੰਡ</string>
+    <string name="tutorial_1_text_2">ਵੱਧ ਤੋਂ ਵੱਧ ਵਾਲੀਅਮ ਲਵੋਸੰਗੀਤ ਸੁਣਦੇ ਸਮੇਂ</string>
+
+    <string name="tutorial_2_text_1">ਬਰਾਬਰੀ ਕਰਨ ਵਾਲਾ</string>
+    <string name="tutorial_2_text_2">ਦੀ ਆਵਾਜ਼ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰੋਬਰਾਬਰੀ \'ਤੇ ਤੁਹਾਡੇ ਟਰੈਕ</string>
+
+    <string name="next">ਅਗਲਾ</string>
+    <string name="got_it">ਮਿਲ ਗਿਆ!</string>
+
+    <string name="on">ਚਾਲੂ</string>
+    <string name="off">ਬੰਦ</string>
+
+
+    <string name="bass">ਬਾਸ</string>
+    <string name="visual">ਕਲਪਨਾ ਕਰੋ</string>
+
+    <string name="open_music_player">ਆਪਣੇ ਸੰਗੀਤ ਪਲੇਅਰ ਨੂੰ ਖੋਲ੍ਹਣ ਲਈ ਟੈਪ ਕਰੋ.</string>
+
+    <string name="not_valid_link">ਇਹ ਵੈਧ ਲਿੰਕ ਨਹੀਂ ਹੈ!</string>
+    <string name="no_browser">ਤੁਹਾਡੇ ਕੋਲ ਵੈਬ ਪੇਜ ਖੋਲ੍ਹਣ ਲਈ ਕੋਈ ਬਰਾ browserਜ਼ਰ ਨਹੀਂ ਹੈ!</string>
+    <string name="share_app">ਹੇ! ਵਧੀਆ ਵਾਧੂ ਵਾਲੀਅਮ ਬੂਸਟਰ ਨੂੰ ਸਾਂਝਾ ਕਰੋ!</string>
+    <string name="not_started_music_yet">ਅਜੇ ਸੰਗੀਤ ਦੀ ਸ਼ੁਰੂਆਤ ਨਹੀਂ ਕੀਤੀ ਗਈ!</string>
+    <string name="playing">(ਖੇਡ ਰਿਹਾ ਹੈ &#8230;)</string>
+    <string name="paused">(ਵਿਰਾਮ)</string>
+    <string name="no">ਨਹੀਂ</string>
+    <string name="yes">ਹਾਂ</string>
+    <string name="enjoy">ਅਨੰਦ ਲਓ</string>
+    <string name="permission_not_granted">ਲੋੜੀਂਦੀ ਆਗਿਆ ਨਹੀਂ ਦਿੱਤੀ ਜਾਂਦੀ! ਵਿਜ਼ੂਅਲਾਈਜ਼ਰ ਨਹੀਂ ਚੱਲਦਾ!</string>
+
+
+    <string name="ad_settings">ਵਿਗਿਆਪਨ ਸੈਟਿੰਗਜ਼</string>
+
+    <string name="voice_recorder">ਵੌਇਸ ਰਿਕਾਰਡਰ</string>
+
+    <string name="speedtest">ਸਪੀਡ ਟੈਸਟ</string>
+
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1A1B1D</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="green">#00722D</color>
+    <color name="silver">#C0C0C0</color>
+
+    <color name="dark_black">#161616</color>
+
+    <color name="light_1">#C32003</color>
+    <color name="light_2">#DFB413</color>
+    <color name="light_3">#B89000</color>
+    <color name="light_4">#03AA25</color>
+    <color name="light_5">#137413</color>
+
+    <color name="dropdown_list_item">#110F10</color>
+
+    <color name="volume_seekbar_bg_color">#08080d</color>
+
+    <color name="bg_start_color">#21252E</color>
+    <color name="bg_end_color">#2A303D</color>
+    <color name="bg_center_color">#222730</color>
+
+    <color name="light_blue">#4CDDFF</color>
+
+</resources>

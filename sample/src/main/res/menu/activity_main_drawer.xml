@@ -81,6 +81,9 @@
         <item
             android:id="@+id/colorCallScreen"
             android:title="Color Call Screen" />
+        <item
+            android:id="@+id/eqoVol"
+            android:title="Equalizer &amp; Volume Booster" />
 
     </group>
     <item android:title="Communicate">

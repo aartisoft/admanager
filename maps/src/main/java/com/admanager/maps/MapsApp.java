@@ -49,7 +49,6 @@ public class MapsApp {
 
             Application app = (Application) context.getApplicationContext();
             MapsApp.init(new MapsApp(app, ads));
-
         }
 
     }

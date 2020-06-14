@@ -1,0 +1,97 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/maBassLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="12dp"
+        android:layout_toStartOf="@+id/maDummyViewEqBottom">
+
+        <com.admanager.equalizer.utilities.SquareImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/maBassText"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/todo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/volume_disable" />
+
+        <com.admanager.equalizer.tasks.RingRoundView
+            android:id="@+id/maBassRingRoundView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/maBassText"
+            android:layout_centerInParent="true" />
+
+        <com.admanager.equalizer.tasks.NeedleRoundView
+            android:id="@+id/maBassNeedleRoundView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/maBassText"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/maBassText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/bass"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/maDummyViewEqBottom"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerInParent="true" />
+
+    <RelativeLayout
+        android:id="@+id/maVisualLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="12dp"
+        android:layout_toEndOf="@+id/maDummyViewEqBottom">
+
+        <com.admanager.equalizer.utilities.SquareImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/maVisualText"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/todo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/volume_disable" />
+
+        <com.admanager.equalizer.tasks.RingRoundView
+            android:id="@+id/maVisualRingRoundView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/maVisualText"
+            android:layout_centerInParent="true" />
+
+        <com.admanager.equalizer.tasks.NeedleRoundView
+            android:id="@+id/maVisualNeedleRoundView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/maVisualText"
+            android:layout_centerInParent="true" />
+
+        <TextView
+            android:id="@+id/maVisualText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="@string/visual"
+            android:textColor="@android:color/white"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

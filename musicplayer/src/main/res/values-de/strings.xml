@@ -1,0 +1,100 @@
+<resources>
+    <string name="mp_app_name">Musikspieler</string>
+
+    <string name="mp_refresh">Aktualisierung</string>
+    <string name="mp_search">Suche</string>
+    <string name="mp_disc">Rabatt</string>
+
+    <string name="mp_loading_splash">Wird geladen …</string>
+
+    <string name="mp_no_picture">Oups, hier gibt es nichts :(</string>
+
+    <string name="mp_preset">Voreinstellung:</string>
+    <string name="mp_create_preset">Voreinstellung erstellen</string>
+
+
+    <string name="mp_bass_boost">Bass Boost</string>
+    <string name="mp_can_t_access_your_local_music">Kann nicht auf Ihre lokale Musik zugreifen.</string>
+    <string name="mp_equalizer_needs_permission">Der Equalizer benötigt die Erlaubnis, Ihre Musik zu verwenden und anzuzeigen.</string>
+    <string name="mp_allow_library_access">Bibliothekszugriff zulassen</string>
+    <string name="mp_open">Öffnen</string>
+    <string name="mp_play_all">Alle wiedergeben</string>
+    <string name="mp_add_all">Füge alle Hinzu</string>
+    <string name="mp_remove_all">Alles entfernen</string>
+    <string name="mp_add_to_playlist">Zur Wiedergabeliste hinzufügen</string>
+    <string name="mp_edit">Bearbeiten</string>
+    <string name="mp_delete">Löschen</string>
+    <string name="mp_play_now">Jetzt spielen</string>
+    <string name="mp_move_to_first">Zum Ersten wechseln</string>
+    <string name="mp_move_to_last">Zum Schluss bewegen</string>
+    <string name="mp_move_up">Nach oben gehen</string>
+    <string name="mp_move_down">Sich abwärts bewegen</string>
+    <string name="mp_remove_from_playlist">Aus der Wiedergabeliste entfernen</string>
+    <string name="mp_remove_from_queue">Aus der Warteschlange entfernen</string>
+    <string name="mp_play_next">Weiter spielen</string>
+    <string name="mp_add_to_queue">Zur Warteschlange hinzufügen</string>
+    <plurals name="mp_number_tracks">
+
+        <item quantity="one">%d track</item>
+        <item quantity="other">%d tracks</item>
+    </plurals>
+
+
+    <string name="mp_read_granted">Die Erlaubnis zum Lesen von Musikdateien wird erteilt…</string>
+    <string name="mp_not_granted">Notwendige Berechtigungen werden nicht erteilt! Um auf Ihre lokalen Musikdateien zugreifen zu können, sollte eine Erlaubnis erteilt werden!</string>
+    <string name="mp_delete_playlist">Wiedergabeliste löschen</string>
+    <string name="mp_yes">Ja</string>
+    <string name="mp_no">Nein</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">Sind Sie sicher, die %1$s-Wiedergabeliste zu löschen?</string>
+    <string name="mp_rename_playlist">Wiedergabeliste umbenennen</string>
+    <string name="mp_enter_new_playlist_name">Geben Sie den Namen der neuen Wiedergabeliste ein:</string>
+    <string name="mp_update">Aktualisieren</string>
+    <string name="mp_cancel">Stornieren</string>
+    <string name="mp_playlist_deleted">Die %s-Wiedergabeliste wurde erfolgreich gelöscht.</string>
+    <string name="mp_create_a_preset">Erstellen Sie eine Voreinstellung</string>
+    <string name="mp_enter_preset_name">Geben Sie den voreingestellten Namen ein:</string>
+    <string name="mp_create">Erstellen</string>
+    <string name="mp_ok">in Ordnung</string>
+    <string name="mp_create_a_playlist">Erstellen Sie eine Wiedergabeliste</string>
+    <string name="mp_enter_playlist_name">Geben Sie den Namen der Wiedergabeliste ein:</string>
+    <string name="mp_create_uppercase">ERSTELLEN</string>
+    <string name="mp_playlist_must_be_created">Die Playlist muss zuerst erstellt werden!</string>
+    <string name="mp_cancel_uppercase">STORNIEREN</string>
+    <string name="mp_add_uppercase">HINZUFÜGEN</string>
+
+    <string name="mp_remove_all_track">Alle Spuren entfernen</string>
+    <string name="mp_are_you_sure_to_remove_track">Sind Sie sicher, alle Titel aus der Warteschlange zu entfernen?</string>
+    <string name="mp_remove_preset">Voreinstellung entfernen</string>
+    <string name="mp_are_you_sure_to_remove_preset">Sind Sie sicher, dass Sie die Voreinstellung %s entfernen?</string>
+    <string name="mp_rename_preset">Preset umbenennen</string>
+    <string name="mp_enter_new_preset_name">Geben Sie einen neuen voreingestellten Namen ein:</string>
+    <string name="mp_preset_is_updated">Die Voreinstellung wird aktualisiert.</string>
+    <string name="mp_preset_not_updated">Voreinstellung wird nicht aktualisiert!</string>
+    <string name="mp_preset_is_deleted">%s Preset wird gelöscht.</string>
+    <string name="mp_preset_is_not_deleted">%s Preset wird nicht gelöscht!</string>
+    <string name="mp_all_tracks_are_removed_from_queue">Alle Tracks wurden erfolgreich aus der Warteschlange entfernt.</string>
+    <string name="mp_will_be_played_next">%s wird als nächstes gespielt.</string>
+    <string name="mp_is_added_to_queue">%s wurde erfolgreich zur Warteschlange hinzugefügt.</string>
+    <string name="mp_artist_tracks_are_added">%s Künstlerspuren werden erfolgreich zur Warteschlange hinzugefügt.</string>
+    <string name="mp_album_tracks_are_added">%s Albumtitel werden erfolgreich zur Warteschlange hinzugefügt.</string>
+    <string name="mp_genre_tracks_are_added">%s Genre-Tracks werden erfolgreich zur Warteschlange hinzugefügt.</string>
+    <string name="mp_playlist_tracks_are_added">%s Playlist-Tracks werden erfolgreich zur Warteschlange hinzugefügt.</string>
+    <string name="mp_playlist_updated">Die Wiedergabeliste wurde erfolgreich aktualisiert.</string>
+    <string name="mp_playlist_not_updated">Playlist wird nicht aktualisiert!</string>
+    <string name="mp_music_list_refreshed">Die Musikliste wurde erfolgreich aktualisiert.</string>
+    <string name="mp_preset_is_created">%s Preset wird erstellt.</string>
+    <string name="mp_track_added_to_playlist">%s wird zu %s hinzugefügt.</string>
+    <string name="mp_track_not_added_to_playlist">%s wird nicht zu %s hinzugefügt!</string>
+    <string name="mp_playlist_created_tracks_added">%s Wiedergabeliste wird erstellt. %d Tracks werden hinzugefügt.</string>
+    <string name="mp_playlist_exists">%s Playlist ist bereits vorhanden!</string>
+    <string name="mp_playlist_added_one_track_add">%s Wiedergabeliste wird erstellt. Ein Titel wird hinzugefügt.</string>
+    <string name="mp_playlist_not_deleted">%s Playlist wird nicht gelöscht!</string>
+    <string name="mp_track_removed_from_playlist">%s wurde erfolgreich aus %s entfernt.</string>
+    <string name="mp_track_not_removed_from_playlist">%s wird nicht aus %s entfernt!</string>
+
+    <string name="mp_visualizer_permission_not_granted">Notwendige Erlaubnis wird nicht erteilt! Visualizer wird nicht ausgeführt!</string>
+
+
+</resources>

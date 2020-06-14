@@ -1,0 +1,99 @@
+<resources>
+    <string name="mp_app_name">Pemutar musik</string>
+
+    <string name="mp_refresh">Menyegarkan</string>
+    <string name="mp_search">Cari</string>
+    <string name="mp_disc">Cakram</string>
+
+    <string name="mp_loading_splash">Memuat …</string>
+
+    <string name="mp_no_picture">Oups, tidak ada apa-apa di sini :(</string>
+
+    <string name="mp_preset">Prasetel:</string>
+    <string name="mp_create_preset">Buat Preset</string>
+
+
+    <string name="mp_bass_boost">Bass Boost</string>
+    <string name="mp_can_t_access_your_local_music">Tidak dapat mengakses musik lokal Anda.</string>
+    <string name="mp_equalizer_needs_permission">Equalizer memerlukan izin untuk menggunakan dan menampilkan musik Anda.</string>
+    <string name="mp_allow_library_access">Izinkan akses perpustakaan</string>
+    <string name="mp_open">Buka</string>
+    <string name="mp_play_all">Mainkan Semua</string>
+    <string name="mp_add_all">Tambahkan Semua</string>
+    <string name="mp_remove_all">Menghapus semua</string>
+    <string name="mp_add_to_playlist">Tambahkan ke Daftar Putar</string>
+    <string name="mp_edit">Edit</string>
+    <string name="mp_delete">Menghapus</string>
+    <string name="mp_play_now">Main sekarang</string>
+    <string name="mp_move_to_first">Pindah ke Pertama</string>
+    <string name="mp_move_to_last">Pindah ke Terakhir</string>
+    <string name="mp_move_up">Naik</string>
+    <string name="mp_move_down">Turunkan</string>
+    <string name="mp_remove_from_playlist">Hapus Dari Daftar Putar</string>
+    <string name="mp_remove_from_queue">Hapus Dari Antrian</string>
+    <string name="mp_play_next">Mainkan Selanjutnya</string>
+    <string name="mp_add_to_queue">Tambahkan ke Antrian</string>
+    <plurals name="mp_number_tracks">
+
+        <item quantity="other">%d tracks</item>
+    </plurals>
+
+
+    <string name="mp_read_granted">Baca file musik izin diberikan &#8230;</string>
+    <string name="mp_not_granted">Izin yang diperlukan tidak diberikan! Untuk mengakses file musik lokal Anda, izin harus diberikan!</string>
+    <string name="mp_delete_playlist">Hapus Daftar Putar</string>
+    <string name="mp_yes">Iya</string>
+    <string name="mp_no">Tidak</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">Apakah Anda yakin untuk menghapus daftar putar %1$s?</string>
+    <string name="mp_rename_playlist">Ganti nama daftar putar</string>
+    <string name="mp_enter_new_playlist_name">Masukkan nama daftar putar baru:</string>
+    <string name="mp_update">Memperbarui</string>
+    <string name="mp_cancel">Membatalkan</string>
+    <string name="mp_playlist_deleted">Daftar putar %s berhasil dihapus.</string>
+    <string name="mp_create_a_preset">Buat preset</string>
+    <string name="mp_enter_preset_name">Masukkan nama preset:</string>
+    <string name="mp_create">Membuat</string>
+    <string name="mp_ok">baik</string>
+    <string name="mp_create_a_playlist">Buat daftar putar</string>
+    <string name="mp_enter_playlist_name">Masukkan nama daftar putar:</string>
+    <string name="mp_create_uppercase">MEMBUAT</string>
+    <string name="mp_playlist_must_be_created">Daftar putar harus dibuat terlebih dahulu!</string>
+    <string name="mp_cancel_uppercase">MEMBATALKAN</string>
+    <string name="mp_add_uppercase">MENAMBAHKAN</string>
+
+    <string name="mp_remove_all_track">Hapus Semua Track</string>
+    <string name="mp_are_you_sure_to_remove_track">Apakah Anda yakin untuk menghapus semua trek dari antrian?</string>
+    <string name="mp_remove_preset">Hapus Preset</string>
+    <string name="mp_are_you_sure_to_remove_preset">Apakah Anda yakin akan menghapus %s preset?</string>
+    <string name="mp_rename_preset">Ganti nama preset</string>
+    <string name="mp_enter_new_preset_name">Masukkan nama preset baru:</string>
+    <string name="mp_preset_is_updated">Preset diperbarui.</string>
+    <string name="mp_preset_not_updated">Prasetel tidak diperbarui!</string>
+    <string name="mp_preset_is_deleted">Prasetel %s dihapus.</string>
+    <string name="mp_preset_is_not_deleted">Prasetel %s tidak dihapus!</string>
+    <string name="mp_all_tracks_are_removed_from_queue">Semua lagu berhasil dihapus dari antrian.</string>
+    <string name="mp_will_be_played_next">%s akan diputar berikutnya.</string>
+    <string name="mp_is_added_to_queue">%s ditambahkan untuk berhasil mengantre.</string>
+    <string name="mp_artist_tracks_are_added">%s trek artis ditambahkan ke antrian berhasil.</string>
+    <string name="mp_album_tracks_are_added">%s trek album ditambahkan ke antrian berhasil.</string>
+    <string name="mp_genre_tracks_are_added">%s trek genre ditambahkan untuk berhasil mengantre.</string>
+    <string name="mp_playlist_tracks_are_added">%s trek daftar putar ditambahkan untuk berhasil mengantre.</string>
+    <string name="mp_playlist_updated">Daftar putar berhasil diperbarui.</string>
+    <string name="mp_playlist_not_updated">Daftar putar tidak diperbarui!</string>
+    <string name="mp_music_list_refreshed">Daftar musik berhasil di-refresh.</string>
+    <string name="mp_preset_is_created">Prasetel %s dibuat.</string>
+    <string name="mp_track_added_to_playlist">%s ditambahkan ke %s.</string>
+    <string name="mp_track_not_added_to_playlist">%s tidak ditambahkan ke %s!</string>
+    <string name="mp_playlist_created_tracks_added">Daftar putar %s dibuat. %d trek ditambahkan.</string>
+    <string name="mp_playlist_exists">Daftar putar %s sudah ada!</string>
+    <string name="mp_playlist_added_one_track_add">Daftar putar %s dibuat. Satu lagu ditambahkan.</string>
+    <string name="mp_playlist_not_deleted">Daftar putar %s tidak dihapus!</string>
+    <string name="mp_track_removed_from_playlist">%s dihapus dari %s berhasil.</string>
+    <string name="mp_track_not_removed_from_playlist">%s tidak dihapus dari %s!</string>
+
+    <string name="mp_visualizer_permission_not_granted">Izin yang diperlukan tidak diberikan! Visualizer tidak dijalankan!</string>
+
+
+</resources>

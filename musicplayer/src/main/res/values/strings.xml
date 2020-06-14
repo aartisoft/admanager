@@ -1,0 +1,118 @@
+<resources>
+    <string name="mp_app_name">Music Player</string>
+
+    <string name="todo">TODO</string>
+
+    <string name="mp_refresh">Refresh</string>
+    <string name="mp_search">Search</string>
+    <string name="mp_disc">Disc</string>
+
+    <string name="mp_loading_splash">Loading &#8230;</string>
+
+    <string name="mp_no_picture">Oups, there is nothing here :(</string>
+
+    <string name="mp_preset">Preset :</string>
+    <string name="mp_create_preset">Create Preset</string>
+    <string name="mp_50" translatable="false">50</string>
+    <string name="mp_150" translatable="false">150</string>
+    <string name="mp_400" translatable="false">400</string>
+    <string name="mp_1k" translatable="false">1K</string>
+    <string name="mp_2k" translatable="false">2K</string>
+    <string name="mp_bass_boost">Bass Boost</string>
+    <string name="mp_can_t_access_your_local_music">Can\'t access your local music.</string>
+    <string name="mp_equalizer_needs_permission">Equalizer needs permission to use and display your music.</string>
+    <string name="mp_allow_library_access">Allow library access</string>
+    <string name="mp_open">Open</string>
+    <string name="mp_play_all">Play All</string>
+    <string name="mp_add_all">Add All</string>
+    <string name="mp_remove_all">Remove All</string>
+    <string name="mp_add_to_playlist">Add To Playlist</string>
+    <string name="mp_edit">Edit</string>
+    <string name="mp_delete">Delete</string>
+    <string name="mp_play_now">Play Now</string>
+    <string name="mp_move_to_first">Move To First</string>
+    <string name="mp_move_to_last">Move To Last</string>
+    <string name="mp_move_up">Move Up</string>
+    <string name="mp_move_down">Move Down</string>
+    <string name="mp_remove_from_playlist">Remove From Playlist</string>
+    <string name="mp_remove_from_queue">Remove From Queue</string>
+    <string name="mp_play_next">Play Next</string>
+    <string name="mp_add_to_queue">Add To Queue</string>
+    <plurals name="mp_number_tracks">
+        <!--
+             As a developer, you should always supply "one" and "other"
+             strings. Your translators will know which strings are actually
+             needed for their language. Always include %d in "one" because
+             translators will need to use %d for languages where "one"
+             doesn't mean 1 (as explained above).
+          -->
+        <item quantity="one">%d track</item>
+        <item quantity="other">%d tracks</item>
+    </plurals>
+
+    <string name="mp_20_percent" translatable="false">20%</string>
+    <string name="mp_40_percent" translatable="false">40%</string>
+    <string name="mp_60_percent" translatable="false">60%</string>
+    <string name="mp_80_percent" translatable="false">80%</string>
+    <string name="mp_100_percent" translatable="false">100%</string>
+    <string name="mp_read_granted">Read music files permission is granted&#8230;</string>
+    <string name="mp_not_granted">Necessary permissions are not granted! In order to access your local music files permission should be given!</string>
+    <string name="mp_delete_playlist">Delete Playlist</string>
+    <string name="mp_yes">Yes</string>
+    <string name="mp_no">No</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">Are you sure to delete %1$s playlist?</string>
+    <string name="mp_rename_playlist">Rename playlist</string>
+    <string name="mp_enter_new_playlist_name">Enter new playlist name:</string>
+    <string name="mp_update">Update</string>
+    <string name="mp_cancel">Cancel</string>
+    <string name="mp_playlist_deleted">%s playlist is deleted successfully.</string>
+    <string name="mp_create_a_preset">Create a preset</string>
+    <string name="mp_enter_preset_name">Enter preset name:</string>
+    <string name="mp_create">Create</string>
+    <string name="mp_ok">OK</string>
+    <string name="mp_create_a_playlist">Create a playlist</string>
+    <string name="mp_enter_playlist_name">Enter playlist name:</string>
+    <string name="mp_create_uppercase">CREATE</string>
+    <string name="mp_playlist_must_be_created">Playlist must be created at first!</string>
+    <string name="mp_cancel_uppercase">CANCEL</string>
+    <string name="mp_add_uppercase">ADD</string>
+
+    <string name="mp_remove_all_track">Remove All Track</string>
+    <string name="mp_are_you_sure_to_remove_track">Are you sure to remove all track from queue?</string>
+    <string name="mp_remove_preset">Remove Preset</string>
+    <string name="mp_are_you_sure_to_remove_preset">Are you sure to remove %s preset?</string>
+    <string name="mp_rename_preset">Rename preset</string>
+    <string name="mp_enter_new_preset_name">Enter new preset name:</string>
+    <string name="mp_preset_is_updated">Preset is updated.</string>
+    <string name="mp_preset_not_updated">Preset is not updated!</string>
+    <string name="mp_preset_is_deleted">%s preset is deleted.</string>
+    <string name="mp_preset_is_not_deleted">%s preset is not deleted!</string>
+    <string name="mp_all_tracks_are_removed_from_queue">All tracks are removed from queue successfully.</string>
+    <string name="mp_will_be_played_next">%s will be played next.</string>
+    <string name="mp_is_added_to_queue">%s is added to queue successfully.</string>
+    <string name="mp_artist_tracks_are_added">%s artist tracks are added to queue successfully.</string>
+    <string name="mp_album_tracks_are_added">%s album tracks are added to queue successfully.</string>
+    <string name="mp_genre_tracks_are_added">%s genre tracks are added to queue successfully.</string>
+    <string name="mp_playlist_tracks_are_added">%s playlist tracks are added to queue successfully.</string>
+    <string name="mp_playlist_updated">Playlist is updated successfully.</string>
+    <string name="mp_playlist_not_updated">Playlist is not updated!</string>
+    <string name="mp_music_list_refreshed">Music list is refreshed successfully.</string>
+    <string name="mp_preset_is_created">%s preset is created.</string>
+    <string name="mp_track_added_to_playlist">%s is added to %s.</string>
+    <string name="mp_track_not_added_to_playlist">%s is not added to %s!</string>
+    <string name="mp_playlist_created_tracks_added">%s playlist is created. %d tracks are added.</string>
+    <string name="mp_playlist_exists">%s playlist is already exists!</string>
+    <string name="mp_playlist_added_one_track_add">%s playlist is created. One track is added.</string>
+    <string name="mp_playlist_not_deleted">%s playlist is not deleted!</string>
+    <string name="mp_track_removed_from_playlist">%s is removed from %s successfully.</string>
+    <string name="mp_track_not_removed_from_playlist">%s is not removed from %s!</string>
+
+    <string name="mp_not_started_music_yet" translatable="false">Not started music yet!</string>
+    <string name="mp_playing" translatable="false">(Playing&#8230;)</string>
+    <string name="mp_paused" translatable="false">(Paused)</string>
+
+    <string name="mp_visualizer_permission_not_granted">Necessary permission is not granted! Visualizer is not run!</string>
+
+</resources>

@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Ekstra Ses Yükseltici</string>
+
+
+    <string name="navigation_drawer_open">Gezinme çekmecesini aç</string>
+    <string name="navigation_drawer_close">Gezinme çekmecesini kapat</string>
+
+    <string name="volume_booster">Ses Yükseltici</string>
+    <string name="menu_title">Müzik Çalar ve Ses Yükseltici</string>
+    <string name="title_2">Ekolayzer</string>
+
+    <string name="extra_boost">Ekstra Güçlendirme</string>
+
+
+    <string name="tutorial">Öğretici</string>
+    <string name="privacy_policy">Gizlilik Politikası</string>
+    <string name="notification">Bildirim</string>
+    <string name="settings">Ayarlar</string>
+    <string name="share">Paylaş</string>
+    <string name="share_with">Ekstra Hacim Arttırıcı Uygulamasını Paylaşın:</string>
+    <string name="loading_splash">Yükleniyor …</string>
+
+
+    <string name="notification_text">Sesi kolayca özelleştirebilirsiniz!</string>
+
+    <string name="tutorial_1_text_1">%200 Ekstra Hacim</string>
+    <string name="tutorial_1_text_2">müzik dinlerken maksimum hacim elde edin</string>
+
+    <string name="tutorial_2_text_1">Ekolayzer</string>
+    <string name="tutorial_2_text_2">Ekolayzır üzerinden müziklerin sesini özelleştirin</string>
+
+    <string name="next">Sonraki</string>
+    <string name="got_it">Anladım!</string>
+
+    <string name="on">açık</string>
+    <string name="off">kapalı</string>
+
+
+    <string name="bass">Bas</string>
+    <string name="visual">Visualise</string>
+
+    <string name="open_music_player">Müzik çalarınızı açmak için dokunun.</string>
+
+    <string name="not_valid_link">Bu geçerli bir bağlantı değil!</string>
+    <string name="no_browser">Web sayfasını açmak için herhangi bir tarayıcınız yok!</string>
+    <string name="share_app">Hey! En iyi ekstra ses yükseltici paylaşın!</string>
+    <string name="not_started_music_yet">Henüz müzik başlamadı!</string>
+    <string name="playing">(Oynuyor &#8230;)</string>
+    <string name="paused">(Duraklatıldı)</string>
+    <string name="no">Hayır</string>
+    <string name="yes">Evet</string>
+    <string name="enjoy">Eğlen</string>
+    <string name="permission_not_granted">Gerekli izin verilmiyor! Görüntüleyici çalışmıyor!</string>
+
+
+    <string name="ad_settings">Reklam Ayarları</string>
+
+    <string name="voice_recorder">Ses Kaydedici</string>
+
+    <string name="speedtest">Hız Testi</string>
+
+</resources>

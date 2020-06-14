@@ -1,0 +1,99 @@
+<resources>
+    <string name="mp_app_name">Máy nghe nhạc</string>
+
+    <string name="mp_refresh">Làm tươi</string>
+    <string name="mp_search">Tìm kiếm</string>
+    <string name="mp_disc">Đĩa</string>
+
+    <string name="mp_loading_splash">Đang tải …</string>
+
+    <string name="mp_no_picture">Oups, không có gì ở đây :(</string>
+
+    <string name="mp_preset">Đặt trước:</string>
+    <string name="mp_create_preset">Tạo cài đặt trước</string>
+
+
+    <string name="mp_bass_boost">Tăng cường âm trầm</string>
+    <string name="mp_can_t_access_your_local_music">Không thể truy cập âm nhạc địa phương của bạn.</string>
+    <string name="mp_equalizer_needs_permission">Bộ chỉnh âm cần có sự cho phép để sử dụng và hiển thị nhạc của bạn.</string>
+    <string name="mp_allow_library_access">Cho phép truy cập thư viện</string>
+    <string name="mp_open">Mở</string>
+    <string name="mp_play_all">Chơi tất cả</string>
+    <string name="mp_add_all">Thêm tất cả</string>
+    <string name="mp_remove_all">Bỏ tất cả</string>
+    <string name="mp_add_to_playlist">Thêm vào danh sách phát</string>
+    <string name="mp_edit">Biên tập</string>
+    <string name="mp_delete">Xóa bỏ</string>
+    <string name="mp_play_now">Bắt đầu chơi</string>
+    <string name="mp_move_to_first">Di chuyển đến đầu tiên</string>
+    <string name="mp_move_to_last">Di chuyển đến cuối cùng</string>
+    <string name="mp_move_up">Đi lên</string>
+    <string name="mp_move_down">Đi xuống</string>
+    <string name="mp_remove_from_playlist">Xóa khỏi danh sách phát</string>
+    <string name="mp_remove_from_queue">Xóa khỏi hàng đợi</string>
+    <string name="mp_play_next">Lượt tiếp theo</string>
+    <string name="mp_add_to_queue">Thêm vào hàng</string>
+    <plurals name="mp_number_tracks">
+
+        <item quantity="other">%d tracks</item>
+    </plurals>
+
+
+    <string name="mp_read_granted">Đọc quyền đọc tệp nhạc được cấp</string>
+    <string name="mp_not_granted">Quyền cần thiết không được cấp! Để truy cập các tập tin âm nhạc địa phương của bạn nên được cho phép!</string>
+    <string name="mp_delete_playlist">Xóa danh sách phát</string>
+    <string name="mp_yes">Đúng</string>
+    <string name="mp_no">Không</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">Bạn có chắc chắn xóa danh sách phát %1$s không?</string>
+    <string name="mp_rename_playlist">Đổi tên danh sách phát</string>
+    <string name="mp_enter_new_playlist_name">Nhập tên danh sách phát mới:</string>
+    <string name="mp_update">Cập nhật</string>
+    <string name="mp_cancel">Hủy bỏ</string>
+    <string name="mp_playlist_deleted">Danh sách phát %s bị xóa thành công.</string>
+    <string name="mp_create_a_preset">Tạo một cài đặt trước</string>
+    <string name="mp_enter_preset_name">Nhập tên đặt trước:</string>
+    <string name="mp_create">Tạo nên</string>
+    <string name="mp_ok">đồng ý</string>
+    <string name="mp_create_a_playlist">Tạo danh sách phát</string>
+    <string name="mp_enter_playlist_name">Nhập tên danh sách phát:</string>
+    <string name="mp_create_uppercase">TẠO NÊN</string>
+    <string name="mp_playlist_must_be_created">Danh sách phát phải được tạo lúc đầu!</string>
+    <string name="mp_cancel_uppercase">HỦY BỎ</string>
+    <string name="mp_add_uppercase">THÊM VÀO</string>
+
+    <string name="mp_remove_all_track">Xóa tất cả theo dõi</string>
+    <string name="mp_are_you_sure_to_remove_track">Bạn có chắc chắn xóa tất cả theo dõi khỏi hàng đợi?</string>
+    <string name="mp_remove_preset">Xóa cài đặt trước</string>
+    <string name="mp_are_you_sure_to_remove_preset">Bạn có chắc chắn xóa cài đặt sẵn %s không?</string>
+    <string name="mp_rename_preset">Đổi tên đặt trước</string>
+    <string name="mp_enter_new_preset_name">Nhập tên định sẵn mới:</string>
+    <string name="mp_preset_is_updated">Cài đặt trước được cập nhật.</string>
+    <string name="mp_preset_not_updated">Preset không được cập nhật!</string>
+    <string name="mp_preset_is_deleted">%s cài đặt trước bị xóa.</string>
+    <string name="mp_preset_is_not_deleted">%s cài đặt trước không bị xóa!</string>
+    <string name="mp_all_tracks_are_removed_from_queue">Tất cả các bài hát được xóa khỏi hàng đợi thành công.</string>
+    <string name="mp_will_be_played_next">%s sẽ được phát tiếp theo.</string>
+    <string name="mp_is_added_to_queue">%s được thêm vào hàng đợi thành công.</string>
+    <string name="mp_artist_tracks_are_added">Các bài hát của nghệ sĩ %s được thêm vào để xếp hàng thành công.</string>
+    <string name="mp_album_tracks_are_added">Các bài hát trong album của %s được thêm vào để xếp hàng thành công.</string>
+    <string name="mp_genre_tracks_are_added">Các bản nhạc thể loại %s được thêm vào để xếp hàng thành công.</string>
+    <string name="mp_playlist_tracks_are_added">Các bài hát trong danh sách phát %s được thêm vào hàng đợi thành công.</string>
+    <string name="mp_playlist_updated">Danh sách phát được cập nhật thành công.</string>
+    <string name="mp_playlist_not_updated">Danh sách phát không được cập nhật!</string>
+    <string name="mp_music_list_refreshed">Danh sách nhạc được làm mới thành công.</string>
+    <string name="mp_preset_is_created">Cài đặt sẵn %s được tạo.</string>
+    <string name="mp_track_added_to_playlist">%s được thêm vào %s.</string>
+    <string name="mp_track_not_added_to_playlist">%s không được thêm vào %s!</string>
+    <string name="mp_playlist_created_tracks_added">Danh sách phát %s được tạo. %d bài hát được thêm vào.</string>
+    <string name="mp_playlist_exists">Danh sách phát %s đã tồn tại!</string>
+    <string name="mp_playlist_added_one_track_add">Danh sách phát %s được tạo. Một bản nhạc được thêm vào.</string>
+    <string name="mp_playlist_not_deleted">Danh sách phát %s không bị xóa!</string>
+    <string name="mp_track_removed_from_playlist">%s được xóa khỏi %s thành công.</string>
+    <string name="mp_track_not_removed_from_playlist">%s không bị xóa khỏi %s!</string>
+
+    <string name="mp_visualizer_permission_not_granted">Sự cho phép cần thiết không được cấp! Trình hiển thị không chạy!</string>
+
+
+</resources>

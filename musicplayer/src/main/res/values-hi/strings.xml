@@ -1,0 +1,100 @@
+<resources>
+    <string name="mp_app_name">संगीत बजाने वाला</string>
+
+    <string name="mp_refresh">ताज़ा करना</string>
+    <string name="mp_search">खोज</string>
+    <string name="mp_disc">डिस्क</string>
+
+    <string name="mp_loading_splash">लोड हो रहा है …</string>
+
+    <string name="mp_no_picture">Oups, यहाँ कुछ भी नहीं है :(</string>
+
+    <string name="mp_preset">पूर्व निर्धारित:</string>
+    <string name="mp_create_preset">प्रीसेट बनाएं</string>
+
+
+    <string name="mp_bass_boost">मंद्र को बढ़ाना</string>
+    <string name="mp_can_t_access_your_local_music">अपने स्थानीय संगीत को एक्सेस नहीं कर सकता।</string>
+    <string name="mp_equalizer_needs_permission">तुल्यकारक को आपके संगीत का उपयोग करने और प्रदर्शित करने के लिए अनुमति की आवश्यकता होती है।</string>
+    <string name="mp_allow_library_access">लाइब्रेरी की अनुमति दें</string>
+    <string name="mp_open">खुला हुआ</string>
+    <string name="mp_play_all">सभी को बजाएं</string>
+    <string name="mp_add_all">सभी को जोड़ो</string>
+    <string name="mp_remove_all">सभी हटाएं</string>
+    <string name="mp_add_to_playlist">प्लेलिस्ट में जोड़ें</string>
+    <string name="mp_edit">संपादित करें</string>
+    <string name="mp_delete">हटाएं</string>
+    <string name="mp_play_now">अब खेलें</string>
+    <string name="mp_move_to_first">पहले चलें</string>
+    <string name="mp_move_to_last">पिछले करने के लिए ले जाएँ</string>
+    <string name="mp_move_up">बढ़ाना</string>
+    <string name="mp_move_down">नीचे की ओर</string>
+    <string name="mp_remove_from_playlist">प्लेलिस्ट से निकालें</string>
+    <string name="mp_remove_from_queue">कतार से निकालें</string>
+    <string name="mp_play_next">आगे खेलें</string>
+    <string name="mp_add_to_queue">क़तार में जोड़ें</string>
+    <plurals name="mp_number_tracks">
+
+        <item quantity="one">%d track</item>
+        <item quantity="other">%d tracks</item>
+    </plurals>
+
+
+    <string name="mp_read_granted">पढ़ें संगीत फ़ाइलें अनुमति दी गई है &#8230;</string>
+    <string name="mp_not_granted">आवश्यक अनुमति नहीं दी गई हैं! अपने स्थानीय संगीत फ़ाइलों का उपयोग करने के लिए अनुमति दी जानी चाहिए!</string>
+    <string name="mp_delete_playlist">प्लेलिस्ट हटाएं</string>
+    <string name="mp_yes">हाँ</string>
+    <string name="mp_no">नहीं</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">क्या आप %1$s प्लेलिस्ट हटाना चाहते हैं?</string>
+    <string name="mp_rename_playlist">प्लेलिस्ट का नाम बदलें</string>
+    <string name="mp_enter_new_playlist_name">नया प्लेलिस्ट नाम दर्ज करें:</string>
+    <string name="mp_update">अपडेट करें</string>
+    <string name="mp_cancel">रद्द करना</string>
+    <string name="mp_playlist_deleted">%s प्लेलिस्ट को सफलतापूर्वक हटा दिया गया है।</string>
+    <string name="mp_create_a_preset">एक पूर्व निर्धारित बनाएँ</string>
+    <string name="mp_enter_preset_name">प्रीसेट नाम दर्ज करें:</string>
+    <string name="mp_create">सृजन करना</string>
+    <string name="mp_ok">ठीक</string>
+    <string name="mp_create_a_playlist">एक प्लेलिस्ट बनाएं</string>
+    <string name="mp_enter_playlist_name">प्लेलिस्ट नाम दर्ज करें:</string>
+    <string name="mp_create_uppercase">सृजन करना</string>
+    <string name="mp_playlist_must_be_created">प्लेलिस्ट पहले बनाई जानी चाहिए!</string>
+    <string name="mp_cancel_uppercase">रद्द करना</string>
+    <string name="mp_add_uppercase">जोड़ें</string>
+
+    <string name="mp_remove_all_track">सभी ट्रैक निकालें</string>
+    <string name="mp_are_you_sure_to_remove_track">क्या आप कतार से सभी ट्रैक निकालना सुनिश्चित करते हैं?</string>
+    <string name="mp_remove_preset">प्रीसेट निकालें</string>
+    <string name="mp_are_you_sure_to_remove_preset">क्या आप %s प्रीसेट को निकालना सुनिश्चित करते हैं?</string>
+    <string name="mp_rename_preset">नाम पूर्व निर्धारित</string>
+    <string name="mp_enter_new_preset_name">नया प्रीसेट नाम दर्ज करें:</string>
+    <string name="mp_preset_is_updated">पूर्व निर्धारित अद्यतन किया जाता है।</string>
+    <string name="mp_preset_not_updated">पूर्व निर्धारित अद्यतन नहीं है!</string>
+    <string name="mp_preset_is_deleted">%s प्रीसेट हटा दिया गया है।</string>
+    <string name="mp_preset_is_not_deleted">%s प्रीसेट हटाया नहीं गया है!</string>
+    <string name="mp_all_tracks_are_removed_from_queue">सभी ट्रैकों को कतार से सफलतापूर्वक हटा दिया जाता है।</string>
+    <string name="mp_will_be_played_next">%s अगले खेला जाएगा।</string>
+    <string name="mp_is_added_to_queue">%s को सफलतापूर्वक कतार में जोड़ा जाता है।</string>
+    <string name="mp_artist_tracks_are_added">%s कलाकार पटरियों को सफलतापूर्वक कतार में जोड़ा जाता है।</string>
+    <string name="mp_album_tracks_are_added">%s एल्बम ट्रैक सफलतापूर्वक कतार में जोड़े जाते हैं।</string>
+    <string name="mp_genre_tracks_are_added">%s शैली ट्रैक्स को सफलतापूर्वक कतार में जोड़ा जाता है।</string>
+    <string name="mp_playlist_tracks_are_added">%s प्लेलिस्ट ट्रैक को सफलतापूर्वक कतार में जोड़ा जाता है।</string>
+    <string name="mp_playlist_updated">प्लेलिस्ट सफलतापूर्वक अपडेट की गई है।</string>
+    <string name="mp_playlist_not_updated">प्लेलिस्ट अपडेट नहीं है!</string>
+    <string name="mp_music_list_refreshed">संगीत सूची को सफलतापूर्वक ताज़ा किया जाता है।</string>
+    <string name="mp_preset_is_created">%s प्रीसेट बनाया गया है।</string>
+    <string name="mp_track_added_to_playlist">%s को %s में जोड़ा जाता है।</string>
+    <string name="mp_track_not_added_to_playlist">%s को %s में नहीं जोड़ा गया है!</string>
+    <string name="mp_playlist_created_tracks_added">%s प्लेलिस्ट बनाई गई है। %d ट्रैक जोड़े गए हैं।</string>
+    <string name="mp_playlist_exists">%s प्लेलिस्ट पहले से मौजूद है!</string>
+    <string name="mp_playlist_added_one_track_add">%s प्लेलिस्ट बनाई गई है। एक ट्रैक जोड़ा जाता है।</string>
+    <string name="mp_playlist_not_deleted">%s प्लेलिस्ट नहीं हटाई गई है!</string>
+    <string name="mp_track_removed_from_playlist">%s को %s से सफलतापूर्वक निकाल दिया गया है।</string>
+    <string name="mp_track_not_removed_from_playlist">%s %s से हटाया नहीं गया है!</string>
+
+    <string name="mp_visualizer_permission_not_granted">आवश्यक अनुमति नहीं दी गई है! विज़ुअलाइज़र नहीं चलाया गया!</string>
+
+
+</resources>

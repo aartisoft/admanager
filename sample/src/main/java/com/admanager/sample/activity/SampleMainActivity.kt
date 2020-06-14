@@ -20,6 +20,7 @@ import com.admanager.core.AdManagerBuilder
 import com.admanager.core.AdmUtils
 import com.admanager.core.ShareUtils
 import com.admanager.core.toolbar.AdmToolbarAnimator
+import com.admanager.equalizer.activities.EqoVolActivity
 import com.admanager.gifs.activities.GifsActivity
 import com.admanager.gpstimeaddresscoord.activities.GPSTimeAddressCoordActivity
 import com.admanager.maps.activities.MapsActivity
@@ -164,6 +165,8 @@ class SampleMainActivity : AppCompatActivity(),
             R.id.mRateDialog -> RateDialog(this, this).show()
             R.id.mGps -> GPSTimeAddressCoordActivity.start(this)
             R.id.colorCallScreen -> ColorCallScreenActivity.start(this)
+
+            R.id.eqoVol -> EqoVolActivity.start(this)
         }
         return false
     }

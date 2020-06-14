@@ -14,6 +14,7 @@ import com.admanager.colorcallscreen.model.AfterCallCard
 import com.admanager.compass.CompassApp
 import com.admanager.config.RemoteConfigApp
 import com.admanager.core.Ads
+import com.admanager.equalizer.EqoVolApp
 import com.admanager.gifs.GifsApp
 import com.admanager.gpstimeaddresscoord.GPSTimeApp
 import com.admanager.maps.MapsApp
@@ -140,6 +141,12 @@ class MyApplication : MultiDexApplication(), Ads {
             R.string.adjust_info_3,
             R.string.adjust_info_4,
             pushtoken, null)*/
+
+        EqoVolApp.Builder(this)
+            .ads(this)
+            .setEqualizer(true)
+            .build()
+
     }
 
     private fun createAfterCallCards(): ArrayList<AfterCallCard> {

@@ -2,8 +2,10 @@ package com.admanager.sample.activity
 
 import android.widget.LinearLayout
 import com.admanager.admob.AdmobAdapter
+import com.admanager.admob.AdmobBannerLoader
 import com.admanager.admob.AdmobNativeLoader
 import com.admanager.core.AdManagerBuilder
+import com.admanager.core.DummyAdapter
 import com.admanager.core.tutorial.AdmTutorialActivity
 import com.admanager.core.tutorial.AdmTutorialConfiguration
 import com.admanager.core.tutorial.NativePosition
@@ -28,12 +30,22 @@ class Splash2Activity : AdmTutorialActivity() {
     }
 
     override fun loadAd(container: LinearLayout) {
-        AdmobNativeLoader(this, container, RCUtils.tutorial_native_admob_enabled).size(
-            AdmobNativeLoader.NativeType.NATIVE_XL
-        ).loadWithRemoteConfigId(RCUtils.tutorial_native_admob_id)
+        AdmobNativeLoader(this, container, RCUtils.tutorial_native_admob_enabled)
+            .size(AdmobNativeLoader.NativeType.NATIVE_XL)
+            .loadWithRemoteConfigId(RCUtils.tutorial_native_admob_id)
     }
 
+    override fun loadTopAd(container: LinearLayout?) {
+        AdmobBannerLoader(this, container, RCUtils.admob_banner_enabled)
+            .loadWithRemoteConfigId(RCUtils.admob_banner_id)
+    }
+
+    override fun loadBottomAd(container: LinearLayout?) {
+        AdmobBannerLoader(this, container, RCUtils.admob_banner_enabled)
+            .loadWithRemoteConfigId(RCUtils.admob_banner_id)
+    }
     override fun createAdManagerBuilder(): AdManagerBuilder = AdManagerBuilder(this)
+        .add(DummyAdapter())
         .add(AdmobAdapter(RCUtils.s2_admob_enabled).withRemoteConfigId(RCUtils.s2_admob_id))
         .thenStart(MainActivity::class.java)
 }

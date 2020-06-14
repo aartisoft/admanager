@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activities.EqoVolActivity"
+    tools:showIn="@layout/adm_app_bar_main">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="40">
+
+        <com.admanager.equalizer.tasks.LedView
+            android:id="@+id/maLeftLedView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/booster_bg" />
+
+        <RelativeLayout
+            android:id="@+id/maCenterLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/maRightLedView"
+            android:layout_toEndOf="@+id/maLeftLedView">
+
+            <RelativeLayout
+                android:id="@+id/maSelectionLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true">
+
+                <ImageView
+                    android:id="@+id/bgOfLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/todo"
+                    android:src="@drawable/bg_vol_eq" />
+
+                <LinearLayout
+                    android:id="@+id/maSelection2Layout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/maVolumeSelection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/btn_volume_selected" />
+
+                    <ImageView
+                        android:id="@+id/maEqualizerSelection"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:contentDescription="@string/todo"
+                        android:src="@drawable/btn_equalizer_unselected" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/maSpaceLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp" />
+
+                <CheckBox
+                    android:id="@+id/maEqualizerCheckBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/maSpaceLayout"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/selector_tab_eq_switch"
+                    android:button="@null"
+                    android:checked="false"
+                    android:textOff="@string/off"
+                    android:textOn="@string/on"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/maSelectionLayout">
+
+                <FrameLayout
+                    android:id="@+id/maVolumeTopLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include layout="@layout/volume_top_layout" />
+
+                </FrameLayout>
+
+                <FrameLayout
+                    android:id="@+id/maEqualizerTopLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="8dp"
+                    android:visibility="gone">
+
+                    <include layout="@layout/equalizer_top_layout" />
+
+                </FrameLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <com.admanager.equalizer.tasks.LedView
+            android:id="@+id/maRightLedView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/booster_bg" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25">
+
+        <FrameLayout
+            android:id="@+id/maVolumeBottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include layout="@layout/volume_bottom_layout" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/maEqualizerBottomLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <include layout="@layout/equalizer_bottom_layout" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <include
+        layout="@layout/player_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:layout_weight="12"
+        android:baselineAligned="false" />
+
+</LinearLayout>

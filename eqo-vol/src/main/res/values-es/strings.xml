@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Amplificador de volumen extra</string>
+
+
+    <string name="navigation_drawer_open">Abrir el cajón de navegación</string>
+    <string name="navigation_drawer_close">Cerrar el cajón de navegación</string>
+
+    <string name="volume_booster">Amplificador de volumen</string>
+    <string name="menu_title">Reproductor de música y amplificador de volumen</string>
+    <string name="title_2">Igualada</string>
+
+    <string name="extra_boost">Impulso extra</string>
+
+
+    <string name="tutorial">Tutorial</string>
+    <string name="privacy_policy">Política de privacidad</string>
+    <string name="notification">Notificación</string>
+    <string name="settings">Configuraciones</string>
+    <string name="share">Compartir</string>
+    <string name="share_with">Compartir Booster de volumen extra:</string>
+    <string name="loading_splash">Cargando …</string>
+
+
+    <string name="notification_text">¡Puedes personalizar el sonido fácilmente!</string>
+
+    <string name="tutorial_1_text_1">% 200Volumen extra</string>
+    <string name="tutorial_1_text_2">Obtén el volumen máximoMientras escucha música</string>
+
+    <string name="tutorial_2_text_1">Igualada</string>
+    <string name="tutorial_2_text_2">Personaliza el sonido detus huellas en el ecualizador</string>
+
+    <string name="next">próximo</string>
+    <string name="got_it">¡Entendido!</string>
+
+    <string name="on">En</string>
+    <string name="off">Apagado</string>
+
+
+    <string name="bass">Bajo</string>
+    <string name="visual">Visualizar</string>
+
+    <string name="open_music_player">Toque para abrir su reproductor de música.</string>
+
+    <string name="not_valid_link">¡Este no es un enlace válido!</string>
+    <string name="no_browser">¡No tiene ningún navegador para abrir la página web!</string>
+    <string name="share_app">¡Oye! ¡Comparte el mejor amplificador de volumen extra!</string>
+    <string name="not_started_music_yet">¡Todavía no comenzó la música!</string>
+    <string name="playing">(Jugando…)</string>
+    <string name="paused">(En pausa)</string>
+    <string name="no">No</string>
+    <string name="yes">si</string>
+    <string name="enjoy">Disfrutar</string>
+    <string name="permission_not_granted">¡No se otorga el permiso necesario! ¡El visualizador no se ejecuta!</string>
+
+
+    <string name="ad_settings">Configuraciones de anuncios</string>
+
+    <string name="voice_recorder">Grabadora de voz</string>
+
+    <string name="speedtest">Prueba de velocidad</string>
+
+</resources>

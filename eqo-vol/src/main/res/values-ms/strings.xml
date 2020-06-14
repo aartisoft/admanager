@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Booster Volum Tambahan</string>
+
+
+    <string name="navigation_drawer_open">Buka laci navigasi</string>
+    <string name="navigation_drawer_close">Tutup laci navigasi</string>
+
+    <string name="volume_booster">Penggalak Kelantangan</string>
+    <string name="menu_title">Pemain Muzik &amp; Peningkatan Kelantangan</string>
+    <string name="title_2">Penyamaan</string>
+
+    <string name="extra_boost">Peningkatan yang lebih tinggi</string>
+
+
+    <string name="tutorial">Tutorial</string>
+    <string name="privacy_policy">Dasar Privasi</string>
+    <string name="notification">Pemberitahuan</string>
+    <string name="settings">Tetapan</string>
+    <string name="share">Kongsi</string>
+    <string name="share_with">Kongsi Booster Tambahan Tambahan:</string>
+    <string name="loading_splash">Memuatkan &#8230;</string>
+
+
+    <string name="notification_text">Anda boleh menyesuaikan bunyi dengan mudah!</string>
+
+    <string name="tutorial_1_text_1">% 200Volume Tambahan</string>
+    <string name="tutorial_1_text_2">Dapatkan jumlah maksimumsambil mendengar muzik</string>
+
+    <string name="tutorial_2_text_1">Penyamaan</string>
+    <string name="tutorial_2_text_2">Peribadikan bunyitrek anda pada penyamaan</string>
+
+    <string name="next">Seterusnya</string>
+    <string name="got_it">Mendapatkannya!</string>
+
+    <string name="on">Pada</string>
+    <string name="off">Off</string>
+
+
+    <string name="bass">Bass</string>
+    <string name="visual">Visualisasikan</string>
+
+    <string name="open_music_player">Ketuk untuk membuka pemain muzik anda.</string>
+
+    <string name="not_valid_link">Ini bukan pautan yang sah!</string>
+    <string name="no_browser">Anda tidak mempunyai penyemak imbas untuk membuka halaman web!</string>
+    <string name="share_app">Hey! Berkongsi penggalak kelantangan tambahan yang terbaik!</string>
+    <string name="not_started_music_yet">Belum lagi muzik!</string>
+    <string name="playing">(Bermain &#8230;)</string>
+    <string name="paused">(Dijeda)</string>
+    <string name="no">Tidak</string>
+    <string name="yes">Ya</string>
+    <string name="enjoy">Nikmati</string>
+    <string name="permission_not_granted">Kebenaran yang diperlukan tidak diberikan! Visualizer tidak berjalan!</string>
+
+
+    <string name="ad_settings">Tetapan Iklan</string>
+
+    <string name="voice_recorder">Rakaman suara</string>
+
+    <string name="speedtest">Ujian Kelajuan</string>
+
+</resources>

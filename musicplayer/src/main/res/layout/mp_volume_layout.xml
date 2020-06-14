@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/mpColorPrimary"
+    android:gravity="start|center_vertical"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="31">
+
+        <com.admanager.musicplayer.tasks.LedView
+            android:id="@+id/vfLeftLedView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@android:color/black" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/vfRightLedView"
+            android:layout_toLeftOf="@+id/vfRightLedView"
+            android:layout_toEndOf="@+id/vfLeftLedView"
+            android:layout_toRightOf="@+id/vfLeftLedView"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/mp_volume_disable" />
+
+        <com.admanager.musicplayer.tasks.RingRoundView
+            android:id="@+id/vfRingRoundView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/vfRightLedView"
+            android:layout_toLeftOf="@+id/vfRightLedView"
+            android:layout_toEndOf="@+id/vfLeftLedView"
+            android:layout_toRightOf="@+id/vfLeftLedView" />
+
+        <com.admanager.musicplayer.tasks.NeedleRoundView
+            android:id="@+id/vfNeedleRoundView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_toStartOf="@+id/vfRightLedView"
+            android:layout_toLeftOf="@+id/vfRightLedView"
+            android:layout_toEndOf="@+id/vfLeftLedView"
+            android:layout_toRightOf="@+id/vfLeftLedView" />
+
+        <com.admanager.musicplayer.tasks.LedView
+            android:id="@+id/vfRightLedView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:background="@android:color/black" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_weight="10">
+
+        <com.admanager.musicplayer.utilities.HorizontalSeekBar
+            android:id="@+id/volumeSeekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@null"
+            android:progressDrawable="@drawable/mp_volume_seekbar"
+            android:splitTrack="false"
+            android:thumb="@drawable/mp_volume_progress_button" />
+
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="8"
+        android:background="@drawable/mp_first_volume_booster_icons_bg"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/vfVolumeMuteButtonLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toStartOf="@+id/vfVolume20ButtonLayout"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/vfVolumeMuteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/mp_mute_btn_disable"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/vfVolume20ButtonLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toStartOf="@+id/vfVolume40ButtonLayout"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/vfVolumeMuteButtonLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/vfVolume20Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/mp_first_volume_boosters_btns"
+                android:fontFamily="@font/ubuntu"
+                android:gravity="center"
+                android:text="@string/mp_20_percent"
+                android:textColor="@color/mpvolume_button_inactive"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/vfVolume40ButtonLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toStartOf="@+id/vfVolume60ButtonLayout"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/vfVolume20ButtonLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/vfVolume40Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/mp_first_volume_boosters_btns"
+                android:fontFamily="@font/ubuntu"
+                android:gravity="center"
+                android:text="@string/mp_40_percent"
+                android:textColor="@color/mpvolume_button_inactive"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/vfVolume60ButtonLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toStartOf="@+id/vfVolume80ButtonLayout"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/vfVolume40ButtonLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/vfVolume60Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/mp_first_volume_boosters_btns"
+                android:fontFamily="@font/ubuntu"
+                android:gravity="center"
+                android:text="@string/mp_60_percent"
+                android:textColor="@color/mpvolume_button_inactive"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/vfVolume80ButtonLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toStartOf="@+id/vfVolume100ButtonLayout"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/vfVolume60ButtonLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/vfVolume80Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/mp_first_volume_boosters_btns"
+                android:fontFamily="@font/ubuntu"
+                android:gravity="center"
+                android:text="@string/mp_80_percent"
+                android:textColor="@color/mpvolume_button_inactive"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/vfVolume100ButtonLayout"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintStart_toEndOf="@+id/vfVolume80ButtonLayout"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/vfVolume100Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/mp_first_volume_boosters_btns"
+                android:fontFamily="@font/ubuntu"
+                android:gravity="center"
+                android:text="@string/mp_100_percent"
+                android:textColor="@color/mpvolume_button_inactive"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3" />
+
+</LinearLayout>

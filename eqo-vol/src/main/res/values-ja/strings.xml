@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">エクストラボリュームブースター</string>
+
+
+    <string name="navigation_drawer_open">ナビゲーションドロワーを開く</string>
+    <string name="navigation_drawer_close">ナビゲーションドロワーを閉じる</string>
+
+    <string name="volume_booster">ボリュームブースター</string>
+    <string name="menu_title">音楽プレーヤーと音量ブースター</string>
+    <string name="title_2">イコライザ</string>
+
+    <string name="extra_boost">追加ブースト</string>
+
+
+    <string name="tutorial">チュートリアル</string>
+    <string name="privacy_policy">個人情報保護方針</string>
+    <string name="notification">お知らせ</string>
+    <string name="settings">設定</string>
+    <string name="share">共有</string>
+    <string name="share_with">追加のボリュームブースターを共有する：</string>
+    <string name="loading_splash">読み込み中…</string>
+
+
+    <string name="notification_text">サウンドを簡単にカスタマイズできます！</string>
+
+    <string name="tutorial_1_text_1">％200追加ボリューム</string>
+    <string name="tutorial_1_text_2">最大音量を取得音楽を聴きながら</string>
+
+    <string name="tutorial_2_text_1">イコライザ</string>
+    <string name="tutorial_2_text_2">の音をカスタマイズするイコライザー上のトラック</string>
+
+    <string name="next">次</string>
+    <string name="got_it">とった！</string>
+
+    <string name="on">オン</string>
+    <string name="off">オフ</string>
+
+
+    <string name="bass">ベース</string>
+    <string name="visual">視覚化</string>
+
+    <string name="open_music_player">タップして音楽プレーヤーを開きます。</string>
+
+    <string name="not_valid_link">これは有効なリンクではありません！</string>
+    <string name="no_browser">Webページを開くためのブラウザがありません！</string>
+    <string name="share_app">おい！最高の追加音量ブースターを共有してください！</string>
+    <string name="not_started_music_yet">まだ音楽を始めていません！</string>
+    <string name="playing">（プレイ中…）</string>
+    <string name="paused">（一時停止）</string>
+    <string name="no">番号</string>
+    <string name="yes">はい</string>
+    <string name="enjoy">楽しい</string>
+    <string name="permission_not_granted">必要な許可は与えられません！ビジュアライザーが実行されていません！</string>
+
+
+    <string name="ad_settings">広告設定</string>
+
+    <string name="voice_recorder">ボイスレコーダー</string>
+
+    <string name="speedtest">速度試験</string>
+
+</resources>

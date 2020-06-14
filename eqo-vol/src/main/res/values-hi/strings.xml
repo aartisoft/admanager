@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">अतिरिक्त मात्रा बूस्टर</string>
+
+
+    <string name="navigation_drawer_open">नेविगेशन दराज खोलें</string>
+    <string name="navigation_drawer_close">नेविगेशन ड्रॉअर बंद करें</string>
+
+    <string name="volume_booster">वॉल्यूम बूस्टर</string>
+    <string name="menu_title">म्यूजिक प्लेयर और वॉल्यूम बूस्टर</string>
+    <string name="title_2">तुल्यकारक</string>
+
+    <string name="extra_boost">एक्स्ट्रा बूस्ट</string>
+
+
+    <string name="tutorial">ट्यूटोरियल</string>
+    <string name="privacy_policy">गोपनीयता नीति</string>
+    <string name="notification">अधिसूचना</string>
+    <string name="settings">समायोजन</string>
+    <string name="share">शेयर</string>
+    <string name="share_with">शेयर अतिरिक्त मात्रा बूस्टर:</string>
+    <string name="loading_splash">लोड हो रहा है …</string>
+
+
+    <string name="notification_text">आप आसानी से ध्वनि को अनुकूलित कर सकते हैं!</string>
+
+    <string name="tutorial_1_text_1">% 200अतिरिक्त मात्रा</string>
+    <string name="tutorial_1_text_2">अधिकतम मात्रा प्राप्त करेंसंगीत सुनते हुए</string>
+
+    <string name="tutorial_2_text_1">तुल्यकारक</string>
+    <string name="tutorial_2_text_2">की ध्वनि को अनुकूलित करेंतुल्यकारक पर अपने पटरियों</string>
+
+    <string name="next">आगे</string>
+    <string name="got_it">समझ गया!</string>
+
+    <string name="on">पर</string>
+    <string name="off">बंद</string>
+
+
+    <string name="bass">बास</string>
+    <string name="visual">कल्पना</string>
+
+    <string name="open_music_player">अपने म्यूजिक प्लेयर को खोलने के लिए टैप करें।</string>
+
+    <string name="not_valid_link">ये मान्य लिंक नहीं है!</string>
+    <string name="no_browser">वेब पेज खोलने के लिए आपके पास कोई ब्राउज़र नहीं है!</string>
+    <string name="share_app">अरे! सबसे अच्छा अतिरिक्त मात्रा बूस्टर साझा करें!</string>
+    <string name="not_started_music_yet">अभी संगीत शुरू नहीं हुआ!</string>
+    <string name="playing">(खेल रहे हैं…)</string>
+    <string name="paused">(रोके गए)</string>
+    <string name="no">नहीं</string>
+    <string name="yes">हाँ</string>
+    <string name="enjoy">का आनंद लें</string>
+    <string name="permission_not_granted">आवश्यक अनुमति नहीं दी गई है! विज़ुअलाइज़र नहीं चलाया गया!</string>
+
+
+    <string name="ad_settings">विज्ञापन सेटिंग्स</string>
+
+    <string name="voice_recorder">आवाज मुद्रित करनेवाला</string>
+
+    <string name="speedtest">स्पीड टेस्ट</string>
+
+</resources>

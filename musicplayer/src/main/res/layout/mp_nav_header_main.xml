@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/mp_nav_header_height"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/mp_activity_horizontal_margin"
+    android:paddingTop="@dimen/mp_activity_vertical_margin"
+    android:paddingRight="@dimen/mp_activity_horizontal_margin"
+    android:paddingBottom="@dimen/mp_activity_vertical_margin"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="start|center_vertical"
+        android:paddingTop="@dimen/mp_activity_vertical_margin"
+        android:text="@string/mp_app_name"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@android:color/white"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

@@ -1,0 +1,100 @@
+<resources>
+    <string name="mp_app_name">Müzik Çalar</string>
+
+    <string name="mp_refresh">Yenile</string>
+    <string name="mp_search">Arama</string>
+    <string name="mp_disc">Disk</string>
+
+    <string name="mp_loading_splash">Yükleniyor …</string>
+
+    <string name="mp_no_picture">Oups, burada hiçbir şey yok :(</string>
+
+    <string name="mp_preset">Ön Ayar:</string>
+    <string name="mp_create_preset">Hazır Ayar Oluştur</string>
+
+
+    <string name="mp_bass_boost">Bas Kuvvetlendirme</string>
+    <string name="mp_can_t_access_your_local_music">Yerel müziğinize erişilemiyor.</string>
+    <string name="mp_equalizer_needs_permission">Ekolayzer, müziğinizi kullanmak ve görüntülemek için izne ihtiyaç duyar.</string>
+    <string name="mp_allow_library_access">Kütüphane erişimine izin ver</string>
+    <string name="mp_open">Açık</string>
+    <string name="mp_play_all">Hepsini Oynat</string>
+    <string name="mp_add_all">Hepsini Ekle</string>
+    <string name="mp_remove_all">Hepsini Kaldır</string>
+    <string name="mp_add_to_playlist">Oynatma Listesine Ekle</string>
+    <string name="mp_edit">Düzenle</string>
+    <string name="mp_delete">Sil</string>
+    <string name="mp_play_now">Şimdi Oynat</string>
+    <string name="mp_move_to_first">İlke Taşı</string>
+    <string name="mp_move_to_last">Sona Taşı</string>
+    <string name="mp_move_up">Yukarı Taşı</string>
+    <string name="mp_move_down">Aşağı Taşı</string>
+    <string name="mp_remove_from_playlist">Oynatma Listesinden Kaldır</string>
+    <string name="mp_remove_from_queue">Kuyruktan Kaldır</string>
+    <string name="mp_play_next">Sonrakini Çal</string>
+    <string name="mp_add_to_queue">Sıraya Ekle</string>
+    <plurals name="mp_number_tracks">
+
+        <item quantity="one">%d track</item>
+        <item quantity="other">%d tracks</item>
+    </plurals>
+
+
+    <string name="mp_read_granted">Müzik dosyalarını okuma izni verildi…</string>
+    <string name="mp_not_granted">Gerekli izinler verilmedi! Yerel müzik dosyalarınıza erişmek için izin verilmelidir!</string>
+    <string name="mp_delete_playlist">Oynatma Listesini Sil</string>
+    <string name="mp_yes">Evet</string>
+    <string name="mp_no">Hayır</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">%1$s oynatma listesini silmek istediğinizden emin misiniz?</string>
+    <string name="mp_rename_playlist">Çalma listesini yeniden adlandır</string>
+    <string name="mp_enter_new_playlist_name">Yeni oynatma listesi adı girin:</string>
+    <string name="mp_update">Güncelle</string>
+    <string name="mp_cancel">İptal</string>
+    <string name="mp_playlist_deleted">%s oynatma listesi başarıyla silindi.</string>
+    <string name="mp_create_a_preset">Hazır Ayar Oluşturma</string>
+    <string name="mp_enter_preset_name">Ön ayar adını girin:</string>
+    <string name="mp_create">Oluştur</string>
+    <string name="mp_ok">tamam</string>
+    <string name="mp_create_a_playlist">Çalma listesi oluşturma</string>
+    <string name="mp_enter_playlist_name">Oynatma listesi adını girin:</string>
+    <string name="mp_create_uppercase">OLUŞTUR</string>
+    <string name="mp_playlist_must_be_created">İlk olarak oynatma listesi oluşturulmalıdır!</string>
+    <string name="mp_cancel_uppercase">İPTAL</string>
+    <string name="mp_add_uppercase">EKLE</string>
+
+    <string name="mp_remove_all_track">Tüm Parçayı Kaldır</string>
+    <string name="mp_are_you_sure_to_remove_track">Tüm parçayı kuyruktan kaldırmak istediğinizden emin misiniz?</string>
+    <string name="mp_remove_preset">Hazır Ayarı Kaldır</string>
+    <string name="mp_are_you_sure_to_remove_preset">%s hazır ayarını kaldırmak istediğinizden emin misiniz?</string>
+    <string name="mp_rename_preset">Hazır ayarı yeniden adlandır</string>
+    <string name="mp_enter_new_preset_name">Yeni ön ayar adı girin:</string>
+    <string name="mp_preset_is_updated">Ön ayar güncellendi.</string>
+    <string name="mp_preset_not_updated">Ön ayar güncellenmedi!</string>
+    <string name="mp_preset_is_deleted">%s ön ayarı silindi.</string>
+    <string name="mp_preset_is_not_deleted">%s hazır ayarı silinmedi!</string>
+    <string name="mp_all_tracks_are_removed_from_queue">Tüm parçalar kuyruktan başarıyla kaldırıldı.</string>
+    <string name="mp_will_be_played_next">Daha sonra %s oynatılacak.</string>
+    <string name="mp_is_added_to_queue">%s kuyruğa başarıyla eklendi.</string>
+    <string name="mp_artist_tracks_are_added">%s sanatçı parçası kuyruğa başarıyla eklendi.</string>
+    <string name="mp_album_tracks_are_added">%s albüm parçası kuyruğa başarıyla eklendi.</string>
+    <string name="mp_genre_tracks_are_added">%s türleri kuyruğa başarıyla eklendi.</string>
+    <string name="mp_playlist_tracks_are_added">%s oynatma listesi parçaları kuyruğa başarıyla eklendi.</string>
+    <string name="mp_playlist_updated">Oynatma listesi başarıyla güncellendi.</string>
+    <string name="mp_playlist_not_updated">Oynatma listesi güncellenmedi!</string>
+    <string name="mp_music_list_refreshed">Müzik listesi başarıyla yenilendi.</string>
+    <string name="mp_preset_is_created">%s hazır ayarı oluşturuldu.</string>
+    <string name="mp_track_added_to_playlist">%s, %s klasörüne eklendi.</string>
+    <string name="mp_track_not_added_to_playlist">%s, %s klasörüne eklenmedi!</string>
+    <string name="mp_playlist_created_tracks_added">%s oynatma listesi oluşturuldu. %d parça eklendi.</string>
+    <string name="mp_playlist_exists">%s oynatma listesi zaten var!</string>
+    <string name="mp_playlist_added_one_track_add">%s oynatma listesi oluşturuldu. Bir parça eklenir.</string>
+    <string name="mp_playlist_not_deleted">%s oynatma listesi silinmedi!</string>
+    <string name="mp_track_removed_from_playlist">%s, %s ürününden başarıyla kaldırıldı.</string>
+    <string name="mp_track_not_removed_from_playlist">%s, %s klasöründen kaldırılmadı!</string>
+
+    <string name="mp_visualizer_permission_not_granted">Gerekli izin verilmediği için görüntüleyici çalışamaz!</string>
+
+
+</resources>

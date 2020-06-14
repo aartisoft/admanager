@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Бустер Extra Volume</string>
+
+
+    <string name="navigation_drawer_open">Открыть навигационный ящик</string>
+    <string name="navigation_drawer_close">Закрыть навигационный ящик</string>
+
+    <string name="volume_booster">Volume Booster</string>
+    <string name="menu_title">Музыкальный плеер и усилитель громкости</string>
+    <string name="title_2">Эквалайзер</string>
+
+    <string name="extra_boost">Extra Boost</string>
+
+
+    <string name="tutorial">Руководство</string>
+    <string name="privacy_policy">политика конфиденциальности</string>
+    <string name="notification">уведомление</string>
+    <string name="settings">настройки</string>
+    <string name="share">Поделиться</string>
+    <string name="share_with">Поделиться дополнительным усилителем громкости:</string>
+    <string name="loading_splash">Загрузка…</string>
+
+
+    <string name="notification_text">Вы можете легко настроить звук!</string>
+
+    <string name="tutorial_1_text_1">% 200Дополнительный объем</string>
+    <string name="tutorial_1_text_2">Получить максимальную громкостьслушая музыку</string>
+
+    <string name="tutorial_2_text_1">Эквалайзер</string>
+    <string name="tutorial_2_text_2">Настроить звукваши треки на эквалайзере</string>
+
+    <string name="next">следующий</string>
+    <string name="got_it">Понял!</string>
+
+    <string name="on">На</string>
+    <string name="off">от</string>
+
+
+    <string name="bass">бас</string>
+    <string name="visual">Визуализируйте</string>
+
+    <string name="open_music_player">Нажмите, чтобы открыть музыкальный проигрыватель.</string>
+
+    <string name="not_valid_link">Это недействительная ссылка!</string>
+    <string name="no_browser">У вас нет браузера, чтобы открыть веб-страницу!</string>
+    <string name="share_app">Привет! Поделитесь лучшим дополнительным усилителем громкости!</string>
+    <string name="not_started_music_yet">Музыка еще не началась!</string>
+    <string name="playing">(Проигрывание &#8230;)</string>
+    <string name="paused">(Приостановлено)</string>
+    <string name="no">нет</string>
+    <string name="yes">да</string>
+    <string name="enjoy">наслаждаться</string>
+    <string name="permission_not_granted">Необходимое разрешение не предоставляется! Визуализатор не запускается!</string>
+
+
+    <string name="ad_settings">Настройки рекламы</string>
+
+    <string name="voice_recorder">Диктофон</string>
+
+    <string name="speedtest">Тест скорости</string>
+
+</resources>

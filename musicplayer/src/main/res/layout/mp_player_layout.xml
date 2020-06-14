@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/mpColorPrimary"
+    android:gravity="start|center_vertical">
+
+    <RelativeLayout
+        android:id="@+id/maTrackImageLayout"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true">
+
+        <ImageView
+            android:id="@+id/maTrackImage"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerInParent="true"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/mp_ic_music" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/maTitleArtistLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toStartOf="@+id/maEqualizerLayout"
+        android:layout_toLeftOf="@+id/maEqualizerLayout"
+        android:layout_toEndOf="@+id/maTrackImageLayout"
+        android:layout_toRightOf="@+id/maTrackImageLayout"
+        android:gravity="start|center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/maTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingEnd="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:textColor="@color/mpsilver"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/maArtist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:paddingStart="5dp"
+            android:paddingLeft="5dp"
+            android:paddingEnd="5dp"
+            android:paddingRight="5dp"
+            android:singleLine="true"
+            android:textColor="@color/mpsilver"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/maEqualizerLayout"
+        android:layout_width="50dp"
+        android:layout_height="60dp"
+        android:layout_toStartOf="@+id/maPlayPreviousImageLayout"
+        android:layout_toLeftOf="@+id/maPlayPreviousImageLayout">
+
+        <ImageView
+            android:id="@+id/maEqualizerImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/mp_ic_equalizerm" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/maPlayPreviousImageLayout"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_toStartOf="@+id/maPlayImageLayout"
+        android:layout_toLeftOf="@+id/maPlayImageLayout">
+
+        <ImageView
+            android:id="@+id/maPlayPreviousImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/mp_ic_sp_backward" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/maPlayImageLayout"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_toStartOf="@+id/maPlayNextImageLayout"
+        android:layout_toLeftOf="@+id/maPlayNextImageLayout">
+
+        <ImageView
+            android:id="@+id/maPlayImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/mp_ic_sp_play" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/maPlayNextImageLayout"
+        android:layout_width="40dp"
+        android:layout_height="60dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true">
+
+        <ImageView
+            android:id="@+id/maPlayNextImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/mp_ic_sp_forward" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

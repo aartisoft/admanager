@@ -1,0 +1,100 @@
+<resources>
+    <string name="mp_app_name">Μουσική</string>
+
+    <string name="mp_refresh">Φρεσκάρω</string>
+    <string name="mp_search">Αναζήτηση</string>
+    <string name="mp_disc">Δίσκος</string>
+
+    <string name="mp_loading_splash">Φόρτωση …</string>
+
+    <string name="mp_no_picture">Oups, δεν υπάρχει τίποτα εδώ :(</string>
+
+    <string name="mp_preset">Προεπιλεγμένη ρύθμιση:</string>
+    <string name="mp_create_preset">Δημιουργία προεπιλογής</string>
+
+
+    <string name="mp_bass_boost">Ενίσχυση μπάσου</string>
+    <string name="mp_can_t_access_your_local_music">Δεν μπορεί να έχει πρόσβαση στην τοπική σας μουσική.</string>
+    <string name="mp_equalizer_needs_permission">Ο ισοσταθμιστής χρειάζεται άδεια χρήσης και εμφάνισης της μουσικής σας.</string>
+    <string name="mp_allow_library_access">Να επιτρέπεται η πρόσβαση της βιβλιοθήκης</string>
+    <string name="mp_open">Ανοιξε</string>
+    <string name="mp_play_all">Παίξε τα όλα</string>
+    <string name="mp_add_all">Προσθήκη όλων</string>
+    <string name="mp_remove_all">Αφαίρεση όλων</string>
+    <string name="mp_add_to_playlist">Προσθήκη στην λίστα αναπαραγωγής</string>
+    <string name="mp_edit">Επεξεργασία</string>
+    <string name="mp_delete">Διαγράφω</string>
+    <string name="mp_play_now">Παίξε τώρα</string>
+    <string name="mp_move_to_first">Μετακίνηση πρώτα</string>
+    <string name="mp_move_to_last">Μετακίνηση στο τελευταίο</string>
+    <string name="mp_move_up">Μετακίνηση προς τα επάνω</string>
+    <string name="mp_move_down">Μετακινηθείτε προς τα κάτω</string>
+    <string name="mp_remove_from_playlist">Κατάργηση από τη λίστα αναπαραγωγής</string>
+    <string name="mp_remove_from_queue">Κατάργηση από ουρά</string>
+    <string name="mp_play_next">Παίξτε Επόμενο</string>
+    <string name="mp_add_to_queue">Προσθέστε στην ουρά</string>
+    <plurals name="mp_number_tracks">
+
+        <item quantity="one">%d track</item>
+        <item quantity="other">%d tracks</item>
+    </plurals>
+
+
+    <string name="mp_read_granted">Ανάγνωση άδειας αρχείων μουσικής παρέχεται &#8230;</string>
+    <string name="mp_not_granted">Τα απαραίτητα δικαιώματα δεν χορηγούνται! Προκειμένου να αποκτήσετε πρόσβαση στα τοπικά αρχεία μουσικής σας, θα πρέπει να έχετε την άδεια!</string>
+    <string name="mp_delete_playlist">Διαγραφή της λίστας αναπαραγωγής</string>
+    <string name="mp_yes">Ναί</string>
+    <string name="mp_no">Οχι</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">Είστε βέβαιοι ότι θέλετε να διαγράψετε τη λίστα αναπαραγωγής %1$s;</string>
+    <string name="mp_rename_playlist">Μετονομασία λίστας αναπαραγωγής</string>
+    <string name="mp_enter_new_playlist_name">Εισαγάγετε νέο όνομα playlist:</string>
+    <string name="mp_update">Εκσυγχρονίζω</string>
+    <string name="mp_cancel">Ματαίωση</string>
+    <string name="mp_playlist_deleted">Η λίστα αναπαραγωγής %s διαγράφηκε με επιτυχία.</string>
+    <string name="mp_create_a_preset">Δημιουργήστε μια προκαθορισμένη ρύθμιση</string>
+    <string name="mp_enter_preset_name">Εισαγάγετε το προεπιλεγμένο όνομα:</string>
+    <string name="mp_create">Δημιουργώ</string>
+    <string name="mp_ok">Εντάξει</string>
+    <string name="mp_create_a_playlist">Δημιουργία λίστας αναπαραγωγής</string>
+    <string name="mp_enter_playlist_name">Εισαγωγή ονόματος playlist:</string>
+    <string name="mp_create_uppercase">ΔΗΜΙΟΥΡΓΩ</string>
+    <string name="mp_playlist_must_be_created">Πρώτα πρέπει να δημιουργηθεί playlist!</string>
+    <string name="mp_cancel_uppercase">ΜΑΤΑΙΩΣΗ</string>
+    <string name="mp_add_uppercase">ΠΡΟΣΘΗΚΗ</string>
+
+    <string name="mp_remove_all_track">Κατάργηση όλων των κομματιών</string>
+    <string name="mp_are_you_sure_to_remove_track">Είστε βέβαιοι ότι έχετε αφαιρέσει όλα τα κομμάτια από την ουρά;</string>
+    <string name="mp_remove_preset">Αφαιρέστε το Preset</string>
+    <string name="mp_are_you_sure_to_remove_preset">Είστε βέβαιοι να καταργήσετε την προεπιλογή %s;</string>
+    <string name="mp_rename_preset">Μετονομασία προεπιλογής</string>
+    <string name="mp_enter_new_preset_name">Εισαγάγετε νέο όνομα προρύθμισης:</string>
+    <string name="mp_preset_is_updated">Η προεπιλογή ενημερώνεται.</string>
+    <string name="mp_preset_not_updated">Η προεπιλογή δεν ενημερώνεται!</string>
+    <string name="mp_preset_is_deleted">Η προεπιλογή %s διαγράφηκε.</string>
+    <string name="mp_preset_is_not_deleted">Η προεπιλογή %s δεν διαγράφεται!</string>
+    <string name="mp_all_tracks_are_removed_from_queue">Όλα τα κομμάτια αφαιρούνται από την ουρά με επιτυχία.</string>
+    <string name="mp_will_be_played_next">Το %s θα παιχτεί στη συνέχεια.</string>
+    <string name="mp_is_added_to_queue">Το %s προστίθεται στην ουρά με επιτυχία.</string>
+    <string name="mp_artist_tracks_are_added">%s κομμάτια καλλιτέχνη προστίθενται στην ουρά με επιτυχία.</string>
+    <string name="mp_album_tracks_are_added">%s κομμάτια άλμπουμ προστίθενται στην ουρά με επιτυχία.</string>
+    <string name="mp_genre_tracks_are_added">%s genre κομμάτια προστίθενται στην ουρά με επιτυχία.</string>
+    <string name="mp_playlist_tracks_are_added">Τα %s κομμάτια της λίστας αναπαραγωγής προστίθενται στην ουρά με επιτυχία.</string>
+    <string name="mp_playlist_updated">Η λίστα αναπαραγωγής ενημερώνεται με επιτυχία.</string>
+    <string name="mp_playlist_not_updated">Η λίστα αναπαραγωγής δεν ενημερώνεται!</string>
+    <string name="mp_music_list_refreshed">Η λίστα μουσικής ανανεώνεται με επιτυχία.</string>
+    <string name="mp_preset_is_created">Η προεπιλογή %s δημιουργήθηκε.</string>
+    <string name="mp_track_added_to_playlist">Το %s προστίθεται στο %s.</string>
+    <string name="mp_track_not_added_to_playlist">Το %s δεν προστίθεται στο %s!</string>
+    <string name="mp_playlist_created_tracks_added">%s playlist δημιουργήθηκε. Προστίθενται %d κομμάτια.</string>
+    <string name="mp_playlist_exists">%s playlist υπάρχει ήδη!</string>
+    <string name="mp_playlist_added_one_track_add">%s playlist δημιουργήθηκε. Προστίθεται ένα κομμάτι.</string>
+    <string name="mp_playlist_not_deleted">Η λίστα αναπαραγωγής %s δεν διαγράφεται!</string>
+    <string name="mp_track_removed_from_playlist">Το %s καταργείται επιτυχώς από το %s.</string>
+    <string name="mp_track_not_removed_from_playlist">Το %s δεν καταργείται από το %s!</string>
+
+    <string name="mp_visualizer_permission_not_granted">Η απαραίτητη άδεια δεν χορηγείται! Ο οπτικοποιητής δεν εκτελείται!</string>
+
+
+</resources>

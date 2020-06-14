@@ -1,0 +1,99 @@
+<resources>
+    <string name="mp_app_name">音楽プレーヤー</string>
+
+    <string name="mp_refresh">リフレッシュ</string>
+    <string name="mp_search">探す</string>
+    <string name="mp_disc">ディスク</string>
+
+    <string name="mp_loading_splash">読み込み中…</string>
+
+    <string name="mp_no_picture">おっと、ここには何もありません:(</string>
+
+    <string name="mp_preset">プリセット：</string>
+    <string name="mp_create_preset">プリセットを作成</string>
+
+
+    <string name="mp_bass_boost">バスブースト</string>
+    <string name="mp_can_t_access_your_local_music">ローカルの音楽にアクセスできません。</string>
+    <string name="mp_equalizer_needs_permission">イコライザーには、音楽の使用と表示の許可が必要です。</string>
+    <string name="mp_allow_library_access">ライブラリへのアクセスを許可</string>
+    <string name="mp_open">開いた</string>
+    <string name="mp_play_all">全部やる</string>
+    <string name="mp_add_all">全て追加する</string>
+    <string name="mp_remove_all">すべて削除する</string>
+    <string name="mp_add_to_playlist">プレイリストに追加する</string>
+    <string name="mp_edit">編集</string>
+    <string name="mp_delete">削除する</string>
+    <string name="mp_play_now">今すぐプレイ</string>
+    <string name="mp_move_to_first">最初に移動</string>
+    <string name="mp_move_to_last">最後に移動</string>
+    <string name="mp_move_up">上に移動</string>
+    <string name="mp_move_down">下に移動</string>
+    <string name="mp_remove_from_playlist">プレイリストから削除</string>
+    <string name="mp_remove_from_queue">キューから削除</string>
+    <string name="mp_play_next">次をプレイ</string>
+    <string name="mp_add_to_queue">キューに追加する</string>
+    <plurals name="mp_number_tracks">
+
+        <item quantity="other">%d tracks</item>
+    </plurals>
+
+
+    <string name="mp_read_granted">音楽ファイルの読み取り許可が付与されています…</string>
+    <string name="mp_not_granted">必要な権限は付与されていません！ローカルの音楽ファイルにアクセスするには、許可を与える必要があります！</string>
+    <string name="mp_delete_playlist">プレイリストを削除</string>
+    <string name="mp_yes">はい</string>
+    <string name="mp_no">番号</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">%1$sプレイリストを削除してもよろしいですか？</string>
+    <string name="mp_rename_playlist">プレイリストの名前を変更</string>
+    <string name="mp_enter_new_playlist_name">新しいプレイリスト名を入力してください：</string>
+    <string name="mp_update">更新</string>
+    <string name="mp_cancel">キャンセル</string>
+    <string name="mp_playlist_deleted">%sプレイリストは正常に削除されました。</string>
+    <string name="mp_create_a_preset">プリセットを作成する</string>
+    <string name="mp_enter_preset_name">プリセット名を入力してください：</string>
+    <string name="mp_create">作成する</string>
+    <string name="mp_ok">OK</string>
+    <string name="mp_create_a_playlist">プレイリストを作成する</string>
+    <string name="mp_enter_playlist_name">プレイリスト名を入力してください：</string>
+    <string name="mp_create_uppercase">作成</string>
+    <string name="mp_playlist_must_be_created">最初にプレイリストを作成する必要があります！</string>
+    <string name="mp_cancel_uppercase">キャンセル</string>
+    <string name="mp_add_uppercase">追加</string>
+
+    <string name="mp_remove_all_track">すべてのトラックを削除</string>
+    <string name="mp_are_you_sure_to_remove_track">キューからすべてのトラックを削除してもよろしいですか？</string>
+    <string name="mp_remove_preset">プリセットを削除</string>
+    <string name="mp_are_you_sure_to_remove_preset">%sプリセットを削除してもよろしいですか？</string>
+    <string name="mp_rename_preset">プリセットの名前を変更</string>
+    <string name="mp_enter_new_preset_name">新しいプリセット名を入力してください：</string>
+    <string name="mp_preset_is_updated">プリセットが更新されます。</string>
+    <string name="mp_preset_not_updated">プリセットは更新されません！</string>
+    <string name="mp_preset_is_deleted">%sプリセットが削除されます。</string>
+    <string name="mp_preset_is_not_deleted">%sプリセットは削除されません！</string>
+    <string name="mp_all_tracks_are_removed_from_queue">すべてのトラックがキューから正常に削除されます。</string>
+    <string name="mp_will_be_played_next">次に%sが再生されます。</string>
+    <string name="mp_is_added_to_queue">%sがキューに正常に追加されました。</string>
+    <string name="mp_artist_tracks_are_added">%sアーティストトラックがキューに正常に追加されました。</string>
+    <string name="mp_album_tracks_are_added">%sアルバムトラックがキューに正常に追加されました。</string>
+    <string name="mp_genre_tracks_are_added">%sジャンルトラックがキューに正常に追加されました。</string>
+    <string name="mp_playlist_tracks_are_added">%sプレイリストトラックがキューに正常に追加されました。</string>
+    <string name="mp_playlist_updated">プレイリストが正常に更新されました。</string>
+    <string name="mp_playlist_not_updated">プレイリストは更新されません！</string>
+    <string name="mp_music_list_refreshed">音楽リストが正常に更新されました。</string>
+    <string name="mp_preset_is_created">%sプリセットが作成されます。</string>
+    <string name="mp_track_added_to_playlist">%sが%sに追加されます。</string>
+    <string name="mp_track_not_added_to_playlist">%sは%sに追加されません！</string>
+    <string name="mp_playlist_created_tracks_added">%sプレイリストが作成されます。 %dトラックが追加されます。</string>
+    <string name="mp_playlist_exists">%sプレイリストは既に存在します！</string>
+    <string name="mp_playlist_added_one_track_add">%sプレイリストが作成されます。 1つのトラックが追加されます。</string>
+    <string name="mp_playlist_not_deleted">%sプレイリストは削除されません！</string>
+    <string name="mp_track_removed_from_playlist">%sは%sから正常に削除されました。</string>
+    <string name="mp_track_not_removed_from_playlist">%sは%sから削除されません！</string>
+
+    <string name="mp_visualizer_permission_not_granted">必要な許可は与えられません！ビジュアライザーが実行されていません！</string>
+
+
+</resources>

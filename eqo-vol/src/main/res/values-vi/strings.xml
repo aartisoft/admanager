@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">Tăng cường âm lượng</string>
+
+
+    <string name="navigation_drawer_open">Mở ngăn kéo điều hướng</string>
+    <string name="navigation_drawer_close">Đóng ngăn điều hướng</string>
+
+    <string name="volume_booster">Tăng cường âm lượng</string>
+    <string name="menu_title">Trình phát nhạc &amp; Tăng âm lượng</string>
+    <string name="title_2">Bộ cân bằng</string>
+
+    <string name="extra_boost">Tăng cường thêm</string>
+
+
+    <string name="tutorial">Hướng dẫn</string>
+    <string name="privacy_policy">Chính sách bảo mật</string>
+    <string name="notification">Thông báo</string>
+    <string name="settings">Cài đặt</string>
+    <string name="share">Chia sẻ</string>
+    <string name="share_with">Chia sẻ tăng cường âm lượng bổ sung:</string>
+    <string name="loading_splash">Đang tải …</string>
+
+
+    <string name="notification_text">Bạn có thể tùy chỉnh âm thanh dễ dàng!</string>
+
+    <string name="tutorial_1_text_1">% 200Thêm khối lượng</string>
+    <string name="tutorial_1_text_2">Lấy âm lượng tối đaTrong khi nghe nhạc</string>
+
+    <string name="tutorial_2_text_1">Bộ cân bằng</string>
+    <string name="tutorial_2_text_2">Tùy chỉnh âm thanh củacác bản nhạc của bạn trên bộ cân bằng</string>
+
+    <string name="next">Kế tiếp</string>
+    <string name="got_it">Hiểu rồi!</string>
+
+    <string name="on">Trên</string>
+    <string name="off">Tắt</string>
+
+
+    <string name="bass">Âm trầm</string>
+    <string name="visual">Hình dung</string>
+
+    <string name="open_music_player">Nhấn để mở trình phát nhạc của bạn.</string>
+
+    <string name="not_valid_link">Đây không phải là một liên kết hợp lệ!</string>
+    <string name="no_browser">Bạn không có bất kỳ trình duyệt nào để mở trang web!</string>
+    <string name="share_app">Chào! Chia sẻ tăng cường âm lượng tốt nhất!</string>
+    <string name="not_started_music_yet">Chưa bắt đầu âm nhạc!</string>
+    <string name="playing">(Đang chơi…)</string>
+    <string name="paused">(Tạm dừng)</string>
+    <string name="no">Không</string>
+    <string name="yes">Đúng</string>
+    <string name="enjoy">Thưởng thức</string>
+    <string name="permission_not_granted">Sự cho phép cần thiết không được cấp! Trình hiển thị không chạy!</string>
+
+
+    <string name="ad_settings">Cài đặt quảng cáo</string>
+
+    <string name="voice_recorder">Máy thu âm</string>
+
+    <string name="speedtest">Kiểm tra tốc độ</string>
+
+</resources>

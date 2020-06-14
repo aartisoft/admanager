@@ -1,0 +1,100 @@
+<resources>
+    <string name="mp_app_name">پخش کننده موسیقی</string>
+
+    <string name="mp_refresh">تازه کردن</string>
+    <string name="mp_search">جستجو کردن</string>
+    <string name="mp_disc">دیسک</string>
+
+    <string name="mp_loading_splash">بارگذاری …</string>
+
+    <string name="mp_no_picture">اوه ، اینجا چیزی نیست :(</string>
+
+    <string name="mp_preset">از پیش تعیین شده:</string>
+    <string name="mp_create_preset">ایجاد از پیش تعیین شده</string>
+
+
+    <string name="mp_bass_boost">افزایش باس</string>
+    <string name="mp_can_t_access_your_local_music">نمی توانید به موسیقی محلی خود دسترسی پیدا کنید.</string>
+    <string name="mp_equalizer_needs_permission">اکولایزر برای استفاده و نمایش موسیقی خود به مجوز احتیاج دارد.</string>
+    <string name="mp_allow_library_access">دسترسی به کتابخانه مجاز است</string>
+    <string name="mp_open">باز کن</string>
+    <string name="mp_play_all">بازی همه</string>
+    <string name="mp_add_all">همه را اضافه کنید</string>
+    <string name="mp_remove_all">همه را حذف کنید</string>
+    <string name="mp_add_to_playlist">به لیست پخش اضافه کنید</string>
+    <string name="mp_edit">ویرایش کنید</string>
+    <string name="mp_delete">حذف</string>
+    <string name="mp_play_now">الان بازی کن</string>
+    <string name="mp_move_to_first">حرکت به اول</string>
+    <string name="mp_move_to_last">انتقال به آخرین</string>
+    <string name="mp_move_up">حرکت به بالا</string>
+    <string name="mp_move_down">حرکت به پایین</string>
+    <string name="mp_remove_from_playlist">حذف از لیست پخش</string>
+    <string name="mp_remove_from_queue">حذف از صف</string>
+    <string name="mp_play_next">بازی بعدی</string>
+    <string name="mp_add_to_queue">افزودن به صف</string>
+    <plurals name="mp_number_tracks">
+
+        <item quantity="one">%d track</item>
+        <item quantity="other">%d tracks</item>
+    </plurals>
+
+
+    <string name="mp_read_granted">خواندن مجوز پرونده های موسیقی داده می شود ...</string>
+    <string name="mp_not_granted">مجوزهای لازم اعطا نمی شود! برای دسترسی به فایلهای موسیقی محلی باید اجازه دسترسی داشته باشید!</string>
+    <string name="mp_delete_playlist">لیست پخش را حذف کنید</string>
+    <string name="mp_yes">آره</string>
+    <string name="mp_no">نه</string>
+
+
+    <string name="mp_are_you_sure_delete_playlist">مطمئن هستید لیست پخش %1$s را حذف کنید؟</string>
+    <string name="mp_rename_playlist">لیست پخش را تغییر نام دهید</string>
+    <string name="mp_enter_new_playlist_name">نام لیست پخش جدید را وارد کنید:</string>
+    <string name="mp_update">به روز رسانی</string>
+    <string name="mp_cancel">لغو</string>
+    <string name="mp_playlist_deleted">لیست پخش %s با موفقیت حذف شد.</string>
+    <string name="mp_create_a_preset">از پیش تعیین شده ایجاد کنید</string>
+    <string name="mp_enter_preset_name">نام از پیش تعیین شده را وارد کنید:</string>
+    <string name="mp_create">ايجاد كردن</string>
+    <string name="mp_ok">خوب</string>
+    <string name="mp_create_a_playlist">یک لیست پخش ایجاد کنید</string>
+    <string name="mp_enter_playlist_name">نام لیست پخش را وارد کنید:</string>
+    <string name="mp_create_uppercase">ايجاد كردن</string>
+    <string name="mp_playlist_must_be_created">لیست پخش باید در ابتدا ایجاد شود!</string>
+    <string name="mp_cancel_uppercase">کنسرو</string>
+    <string name="mp_add_uppercase">اضافه کردن</string>
+
+    <string name="mp_remove_all_track">حذف همه آهنگ</string>
+    <string name="mp_are_you_sure_to_remove_track">آیا مطمئن هستید که تمام آهنگ ها را از صف خارج می کنید؟</string>
+    <string name="mp_remove_preset">از پیش تعیین شده را حذف کنید</string>
+    <string name="mp_are_you_sure_to_remove_preset">مطمئن هستید %s از پیش تعیین شده را حذف کنید؟</string>
+    <string name="mp_rename_preset">تغییر نام از پیش تعیین شده است</string>
+    <string name="mp_enter_new_preset_name">نام از پیش تعیین شده جدید را وارد کنید:</string>
+    <string name="mp_preset_is_updated">از پیش تعیین شده به روز شده است.</string>
+    <string name="mp_preset_not_updated">از پیش تعیین شده به روز نمی شود!</string>
+    <string name="mp_preset_is_deleted">%s از پیش تعیین شده حذف شده است.</string>
+    <string name="mp_preset_is_not_deleted">از پیش تعیین شده %s حذف نشده است!</string>
+    <string name="mp_all_tracks_are_removed_from_queue">همه آهنگها با موفقیت از صف خارج می شوند.</string>
+    <string name="mp_will_be_played_next">%s بعدی پخش می شود.</string>
+    <string name="mp_is_added_to_queue">%s به صف با موفقیت اضافه شد.</string>
+    <string name="mp_artist_tracks_are_added">آهنگهای هنرمند %s با موفقیت به صف اضافه شدند.</string>
+    <string name="mp_album_tracks_are_added">آهنگهای آلبوم %s با موفقیت به صف اضافه شدند.</string>
+    <string name="mp_genre_tracks_are_added">آهنگ های ژانر %s با موفقیت به صف اضافه شدند.</string>
+    <string name="mp_playlist_tracks_are_added">آهنگ های لیست پخش %s با موفقیت به صف اضافه شدند.</string>
+    <string name="mp_playlist_updated">لیست پخش با موفقیت به روز می شود.</string>
+    <string name="mp_playlist_not_updated">لیست پخش به روز نمی شود!</string>
+    <string name="mp_music_list_refreshed">لیست موسیقی با موفقیت تجدید می شود.</string>
+    <string name="mp_preset_is_created">%s از پیش تعیین شده ایجاد شده است.</string>
+    <string name="mp_track_added_to_playlist">%s به %s اضافه شده است.</string>
+    <string name="mp_track_not_added_to_playlist">%s به %s اضافه نشده است!</string>
+    <string name="mp_playlist_created_tracks_added">لیست پخش %s ایجاد شده است. %d آهنگ اضافه شده است.</string>
+    <string name="mp_playlist_exists">لیست پخش %s قبلاً وجود دارد!</string>
+    <string name="mp_playlist_added_one_track_add">لیست پخش %s ایجاد شده است. یک آهنگ اضافه شده است.</string>
+    <string name="mp_playlist_not_deleted">لیست پخش %s حذف نمی شود!</string>
+    <string name="mp_track_removed_from_playlist">%s با موفقیت از %s حذف شد.</string>
+    <string name="mp_track_not_removed_from_playlist">%s از %s حذف نشده است!</string>
+
+    <string name="mp_visualizer_permission_not_granted">اجازه لازم داده نمی شود! ویژوالایزر اجرا نشده است!</string>
+
+
+</resources>

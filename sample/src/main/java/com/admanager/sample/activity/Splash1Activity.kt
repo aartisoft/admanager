@@ -6,6 +6,7 @@ import com.admanager.adjust.AdmAdjust
 import com.admanager.admob.AdmobAdapter
 import com.admanager.config.RemoteConfigHelper
 import com.admanager.core.AdManagerBuilder
+import com.admanager.sample.BuildConfig
 import com.admanager.sample.R
 import com.admanager.sample.RCUtils
 
@@ -16,6 +17,7 @@ class Splash1Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         RemoteConfigHelper.init(this)
+        RemoteConfigHelper.setAdsEnabled(!BuildConfig.DEBUG)
         //        If you want to close all ads for testing, use this method
         //RemoteConfigHelper.setAdsEnabled(!BuildConfig.DEBUG);
 

@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">여분의 볼륨 부스터</string>
+
+
+    <string name="navigation_drawer_open">탐색 창 열기</string>
+    <string name="navigation_drawer_close">탐색 창 닫기</string>
+
+    <string name="volume_booster">볼륨 부스터</string>
+    <string name="menu_title">음악 플레이어 및 볼륨 부스터</string>
+    <string name="title_2">평형 장치</string>
+
+    <string name="extra_boost">추가 부스트</string>
+
+
+    <string name="tutorial">지도 시간</string>
+    <string name="privacy_policy">개인 정보 정책</string>
+    <string name="notification">공고</string>
+    <string name="settings">설정</string>
+    <string name="share">공유</string>
+    <string name="share_with">여분의 볼륨 부스터 공유 :</string>
+    <string name="loading_splash">로드 중…</string>
+
+
+    <string name="notification_text">사운드를 쉽게 사용자 정의 할 수 있습니다!</string>
+
+    <string name="tutorial_1_text_1">% 200여분의 양</string>
+    <string name="tutorial_1_text_2">최대 볼륨 확보음악을 들으면서</string>
+
+    <string name="tutorial_2_text_1">평형 장치</string>
+    <string name="tutorial_2_text_2">의 소리를 사용자 정의이퀄라이저 트랙</string>
+
+    <string name="next">다음</string>
+    <string name="got_it">알았다!</string>
+
+    <string name="on">의 위에</string>
+    <string name="off">떨어져서</string>
+
+
+    <string name="bass">베이스</string>
+    <string name="visual">시각화</string>
+
+    <string name="open_music_player">음악 플레이어를 열려면 누릅니다.</string>
+
+    <string name="not_valid_link">유효한 링크가 아닙니다!</string>
+    <string name="no_browser">웹 페이지를 열 브라우저가 없습니다!</string>
+    <string name="share_app">야! 최고의 추가 볼륨 부스터를 공유하십시오!</string>
+    <string name="not_started_music_yet">아직 음악을 시작하지 않았습니다!</string>
+    <string name="playing">(놀이…)</string>
+    <string name="paused">(일시 중지됨)</string>
+    <string name="no">아니</string>
+    <string name="yes">예</string>
+    <string name="enjoy">즐겨</string>
+    <string name="permission_not_granted">필요한 권한이 부여되지 않았습니다! 비주얼 라이저가 실행되지 않습니다!</string>
+
+
+    <string name="ad_settings">광고 설정</string>
+
+    <string name="voice_recorder">녹음기</string>
+
+    <string name="speedtest">속도 테스트</string>
+
+</resources>
